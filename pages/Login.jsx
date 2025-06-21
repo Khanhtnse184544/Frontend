@@ -61,7 +61,7 @@ export default function Login({ onClose, onSwitch }) {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  onSwitch();
+                  onSwitch("register");
                 }}
                 className="hover:underline"
               >
