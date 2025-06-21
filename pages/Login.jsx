@@ -2,7 +2,7 @@ import React from "react";
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineClose } from "react-icons/ai";
-import plantIcon from "../img/logoLogin.png"; // chỉnh lại path nếu cần
+import plantIcon from "/public/img/logoLogin.png"; // chỉnh lại path nếu cần
 
 export default function Login({ onClose, onSwitch }) {
   return (

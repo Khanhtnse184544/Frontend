@@ -1,7 +1,7 @@
 // src/components/ForgotPassword.js
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import plantIcon from "../img/logoLogin.png";
+import plantIcon from "/public/img/logoLogin.png";
 
 export default function ForgotPassword({ onClose, onSwitch }) {
   return (

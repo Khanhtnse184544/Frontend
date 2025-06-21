@@ -2,7 +2,7 @@ import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import plantIcon from "../img/logoLogin.png";
+import plantIcon from "/public/img/logoLogin.png";
 
 export default function Register({ onClose, onSwitch }) {
   return (
