@@ -59,15 +59,21 @@ export default function Register({ onClose, onSwitch }) {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  onSwitch();
+                  onSwitch("login");
                 }}
                 className="hover:underline"
               >
                 Login
               </button>
-              <a href="#" className="hover:underline">
-                Forgot Password?
-              </a>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSwitch("forgot");
+                }}
+                className="hover:underline"
+              >
+                Forgot Password ?
+              </button>
             </div>
 
             <button
