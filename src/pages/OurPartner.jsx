@@ -273,110 +273,26 @@ export default function OurPartner() {
         </div>
       </section>
       {/* Title Section */}
-      <div className="text-center my-10">
+      <div className="text-center mt-10">
         <h1
           className="text-6xl font-bold text-black mb-4"
           style={{ fontFamily: "Pally-Bold, sans-serif" }}
         >
           PARTNER WITH E.C.O - Where Forests Grow – Together
         </h1>
-        <h2
-          className="text-6xl font-bold text-[#D68C45] mb-8"
-          style={{ fontFamily: "Pally-Bold, sans-serif" }}
-        >
-          Cát Tiên National Park: Our Rooted Beginning
-        </h2>
+        
       </div>
-      {/* Cát Tiên National Park Section */}
-      <section className="relative w-full min-h-screen overflow-hidden">
-        {/* Background Image */}
-        <img
-          src={cattienImage}
-          alt="Cát Tiên National Park"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/30"></div>
-
-        {/* Content */}
-        <div className="relative z-10 flex items-center justify-center min-h-screen">
-                     <div className="max-w-7xl mx-auto px-8">
-                          {/* Information Box */}
-              <div className="bg-transparent backdrop-blur-sm rounded-3xl  p-16 shadow-2xl border-2 border-white mx-auto w-full">
-              <div className="space-y-6 text-white">
-                <p
-                  className="text-2xl leading-relaxed"
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                >
-                  At E.C.O, we believe that every sustainable impact begins with
-                  real soil. That's why Cát Tiên National Park — a
-                  UNESCO-recognized Biosphere Reserve — has become the starting
-                  point for our mission to reforest and regenerate nature
-                  through real tree planting.
-                </p>
-
-                <p
-                  className="text-2xl leading-relaxed"
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                >
-                  Covering over 71,000 hectares, Cát Tiên shelters a rich
-                  tropical semi-evergreen forest ecosystem with more than 1,600
-                  plant species and 1,700 animal species, including many
-                  endangered and endemic wildlife. This makes it one of
-                  Vietnam's most vital biodiversity hotspots.
-                </p>
-
-                <p
-                  className="text-2xl leading-relaxed"
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                >
-                  In partnership with local rangers, conservation authorities,
-                  and the National Park's management board, E.C.O organizes
-                  transparent tree planting activities here — with GPS tracking,
-                  photo evidence, and regular progress reports — to ensure that
-                  every tree planted is real, traceable, and truly thriving.
-                </p>
-
-                <p
-                  className="text-2xl leading-relaxed"
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                >
-                  Cát Tiên is where we plant the first seed, and it's also where
-                  every C.H.A.M user can see the real impact of their in-game
-                  actions bloom into meaningful, lasting green change.
-                </p>
-
-                {/* Call to Action */}
-                <div className="pt-4 ">
-                  <a
-                    href="https://cattiennationalpark.com.vn/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#D68C45] font-bold hover:underline text-2xl"
-                    style={{ fontFamily: "Pally-Bold, sans-serif" }}
-                  >
-                    Discover more about Cát Tiên National Park:
-                    https://cattiennationalpark.com.vn/
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-             </section>
+      
 
        {/* Our Impact Section with Homepage Images */}
-       <section className=" py-10 bg-white">
+       <section className=" pb-10 bg-[#EEEEEE]">
          <div className="px-30 mx-auto px-8">
            {/* Section Title */}
            <div className="text-center mb-16">
              <h2 className="text-6xl font-bold text-black mb-4" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
                Ecosystem
              </h2>
-             <h2 className="text-6xl font-bold text-black mb-4" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
-                <span className="text-[#D68C45]">CÁT TIÊN</span> National Park
-             </h2>
+             
              
            </div>
 

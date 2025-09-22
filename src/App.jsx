@@ -14,6 +14,13 @@ import News from "./pages/News";
 import OurProject from "./pages/OurProject";
 import OurGame from "./pages/OurGame";
 import AuthWrapper from "./features/auth/AuthWrapper";
+import AdminDashboard from "./admin/pages/AdminDashboard";
+import UserManagement from "./admin/pages/UserManagement";
+import CSRManagement from "./admin/pages/CSRManagement";
+import PartnerVoucher from "./admin/pages/PartnerVoucher";
+import FinancialReports from "./admin/pages/FinancialReports";
+import CustomerSupport from "./admin/pages/CustomerSupport";
+import Logs from "./admin/pages/Logs";
 import '../Pally_Complete/Fonts/WEB/css/pally.css';
 
 function App() {
@@ -38,6 +45,15 @@ function App() {
       <Route path="/forgot-password" element={<AuthWrapper />} />
       <Route path="/change-password" element={<AuthWrapper />} />
       <Route path="/change-password-success" element={<AuthWrapper />} />
+      
+      {/* Admin Routes */}
+      <Route path="/admin" element={<AdminDashboard />} />
+      <Route path="/admin/users" element={<UserManagement />} />
+      <Route path="/admin/csr" element={<CSRManagement />} />
+      <Route path="/admin/partner" element={<PartnerVoucher />} />
+      <Route path="/admin/financial" element={<FinancialReports />} />
+      <Route path="/admin/support" element={<CustomerSupport />} />
+      <Route path="/admin/logs" element={<Logs />} />
     </Routes>
   );
 }

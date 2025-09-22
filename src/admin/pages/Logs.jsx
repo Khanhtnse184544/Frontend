@@ -1,0 +1,244 @@
+import React, { useState } from 'react';
+import AdminLayout from '../components/AdminLayout';
+import { FaSearch, FaFilter, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+
+export default function Logs() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  // Sample log data
+  const logs = [
+    {
+      id: 1,
+      timestamp: '7/4/2025-10:33:04',
+      user: 'User 1',
+      ip: '123.456.7.89',
+      userAgent: 'Chrome',
+      referrerUrl: '/Home Page',
+      pageUrl: 'Login page',
+      eventType: 'None',
+      error: 'None',
+      errorMessage: 'None',
+      timeOnPage: '15 minutes'
+    },
+    {
+      id: 2,
+      timestamp: '7/4/2025-10:32:15',
+      user: 'User 2',
+      ip: '123.456.7.90',
+      userAgent: 'Microsoft Edge',
+      referrerUrl: '/Facebook',
+      pageUrl: '/About Us',
+      eventType: 'Redirect to Login',
+      error: '500',
+      errorMessage: '500',
+      timeOnPage: '8 minutes'
+    },
+    {
+      id: 3,
+      timestamp: '7/4/2025-10:31:22',
+      user: 'Guest',
+      ip: '123.456.7.91',
+      userAgent: 'Chrome',
+      referrerUrl: '/Google',
+      pageUrl: '/Home page',
+      eventType: 'Redirect to About us',
+      error: 'None',
+      errorMessage: 'None',
+      timeOnPage: '12 minutes'
+    },
+    {
+      id: 4,
+      timestamp: '7/4/2025-10:30:45',
+      user: 'User 3',
+      ip: '123.456.7.92',
+      userAgent: 'Firefox',
+      referrerUrl: '/Home Page',
+      pageUrl: 'Login page',
+      eventType: 'None',
+      error: 'None',
+      errorMessage: 'None',
+      timeOnPage: '20 minutes'
+    },
+    {
+      id: 5,
+      timestamp: '7/4/2025-10:29:18',
+      user: 'User 1',
+      ip: '123.456.7.89',
+      userAgent: 'Safari',
+      referrerUrl: '/Twitter',
+      pageUrl: '/About Us',
+      eventType: 'Redirect to Login',
+      error: '404',
+      errorMessage: '404',
+      timeOnPage: '5 minutes'
+    }
+  ];
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredLogs = logs.filter(log => 
+    log.user.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    log.ip.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    log.pageUrl.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    log.eventType.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const paginationPages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  return (
+    <AdminLayout>
+      <div className="space-y-6 mb-10">
+        {/* Page Title */}
+        <h1 className="text-5xl font-bold ms-10" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+          Log
+        </h1>
+
+        <div className="flex gap-1 h-[70vh] px-1">
+          {/* Main Content Area */}
+          <div className="flex-1 bg-white rounded-2xl shadow-sm border border-gray-200 p-6 flex flex-col">
+            {/* Website History Title */}
+            <h2 className="text-3xl font-bold text-black mb-6" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+              Website History
+            </h2>
+
+            {/* Search and Filter Bar */}
+            <div className="flex items-center justify-end mb-6">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search logs..."
+                  value={searchTerm}
+                  onChange={handleSearchChange}
+                  className="pl-10 pr-20 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                />
+                <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              </div>
+              <button className="ml-3 p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                <FaFilter className="w-4 h-4 text-gray-600" />
+              </button>
+            </div>
+
+            {/* Logs Table */}
+            <div className="overflow-x-auto flex-1">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-gray-200">
+                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      Timestamp
+                    </th>
+                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      User
+                    </th>
+                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      Ip
+                    </th>
+                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      User Agent
+                    </th>
+                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      Referrer Url
+                    </th>
+                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      Page Url
+                    </th>
+                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      Event type
+                    </th>
+                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      Error
+                    </th>
+                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      Error Message
+                    </th>
+                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      Time on Page
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredLogs.map((log) => (
+                    <tr key={log.id} className="border-b border-gray-100 hover:bg-gray-50">
+                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        {log.timestamp}
+                      </td>
+                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        {log.user}
+                      </td>
+                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        {log.ip}
+                      </td>
+                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        {log.userAgent}
+                      </td>
+                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        {log.referrerUrl}
+                      </td>
+                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        {log.pageUrl}
+                      </td>
+                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        {log.eventType}
+                      </td>
+                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        {log.error}
+                      </td>
+                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        {log.errorMessage}
+                      </td>
+                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        {log.timeOnPage}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Pagination */}
+            <div className="flex justify-center mt-6">
+              <div className="flex items-center space-x-1">
+                <button
+                  onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                  className="p-2 border border-gray-300 rounded hover:bg-gray-50"
+                >
+                  <FaChevronLeft className="w-4 h-4" />
+                </button>
+
+                {paginationPages.map((page) => (
+                  <button
+                    key={page}
+                    onClick={() => setCurrentPage(page)}
+                    className={`px-3 py-2 rounded-full text-sm font-medium ${
+                      currentPage === page
+                        ? 'bg-red-500 text-white'
+                        : 'text-gray-600 hover:bg-gray-100'
+                    }`}
+                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                  >
+                    {page}
+                  </button>
+                ))}
+
+                <span className="text-gray-500" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                  ...
+                </span>
+
+                <button
+                  onClick={() => setCurrentPage(Math.min(10, currentPage + 1))}
+                  className="p-2 border border-gray-300 rounded hover:bg-gray-50"
+                >
+                  <FaChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </AdminLayout>
+  );
+}
+

@@ -689,52 +689,7 @@ export default function HomePage() {
           )}
         </section>
 
-        {/* News Section */}
-        <section className="py-20 px-[170px]">
-          <div className="mb-12">
-            <h2 className="text-black text-[64px] font-krub font-bold mb-8">
-              NEWS
-            </h2>
-            <div className="w-full h-px bg-black mb-12"></div>
-          </div>
-
-          <div className="flex justify-between items-start">
-            <div className="w-[627px]">
-              <p className="text-black text-[32px] font-krub font-normal leading-relaxed">
-                Follow our journey as we grow forests, build communities, and
-                connect people with nature — one step at a time.
-              </p>
-              {/* Read more button with icons */}
-              <div className="flex  pe-[95px] pt-6">
-                <button className="flex items-center justify-center w-[280px] h-[70px] read-more-button font-bold text-xl px-8 py-3 rounded-full flex items-center space-x-2">
-                  <img src={shining} alt="shining" className="w-8 h-8" />
-                  <span className="read-more-text">Read more</span>
-                </button>
-              </div>
-            </div>
-
-            {/* News Images Stack */}
-            <div className="relative w-[950px] h-[387px]">
-              <div className="absolute top-0 left-0 w-[386px] h-[387px] bg-[#d9d9d9] rounded-lg"></div>
-              <div className="absolute top-[34px] left-[349px] w-[318px] h-[319px] bg-[#c5c5c5] rounded-lg"></div>
-              <div className="absolute top-[69px] left-[615px] w-[249px] h-[249px] bg-[#a9a9a9] rounded-lg"></div>
-              <div className="absolute top-[107px] left-[778px] w-[172px] h-[173px] bg-[#727272] rounded-lg"></div>
-            </div>
-          </div>
-
-          {/* Pagination */}
-          <div className="flex items-center justify-center mt-12 space-x-4">
-            <div className="w-[14px] h-[14px] bg-[#dde0e4] rounded-full"></div>
-            <div className="w-[14px] h-[14px] bg-[#dde0e4] rounded-full"></div>
-            <div className="w-[14px] h-[14px] bg-[#dde0e4] rounded-full"></div>
-            <button className="ml-8 p-2">
-              <ChevronLeft className="w-7 h-7 text-gray-600" />
-            </button>
-            <button className="p-2">
-              <ChevronRight className="w-7 h-7 text-gray-600" />
-            </button>
-          </div>
-        </section>
+        
       </div>
       {/*Footer Section*/}
       <Footer />
