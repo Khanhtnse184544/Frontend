@@ -273,9 +273,9 @@ export default function OurPartner() {
         </div>
       </section>
       {/* Title Section */}
-      <div className="text-center mt-10">
+      <div className="text-center mt-10 px-4">
         <h1
-          className="text-6xl font-bold text-black mb-4"
+          className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black mb-4 leading-tight"
           style={{ fontFamily: "Pally-Bold, sans-serif" }}
         >
           PARTNER WITH E.C.O - Where Forests Grow – Together
