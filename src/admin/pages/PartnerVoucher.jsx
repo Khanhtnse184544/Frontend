@@ -80,33 +80,33 @@ export default function PartnerVoucher() {
     <AdminLayout>
       <div className="space-y-6">
         {/* Page Title */}
-        <h1 className="text-6xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+        <h1 className="text-5xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
           Partner & Voucher
         </h1>
 
-        <div className="flex gap-6">
+        <div className="flex gap-6 h-[75vh]">
           {/* Main Content Area */}
           <div className="flex-1 bg-white rounded-2xl shadow-sm border border-gray-200 p-6 flex flex-col">
             {/* Header with actions and search */}
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-4xl font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+              <h2 className="text-3xl font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
                 Voucher
               </h2>
               <div className="flex items-center gap-3">
-                <button className="bg-[#2C2C2C] text-white px-4 py-2 rounded-lg text-sm hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                <button className="bg-[#2C2C2C] text-white px-5 py-1 rounded-xl text-sm hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                   Create
                 </button>
-                <button className="bg-[#2C2C2C] text-white px-4 py-2 rounded-lg text-sm hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                <button className="bg-[#2C2C2C] text-white px-5 py-1 rounded-xl text-sm hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                   Update
                 </button>
-                <button className="bg-red-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-red-600 transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                <button className="bg-[#2C2C2C] text-white px-5 py-1 rounded-xl text-sm hover:bg-red-600 transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                   Delete
                 </button>
                 <div className="relative flex items-center">
                   <input
                     type="text"
                     placeholder="Search for user"
-                    className="pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="pl-10 pr-9 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
@@ -215,7 +215,6 @@ export default function PartnerVoucher() {
               <button
                 onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                 disabled={currentPage === 1}
-                className="p-2 rounded-full hover:bg-gray-200 disabled:opacity-50"
               >
                 <FaChevronLeft className="w-4 h-4 text-gray-600" />
               </button>
@@ -223,7 +222,9 @@ export default function PartnerVoucher() {
                 <button
                   key={page}
                   onClick={() => setCurrentPage(page)}
-                  className={`mx-1 px-3 py-1 rounded-full ${currentPage === page ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-700'} hover:bg-red-400`}
+                  className={`mx-1 px-3 py-1 rounded-full ${currentPage === page
+                    ? 'bg-[#D1D5DC] text-white'
+                    : 'text-gray-600 hover:bg-gray-100'} hover:bg-red-400`}
                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
                   {page}
@@ -232,33 +233,13 @@ export default function PartnerVoucher() {
               <button
                 onClick={() => setCurrentPage(Math.min(10, currentPage + 1))}
                 disabled={currentPage === 10}
-                className="p-2 rounded-full hover:bg-gray-200 disabled:opacity-50"
               >
                 <FaChevronRight className="w-4 h-4 text-gray-600" />
               </button>
             </div>
           </div>
 
-          {/* Sidebar - Management Actions */}
-          <div className="w-48 bg-white rounded-2xl shadow-sm border border-gray-200 p-4 flex flex-col">
-            <h3 className="text-sm font-bold text-black mb-4" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
-              Manage
-            </h3>
-            <div className="space-y-2">
-              <button className="w-full bg-[#2C2C2C] text-white text-center py-2 px-3 rounded-xl text-sm hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
-                Create Voucher
-              </button>
-              <button className="w-full bg-[#2C2C2C] text-white text-center py-2 px-3 rounded-xl text-sm hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
-                Update Voucher
-              </button>
-              <button className="w-full bg-[#2C2C2C] text-white text-center py-2 px-3 rounded-xl text-sm hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
-                Delete Voucher
-              </button>
-              <button className="w-full bg-[#2C2C2C] text-white text-center py-2 px-3 rounded-xl text-sm hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
-                Export Data
-              </button>
-            </div>
-          </div>
+          
         </div>
       </div>
     </AdminLayout>

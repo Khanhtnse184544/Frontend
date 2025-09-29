@@ -9,6 +9,7 @@ import {
   FaHeadset, 
   FaClipboardList 
 } from 'react-icons/fa';
+import logo from '../../assets/homepage/logo.png';
 
 const menuItems = [
   { id: 'dashboard', label: 'Dashboard', icon: FaChartLine, path: '/admin' },
@@ -29,16 +30,12 @@ export default function AdminSidebar({ isOpen }) {
   };
 
   return (
-    <div className={`${isOpen ? 'w-80' : 'w-21'} bg-[#2C2C2C] text-white transition-all duration-300 flex flex-col`}>
+    <div className={`${isOpen ? 'w-75' : 'w-20'} bg-[#2C2C2C] text-white transition-all duration-300 flex flex-col`}>
       {/* Logo Section */}
-      <div className="flex items-center px-4 py-6 border-b border-gray-700">
-        <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
-            <span className="text-white text-lg">🌱</span>
-          </div>
-          {isOpen && (
-            <span className="text-orange-500 font-bold text-xl" style={{ fontFamily: "Pally-Bold, sans-serif" }}>E.C.O</span>
-          )}
+      <div className="flex items-center px-2 py-3 border-b border-gray-700">
+        <div className={`flex items-center space-x-3 ${isOpen ? 'ms-5' : ''}`}>
+            <img src={logo} alt="Logo" className="w-16 h-16" />
+         
         </div>
       </div>
 
@@ -57,10 +54,10 @@ export default function AdminSidebar({ isOpen }) {
               }`}
             >
               <div className="mr-3 flex items-center justify-center">
-                <item.icon className="w-6 h-6" />
+                <item.icon className="w-5 h-5" />
               </div>
               {isOpen && (
-                <span className="font-medium text-2xl" style={{ fontFamily: "Pally-Regular, sans-serif" }}>{item.label}</span>
+                <span className="font-medium text-xl" style={{ fontFamily: "Pally-Regular, sans-serif" }}>{item.label}</span>
               )}
             </button>
           );
