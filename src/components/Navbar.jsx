@@ -92,8 +92,8 @@ export default function Navbar() {
           transition-all duration-300 ease-in-out
           font-sans
           ${hovered
-            ? 'w-[800px] h-[85px] gap-9'
-            : 'w-[630px] h-[78px] gap-5'}
+            ? 'w-[715px] h-[78px] gap-8'
+            : 'w-[555px] h-[70px] gap-4.5'}
         `}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -121,8 +121,8 @@ export default function Navbar() {
                   flex items-center gap-1 cursor-pointer
                   transition-all duration-300
                   ${hovered
-                    ? 'text-[1.44rem] font-light tracking-wide'
-                    : 'text-[1.3rem] font-light tracking-tight'}
+                    ? 'text-[1.3rem] font-light tracking-wide'
+                    : 'text-[1.19rem] font-light tracking-tight'}
                   ${isItemActive ? 'text-[#D68C45] font-bold' : 'text-white hover:text-[#D68C45]'}
                 `}
                 style={{fontFamily: 'Pally-Regular, sans-serif'}}

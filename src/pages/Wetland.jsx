@@ -20,7 +20,7 @@ export default function Wetland() {
       </div>
       
       {/* Wetland and Semi-Wetland Vegetation Section */}
-      <section className="relative w-full h-full overflow-hidden -mt-[118px] pb-15">
+      <section className="relative w-full h-full overflow-hidden -mt-[102px] pb-15">
         
                  {/* Background Image */}
          <img
@@ -63,8 +63,8 @@ export default function Wetland() {
                 <div className="space-y-6 text-white">
                   {/* Location */}
                   <div>
-                    <p className="text-xl " style={{ fontFamily: "Pally-Bold, sans-serif" }}>
-                      Location: <span className="text-xl " style={{ fontFamily: "Pally-Regular, sans-serif" }}>Central Nam Cát Tiên</span>
+                    <p className="text-lg " style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      Location: <span className="text-lg " style={{ fontFamily: "Pally-Regular, sans-serif" }}>Central Nam Cát Tiên</span>
                     </p>
                   </div>
                   
@@ -77,10 +77,10 @@ export default function Wetland() {
                   
                   {/* Key Features */}
                   <div>
-                    <h3 className="text-3xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <h3 className="text-2xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
                       Key Features:
                     </h3>
-                    <p className="text-xl leading-relaxed" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                    <p className="text-lg leading-relaxed" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                       Seasonal flooding creates wetlands and swamps, fostering a unique soil-vegetation ecosystem. 
                       <br />
                       Flood-tolerant trees: Barringtonia acutangula, Hydnocarpus anthelmintica, Xanthophyllum colubrinum. 
@@ -93,10 +93,10 @@ export default function Wetland() {
                   
                   {/* Ecological Value */}
                   <div>
-                    <h3 className="text-3xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <h3 className="text-2xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
                       Ecological value:
                     </h3>
-                    <p className="text-xl leading-relaxed" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                    <p className="text-lg leading-relaxed" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                       Acts as the "green lungs" of the park, maintaining biodiversity and climate regulation.
                     </p>
                   </div>

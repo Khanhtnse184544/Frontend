@@ -97,6 +97,7 @@ export default function HomePage() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [hovered, setHovered] = useState(null);
   const [showForm, setShowForm] = useState(false);
+  const [feedbackText, setFeedbackText] = useState("");
 
   // News carousel state
   const [newsIndex, setNewsIndex] = useState(0);
@@ -254,7 +255,7 @@ export default function HomePage() {
           <div>
             <div className="absolute inset-0 bg-black/30"></div>
             <div className="relative z-10 flex flex-col items-center justify-center w-full">
-              <div className="mb-2 mt-6">
+              <div className=" mt-4">
                 <img
                   src={logo}
                   alt="Plant Pot Logo"
@@ -263,26 +264,27 @@ export default function HomePage() {
                 />
               </div>
               <div
-                className="text-white text-xl font-semibold mt-2 mb-6 tracking-wide text-center drop-shadow "
+                className="text-white text-lg font-semibold mt-2 mb-3 tracking-wide text-center drop-shadow "
                 style={{ fontFamily: "Montserrat, Inter, Arial, sans-serif" }}
               >
                 Every touch plants a seed for the future
               </div>
+              
               <div
-                className="text-white font-extrabold text-6xl  text-center mb-4 tracking-tight drop-shadow font-sans uppercase"
+                className="text-white text-7xl mb-2 tracking-widest text-center drop-shadow font-bold"
+                style={{ fontFamily: "Montserrat, Inter, Arial, sans-serif" }}
+              >
+                0000
+              </div>
+              <div
+                className="text-white font-extrabold text-[3.3rem]  text-center mb-10 tracking-tight drop-shadow font-sans uppercase"
                 style={{ fontFamily: "Montserrat, Inter, Arial, sans-serif" }}
               >
                 MỖI CHẠM LÀ MỘT HẠT MẦM CHO TƯƠNG LAI
               </div>
-              <div
-                className="text-white text-7xl mb-4 tracking-widest text-center drop-shadow font-bold"
-                style={{ fontFamily: "Montserrat, Inter, Arial, sans-serif" }}
-              >
-                0010
-              </div>
               <button 
                 onClick={handlePlantTreeClick}
-                className="bg-[#d68c45] text-white border-2 border-[#d68c45] text-xl font-semibold px-8 py-3 rounded-[20px] w-[350px] shadow transition-all duration-200 font-sans hover:bg-transparent hover:text-[#d68c45]"
+                className="bg-[#d68c45] text-white border-2 border-[#d68c45] text-lg font-semibold w-[300px] py-2 rounded-[15px] shadow transition-all duration-200 font-sans hover:bg-transparent hover:text-[#d68c45]"
               >
                 Plant Trees with C.H.A.M
               </button>
@@ -295,21 +297,21 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-8">
             <div className="text-center space-y-8">
               {/* Top text */}
-              <p className="text-xl font-krub text-gray-700 mb-4">
+              <p className="text-lg font-krub text-gray-700 mb-3">
                 We are a non profit company in Vietnam.
               </p>
 
               {/* ABOUT US image */}
-              <div className="mb-8">
+              <div className="mb-6">
                 <img
                   src={aboutUs}
                   alt="ABOUT US"
-                  className="max-w-2xl mx-auto h-auto"
+                  className="w-[40vw] mx-auto h-auto"
                 />
               </div>
 
               {/* Bottom text */}
-              <p className="text-xl font-krub text-gray-700 mb-12">
+              <p className="text-lg font-krub text-gray-700 mb-12">
                 Connecting people and nature through technology and emotion.
               </p>
 
@@ -317,10 +319,10 @@ export default function HomePage() {
               <div className="flex items-end justify-end pe-[95px] pt-3">
                 <button 
                   onClick={handleAboutUsClick}
-                  className="flex items-center justify-center w-[280px] h-[70px] read-more-button font-bold text-xl px-8 py-3 rounded-full flex items-center space-x-2"
+                  className="flex items-center justify-center w-[250px] h-[60px] read-more-button font-bold text-xl px-8 py-3 rounded-full flex items-center space-x-2"
                 >
-                  <img src={shining} alt="shining" className="w-8 h-8" />
-                  <span className="read-more-text">Read more</span>
+                  <img src={shining} alt="shining" className="w-6 h-6" />
+                  <span className="read-more-text text-lg">Read more</span>
                 </button>
               </div>
             </div>
@@ -361,27 +363,27 @@ export default function HomePage() {
                 <div className="w-8 h-px bg-white mb-2"></div>
 
                 {/* Small title */}
-                <h2 className="hero-small-title text-2xl font-semibold text-white/90 mb-4">
+                <h2 className="hero-small-title text-xl font-semibold text-white/90 mb-4">
                   {slideContents[currentIndex].smallTitle}
                 </h2>
 
                 {/* Main titles */}
                 <h1
-                  className="hero-main-title text-5xl  leading-tight mb-2 text-white"
+                  className="hero-main-title text-4xl  leading-tight mb-2 text-white"
                   style={{ fontFamily: "Pally-Bold, sans-serif" }}
                 >
                   {slideContents[currentIndex].bigTitle1}
                 </h1>
 
                 {/* Description */}
-                <p className="hero-description text-sm max-w-full text-white/90 mb-8 leading-relaxed">
+                <p className="hero-description text-xs max-w-full text-white/90 mb-8 leading-relaxed">
                   {slideContents[currentIndex].description}
                 </p>
 
                 {/* Button */}
                 <button 
                   onClick={handleReadMoreClick}
-                  className="hero-button border-2 border-white/80 rounded-[15px] px-8 py-3 hover:bg-white/10 transition-all duration-300 text-white text-sm uppercase cursor-pointer"
+                  className="hero-button border-1 border-white/80 rounded-[13px] px-7.5 py-2.5 hover:bg-white/10 transition-all duration-300 text-white text-xs uppercase cursor-pointer"
                 >
                   {slideContents[currentIndex].buttonText}
                 </button>
@@ -391,8 +393,8 @@ export default function HomePage() {
 
           {/* RIGHT: Clickable Gallery Images - Circular Carousel */}
           <div
-            className="absolute right-2 bottom-40 overflow-visible"
-            style={{ width: "800px" }}
+            className="absolute right-2 bottom-30 overflow-visible"
+            style={{ width: "730px" }}
           >
             <motion.div
               className="flex gap-6"
@@ -431,7 +433,7 @@ export default function HomePage() {
             {images.map((_, i) => (
               <motion.div
                 key={i}
-                className={`w-3 h-3 rounded-full cursor-pointer ${
+                className={`w-2 h-2 rounded-full cursor-pointer ${
                   i === currentIndex ? "bg-white" : "bg-white/40"
                 }`}
                 onClick={() => handleImageClick(i)}
@@ -443,11 +445,11 @@ export default function HomePage() {
         </section>
 
         {/* Connect With Us Section */}
-        <section className="py-30 px-26  bg-white">
+        <section className="p-26  bg-white">
           <div className="text-center mb-3">
             <div className="relative">
               <div className="w-full h-px bg-black absolute top-1/3 transform -translate-y-1/2"></div>
-              <h2 className="text-5xl font-krub font-bold mb-8 relative z-10 bg-white px-8 inline-block">
+              <h2 className="text-[2.65rem] font-krub font-bold mb-8 relative z-10 bg-white px-8 inline-block">
                 <span className="text-black">CONNECT </span>
                 <span className="text-[#d68c45]">WITH</span>
                 <span className="text-black"> </span>
@@ -456,24 +458,24 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="flex justify-center gap-[80px]">
+          <div className="flex justify-center gap-[75px]">
             {/* Sponsor a Tree */}
-            <div className="relative rounded-[20px] overflow-hidden group cursor-pointer w-[360px] h-[360px]">
+            <div className="relative rounded-[20px] overflow-hidden group cursor-pointer w-[330px] h-[330px]">
               <img
                 src={sponsorTree}
                 alt="Sponsor a Tree"
-                className="w-[360px] h-[360px] object-cover transition-transform duration-300 group-hover:scale-110"
+                className="w-[330px] h-[330px] object-cover transition-transform duration-300 group-hover:scale-110"
               />
               {/* Default title - always visible */}
               <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                <h3 className="text-2xl font-krub font-semibold text-white drop-shadow-lg">
+                <h3 className="text-xl font-krub font-semibold text-white drop-shadow-lg">
                   SPONSOR A TREE
                 </h3>
               </div>
               {/* Hover overlay - only visible on hover */}
               <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="text-center text-white">
-                  <h3 className="text-2xl font-krub font-semibold mb-2">
+                  <h3 className="text-xl font-krub font-semibold mb-2">
                     SPONSOR A TREE
                   </h3>
                   <p className="text-sm  mb-4 text-gray-200">
@@ -481,7 +483,7 @@ export default function HomePage() {
                   </p>
                   <button 
                     onClick={handleSponsorTreeClick}
-                    className="border-2 border-white rounded-[20px] px-8 py-3 text-white hover:bg-white/10 transition-colors cursor-pointer"
+                    className="border-1 border-white rounded-[15px] px-7 py-2 text-white hover:bg-white/10 transition-colors cursor-pointer"
                   >
                     GET INVOLVED
                   </button>
@@ -490,22 +492,22 @@ export default function HomePage() {
             </div>
 
             {/* Become a Sponsor */}
-            <div className="relative rounded-[20px] overflow-hidden group cursor-pointer w-[360px] h-[360px]">
+            <div className="relative rounded-[20px] overflow-hidden group cursor-pointer w-[330px] h-[330px]">
               <img
                 src={becomeSponsor}
                 alt="Become a Sponsor"
-                className="w-[360px] h-[360px] object-cover transition-transform duration-300 group-hover:scale-110"
+                className="w-[330px] h-[330px] object-cover transition-transform duration-300 group-hover:scale-110"
               />
               {/* Default title - always visible */}
               <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                <h3 className="text-2xl font-krub font-semibold text-white drop-shadow-lg">
+                <h3 className="text-xl font-krub font-semibold text-white drop-shadow-lg">
                   BECOME A SPONSOR
                 </h3>
               </div>
               {/* Hover overlay - only visible on hover */}
               <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="text-center text-white">
-                  <h3 className="text-2xl font-krub font-semibold mb-2">
+                  <h3 className="text-xl font-krub font-semibold mb-2">
                     BECOME A SPONSOR
                   </h3>
                   <p className="text-sm mb-4 text-gray-200">
@@ -513,7 +515,7 @@ export default function HomePage() {
                   </p>
                   <button 
                     onClick={handleBecomeSponsorClick}
-                    className="border-2 border-white rounded-[20px] px-8 py-3 text-white hover:bg-white/10 transition-colors cursor-pointer"
+                    className="border-1 border-white rounded-[15px] px-7 py-2 text-white hover:bg-white/10 transition-colors cursor-pointer"
                   >
                     GET INVOLVED
                   </button>
@@ -522,22 +524,22 @@ export default function HomePage() {
             </div>
 
             {/* For School Education */}
-            <div className="relative rounded-[20px] overflow-hidden group cursor-pointer w-[360px] h-[360px]">
+            <div className="relative rounded-[20px] overflow-hidden group cursor-pointer w-[330px] h-[330px]">
               <img
                 src={schoolEducation}
                 alt="For School Education"
-                className="w-[360px] h-[360px] object-cover transition-transform duration-300 group-hover:scale-110"
+                className="w-[330px] h-[330px] object-cover transition-transform duration-300 group-hover:scale-110"
               />
               {/* Default title - always visible */}
               <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                <h3 className="text-2xl font-krub font-semibold text-white drop-shadow-lg">
+                <h3 className="text-xl font-krub font-semibold text-white drop-shadow-lg">
                   FOR SCHOOL EDUCATION
                 </h3>
               </div>
               {/* Hover overlay - only visible on hover */}
               <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="text-center text-white">
-                  <h3 className="text-2xl font-krub font-semibold mb-2">
+                  <h3 className="text-xl font-krub font-semibold mb-2">
                     FOR SCHOOL EDUCATION
                   </h3>
                   <p className="text-sm mb-4 text-gray-200">
@@ -545,7 +547,7 @@ export default function HomePage() {
                   </p>
                   <button 
                     onClick={handleSchoolEducationClick}
-                    className="border-2 border-white rounded-[20px] px-8 py-3 text-white hover:bg-white/10 transition-colors cursor-pointer"
+                    className="border-1 border-white rounded-[15px] px-7 py-2 text-white hover:bg-white/10 transition-colors cursor-pointer"
                   >
                     GET INVOLVED
                   </button>
@@ -567,13 +569,13 @@ export default function HomePage() {
           {/* Text bên trái */}
           <div className="absolute left-[214px] top-1/2 transform -translate-y-1/2 text-white">
             <h2
-              className="text-7xl font-extrabold mb-4"
+              className="text-[4.1rem] font-extrabold"
               style={{ fontFamily: "Pally-Bold, sans-serif" }}
             >
               SEND US A LEAF
             </h2>
             <p
-              className="text-4xl font-krub"
+              className="text-3xl font-krub"
               style={{ fontFamily: "Pally-Regular, sans-serif" }}
             >
               We'd Love to Hear From You.
@@ -584,7 +586,7 @@ export default function HomePage() {
           <div className="absolute right-[25%] top-1/2 transform -translate-y-1/2">
             <button
               onClick={toggleForm}
-              className="border-2 border-white rounded-[20px] px-16 py-4 text-white font-league-spartan text-xl hover:bg-white/10 transition-colors"
+              className="border-1 border-white rounded-[20px] px-16 py-3.5 text-white font-league-spartan text-lg hover:bg-white/10 transition-colors"
             >
               FILL FORM
             </button>
@@ -593,16 +595,16 @@ export default function HomePage() {
           {/* Form hiển thị khi showForm = true */}
           {showForm && (
             <div
-              className="absolute right-[100px] top-[60px] w-[600px] translate-y-20 bg-white/10 backdrop-blur-lg border border-white rounded-2xl p-8 text-white"
+              className="absolute right-[100px] top-[60px] w-[550px] translate-y-20 bg-white/10 backdrop-blur-lg border border-white rounded-2xl p-8 text-white"
               style={{ fontFamily: "Pally-Regular, sans-serif" }}
             >
               {/* Header: Feedback title + Close button */}
               <div className="flex items-center justify-between mb-8">
                 <div className="flex-1 border-t border-white mr-4"></div>
-                <h3 className="text-3xl font-bold text-white mb-0">Feedback</h3>
+                <h3 className="text-2xl font-bold text-white mb-0">Feedback</h3>
                 <button
                   onClick={toggleForm}
-                  className="ml-4 text-4xl font-bold focus:outline-none"
+                  className="ml-4 text-3xl font-bold focus:outline-none"
                   style={{ lineHeight: 1 }}
                 >
                   ×
@@ -611,7 +613,7 @@ export default function HomePage() {
 
               <form className="space-y-8">
                 <div>
-                  <label className="block mb-2 text-lg text-white">
+                  <label className="block mb-2 text-md text-white">
                     Your Name :
                   </label>
                   <div className="relative">
@@ -628,7 +630,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div>
-                  <label className="block mb-2 text-lg text-white">
+                  <label className="block mb-2 text-md text-white">
                     Your contact:
                   </label>
                   <div className="relative">
@@ -645,19 +647,26 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div>
-                  <label className="block mb-2 text-lg text-white">
+                  <label className="block mb-2 text-md text-white">
                     Can you share us your thoughts:
                   </label>
                   <div className="relative">
                     <textarea
                       rows={4}
-                      placeholder="Share your thoughts with us..."
+                      value={feedbackText}
+                      onChange={(e) => setFeedbackText(e.target.value)}
+                      placeholder=""
                       className="w-full bg-transparent py-2 px-1 focus:outline-none resize-none text-sm border-none"
                       style={{
                         fontFamily: "Pally-Regular, sans-serif",
                         fontStyle: "italic",
                       }}
                     />
+                    {!feedbackText && (
+                      <div className="absolute bottom-2 left-1 text-sm text-white/60 italic pointer-events-none" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        Share your thoughts with us...
+                      </div>
+                    )}
                     <div className="absolute bottom-0 left-0 right-0 h-px bg-white"></div>
                   </div>
                 </div>
@@ -665,11 +674,11 @@ export default function HomePage() {
                   <input
                     type="checkbox"
                     id="public"
-                    className="w-5 h-5 accent-white"
+                    className="w-4 h-4  accent-white"
                   />
                   <label
                     htmlFor="public"
-                    className="text-lg text-[#d68c45]"
+                    className="text-md text-[#d68c45]"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     May we share your feedback publicly?
@@ -678,7 +687,7 @@ export default function HomePage() {
                 <div className="flex justify-center mt-6">
                   <button
                     type="submit"
-                    className="w-[180px] h-[50px] py-3 border border-white rounded-[20px] text-xl font-bold hover:bg-white/20 transition-colors text-white"
+                    className="w-[170px] h-[45px] border border-white rounded-[18px] text-lg font-bold hover:bg-white/20 transition-colors text-white"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     SEND

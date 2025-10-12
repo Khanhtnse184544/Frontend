@@ -20,7 +20,7 @@ export default function BambooForest() {
       </div>
       
       {/* Monospecific Bamboo Forest Section */}
-      <section className="relative w-full h-full overflow-hidden -mt-[118px] pb-15">
+      <section className="relative w-full h-full overflow-hidden -mt-[102px] pb-15">
         
                  {/* Background Image */}
          <img
@@ -63,34 +63,34 @@ export default function BambooForest() {
                 <div className="space-y-6 text-white">
                   {/* Location */}
                   <div>
-                    <p className="text-xl " style={{ fontFamily: "Pally-Bold, sans-serif" }}>
-                      Location: <span className="text-xl " style={{ fontFamily: "Pally-Regular, sans-serif" }}>Found widely across the Park</span>
+                    <p className="text-lg " style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      Location: <span className="text-lg " style={{ fontFamily: "Pally-Regular, sans-serif" }}>Found widely across the Park</span>
                     </p>
                   </div>
                   
                   {/* Main Heading */}
                   <div>
-                    <h2 className="text-4xl font-bold mb-4" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
                       Regrowth from abandoned shifting fields
                     </h2>
                   </div>
                   
                   {/* Formation */}
                   <div>
-                    <h3 className="text-3xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <h3 className="text-2xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
                       Formation:
                     </h3>
-                    <p className="text-xl leading-relaxed" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                    <p className="text-lg leading-relaxed" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                       Resulting from fallow lands post-subsistence farming. Dominated by La Ngà bamboo (Bambusa blumeana), Lồ ô, and Mum, with scattered fast-growing light-loving hardwoods like Macaranga tanarius and Ficus spp.
                     </p>
                   </div>
                   
                   {/* Ecological Role */}
                   <div>
-                    <h3 className="text-3xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <h3 className="text-2xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
                       Ecological role:
                     </h3>
-                    <p className="text-xl leading-relaxed" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                    <p className="text-lg leading-relaxed" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                       While human-influenced, these forests help protect soil, reduce erosion, and support forest regeneration over time.
                     </p>
                   </div>

@@ -20,7 +20,7 @@ export default function SemiDeciduousForest() {
       </div>
       
       {/* Semi-Deciduous Evergreen Forest Section */}
-      <section className="relative w-full h-full overflow-hidden -mt-[118px] pb-15">
+      <section className="relative w-full h-full overflow-hidden -mt-[102px] pb-15">
         
                  {/* Background Image */}
          <img
@@ -70,14 +70,14 @@ export default function SemiDeciduousForest() {
                   
                   {/* Main Heading */}
                   <div>
-                    <h2 className="text-4xl font-bold mb-4" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
                       Nature's smart adaptation to wet and dry seasons
                     </h2>
                   </div>
                   
                   {/* Key Features */}
                   <div>
-                    <h3 className="text-3xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <h3 className="text-2xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
                       Key Features:
                     </h3>
                     <p className="text-xl leading-relaxed" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
@@ -87,7 +87,7 @@ export default function SemiDeciduousForest() {
                   
                   {/* Ecological Value */}
                   <div>
-                    <h3 className="text-3xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <h3 className="text-2xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
                       Ecological value:
                     </h3>
                     <p className="text-xl leading-relaxed" style={{ fontFamily: "Pally-Regular, sans-serif" }}>

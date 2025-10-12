@@ -28,7 +28,7 @@ export default function OurProject() {
         </div>
 
         {/* Hero Section */}
-        <section className="relative w-full h-screen -mt-[110px] transition-all duration-700 hover:scale-[1.02] hover:brightness-110">
+        <section className="relative w-full h-screen -mt-[102px] transition-all duration-700 hover:scale-[1.02] hover:brightness-110">
           {/* Background Image */}
           <div className="absolute inset-0">
             <img
@@ -43,22 +43,22 @@ export default function OurProject() {
           {/* Hero Content */}
           <div className="relative z-10 flex items-center h-full">
             <div className="container mx-auto px-6">
-              <div className="flex justify-start ps-15">
-                <div className="bg-white-10 rounded-[30px] p-15 max-w-6xl text-left backdrop-blur-xs flex flex-col justify-center border-1 border-white transition-all duration-500">
+              <div className="flex justify-start ">
+                <div className="bg-white-10 rounded-[30px] py-11 ps-13 pe-20 max-w-6xl text-left backdrop-blur-xs flex flex-col justify-center border-1 border-white transition-all duration-500">
                   <h1
-                    className="text-white text-2xl mb-4 font-bold"
+                    className="text-white text-xl font-bold mb-4"
                     style={{ fontFamily: "Pally-Bold, sans-serif" }}
                   >
                     Chạm – Hiểu – Ấp ủ – Mầm
                   </h1>
                   <h2
-                    className="text-[#D68C45] text-8xl font-bold mb-4"
+                    className="text-[#D68C45] text-8xl font-bold mb-4 "
                     style={{ fontFamily: "Pally-Bold, sans-serif" }}
                   >
                     C.H.A.M
                   </h2>
                   <p
-                    className="text-white text-2xl font-bold"
+                    className="text-white text-xl font-bold"
                     style={{ fontFamily: "Pally-Bold, sans-serif" }}
                   >
                     A digital platform bridging virtual actions and real-world
@@ -71,7 +71,7 @@ export default function OurProject() {
         </section>
 
         {/* Project Content Section */}
-        <section className="px-20 py-8 bg-white">
+        <section className="px-20 pb-8 bg-white">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-5 gap-10 items-center">
               {/* Left Column - Image */}
@@ -79,14 +79,14 @@ export default function OurProject() {
                 <img
                   src={projectImage1}
                   alt="Boy planting tree with C.H.A.M project"
-                  className="h-full w-full rounded-2xl shadow-lg"
+                  className="h-[99%] w-auto rounded-2xl shadow-lg"
                 />
               </div>
 
               {/* Right Column - Content */}
               <div className="col-span-3 space-y-1 ps-10">
                 <h3
-                  className="text-2xl font-bold text-black leading-tight"
+                  className="text-xl font-bold text-black leading-tight"
                   style={{ fontFamily: "Pally-Bold, sans-serif" }}
                 >
                   With C.H.A.M – one tree, one small action, one big change
@@ -94,7 +94,7 @@ export default function OurProject() {
 
                 <div className="flex items-center gap-3">
                   <h2
-                    className="text-6xl font-bold text-[#D68C45]"
+                    className="text-5xl font-bold text-[#D68C45]"
                     style={{ fontFamily: "Pally-Bold, sans-serif" }}
                   >
                     OUR PROJECT
@@ -102,7 +102,7 @@ export default function OurProject() {
                 </div>
 
                 <p
-                  className="text-2xl leading-relaxed"
+                  className="text-xl leading-relaxed"
                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
                   <span className="font-bold">C.H.A.M</span> is a pioneering
@@ -118,7 +118,7 @@ export default function OurProject() {
                 </p>
 
                 <p
-                  className="text-2xl leading-relaxed"
+                  className="text-xl leading-relaxed"
                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
                   What <span className="font-bold">makes C.H.A.M unique</span>{" "}
@@ -132,7 +132,7 @@ export default function OurProject() {
                 <div className="flex justify-end pe-15 mt-8">
                   <button 
                     onClick={handleExploreClick}
-                    className="bg-white border-3 border-[#D68C45] text-[#D68C45] text-2xl px-20 py-4 rounded-[25px] font-bold hover:bg-[#D68C45] hover:text-white transition-all duration-300"
+                    className="bg-white border-3 border-[#D68C45] text-[#D68C45] text-xl px-18 py-3 rounded-[20px] font-bold hover:bg-[#D68C45] hover:text-white transition-all duration-300"
                   >
                     EXPLORE NOW
                   </button>
@@ -149,20 +149,20 @@ export default function OurProject() {
           <div className="container mx-auto px-6">
             <div className="mx-15 text-center">
               <h2
-                className="text-4xl font-bold text-[#D68C45]"
+                className="text-3xl font-bold text-[#D68C45]"
                 style={{ fontFamily: "Pally-Bold, sans-serif" }}
               >
                 With C.H.A.M
               </h2>
               <h2
-                className="text-4xl font-bold text-[#D68C45] mb-3"
+                className="text-3xl font-bold text-[#D68C45] mb-3"
                 style={{ fontFamily: "Pally-Bold, sans-serif" }}
               >
                 One tree, one small action, one big change.
               </h2>
 
               <p
-                className="text-2xl leading-relaxed mb-8"
+                className="text-xl leading-relaxed mb-8"
                 style={{ fontFamily: "Pally-Regular, sans-serif" }}
               >
                 C.H.A.M is a pioneering initiative by E.C.O that blends
@@ -182,7 +182,7 @@ export default function OurProject() {
           <div className="container mx-auto -mt-20 px-6">
             <div className="grid grid-cols-5 gap-10 items-center">
               {/* Left Column - Image */}
-              <div className="col-span-2 -ms-12">
+              <div className="col-span-2 -ms-25">
                 <img
                   src={greenImpactImage}
                   alt="Trees growing on floating landmass"
@@ -193,7 +193,7 @@ export default function OurProject() {
               {/* Right Column - Content */}
               <div className="col-span-3 space-y-6 pe-15">
                 <h2
-                  className="text-4xl font-bold text-[#D68C45]"
+                  className="text-3xl font-bold text-[#D68C45]"
                   style={{ fontFamily: "Pally-Bold, sans-serif" }}
                 >
                   Green Impact – CSR & Environmental Education
@@ -201,21 +201,21 @@ export default function OurProject() {
 
                 <div className="space-y-6">
                   <p
-                    className="text-2xl text-black leading-relaxed"
+                    className="text-xl text-black leading-relaxed"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     C.H.A.M partners directly with Cát Tiên National Park to run sustainable reforestation programs, planting native trees chosen for ecological balance and maintained by forestry experts.
                   </p>
 
                   <p
-                    className="text-2xl text-black leading-relaxed"
+                    className="text-xl text-black leading-relaxed"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     Beyond planting, C.H.A.M offers eco-tours and school workshops to build youth awareness and action.
                   </p>
 
                   <p
-                    className="text-2xl text-black leading-relaxed"
+                    className="text-xl text-black leading-relaxed"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     Corporate sponsors can join CSR campaigns, benefiting from transparent reporting and authentic storytelling to enhance both environmental impact and brand value.
@@ -236,7 +236,7 @@ export default function OurProject() {
               {/* Left Column - Content */}
               <div className="col-span-3 space-y-6 ps-15">
                 <h2
-                  className="text-4xl font-bold text-[#D68C45]"
+                  className="text-3xl font-bold text-[#D68C45]"
                   style={{ fontFamily: "Pally-Bold, sans-serif" }}
                 >
                   Gamified Experience - Where Fun Meets Responsibility
@@ -244,21 +244,21 @@ export default function OurProject() {
 
                 <div className="space-y-6">
                   <p
-                    className="text-2xl text-black leading-relaxed"
+                    className="text-xl text-black leading-relaxed"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     C.H.A.M is a commitment to nature through play. Players grow digital trees, complete missions, join communities, and build virtual forests.
                   </p>
 
                   <p
-                    className="text-2xl text-black leading-relaxed"
+                    className="text-xl text-black leading-relaxed"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     The app combines gamification, AI, and real-time weather data to deliver engaging, personalized experiences that encourage sustainable habits.
                   </p>
 
                   <p
-                    className="text-2xl text-black leading-relaxed"
+                    className="text-xl text-black leading-relaxed"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     With a freemium model, core features stay free while premium upgrades—like rare trees, forest themes, eco-tour tickets, and special tools—are available through in-app purchases.
@@ -267,7 +267,7 @@ export default function OurProject() {
               </div>
 
               {/* Right Column - Visual Space */}
-              <div className="col-span-2 -me-12">
+              <div className="col-span-2 -me-25">
               <img
                   src={gamifiedImage}
                   alt="Trees growing on floating landmass"
@@ -296,7 +296,7 @@ export default function OurProject() {
             <div className="flex justify-center items-start min-h-[60vh]">
               <div className="  px-12 -mt-20 max-w-4xl text-center ">
                 <h3
-                  className="text-4xl font-bold text-[#D68C45] "
+                  className="text-3xl font-bold text-[#D68C45] "
                   style={{ fontFamily: "Pally-Bold, sans-serif" }}
                 >
                   Join the Movement
@@ -304,28 +304,28 @@ export default function OurProject() {
 
                 <div className="">
                   <h2
-                    className="text-2xl font-bold text-black"
+                    className="text-xl font-bold text-black"
                     style={{ fontFamily: "Pally-Bold, sans-serif" }}
                   >
                     C.H.A.M is not just a game. It's a movement.
                   </h2>
 
                   <p
-                    className="text-2xl text-black leading-relaxed"
+                    className="text-xl text-black leading-relaxed"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     A virtual gesture – a real-world tree.
                   </p>
 
                   <p
-                    className="text-2xl text-black leading-relaxed"
+                    className="text-xl text-black leading-relaxed"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     A small care action – a lasting environmental impact.
                   </p>
 
                   <p
-                    className="text-2xl text-black leading-relaxed"
+                    className="text-xl text-black leading-relaxed"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     Join the green movement with C.H.A.M – where technology grows forests.

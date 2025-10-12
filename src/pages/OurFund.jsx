@@ -25,7 +25,7 @@ export default function OurFund() {
 
       {/* Hero Section with Background Image */}
       <section
-        className="relative h-[500px] w-[85%]  bg-center flex items-center mt-[-40px] mx-auto rounded-[30px]"
+        className="relative h-[450px] w-[85%]  bg-center flex items-center mt-[-40px] mx-auto rounded-[30px]"
         style={{
           backgroundImage: `url(${ecoFund})`,
           backgroundSize: "cover",
@@ -40,13 +40,13 @@ export default function OurFund() {
           {/* Left side - Title */}
           <div className="text-white">
             <h1
-              className="text-7xl font-bold mb-3"
+              className="text-6xl font-bold mb-3"
               style={{ fontFamily: "Pally-Bold, sans-serif" }}
             >
               E.C.O Fund
             </h1>
             <p
-              className="text-2xl tracking-[0.2em]"
+              className="text-xl tracking-[0.2em]"
               style={{ fontFamily: "Pally-Bold, sans-serif" }}
             >
               Transparently Building a Green Future
@@ -63,7 +63,7 @@ export default function OurFund() {
           {/* Right side - Message and Button */}
           <div className="text-white text-center">
             <p
-              className="text-lg leading-tight tracking-wide mb-5 max-w-lg"
+              className="text-md leading-tight tracking-wide mb-5 max-w-lg"
               style={{ fontFamily: "Pally-Medium, sans-serif" }}
             >
               We believe that sustainability is not just a goal, but a journey
@@ -71,7 +71,7 @@ export default function OurFund() {
             </p>
             <button
               onClick={handleSponsorClick}
-              className="bg-white  text-black font-bold py-2  rounded-[15px] w-[300px] hover:bg-black hover:text-white transition-colors duration-300 shadow-lg text-xl flex items-center justify-center mx-auto"
+              className="bg-white  text-black font-bold py-1.5  rounded-[15px] w-[280px] hover:bg-black hover:text-white transition-colors duration-300 shadow-lg text-xl flex items-center justify-center mx-auto"
               style={{ fontFamily: 'Pally-Bold, sans-serif' }}
             >
               Sponsor Now
@@ -82,15 +82,15 @@ export default function OurFund() {
       </section>
 
       {/* Fund Goals Section */}
-      <section className="py-16 px-16">
-        <div className="flex items-center gap-7 px-26">
+      <section className="py-15 px-16">
+        <div className="flex items-center gap-8 px-26">
           {/* Left side - Content */}
           <div className="w-1/3">
-            <div className="bg-gradient-to-tr from-black via-[#4D4D4D] to-[#6B6B6B] rounded-[30px] p-8 text-white relative overflow-hidden h-[350px] w-[380px] mx-auto transition-all duration-300 ease-in-out group">
+            <div className="bg-gradient-to-tr from-black via-[#4D4D4D] to-[#6B6B6B] rounded-[30px] p-8 text-white relative overflow-hidden h-[325px] w-[350px] mx-auto transition-all duration-300 ease-in-out group">
               {/* Top Left - E.C.O Corporate */}
               <div className="absolute top-7 left-8">
                 <h2
-                  className="text-xl font-semibold tracking-wider group-hover:scale-110 transition-all duration-300 ease-in-out transform origin-center"
+                  className="text-lg font-semibold tracking-wider group-hover:scale-110 transition-all duration-300 ease-in-out transform origin-center"
                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
                   E.C.O Corporate
@@ -99,24 +99,24 @@ export default function OurFund() {
 
               {/* Right Side - Logo */}
               <div className="absolute top-0 right-0">
-                <div className="w-50 h-50 flex items-center justify-center">
+                <div className="w-45 h-45 flex items-center justify-center">
                   <img
                     src={logo}
                     alt="E.C.O Logo"
-                    className="w-80 h-80 object-contain group-hover:scale-110 transition-all duration-300 ease-in-out transform origin-center"
+                    className="w-65 h-65 object-contain group-hover:scale-110 transition-all duration-300 ease-in-out transform origin-center"
                   />
                 </div>
               </div>
 
               {/* Bottom Left - 1+ Millions */}
               <div className="absolute bottom-8 left-8 group-hover:scale-110 transition-all duration-300 ease-in-out transform origin-center">
-                <div className="space-y-1">
+                <div className="">
                   <div
-                    className="text-3xl font-semibold"
+                    className="text-2xl font-semibold"
                     style={{ fontFamily: "Pally-Medium, sans-serif" }}
                   >
                     <span
-                      className="text-5xl font-semibold"
+                      className="text-[2.75rem] font-semibold"
                       style={{ fontFamily: "Pally-Bold, sans-serif" }}
                     >
                       1+
@@ -124,7 +124,7 @@ export default function OurFund() {
                     Millions
                   </div>
                   <div
-                    className="text-sm"
+                    className="text-xs"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     Planting tree
@@ -133,15 +133,15 @@ export default function OurFund() {
               </div>
 
               {/* Bottom Right - In 5 */}
-              <div className="absolute bottom-8 right-8 text-right group-hover:scale-110 transition-all duration-300 ease-in-out transform origin-center">
+              <div className="absolute bottom-4 right-8 text-right group-hover:scale-110 transition-all duration-300 ease-in-out transform origin-center">
                 <div className="space-y-1">
                   <div
-                    className="text-xl"
+                    className="text-lg"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     In{" "}
                     <span
-                      className="text-5xl font-semibold"
+                      className="text-[2.8rem] font-semibold"
                       style={{ fontFamily: "Pally-Bold, sans-serif" }}
                     >
                       5
@@ -157,7 +157,7 @@ export default function OurFund() {
             <img
               src={fundGoal}
               alt="Fund Goals"
-              className="w-auto h-[350px] rounded-lg shadow-2xl mx-auto"
+              className="w-auto h-[310px] rounded-lg shadow-2xl mx-auto"
             />
           </div>
         </div>
@@ -176,11 +176,11 @@ export default function OurFund() {
           </div>
 
           {/* Our Commitment Section */}
-          <div className="max-w-6xl mx-auto">
-            <div className="bg-[#F4F4F4] rounded-[30px] p-12">
+          <div className="max-w-5xl mx-auto ">
+            <div className="bg-[#F4F4F4] rounded-[30px] pt-8">
               <div className="text-center mb-3">
                 <h2
-                  className="text-6xl font-bold"
+                  className="text-[3.5rem] font-bold"
                   style={{ fontFamily: "Pally-Bold, sans-serif" }}
                 >
                   <span className="text-[#3A3A3A]">Our Com</span>
@@ -188,9 +188,9 @@ export default function OurFund() {
                 </h2>
               </div>
 
-              <div className="space-y-2 text-left px-20">
+              <div className="text-left px-20 space-y-2 pb-12">
                 <p
-                  className="text-lg  leading-relaxed"
+                  className="text-md  leading-relaxed"
                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
                   Our CFO team, with expertise in Communication Technology and
@@ -200,7 +200,7 @@ export default function OurFund() {
                 </p>
 
                 <p
-                  className="text-lg  leading-relaxed"
+                  className="text-md  leading-relaxed"
                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
                   In the future, E.C.O aims to collaborate with an independent
@@ -209,7 +209,7 @@ export default function OurFund() {
                 </p>
 
                 <p
-                  className="text-lg  leading-relaxed"
+                  className="text-md  leading-relaxed"
                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
                   We constantly listen to feedback from the community and

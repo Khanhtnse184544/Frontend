@@ -20,7 +20,7 @@ export default function MixedHardwood() {
       </div>
 
       {/* Mixed Hardwood-Bamboo Forest Section */}
-      <section className="relative w-full h-full overflow-hidden -mt-[118px] pb-15">
+      <section className="relative w-full h-full overflow-hidden -mt-[102px] pb-15">
         {/* Background Image */}
         <img
           src={h1Image}
@@ -64,12 +64,12 @@ export default function MixedHardwood() {
                   
                   <div>
                     <p
-                      className="text-xl "
+                      className="text-lg "
                       style={{ fontFamily: "Pally-Bold, sans-serif" }}
                     >
                       Location: 
                       <span
-                        className="text-xl "
+                        className="text-lg "
                         style={{ fontFamily: "Pally-Regular, sans-serif" }}
                       >
                       Eastern and southern Nam Cát Tiên
@@ -80,7 +80,7 @@ export default function MixedHardwood() {
                   {/* Main Heading */}
                   <div>
                     <h2
-                      className="text-4xl font-bold mb-4"
+                      className="text-3xl font-bold mb-4"
                       style={{ fontFamily: "Pally-Bold, sans-serif" }}
                     >
                       When nature regenerates from human footprints
@@ -90,13 +90,13 @@ export default function MixedHardwood() {
                   {/* Origin */}
                   <div>
                     <h3
-                      className="text-3xl font-bold"
+                      className="text-2xl font-bold"
                       style={{ fontFamily: "Pally-Bold, sans-serif" }}
                     >
                       Origin:
                     </h3>
                     <p
-                      className="text-xl leading-relaxed"
+                      className="text-lg leading-relaxed"
                       style={{ fontFamily: "Pally-Regular, sans-serif" }}
                     >
                       A secondary forest type, formed after human interventions
@@ -106,7 +106,7 @@ export default function MixedHardwood() {
                     </p>
                     
                     <p
-                      className="text-xl leading-relaxed"
+                      className="text-lg leading-relaxed"
                       style={{ fontFamily: "Pally-Regular, sans-serif" }}
                     >
                        Common hardwoods: Dipterocarpus costatus, Dalbergia oliveri, Shorea
@@ -114,7 +114,7 @@ export default function MixedHardwood() {
                     </p>
                     
                     <p
-                      className="text-xl leading-relaxed"
+                      className="text-lg leading-relaxed"
                       style={{ fontFamily: "Pally-Regular, sans-serif" }}
                     >
                       Common bamboos: Bambusa blumeana (La Ngà bamboo), Gigantochloa species.
@@ -127,13 +127,13 @@ export default function MixedHardwood() {
                   {/* Ecological insight */}
                   <div>
                     <h3
-                      className="text-3xl font-bold"
+                      className="text-2xl font-bold"
                       style={{ fontFamily: "Pally-Bold, sans-serif" }}
                     >
                       Ecological insight:
                     </h3>
                     <p
-                      className="text-xl leading-relaxed"
+                      className="text-lg leading-relaxed"
                       style={{ fontFamily: "Pally-Regular, sans-serif" }}
                     >
                       These transitional forests reflect resilience and

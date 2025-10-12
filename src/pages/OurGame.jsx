@@ -34,7 +34,7 @@ export default function OurGame() {
         </div>
 
         {/* Hero Section */}
-        <section className="relative w-full h-screen -mt-[110px]">
+        <section className="relative w-full h-screen -mt-[102px]">
           {/* Background Image */}
           <div className="absolute inset-0">
             <img
@@ -47,11 +47,11 @@ export default function OurGame() {
           {/* Hero Content */}
           <div className="relative z-10 flex items-center justify-center h-full">
             <div className="container mx-auto px-6">
-              <div className="flex justify-end items-center pe-20">
+              <div className="flex justify-end items-center pe-10">
                 <div className="text-center space-y-3">
                   {/* C.H.A.M GAME Text with Gradient */}
                   <h1
-                    className="text-7xl font-bold"
+                    className="text-6xl font-bold"
                     style={{
                       background:
                         "linear-gradient(135deg, #ffffff 0%, #60DEF2 100%)",
@@ -67,7 +67,7 @@ export default function OurGame() {
 
                   {/* Download Button */}
                   <button
-                    className="text-white text-2xl font-bold px-13 py-2 rounded-[15px] transition-all duration-300  hover:shadow-xl transform hover:scale-105"
+                    className="text-white text-2xl font-bold px-11 py-1.5 rounded-[15px] transition-all duration-300  hover:shadow-xl transform hover:scale-105"
                     style={{
                       fontFamily: "Pally-Bold, sans-serif",
                       background:
@@ -84,135 +84,7 @@ export default function OurGame() {
           </div>
         </section>
 
-        {/* News Section */}
-        <section className="pt-30 pb-10 bg-[#242424]">
-          <div className="container mx-auto px-6">
-            {/* News Title */}
-            <div className="text-center mt-20 mb-10">
-              <h2
-                className="text-6xl font-bold text-white mb-3"
-                style={{ fontFamily: "Pally-Bold, sans-serif" }}
-              >
-                NEWS
-              </h2>
-              <div className="w-24 h-1 bg-white mx-auto"></div>
-            </div>
-
-            {/* News List */}
-            <div className="max-w-4xl mx-auto mb-16">
-              <div className="">
-                {/* News Item 1 */}
-                <div className="flex justify-between items-center py-2 ">
-                  <div className="flex items-center space-x-4">
-                    <span className="text-white font-bold text-2xl">
-                      [NEWS]
-                    </span>
-                    <span
-                      className="text-white text-2xl"
-                      style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                    >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </span>
-                  </div>
-                  <span className="text-white text-2xl">30/06/2025</span>
-                </div>
-
-                {/* News Item 2 */}
-                <div className="flex justify-between items-center py-2 ">
-                  <div className="flex items-center space-x-4">
-                    <span className="text-white font-bold text-2xl">
-                      [UPDATES]
-                    </span>
-                    <span
-                      className="text-white text-2xl"
-                      style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                    >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </span>
-                  </div>
-                  <span className="text-white text-2xl">30/06/2025</span>
-                </div>
-
-                {/* News Item 3 */}
-                <div className="flex justify-between items-center py-2 ">
-                  <div className="flex items-center space-x-4">
-                    <span className="text-white font-bold text-2xl">
-                      [EVENTS]
-                    </span>
-                    <span
-                      className="text-white text-2xl"
-                      style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                    >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </span>
-                  </div>
-                  <span className="text-white text-2xl">30/06/2025</span>
-                </div>
-
-                {/* News Item 4 */}
-                <div className="flex justify-between items-center py-2 ">
-                  <div className="flex items-center space-x-4">
-                    <span className="text-white font-bold text-2xl">
-                      [PATCHS]
-                    </span>
-                    <span
-                      className="text-white text-2xl"
-                      style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                    >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </span>
-                  </div>
-                  <span className="text-white text-2xl">30/06/2025</span>
-                </div>
-
-                {/* News Item 5 */}
-                <div className="flex justify-between items-center py-2 ">
-                  <div className="flex items-center space-x-4">
-                    <span className="text-white font-bold text-2xl">
-                      [NEWS]
-                    </span>
-                    <span
-                      className="text-white text-2xl"
-                      style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                    >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </span>
-                  </div>
-                  <span className="text-white text-2xl">30/06/2025</span>
-                </div>
-
-                {/* News Item 6 */}
-                <div className="flex justify-between items-center py-2 ">
-                  <div className="flex items-center space-x-4">
-                    <span className="text-white font-bold text-2xl">
-                      [RELEASE]
-                    </span>
-                    <span
-                      className="text-white text-2xl"
-                      style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                    >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </span>
-                  </div>
-                  <span className="text-white text-2xl">30/06/2025</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Pagination */}
-            <div className="flex justify-center space-x-2">
-              <button className="w-10 h-10 bg-white rounded-full text-gray-900 font-bold">
-                1
-              </button>
-              <button className="w-10 h-10  text-white font-bold">2</button>
-              <button className="w-10 h-10  text-white font-bold">3</button>
-              <button className="w-10 h-10  text-white font-bold">4</button>
-              <button className="w-10 h-10  text-white font-bold">5</button>
-              <span className="text-white flex items-center">...</span>
-              <button className="w-10 h-10  text-white font-bold">10</button>
-            </div>
-          </div>
-        </section>
+        
                           {/* Game Interface Section */}
                   <section className="relative pt-20 pb-10">
                     {/* Background Image */}
@@ -236,7 +108,7 @@ export default function OurGame() {
                 <img
                   src={gameInterface}
                   alt="C.H.A.M Game Interface"
-                  className="max-w-4xl w-full rounded-2xl shadow-2xl border-10 border-white"
+                  className="max-w-4xl w-full rounded-2xl shadow-2xl border-5 border-white"
                 />
               </div>
 
@@ -249,7 +121,7 @@ export default function OurGame() {
                    Real-Time Weather Feature
                  </h3>
                  <p
-                   className="text-white text-xl leading-relaxed"
+                   className="text-white text-lg leading-relaxed"
                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
                  >
                    C.H.A.M connects directly with real-time weather at Cát Tiên
@@ -268,7 +140,7 @@ export default function OurGame() {
                    {/* Text with Gradient */}
                    <div>
                      <h2 
-                       className="text-6xl font-bold"
+                       className="text-5xl font-bold"
                        style={{
                          background: "linear-gradient(135deg, #ffffff 0%, #60DEF2 100%)",
                          WebkitBackgroundClip: "text",
@@ -285,22 +157,19 @@ export default function OurGame() {
                    <div className="flex space-x-15">
                      {/* Facebook */}
                      <div className="  flex items-center justify-center hover:scale-110 transition-all duration-300 " >
-                       <FaFacebookF className="text-white text-4xl" />
+                       <FaFacebookF className="text-white text-3xl" />
                      </div>
 
                      {/* TikTok */}
                      <div className="  flex items-center justify-center hover:scale-110 transition-all duration-300 " >
-                       <FaTiktok className="text-white text-4xl" />
+                       <FaTiktok className="text-white text-3xl" />
                      </div>
 
-                     {/* Instagram */}
-                     <div className="  flex items-center justify-center hover:scale-110 transition-all duration-300 " >
-                       <FaInstagram className="text-white text-4xl" />
-                     </div>
+                     
 
                      {/* YouTube */}
                      <div className="  flex items-center justify-center hover:scale-110 transition-all duration-300 " >
-                       <FaYoutube className="text-white text-4xl" />
+                       <FaYoutube className="text-white text-3xl" />
                      </div>
                    </div>
                  </div>

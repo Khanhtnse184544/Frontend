@@ -67,11 +67,11 @@ export default function CSRManagement() {
   const getStatusColor = (status) => {
     switch (status) {
       case 'Done':
-        return 'text-green-500';
+        return 'bg-green-500';
       case 'Pending':
-        return 'text-yellow-500';
+        return 'bg-yellow-500';
       case 'Cancel':
-        return 'text-red-500';
+        return 'bg-red-500';
       default:
         return 'bg-gray-500';
     }
@@ -88,17 +88,17 @@ export default function CSRManagement() {
     <AdminLayout>
       <div className="space-y-6">
         {/* Page Title */}
-        <h1 className="text-5xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+        <h1 className="text-6xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
           CSR Management
         </h1>
 
         {/* Search and Filter */}
-        <div className="flex justify-start items-center gap-3">
-          <div className="relative w-1/4 ">
+        <div className="flex justify-between items-center">
+          <div className="relative w-1/3">
             <input
               type="text"
               placeholder="Search..."
-              className="pl-10 pr-4 py-1 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               style={{ fontFamily: "Pally-Regular, sans-serif" }}
@@ -182,7 +182,7 @@ export default function CSRManagement() {
               {filteredItems.map((item) => (
                 <div key={item.id} className="relative border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
                   {item.pinned && (
-                    <FaThumbtack className="absolute top-2 right-2 text-[#F97316] rotate-45" />
+                    <FaThumbtack className="absolute top-4 right-4 text-orange-500 rotate-45" />
                   )}
                   
                   {/* Header with username and date */}
@@ -193,7 +193,7 @@ export default function CSRManagement() {
                         {item.username}
                       </span>
                     </div>
-                    <span className="text-gray-500 text-sm" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                    <span className="text-gray-500" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                       {item.date}
                     </span>
                   </div>
@@ -221,17 +221,18 @@ export default function CSRManagement() {
 
                   {/* Status dropdown */}
                   <div className="flex justify-end">
-                    <div className="relative  text-left">
+                    <div className="relative inline-block text-left">
                       <select
-                        className={`text-sm font-semibold ${getStatusColor(item.status)} `}
+                        className={`appearance-none bg-white border border-gray-300 rounded-lg py-2 px-4 pr-8 text-sm font-semibold ${getStatusColor(item.status)} text-white focus:outline-none`}
                         value={item.status}
                         onChange={(e) => handleStatusChange(item.id, e.target.value)}
                         style={{ fontFamily: "Pally-Regular, sans-serif" }}
                       >
-                        <option value="Done" className="text-green-500">Done</option>
-                        <option value="Pending" className="text-yellow-500">Pending</option>
-                        <option value="Cancel" className="text-red-500">Cancel</option>
+                        <option value="Done" className="bg-white text-green-500">Done</option>
+                        <option value="Pending" className="bg-white text-yellow-500">Pending</option>
+                        <option value="Cancel" className="bg-white text-red-500">Cancel</option>
                       </select>
+                      <FaChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white pointer-events-none" />
                     </div>
                   </div>
                 </div>
@@ -243,6 +244,7 @@ export default function CSRManagement() {
               <div className="flex items-center space-x-1">
                 <button 
                   onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                  className="p-2 border border-gray-300 rounded hover:bg-gray-50"
                 >
                   <FaChevronLeft className="w-4 h-4" />
                 </button>
@@ -264,6 +266,7 @@ export default function CSRManagement() {
                 
                 <button 
                   onClick={() => setCurrentPage(Math.min(10, currentPage + 1))}
+                  className="p-2 border border-gray-300 rounded hover:bg-gray-50"
                 >
                   <FaChevronRight className="w-4 h-4" />
                 </button>
@@ -272,22 +275,22 @@ export default function CSRManagement() {
           </div>
 
           {/* Sidebar - Management Actions */}
-          <div className="w-30 h-48 bg-white rounded-2xl shadow-sm border border-gray-200 p-4 flex flex-col">
-            <h3 className="text-sm font-bold text-black mb-3" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+          <div className="w-48 bg-white rounded-2xl shadow-sm border border-gray-200 p-4 flex flex-col">
+            <h3 className="text-sm font-bold text-black mb-4" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
               Manage
             </h3>
             
             <div className="space-y-2">
-              <button className="w-full bg-[#2C2C2C] text-white text-center py-1 px-3 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+              <button className="w-full bg-[#2C2C2C] text-white text-center py-2 px-3 rounded-xl text-sm hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                 Create
               </button>
-              <button className="w-full bg-[#2C2C2C] text-white text-center py-1 px-3 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+              <button className="w-full bg-[#2C2C2C] text-white text-center py-2 px-3 rounded-xl text-sm hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                 Update
               </button>
-              <button className="w-full bg-[#2C2C2C] text-white text-center py-1 px-3 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+              <button className="w-full bg-[#2C2C2C] text-white text-center py-2 px-3 rounded-xl text-sm hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                 Delete
               </button>
-              <button className="w-full bg-[#2C2C2C] text-white text-center py-1 px-3 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+              <button className="w-full bg-[#2C2C2C] text-white text-center py-2 px-3 rounded-xl text-sm hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                 Mark
               </button>
             </div>
