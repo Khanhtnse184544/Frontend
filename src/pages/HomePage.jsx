@@ -208,34 +208,33 @@ export default function HomePage() {
             className="absolute inset-0 w-full h-full "
           />
 
-          <div>
-            <div className="absolute inset-0 bg-black/30"></div>
-            <div className="relative z-10 flex flex-col items-center justify-center w-full">
-              <div className=" mt-4">
+          <div className="absolute inset-0 bg-black/30"></div>
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center w-full h-full">
+            <div className="flex flex-col items-center justify-center px-4">
+              <div>
                 <img
                   src={logo}
                   alt="Plant Pot Logo"
-                  className="w-40 h-40 mx-auto"
+                  className="w-32 h-32 sm:w-32 sm:h-32 xl:w-40 xl:h-40 2xl:w-72 2xl:h-68 2xl:-mt-6 mx-auto"
                   draggable={false}
                 />
               </div>
               
-              
               <div
-                className="text-white text-7xl mb-2 tracking-widest text-center drop-shadow font-bold"
+                className="text-white text-4xl sm:text-5xl  xl:text-7xl 2xl:text-8xl mb-2 2xl:-mt-6 2xl:mb-6 tracking-widest text-center drop-shadow font-bold"
                 style={{ fontFamily: "Montserrat, Inter, Arial, sans-serif" }}
               >
                 0000
               </div>
               <div
-                className="text-white font-extrabold text-[3.3rem]  text-center mb-10 tracking-tight drop-shadow font-sans uppercase"
+                className="text-white font-extrabold text-xl sm:text-2xl  xl:text-[3.4rem] 2xl:text-7xl text-center mb-6 sm:mb-10 2xl:mb-20 tracking-tight drop-shadow font-sans uppercase px-4"
                 style={{ fontFamily: "Montserrat, Inter, Arial, sans-serif" }}
               >
                 MỖI CHẠM LÀ MỘT HẠT MẦM CHO TƯƠNG LAI
               </div>
               <button 
                 onClick={handlePlantTreeClick}
-                className="bg-[#d68c45] text-white border-2 border-[#d68c45] text-lg font-semibold w-[300px] py-2 rounded-[15px] shadow transition-all duration-200 font-sans hover:bg-transparent hover:text-[#d68c45]"
+                className="bg-[#d68c45] text-white border-2 border-[#d68c45] text-base sm:text-md xl:text-lg 2xl:text-xl font-semibold w-[250px] sm:w-[250px] xl:w-[300px] 2xl:w-[370px] py-2 sm:py-2 xl:py-2 2xl:py-3.5 rounded-[15px] 2xl:rounded-[20px] shadow transition-all duration-200 font-sans hover:bg-transparent hover:text-[#d68c45]"
                 style={{ fontFamily: "Pally-regular, sans-serif" }}
               >
                 Cùng C.H.A.M Trồng Cây
@@ -245,36 +244,36 @@ export default function HomePage() {
         </section>
 
         {/* About Us Section */}
-        <section className="relative w-full py-40 bg-white">
-          <div className="max-w-7xl mx-auto px-8">
-            <div className="text-center space-y-8">
+        <section className="relative w-full py-40 2xl:py-[15vh] bg-white">
+          <div className="max-w-7xl 2xl:max-w-[70vw] mx-auto px-8 2xl:px-[3vw]">
+            <div className="text-center space-y-8 2xl:space-y-[2.5vh]">
               {/* Top text */}
-              <p className="text-lg font-krub text-gray-700 mb-3">
+              <p className="text-lg 2xl:text-2xl font-krub text-gray-700 mb-3 2xl:mb-[1vh]">
                 Chúng tôi là một Doanh nghiệp Xã hội tại Việt Nam.
               </p>
 
               {/* ABOUT US image */}
-              <div className="mb-6">
+              <div className="mb-6 2xl:mb-[3vh]">
                 <img
                   src={aboutUs}
                   alt="ABOUT US"
-                  className="w-[40vw] mx-auto h-auto"
+                  className="w-[40vw] 2xl:w-[45vw] mx-auto h-auto"
                 />
               </div>
 
               {/* Bottom text */}
-              <p className="text-lg font-krub text-gray-700 mb-12">
+              <p className="text-lg 2xl:text-2xl font-krub text-gray-700 mb-12 2xl:mb-[4vh]">
               Với sứ mệnh gắn kết con người với thiên nhiên qua công nghệ và cảm xúc.
               </p>
 
               {/* Read more button with icons */}
-              <div className="flex items-end justify-end pe-[95px] pt-3">
+              <div className="flex items-end justify-end pe-[95px] 2xl:pe-[5vw] pt-3 2xl:pt-[1vh]">
                 <button 
                   onClick={handleAboutUsClick}
-                  className="flex items-center justify-center w-[250px] h-[60px] read-more-button font-bold text-xl px-8 py-3 rounded-full flex items-center space-x-2"
+                  className="flex items-center justify-center w-[250px] 2xl:w-[18svw] h-[60px] 2xl:h-[7vh] read-more-button font-bold  px-8 2xl:px-[1.2vw] py-3 2xl:py-[1.3vh] rounded-full flex items-center space-x-2"
                 >
-                  <img src={shining} alt="shining" className="w-6 h-6" />
-                  <span className="read-more-text text-lg">Chi Tiết</span>
+                  <img src={shining} alt="shining" className="w-6 h-6 2xl:w-[1.6vw] 2xl:h-[1.6vw]" />
+                  <span className="read-more-text text-lg 2xl:text-2xl">Chi Tiết</span>
                 </button>
               </div>
             </div>
@@ -301,7 +300,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-black/40"></div>
 
           {/* LEFT: Text content với animation từ dưới lên */}
-          <div className="absolute left-[90px] top-[350px] z-10 text-white w-[30%]">
+          <div className="absolute left-[90px] top-[350px] lg:left-[6vw] lg:top-[52vh] 2xl:left-[8vw] 2xl:top-[55vh] z-10 text-white w-[30%] lg:w-[30vw] 2xl:w-[34vw]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
@@ -309,33 +308,33 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -50 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="space-y-6"
+                className="space-y-6 lg:space-y-6 2xl:space-y-8"
               >
                 {/* Small horizontal line */}
-                <div className="w-8 h-px bg-white mb-2"></div>
+                <div className="w-8 lg:w-9 2xl:w-10 h-px bg-white mb-2 lg:mb-2 2xl:mb-3"></div>
 
                 {/* Small title */}
-                <h2 className="hero-small-title text-xl font-semibold text-white/90 mb-4">
+                <h2 className="hero-small-title text-xl lg:text-xl 2xl:text-2xl font-semibold text-white/90 mb-3 lg:mb-4 2xl:mb-5">
                   Rừng
                 </h2>
 
                 {/* Main titles */}
                 <h1
-                  className="hero-main-title text-4xl  leading-tight mb-2 text-white"
+                  className="hero-main-title text-3xl lg:text-4xl 2xl:text-6xl leading-tight mb-2 lg:mb-3 2xl:mb-4 text-white"
                   style={{ fontFamily: "Montserrat, Inter, Arial, sans-serif" }}
                 >
                   {slideContents[currentIndex].bigTitle1}
                 </h1>
 
                 {/* Description */}
-                <p className="hero-description text-xs max-w-full text-white/90 mb-8 leading-relaxed">
+                <p className="hero-description text-xs lg:text-sm 2xl:text-xl max-w-full lg:max-w-[30vw] 2xl:max-w-[33vw] text-white/90 mb-8 lg:mb-9 2xl:mb-10 leading-relaxed">
                   {slideContents[currentIndex].description}
                 </p>
 
                 {/* Button */}
                 <button 
                   onClick={handleReadMoreClick}
-                  className="hero-button border-1 border-white/80 rounded-[13px] px-7.5 py-2.5 hover:bg-white/10 transition-all duration-300 text-white text-xs uppercase cursor-pointer"
+                  className="hero-button border-1 border-white/80 rounded-[13px] lg:rounded-[14px] 2xl:rounded-[16px] px-7.5 lg:px-8.5 2xl:px-10 py-2.5 lg:py-2.5 2xl:py-3 hover:bg-white/10 transition-all duration-300 text-white text-xs lg:text-sm 2xl:text-sm uppercase cursor-pointer"
                 >
                   {slideContents[currentIndex].buttonText}
                 </button>
@@ -345,11 +344,10 @@ export default function HomePage() {
 
           {/* RIGHT: Clickable Gallery Images - Circular Carousel */}
           <div
-            className="absolute right-2 bottom-30 overflow-visible"
-            style={{ width: "730px" }}
+            className="absolute right-2 lg:right-[2vw] 2xl:right-[2vw] bottom-30 lg:bottom-[12.5vh] 2xl:bottom-[13vh] overflow-visible w-[730px] lg:w-[45vw] 2xl:w-[45vw]"
           >
             <motion.div
-              className="flex gap-6"
+              className="flex gap-6 lg:gap-[1.5vw] 2xl:gap-[1.6vw]"
               key={currentIndex}
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: -137 }}
@@ -365,7 +363,7 @@ export default function HomePage() {
                   src={item.image}
                   alt={`Gallery ${item.originalIndex + 1}`}
                   onClick={() => handleImageClick(item.originalIndex)}
-                  className={`cursor-pointer w-[250px] h-[350px] object-cover rounded-2xl border-2 shadow-lg transition-all duration-300 flex-shrink-0 ${
+                  className={`cursor-pointer w-[250px] lg:w-[16.5vw] 2xl:w-[16vw] h-[350px] lg:h-[23vw] 2xl:h-[22.5vw] object-cover rounded-2xl border-2 shadow-lg transition-all duration-300 flex-shrink-0 ${
                     item.originalIndex === currentIndex
                       ? "border-white shadow-2xl"
                       : "border-white/30 hover:scale-105 hover:border-white/60"
@@ -381,7 +379,7 @@ export default function HomePage() {
           </div>
 
           {/* Progress indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-3">
+          <div className="absolute bottom-8 lg:bottom-9 2xl:bottom-10 left-1/2 transform -translate-x-1/2 flex gap-3 lg:gap-3.5 2xl:gap-4">
             {images.map((_, i) => (
               <motion.div
                 key={i}
@@ -397,11 +395,11 @@ export default function HomePage() {
         </section>
 
         {/* Connect With Us Section */}
-        <section className="p-26  bg-white">
-          <div className="text-center mb-3">
+        <section className="p-26 lg:px-[6vw] lg:py-[15vh] 2xl:px-[6vw] 2xl:py-[15vh] bg-white">
+          <div className="text-center mb-3 lg:mb-[4vh] 2xl:mb-[4vh]">
             <div className="relative">
               <div className="w-full h-px bg-black absolute top-1/3 transform -translate-y-1/2"></div>
-              <h2 className="text-[2.65rem] font-krub font-bold mb-8 relative z-10 bg-white px-8 inline-block">
+              <h2 className="text-[2.65rem] lg:text-5xl 2xl:text-7xl font-krub font-bold mb-8 lg:mb-[3vh] 2xl:mb-[4vh] relative z-10 bg-white px-8 lg:px-[2vw] inline-block">
                 <span className="text-black"> KẾT NỐI </span>
                 <span className="text-[#d68c45]">VỚI</span>
                 <span className="text-black"> </span>
@@ -410,32 +408,32 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="flex justify-center gap-[75px]">
+          <div className="flex justify-center gap-[75px] lg:gap-[4vw] 2xl:gap-[4vw]">
             {/* Sponsor a Tree */}
-            <div className="relative rounded-[20px] overflow-hidden group cursor-pointer w-[330px] h-[330px]">
+            <div className="relative rounded-[30px] overflow-hidden group cursor-pointer w-[330px] h-[330px] lg:w-[22vw] lg:h-[22vw] 2xl:w-[23.5vw] 2xl:h-[23.5vw]">
               <img
                 src={sponsorTree}
                 alt="Sponsor a Tree"
-                className="w-[330px] h-[330px] object-cover transition-transform duration-300 group-hover:scale-110"
+                className="w-[330px] h-[330px] lg:w-[22vw] lg:h-[22vw] 2xl:w-[23.5vw] 2xl:h-[23.5vw] object-cover transition-transform duration-300 group-hover:scale-110"
               />
               {/* Default title - always visible */}
               <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                <h3 className="text-xl font-krub font-semibold text-white drop-shadow-lg">
+                <h3 className="text-xl lg:text-xl 2xl:text-3xl font-krub font-semibold text-white drop-shadow-lg">
                   SPONSOR A TREE
                 </h3>
               </div>
               {/* Hover overlay - only visible on hover */}
               <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="text-center text-white">
-                  <h3 className="text-xl font-krub font-semibold mb-2">
+                  <h3 className="text-xl lg:text-xl 2xl:text-3xl font-krub font-semibold mb-2">
                     SPONSOR A TREE
                   </h3>
-                  <p className="text-sm  mb-4 text-gray-200">
+                  <p className="text-sm lg:text-sm 2xl:text-md mb-4 text-gray-200">
                     One tap. One tree. One real impact.
                   </p>
                   <button 
                     onClick={handleSponsorTreeClick}
-                    className="border-1 border-white rounded-[15px] px-7 py-2 text-white hover:bg-white/10 transition-colors cursor-pointer"
+                    className="border-1 border-white rounded-[15px] px-7 py-2 text-white hover:bg-white/10 transition-colors cursor-pointer text-sm lg:text-sm 2xl:text-md"
                   >
                     GET INVOLVED
                   </button>
@@ -444,30 +442,30 @@ export default function HomePage() {
             </div>
 
             {/* Become a Sponsor */}
-            <div className="relative rounded-[20px] overflow-hidden group cursor-pointer w-[330px] h-[330px]">
+            <div className="relative rounded-[30px] overflow-hidden group cursor-pointer w-[330px] h-[330px] lg:w-[22vw] lg:h-[22vw] 2xl:w-[23.5vw] 2xl:h-[23.5vw]">
               <img
                 src={becomeSponsor}
                 alt="Become a Sponsor"
-                className="w-[330px] h-[330px] object-cover transition-transform duration-300 group-hover:scale-110"
+                className="w-[330px] h-[330px] lg:w-[22vw] lg:h-[22vw] 2xl:w-[23.5vw] 2xl:h-[23.5vw] object-cover transition-transform duration-300 group-hover:scale-110"
               />
               {/* Default title - always visible */}
               <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                <h3 className="text-xl font-krub font-semibold text-white drop-shadow-lg">
+                <h3 className="text-xl lg:text-xl 2xl:text-3xl font-krub font-semibold text-white drop-shadow-lg">
                   BECOME A SPONSOR
                 </h3>
               </div>
               {/* Hover overlay - only visible on hover */}
               <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="text-center text-white">
-                  <h3 className="text-xl font-krub font-semibold mb-2">
+                  <h3 className="text-xl lg:text-xl 2xl:text-3xl font-krub font-semibold mb-2">
                     BECOME A SPONSOR
                   </h3>
-                  <p className="text-sm mb-4 text-gray-200">
+                  <p className="text-sm lg:text-sm 2xl:text-md mb-4 text-gray-200">
                     Activate Your CSR with Real Impact
                   </p>
                   <button 
                     onClick={handleBecomeSponsorClick}
-                    className="border-1 border-white rounded-[15px] px-7 py-2 text-white hover:bg-white/10 transition-colors cursor-pointer"
+                    className="border-1 border-white rounded-[15px] px-7 py-2 text-white hover:bg-white/10 transition-colors cursor-pointer text-sm lg:text-sm 2xl:text-md"
                   >
                     GET INVOLVED
                   </button>
@@ -476,30 +474,30 @@ export default function HomePage() {
             </div>
 
             {/* For School Education */}
-            <div className="relative rounded-[20px] overflow-hidden group cursor-pointer w-[330px] h-[330px]">
+            <div className="relative rounded-[30px] overflow-hidden group cursor-pointer w-[330px] h-[330px] lg:w-[22vw] lg:h-[22vw] 2xl:w-[23.5vw] 2xl:h-[23.5vw]">
               <img
                 src={schoolEducation}
                 alt="For School Education"
-                className="w-[330px] h-[330px] object-cover transition-transform duration-300 group-hover:scale-110"
+                className="w-[330px] h-[330px] lg:w-[22vw] lg:h-[22vw] 2xl:w-[23.5vw] 2xl:h-[23.5vw] object-cover transition-transform duration-300 group-hover:scale-110"
               />
               {/* Default title - always visible */}
               <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                <h3 className="text-xl font-krub font-semibold text-white drop-shadow-lg">
+                <h3 className="text-xl lg:text-xl 2xl:text-3xl font-krub font-semibold text-white drop-shadow-lg">
                   FOR SCHOOL EDUCATION
                 </h3>
               </div>
               {/* Hover overlay - only visible on hover */}
               <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="text-center text-white">
-                  <h3 className="text-xl font-krub font-semibold mb-2">
+                  <h3 className="text-xl lg:text-xl 2xl:text-3xl font-krub font-semibold mb-2">
                     FOR SCHOOL EDUCATION
                   </h3>
-                  <p className="text-sm mb-4 text-gray-200">
+                  <p className="text-sm lg:text-sm 2xl:text-md mb-4 text-gray-200">
                     Bring Environmental Education to Life
                   </p>
                   <button 
                     onClick={handleSchoolEducationClick}
-                    className="border-1 border-white rounded-[15px] px-7 py-2 text-white hover:bg-white/10 transition-colors cursor-pointer"
+                    className="border-1 border-white rounded-[15px] px-7 py-2 text-white hover:bg-white/10 transition-colors cursor-pointer text-sm lg:text-sm 2xl:text-md"
                   >
                     GET INVOLVED
                   </button>
@@ -509,7 +507,7 @@ export default function HomePage() {
           </div>
         </section>
         {/* Send Us A Leaf Section */}
-        <section className="relative h-[925px] overflow-hidden">
+        <section className="relative h-[925px] lg:h-[90vh] 2xl:h-[90vh] overflow-hidden">
           {/* Background image + overlay */}
           <img
             src={sentUsALeaf}
@@ -519,15 +517,15 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-black/50"></div>
 
           {/* Text bên trái */}
-          <div className="absolute left-[214px] top-1/2 transform -translate-y-1/2 text-white">
+          <div className="absolute left-[214px] lg:left-[10vw] 2xl:left-[12vw] top-1/2 transform -translate-y-1/2 text-white">
             <h2
-              className="text-[4.1rem] font-extrabold"
+              className="text-[4.1rem] lg:text-6xl 2xl:text-8xl font-extrabold"
               style={{ fontFamily: "Pally-Bold, sans-serif" }}
             >
               SEND US A LEAF
             </h2>
             <p
-              className="text-3xl font-krub"
+              className="text-3xl lg:text-3xl 2xl:text-4xl font-krub"
               style={{ fontFamily: "Pally-Regular, sans-serif" }}
             >
               We'd Love to Hear From You.
@@ -535,10 +533,10 @@ export default function HomePage() {
           </div>
 
           {/* Nút FILL FORM */}
-          <div className="absolute right-[25%] top-1/2 transform -translate-y-1/2">
+          <div className="absolute right-[25%] lg:right-[18vw] 2xl:right-[20vw] top-1/2 transform -translate-y-1/2">
             <button
               onClick={toggleForm}
-              className="border-1 border-white rounded-[20px] px-16 py-3.5 text-white font-league-spartan text-lg hover:bg-white/10 transition-colors"
+              className="border-1 border-white rounded-[15px] 2xl:rounded-[20px] px-16 lg:px-[3.5vw] 2xl:px-[4vw] py-3.5 lg:py-[1.1vh] 2xl:py-[1.5vh] text-white font-league-spartan text-lg lg:text-lg 2xl:text-2xl hover:bg-white/10 transition-colors"
             >
               FILL FORM
             </button>
@@ -547,32 +545,32 @@ export default function HomePage() {
           {/* Form hiển thị khi showForm = true */}
           {showForm && (
             <div
-              className="absolute right-[100px] top-[60px] w-[550px] translate-y-20 bg-white/10 backdrop-blur-lg border border-white rounded-2xl p-8 text-white"
+              className="absolute right-[100px] lg:right-[7vw] 2xl:right-[8vw] top-[60px] lg:top-[0vh] 2xl:top-[8vh] w-[550px] lg:w-[36vw] 2xl:w-[36vw] translate-y-20 bg-white/10 backdrop-blur-lg border border-white rounded-2xl p-8 lg:p-[2vw] 2xl:p-[2vw] text-white"
               style={{ fontFamily: "Pally-Regular, sans-serif" }}
             >
               {/* Header: Feedback title + Close button */}
               <div className="flex items-center justify-between mb-8">
                 <div className="flex-1 border-t border-white mr-4"></div>
-                <h3 className="text-2xl font-bold text-white mb-0">Feedback</h3>
+                <h3 className="text-2xl lg:text-2xl 2xl:text-3xl font-bold text-white mb-0">Feedback</h3>
                 <button
                   onClick={toggleForm}
-                  className="ml-4 text-3xl font-bold focus:outline-none"
+                  className="ml-4 text-3xl lg:text-3xl 2xl:text-4xl font-bold focus:outline-none"
                   style={{ lineHeight: 1 }}
                 >
                   ×
                 </button>
               </div>
 
-              <form className="space-y-8">
+              <form className="space-y-8 lg:space-y-[2vh] 2xl:space-y-[2.2vh]">
                 <div>
-                  <label className="block mb-2 text-md text-white">
+                  <label className="block mb-2 text-md lg:text-md2xl:text-xl text-white">
                     Your Name :
                   </label>
                   <div className="relative">
                     <input
                       type="text"
                       placeholder="Enter your name"
-                      className="w-full bg-transparent py-2 px-1 focus:outline-none text-sm border-none"
+                      className="w-full bg-transparent py-2 lg:py-[1vh] 2xl:py-[1.1vh] px-1 lg:px-[0.5vw] 2xl:px-[0.6vw] focus:outline-none text-sm lg:text-sm 2xl:text-lg border-none"
                       style={{
                         fontFamily: "Pally-Regular, sans-serif",
                         fontStyle: "italic",
@@ -582,14 +580,14 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div>
-                  <label className="block mb-2 text-md text-white">
+                  <label className="block mb-2 text-md lg:text-md2xl:text-xl text-white">
                     Your contact:
                   </label>
                   <div className="relative">
                     <input
                       type="text"
                       placeholder="Enter your contact information"
-                      className="w-full bg-transparent py-2 px-1 focus:outline-none text-sm border-none"
+                      className="w-full bg-transparent py-2 lg:py-[1vh] 2xl:py-[1.1vh] px-1 lg:px-[0.5vw] 2xl:px-[0.6vw] focus:outline-none text-sm lg:text-sm 2xl:text-lg border-none"
                       style={{
                         fontFamily: "Pally-Regular, sans-serif",
                         fontStyle: "italic",
@@ -599,7 +597,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div>
-                  <label className="block mb-2 text-md text-white">
+                  <label className="block mb-2 text-md lg:text-md2xl:text-xl text-white">
                     Can you share us your thoughts:
                   </label>
                   <div className="relative">
@@ -608,21 +606,21 @@ export default function HomePage() {
                       value={feedbackText}
                       onChange={(e) => setFeedbackText(e.target.value)}
                       placeholder=""
-                      className="w-full bg-transparent py-2 px-1 focus:outline-none resize-none text-sm border-none"
+                      className="w-full bg-transparent py-2 lg:py-[1vh] 2xl:py-[1.1vh] px-1 lg:px-[0.5vw] 2xl:px-[0.6vw] focus:outline-none resize-none text-sm lg:text-sm 2xl:text-lg border-none"
                       style={{
                         fontFamily: "Pally-Regular, sans-serif",
                         fontStyle: "italic",
                       }}
                     />
                     {!feedbackText && (
-                      <div className="absolute bottom-2 left-1 text-sm text-white/60 italic pointer-events-none" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <div className="absolute bottom-2 left-1 text-sm lg:text-sm 2xl:text-lg text-white/60 italic pointer-events-none" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                         Share your thoughts with us...
                       </div>
                     )}
                     <div className="absolute bottom-0 left-0 right-0 h-px bg-white"></div>
                   </div>
                 </div>
-                <div className="flex items-center space-x-3 mt-2">
+                <div className="flex items-center space-x-3 lg:space-x-[1vw] mt-2">
                   <input
                     type="checkbox"
                     id="public"
@@ -630,7 +628,7 @@ export default function HomePage() {
                   />
                   <label
                     htmlFor="public"
-                    className="text-md text-[#d68c45]"
+                    className="text-md lg:text-md 2xl:text-xl text-[#d68c45]"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     May we share your feedback publicly?
@@ -639,7 +637,7 @@ export default function HomePage() {
                 <div className="flex justify-center mt-6">
                   <button
                     type="submit"
-                    className="w-[170px] h-[45px] border border-white rounded-[18px] text-lg font-bold hover:bg-white/20 transition-colors text-white"
+                    className="w-[170px] lg:w-[13vw] 2xl:w-[12vw] h-[45px] lg:h-[6vh] 2xl:h-[5.5vh] border border-white rounded-[18px] text-lg lg:text-xl 2xl:text-2xl font-bold hover:bg-white/20 transition-colors text-white"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     SEND

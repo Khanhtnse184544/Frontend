@@ -41,19 +41,19 @@ export default function Header() {
 
   return (
     <header
-      className="w-full bg-black py-0 px-16 flex items-center justify-between select-none font-sans h-[55px]"
+      className="w-full bg-black py-0 px-16 2xl:px-32 flex items-center justify-between select-none font-sans h-[55px] 2xl:h-[72px]"
       style={{ fontFamily: "Pally-Regular, sans-serif" }}
     >
       {/* Left: Social icons + Contact */}
-      <div className="flex items-center gap-5 pl-8">
+      <div className="flex items-center gap-5 2xl:gap-6 pl-8 2xl:pl-12">
         <SocialLinks 
-          iconSize="w-4 h-4"
+          iconSize="w-4 h-4 2xl:w-5 2xl:h-5"
           iconColor="text-white"
           hoverColor="hover:text-[#D68C45]"
         />
         <button 
           onClick={handleContactClick}
-          className="ml-4 text-md text-white tracking-wide hover:text-[#D68C45] transition-colors cursor-pointer"
+          className="ml-4 text-md 2xl:text-lg text-white tracking-wide hover:text-[#D68C45] transition-colors cursor-pointer"
         >
           CONTACT US
         </button>
@@ -61,24 +61,24 @@ export default function Header() {
       {/* Center: empty */}
       <div className="flex-1"></div>
       {/* Right: Donate, Login, Bell */}
-      <div className="flex items-center gap-0 pr-8">
+      <div className="flex items-center gap-0 pr-8 2xl:pr-12">
         <button 
           onClick={handleDonateClick}
-          className={`px-10 py-2 bg-[#d68c45] rounded-none text-white text-md hover:brightness-110 transition h-[55px]`}
+          className={`px-10 2xl:px-12 py-2 bg-[#d68c45] rounded-none text-white text-md 2xl:text-lg hover:brightness-110 transition h-[55px] 2xl:h-[72px]`}
         >
           DONATE
         </button>
         <button 
           onClick={handleLoginClick}
-          className={`flex items-center gap-2 px-10 py-2 text-white text-md h-[55px] border-l border-[#222]` }
+          className={`flex items-center gap-2 px-10 2xl:px-12 py-2 text-white text-md 2xl:text-lg h-[55px] 2xl:h-[72px] border-l border-[#222]` }
         >
-          <FaUser className="w-4 h-4" /> LOGIN
+          <FaUser className="w-4 h-4 2xl:w-5 2xl:h-5" /> LOGIN
         </button>
         <div className="relative flex items-center">
-          <button className="bg-[#d68c45]  rounded-none h-[55px] w-[70px] flex items-center justify-center">
-            <FaBell className="w-5 h-5 text-white" />
+          <button className="bg-[#d68c45]  rounded-none h-[55px] 2xl:h-[72px] w-[70px] 2xl:w-[84px] flex items-center justify-center">
+            <FaBell className="w-5 h-5 2xl:w-6 2xl:h-6 text-white" />
           </button>
-          <span className="absolute top-1 right-2 bg-red-600 text-[10px] rounded-full px-1 text-white ">
+          <span className="absolute top-1 2xl:top-2 right-2 2xl:right-3 bg-red-600 text-[10px] 2xl:text-[11px] rounded-full px-1 text-white ">
             0
           </span>
         </div>
