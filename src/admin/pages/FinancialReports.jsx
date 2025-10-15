@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AdminLayout from '../components/AdminLayout';
 import { FaDollarSign, FaArrowUp, FaDownload } from 'react-icons/fa';
+import logo from '../../assets/homepage/logo.png';
 
 export default function FinancialReports() {
   const [selectedCategory, setSelectedCategory] = useState('Member Sponsor');
@@ -38,7 +39,7 @@ export default function FinancialReports() {
     <AdminLayout>
       <div className="space-y-6">
         {/* Page Title */}
-        <h1 className="text-6xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+        <h1 className="text-5xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
           Financial Reports
         </h1>
 
@@ -48,22 +49,21 @@ export default function FinancialReports() {
             {/* Total Amount Card */}
             <div className="bg-[#2C2C2C] rounded-2xl p-6 relative overflow-hidden" style={{ border: '2px solid #8B5CF6' }}>
               {/* Dollar Icon */}
-              <FaDollarSign className="text-yellow-400 text-2xl mb-4" />
-              
-              {/* Plant with Coins Illustration */}
-              <div className="absolute top-4 right-4 text-yellow-400">
-                <div className="text-2xl">🌱</div>
-                <div className="text-xs text-center">💰</div>
+              <FaDollarSign className="text-white text-xl mb-4" />  
+                
+              <div className="absolute top-2 right-5">
+              <img src={logo} alt="Logo" className="w-20 h-20" />
               </div>
+              
 
               <div className="text-white">
-                <h3 className="text-2xl font-bold mb-2" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                <h3 className="text-2xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
                   Total Amount
                 </h3>
                 <p className="text-sm mb-4" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                   E.C.O Collaborate
                 </p>
-                <p className="text-3xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                <p className="text-2xl font-light" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                   2.121.109.043 vnđ
                 </p>
               </div>
@@ -75,7 +75,7 @@ export default function FinancialReports() {
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.label)}
-                  className={`w-full py-4 px-6 rounded-xl text-left transition-colors ${
+                  className={`w-full py-2 px-6 rounded-xl text-left transition-colors ${
                     selectedCategory === category.label
                       ? 'bg-[#2C2C2C] text-white'
                       : 'bg-white text-black border border-gray-200 hover:bg-gray-50'
@@ -89,59 +89,59 @@ export default function FinancialReports() {
           </div>
 
           {/* Right Panel */}
-          <div className="flex-1 bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+          <div className="flex-1  px-6">
             {/* Header with Export Button */}
-            <div className="flex justify-between items-start mb-8">
+            <div className="flex justify-between items-start">
               <div>
-                <h2 className="text-3xl font-bold text-black mb-2" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                <h2 className="text-2xl font-bold text-black mb-2" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
                   Total Revenue Per Week
                 </h2>
                 <div className="flex items-center gap-4">
-                  <p className="text-2xl font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                  <p className="text-xl font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
                     349.648.920 vnđ
                   </p>
                   <div className="flex items-center gap-1 text-green-600">
-                    <FaArrowUp className="w-4 h-4" />
-                    <span className="text-sm font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
-                      2.1% vs last week
+                    <FaArrowUp className="w-3 h-3" />
+                    <span className="text-xs font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      2.1% <span className="text-xs text-gray-500 font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}>vs last week</span>
                     </span>
                   </div>
                 </div>
-                <p className="text-gray-600 mt-2" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                <p className="text-gray-500 mt-6 text-sm " style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                   Sales from 1-12 Dec, 2020
                 </p>
               </div>
               
-              <button className="bg-[#2C2C2C] text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-gray-700 transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
-                <FaDownload className="w-4 h-4" />
+              <button className="bg-[#434343] text-white px-5 py-1 rounded-lg flex items-center gap-2 hover:bg-[#2C2C2C] transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                <FaDownload className="w-3 h-3" />
                 Export
               </button>
             </div>
 
             {/* Chart */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               {/* Chart Container */}
-              <div className="h-80 bg-gray-50 rounded-lg p-6">
-                <div className="h-full flex items-end justify-between gap-2">
+              <div className="h-80 bg-gray-50 rounded-lg px-6">
+                <div className="h-full flex items-end justify-between gap-4">
                   {chartData.map((data, index) => (
                     <div key={index} className="flex flex-col items-center gap-2 flex-1">
                       {/* Bars */}
                       <div className="flex items-end gap-1 w-full justify-center">
                         {/* Current Period Bar (Orange) */}
                         <div
-                          className="bg-orange-500 rounded-t"
+                          className="bg-[#D68C45] rounded-t"
                           style={{
                             height: `${(data.current / maxValue) * 200}px`,
-                            width: '40%',
+                            width: '30%',
                             minHeight: '4px'
                           }}
                         ></div>
                         {/* Previous Period Bar (Gray) */}
                         <div
-                          className="bg-gray-400 rounded-t"
+                          className="bg-gray-200 rounded-t"
                           style={{
                             height: `${(data.previous / maxValue) * 200}px`,
-                            width: '40%',
+                            width: '30%',
                             minHeight: '4px'
                           }}
                         ></div>
@@ -156,15 +156,15 @@ export default function FinancialReports() {
               </div>
 
               {/* Chart Legend */}
-              <div className="flex justify-center gap-6">
+              <div className="flex justify-end pe-20 gap-6">
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-orange-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-[#D68C45] rounded-full"></div>
                   <span className="text-sm text-gray-600" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                     Last 6 days
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-gray-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
                   <span className="text-sm text-gray-600" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                     Last Week
                   </span>
@@ -172,33 +172,7 @@ export default function FinancialReports() {
               </div>
             </div>
 
-            {/* Summary Cards */}
-            <div className="grid grid-cols-3 gap-4 mt-8">
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <h4 className="text-sm font-medium text-gray-600 mb-2" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
-                  This Week
-                </h4>
-                <p className="text-xl font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
-                  {formatCurrency(349648920)}
-                </p>
-              </div>
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <h4 className="text-sm font-medium text-gray-600 mb-2" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
-                  Last Week
-                </h4>
-                <p className="text-xl font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
-                  {formatCurrency(342500000)}
-                </p>
-              </div>
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <h4 className="text-sm font-medium text-gray-600 mb-2" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
-                  Growth
-                </h4>
-                <p className="text-xl font-bold text-green-600" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
-                  +2.1%
-                </p>
-              </div>
-            </div>
+           
           </div>
         </div>
       </div>

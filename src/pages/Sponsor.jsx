@@ -72,13 +72,14 @@ export default function Sponsor() {
            <div className=" bg-white/40 backdrop-blur-md rounded-2xl px-10 py-7 shadow-lg w-4/9 border border-white/60 mt-10 me-10">
             <div className="mb-6 text-center">
               <p className="text-lg" style={{ fontFamily: 'Pally-Regular, sans-serif' }}>
-                A small tree can transform an entire ecosystem.
+              Bắt đầu hành trình xanh 
               </p>
               <h3 className="text-5xl font-bold text-[#D68C45]" style={{ fontFamily: 'Pally-Bold, sans-serif' }}>
                 Be the change-maker
               </h3>
               <p className="text-lg" style={{ fontFamily: 'Pally-Regular, sans-serif' }}>
-                Every tree you sponsor is a green lung for the future.
+              Hành động nhỏ, đổi thay lớn.
+
               </p>
             </div>
 

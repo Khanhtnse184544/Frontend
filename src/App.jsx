@@ -6,10 +6,7 @@ import Sponsor from "./pages/Sponsor";
 import BecomeSponsor from "./pages/BecomeSponsor";
 import ForSchoolEducation from "./pages/ForSchoolEducation";
 import OurPartner from "./pages/OurPartner";
-import SemiDeciduousForest from "./pages/SemiDeciduousForest";
-import BambooForest from "./pages/BambooForest";
-import Wetland from "./pages/Wetland";
-import MixedHardwood from "./pages/MixedHardwood";
+import ForestDetail from "./pages/ForestDetail";
 import News from "./pages/News";
 import OurProject from "./pages/OurProject";
 import OurGame from "./pages/OurGame";
@@ -17,7 +14,6 @@ import AuthWrapper from "./features/auth/AuthWrapper";
 import AdminDashboard from "./admin/pages/AdminDashboard";
 import UserManagement from "./admin/pages/UserManagement";
 import CSRManagement from "./admin/pages/CSRManagement";
-import PartnerVoucher from "./admin/pages/PartnerVoucher";
 import FinancialReports from "./admin/pages/FinancialReports";
 import CustomerSupport from "./admin/pages/CustomerSupport";
 import Logs from "./admin/pages/Logs";
@@ -33,10 +29,11 @@ function App() {
       <Route path="/become-sponsor" element={<BecomeSponsor />} />
       <Route path="/for-school-education" element={<ForSchoolEducation />} />
       <Route path="/our-partner" element={<OurPartner />} />
-      <Route path="/semi-deciduous-forest" element={<SemiDeciduousForest />} />
-      <Route path="/bamboo-forest" element={<BambooForest />} />
-      <Route path="/wetland" element={<Wetland />} />
-      <Route path="/mixed-hardwood" element={<MixedHardwood />} />
+      <Route path="/semi-deciduous-forest" element={<ForestDetail />} />
+      <Route path="/bamboo-forest" element={<ForestDetail />} />
+      <Route path="/wetland" element={<ForestDetail />} />
+      <Route path="/mixed-hardwood" element={<ForestDetail />} />
+      <Route path="/forest/:slug" element={<ForestDetail />} />
       <Route path="/news" element={<News />} />
       <Route path="/our-project" element={<OurProject />} />
       <Route path="/our-game" element={<OurGame />} />
@@ -50,7 +47,6 @@ function App() {
       <Route path="/admin" element={<AdminDashboard />} />
       <Route path="/admin/users" element={<UserManagement />} />
       <Route path="/admin/csr" element={<CSRManagement />} />
-      <Route path="/admin/partner" element={<PartnerVoucher />} />
       <Route path="/admin/financial" element={<FinancialReports />} />
       <Route path="/admin/support" element={<CustomerSupport />} />
       <Route path="/admin/logs" element={<Logs />} />

@@ -27,20 +27,15 @@ export default function AboutUs() {
         <div className="w-full ">
           <div className="text-center ">
             {/* Title */}
-            <h1
-              className="text-[2.7rem] font-extrabold mb-[-0.5rem]"
-              style={{ fontFamily: "Pally-Bold, sans-serif" }}
-            >
-              ABOUT US
-            </h1>
+           
 
             {/* Subtitle */}
             <h2
-              className="text-[3.5rem] font-bold text-[#d68c45]"
-              style={{ fontFamily: "Pally-Bold, sans-serif" }}
+              className="text-[3.5rem] font-bold"
+              style={{ fontFamily: "Montserrat, Inter, Arial, sans-serif" }}
             >
-              ECOLOGICAL <span className="text-black">CONSERVATION</span>{" "}
-              OPERATION
+              Công ty TNHH <span className="text-[#d68c45]">giải pháp xanh bền vững E.C.O
+              </span>
             </h2>
 
             {/* Five Images Row - Centered with different sizes */}
@@ -100,13 +95,14 @@ export default function AboutUs() {
                 className="text-md text-gray-800 leading-relaxed"
                 style={{ fontFamily: "Pally-Regular, sans-serif" }}
               >
-                Connecting people and nature through technology and emotion.
+                Gắn kết con người với thiên nhiên thông qua công nghệ và cảm xúc.
               </p>
               <p
                 className="text-md text-gray-800 leading-relaxed"
                 style={{ fontFamily: "Pally-Regular, sans-serif" }}
               >
-                Every digital action leads to a real tree, a real impact.
+                Mỗi hành động số tạo nên một mầm xanh thật, một giá trị thật.
+
               </p>
 
               {/* Social Media Icons */}

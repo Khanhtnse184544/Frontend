@@ -13,8 +13,8 @@ export default function OurProject() {
   const navigate = useNavigate();
 
   const handleExploreClick = () => {
-    navigate('/our-game');
-    setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 200);
+    navigate("/our-game");
+    setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 200);
   };
 
   return (
@@ -61,8 +61,7 @@ export default function OurProject() {
                     className="text-white text-xl font-bold"
                     style={{ fontFamily: "Pally-Bold, sans-serif" }}
                   >
-                    A digital platform bridging virtual actions and real-world
-                    impact.
+                    Nền tảng số - Cầu nối giữa hành động ảo và tác động thực tế.
                   </p>
                 </div>
               </div>
@@ -94,10 +93,10 @@ export default function OurProject() {
 
                 <div className="flex items-center gap-3">
                   <h2
-                    className="text-5xl font-bold text-[#D68C45]"
+                    className="text-5xl font-bold text-[#D68C45] py-4"
                     style={{ fontFamily: "Pally-Bold, sans-serif" }}
                   >
-                    OUR PROJECT
+                    DỰ ÁN CỦA CHÚNG TÔI
                   </h2>
                 </div>
 
@@ -105,32 +104,26 @@ export default function OurProject() {
                   className="text-xl leading-relaxed"
                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
-                  <span className="font-bold">C.H.A.M</span> is a pioneering
-                  initiative blending{" "}
+                  <span className="font-bold">C.H.A.M</span> là sáng kiến tiên
+                  phong kết hợp{" "}
                   <span className="font-bold">
-                    technology, environmental conservation, and digital
-                    engagement,
+                    công nghệ, phục hồi sinh thái và tương tác số,
                   </span>{" "}
-                  operated by the social enterprise{" "}
-                  <span className="font-bold">
-                    E.C.O (Ecological Conservation Operation).
-                  </span>
+                  được vận hành bởi doanh nghiệp xã hội{" "}
+                  <span className="font-bold">E.C.O.</span>
                 </p>
 
                 <p
                   className="text-xl leading-relaxed"
                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
-                  What <span className="font-bold">makes C.H.A.M unique</span>{" "}
-                  is that every virtual tree planted in the app results in a
-                  real tree being planted in Cat Tien National Park – one of
-                  Vietnam's most valuable nature reserves. This is about real
-                  trees, real land, and real life, supported by user engagement
-                  and CSR sponsorships.
+                  Đây là hành trình biến cam kết thành hành động, tạo nên những
+                  cánh rừng thật, là kết quả từ niềm tin của cộng đồng và sự
+                  đồng hành chiến lược của các doanh nghiệp CSR.
                 </p>
 
                 <div className="flex justify-end pe-15 mt-8">
-                  <button 
+                  <button
                     onClick={handleExploreClick}
                     className="bg-white border-3 border-[#D68C45] text-[#D68C45] text-xl px-18 py-3 rounded-[20px] font-bold hover:bg-[#D68C45] hover:text-white transition-all duration-300"
                   >
@@ -141,8 +134,6 @@ export default function OurProject() {
             </div>
           </div>
         </section>
-
-           
 
         {/* Additional Project Details */}
         <section className="pt-20">
@@ -165,180 +156,179 @@ export default function OurProject() {
                 className="text-xl leading-relaxed mb-8"
                 style={{ fontFamily: "Pally-Regular, sans-serif" }}
               >
-                C.H.A.M is a pioneering initiative by E.C.O that blends
-                technology, conservation, and digital engagement. Every virtual
-                tree planted in the app leads to a real tree planted in Cát Tiên
-                National Park, creating real-world impact through user
-                participation and CSR partnerships.
+                Dự án C.H.A.M là sáng kiến tiên phong của E.C.O, kết hợp công
+                nghệ, bảo tồn và tương tác số. Mỗi cây ảo được trồng trong ứng
+                dụng sẽ được hiện thực hóa thành cây thật, tạo ra tác động thực
+                tế thông qua sự chung tay của người chơi. Điểm độc đáo là cây ảo
+                được trồng trong nền tảng C.H.A.M sẽ được quy đổi thành cây
+                thật.
               </p>
-
-              
             </div>
           </div>
         </section>
       </section>
-           {/* Green Impact Section */}
-           <section>
-          <div className="container mx-auto -mt-20 px-6">
-            <div className="grid grid-cols-5 gap-10 items-center">
-              {/* Left Column - Image */}
-              <div className="col-span-2 -ms-25">
-                <img
-                  src={greenImpactImage}
-                  alt="Trees growing on floating landmass"
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-
-              {/* Right Column - Content */}
-              <div className="col-span-3 space-y-6 pe-15">
-                <h2
-                  className="text-3xl font-bold text-[#D68C45]"
-                  style={{ fontFamily: "Pally-Bold, sans-serif" }}
-                >
-                  Green Impact – CSR & Environmental Education
-                </h2>
-
-                <div className="space-y-6">
-                  <p
-                    className="text-xl text-black leading-relaxed"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                  >
-                    C.H.A.M partners directly with Cát Tiên National Park to run sustainable reforestation programs, planting native trees chosen for ecological balance and maintained by forestry experts.
-                  </p>
-
-                  <p
-                    className="text-xl text-black leading-relaxed"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                  >
-                    Beyond planting, C.H.A.M offers eco-tours and school workshops to build youth awareness and action.
-                  </p>
-
-                  <p
-                    className="text-xl text-black leading-relaxed"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                  >
-                    Corporate sponsors can join CSR campaigns, benefiting from transparent reporting and authentic storytelling to enhance both environmental impact and brand value.
-                  </p>
-                </div>
-              </div>
-                        </div>
-          </div>
-        </section>
-
-        {/* Gamified Experience Section */}
-        <section className="pb-20 -mt-20 relative">
-          
-
-          {/* Content */}
-          <div className="relative z-10 container mx-auto px-6">
-            <div className="grid grid-cols-5 gap-10 items-center">
-              {/* Left Column - Content */}
-              <div className="col-span-3 space-y-6 ps-15">
-                <h2
-                  className="text-3xl font-bold text-[#D68C45]"
-                  style={{ fontFamily: "Pally-Bold, sans-serif" }}
-                >
-                  Gamified Experience - Where Fun Meets Responsibility
-                </h2>
-
-                <div className="space-y-6">
-                  <p
-                    className="text-xl text-black leading-relaxed"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                  >
-                    C.H.A.M is a commitment to nature through play. Players grow digital trees, complete missions, join communities, and build virtual forests.
-                  </p>
-
-                  <p
-                    className="text-xl text-black leading-relaxed"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                  >
-                    The app combines gamification, AI, and real-time weather data to deliver engaging, personalized experiences that encourage sustainable habits.
-                  </p>
-
-                  <p
-                    className="text-xl text-black leading-relaxed"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                  >
-                    With a freemium model, core features stay free while premium upgrades—like rare trees, forest themes, eco-tour tickets, and special tools—are available through in-app purchases.
-                  </p>
-                </div>
-              </div>
-
-              {/* Right Column - Visual Space */}
-              <div className="col-span-2 -me-25">
+      {/* Green Impact Section */}
+      <section>
+        <div className="container mx-auto -mt-20 px-6">
+          <div className="grid grid-cols-5 gap-10 items-center">
+            {/* Left Column - Image */}
+            <div className="col-span-2 -ms-25">
               <img
-                  src={gamifiedImage}
-                  alt="Trees growing on floating landmass"
-                  className="w-full h-full object-contain"
-                />
+                src={greenImpactImage}
+                alt="Trees growing on floating landmass"
+                className="w-full h-auto object-contain"
+              />
+            </div>
+
+            {/* Right Column - Content */}
+            <div className="col-span-3 space-y-6 pe-15">
+              <h2
+                className="text-3xl font-bold text-[#D68C45]"
+                style={{ fontFamily: "Pally-Bold, sans-serif" }}
+              >
+                Tác động Xanh – CSR & Giáo dục Môi trường
+              </h2>
+
+              <div className="space-y-6">
+                <p
+                  className="text-xl text-black leading-relaxed"
+                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                >
+                  E.C.O triển khai các chương trình tái trồng rừng bền vững, tập
+                  trung vào các giống cây bản địa có giá trị cao trong việc tái
+                  tạo hệ sinh thái và được chăm sóc bởi những người dân địa
+                  phương đã được qua đào tạo.
+                </p>
+
+                <p
+                  className="text-xl text-black leading-relaxed"
+                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                >
+                  Không chỉ trồng cây, E.C.O còn tổ chức các tour du lịch sinh
+                  thái (eco-tour) và workshop tại trường học để xây dựng nhận
+                  thức và thúc đẩy hành động trong giới trẻ.
+                </p>
+
+                <p
+                  className="text-xl text-black leading-relaxed"
+                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                >
+                  Các doanh nghiệp có thể đồng hành trong các chiến dịch CSR,
+                  hưởng lợi từ hệ thống báo cáo minh bạch và những câu chuyện
+                  chân thực, giúp nâng cao tác động môi trường lẫn giá trị
+                  thương hiệu.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gamified Experience Section */}
+      <section className="pb-20 -mt-20 relative">
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-6">
+          <div className="grid grid-cols-5 gap-10 items-center">
+            {/* Left Column - Content */}
+            <div className="col-span-3 space-y-6 ps-15">
+              <h2
+                className="text-3xl font-bold text-[#D68C45] text-center"
+                style={{ fontFamily: "Pally-Bold, sans-serif" }}
+              >
+                Trải nghiệm Game hóa - Nơi Niềm vui song hành cùng Trách nhiệm
+              </h2>
+
+              <div className="space-y-6">
+                <p
+                  className="text-xl text-black leading-relaxed"
+                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                >
+                  Ứng dụng trò chơi điện tử C.H.A.M là một cam kết với thiên
+                  nhiên thông qua trò chơi. Người chơi sẽ trồng cây kỹ thuật số,
+                  hoàn thành nhiệm vụ, tham gia cộng đồng và xây dựng những khu
+                  rừng ảo.
+                </p>
+
+                <p
+                  className="text-xl text-black leading-relaxed"
+                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                >
+                  Ứng dụng kết hợp cơ chế game hóa và dữ liệu thời tiết theo
+                  thời gian thực để mang lại những trải nghiệm cá nhân hóa hấp dẫn,
+                  khuyến khích tạo thói quen bền vững.
+                </p>
               </div>
             </div>
 
-            
-                      </div>
-          </section>
-
-        {/* Join the Movement Section */}
-        <section className="p-42 relative -mt-40">
-          {/* Background Image */}
-          <div className="absolute inset-0 z-0">
-            <img
-              src={joinImage}
-              alt="Lush forest landscape background"
-              className="w-full h-full object-cover"
-            />
+            {/* Right Column - Visual Space */}
+            <div className="col-span-2 -me-25">
+              <img
+                src={gamifiedImage}
+                alt="Trees growing on floating landmass"
+                className="w-full h-full object-contain"
+              />
+            </div>
           </div>
+        </div>
+      </section>
 
-          {/* Content */}
-          <div className="relative z-10 container mx-auto px-6">
-            <div className="flex justify-center items-start min-h-[60vh]">
-              <div className="  px-12 -mt-20 max-w-4xl text-center ">
-                <h3
-                  className="text-3xl font-bold text-[#D68C45] "
+      {/* Join the Movement Section */}
+      <section className="p-42 relative -mt-40">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={joinImage}
+            alt="Lush forest landscape background"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-6">
+          <div className="flex justify-center items-start min-h-[60vh]">
+            <div className="  px-12 -mt-20 max-w-4xl text-center ">
+              <h3
+                className="text-3xl font-bold text-[#D68C45] "
+                style={{ fontFamily: "Pally-Bold, sans-serif" }}
+              >
+                Cùng tham gia hành trình
+              </h3>
+
+              <div className="">
+                <h2
+                  className="text-xl font-bold text-black"
                   style={{ fontFamily: "Pally-Bold, sans-serif" }}
                 >
-                  Join the Movement
-                </h3>
+                  C.H.A.M không chỉ là một trò chơi. Đó là cả một hành trình.
+                </h2>
 
-                <div className="">
-                  <h2
-                    className="text-xl font-bold text-black"
-                    style={{ fontFamily: "Pally-Bold, sans-serif" }}
-                  >
-                    C.H.A.M is not just a game. It's a movement.
-                  </h2>
+                <p
+                  className="text-xl text-black leading-relaxed"
+                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                >
+                  Một cử chỉ ảo – một cây xanh thật.
+                </p>
 
-                  <p
-                    className="text-xl text-black leading-relaxed"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                  >
-                    A virtual gesture – a real-world tree.
-                  </p>
+                <p
+                  className="text-xl text-black leading-relaxed"
+                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                >
+                  Một hành động nhỏ – một tác động môi trường bền vững.
+                </p>
 
-                  <p
-                    className="text-xl text-black leading-relaxed"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                  >
-                    A small care action – a lasting environmental impact.
-                  </p>
-
-                  <p
-                    className="text-xl text-black leading-relaxed"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                  >
-                    Join the green movement with C.H.A.M – where technology grows forests.
-                  </p>
-                </div>
-
-                
+                <p
+                  className="text-xl text-black leading-relaxed"
+                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                >
+                  Hãy tham gia phong trào xanh cùng C.H.A.M – nơi công nghệ ươm mầm những cánh rừng.
+                </p>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <Footer />
+      <Footer />
     </>
   );
 }

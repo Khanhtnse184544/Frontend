@@ -14,22 +14,22 @@ import {
 export default function AdminDashboard() {
   return (
     <AdminLayout>
-      <div className="space-y-6 px-10">
+      <div className="space-y-6 px-5">
         {/* Page Title */}
-        <h1 className="text-6xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>Dashboard</h1>
+        <h1 className="text-5xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>Dashboard</h1>
 
         {/* Key Metrics Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
           {/* Users Card */}
           <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-3xl font-bold text-[#797979]" style={{ fontFamily: "Pally-bold, sans-serif" }}>Users</p>
-                <p className="text-3xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>1.211</p>
+                <p className="text-2xl font-bold text-[#797979]" style={{ fontFamily: "Pally-bold, sans-serif" }}>Users</p>
+                <p className="text-2xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>1.211</p>
                 <div className="flex items-center mt-2">
                   <FaArrowUp className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-sm text-green-500 font-medium mr-1 " style={{ fontFamily: "Pally-Regular, sans-serif" }}>+5.5% </span>
-                  <span className="text-sm font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}> since last week</span>
+                  <span className="text-xs text-green-500 font-medium mr-1 " style={{ fontFamily: "Pally-Regular, sans-serif" }}>+5.5% </span>
+                  <span className="text-xs font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}> since last week</span>
                 </div>
               </div>
                <div className="w-12 h-12 flex items-start justify-center">
@@ -43,12 +43,12 @@ export default function AdminDashboard() {
           <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-3xl font-bold text-[#797979]" style={{ fontFamily: "Pally-bold, sans-serif" }}>CSR</p>
-                <p className="text-3xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>904</p>
+                <p className="text-2xl font-bold text-[#797979]" style={{ fontFamily: "Pally-bold, sans-serif" }}>CSR</p>
+                <p className="text-2xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>904</p>
                 <div className="flex items-center mt-2">
                   <FaArrowDown className="w-4 h-4 text-red-500 mr-1" />
-                  <span className="text-sm text-red-500 font-medium mr-1 " style={{ fontFamily: "Pally-Regular, sans-serif" }}>-0.1% </span>
-                  <span className="text-sm font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}> since last week</span>
+                  <span className="text-xs text-red-500 font-medium mr-1 " style={{ fontFamily: "Pally-Regular, sans-serif" }}>-0.1% </span>
+                  <span className="text-xs font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}> since last week</span>
                 </div>
               </div>
                <div className="w-12 h-12 flex items-start justify-center">
@@ -57,31 +57,16 @@ export default function AdminDashboard() {
             </div>
           </div>
 
-          {/* Education Card */}
-          {/* <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-[#797979]" style={{ fontFamily: "Pally-Regular, sans-serif" }}>Education</p>
-                <p className="text-2xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>1040</p>
-                <div className="flex items-center mt-2">
-                  <FaArrowUp className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-sm text-green-600 font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}>+since last week</span>
-                </div>
-              </div>
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                <FaGraduationCap className="w-6 h-6 text-purple-600" />
-              </div>
-            </div>
-          </div> */}
+         
           <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-3xl font-bold text-[#797979]" style={{ fontFamily: "Pally-bold, sans-serif" }}>Education</p>
-                <p className="text-3xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>1040</p>
+                <p className="text-2xl font-bold text-[#797979]" style={{ fontFamily: "Pally-bold, sans-serif" }}>Education</p>
+                <p className="text-2xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>1040</p>
                 <div className="flex items-center mt-2">
                   <FaArrowUp className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-sm text-green-500 font-medium mr-1 " style={{ fontFamily: "Pally-Regular, sans-serif" }}>+6.9%  </span>
-                  <span className="text-sm font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}> since last week</span>
+                  <span className="text-xs text-green-500 font-medium mr-1 " style={{ fontFamily: "Pally-Regular, sans-serif" }}>+6.9%  </span>
+                  <span className="text-xs font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}> since last week</span>
                 </div>
               </div>
                <div className="w-12 h-12 flex items-start justify-center">
@@ -94,12 +79,12 @@ export default function AdminDashboard() {
           <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-3xl font-bold text-[#797979]" style={{ fontFamily: "Pally-bold, sans-serif" }}>Gross profit</p>
-                <p className="text-3xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>1.090.041.259</p>
+                <p className="text-2xl font-bold text-[#797979]" style={{ fontFamily: "Pally-bold, sans-serif" }}>Gross profit</p>
+                <p className="text-2xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>1.090.041.259</p>
                 <div className="flex items-center mt-2">
                   <FaArrowUp className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-sm text-green-500 font-medium mr-1 " style={{ fontFamily: "Pally-Regular, sans-serif" }}>+12% </span>
-                  <span className="text-sm font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}> since last week</span>
+                  <span className="text-xs text-green-500 font-medium mr-1 " style={{ fontFamily: "Pally-Regular, sans-serif" }}>+12% </span>
+                  <span className="text-xs font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}> since last week</span>
                 </div>
               </div>
                <div className="w-12 h-12 flex items-start justify-center">
@@ -110,14 +95,14 @@ export default function AdminDashboard() {
           </div>
 
         {/* Analytics Section */}        
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-15">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
           {/* Game Invoice Card */}
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200 col-span-2 h-90 ">
-            <h3 className="text-3xl font-bold text-[#797979] mb-6" style={{ fontFamily: "Pally-Bold, sans-serif" }}>Game Invoice</h3>
+          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200 col-span-2 h-80 ">
+            <h3 className="text-2xl font-bold text-[#797979] mb-6" style={{ fontFamily: "Pally-Bold, sans-serif" }}>Game Invoice</h3>
             <div className="flex items-center justify-between">
               {/* Donut Chart */}
-              <div className="w-70 h-60 relative">
-                <svg className="w-60 h-60 transform -rotate-90" viewBox="0 0 100 100">
+              <div className="w-50 h-50 relative">
+                <svg className="w-50 h-50 transform -rotate-90" viewBox="0 0 100 100">
                   {/* Background circle */}
                   <circle
                     cx="50"
@@ -125,7 +110,7 @@ export default function AdminDashboard() {
                     r="40"
                     fill="none"
                     stroke="#f3f4f6"
-                    strokeWidth="14"
+                    strokeWidth="13"
                   />
                   {/* Black segment - Whales (31%) */}
                   <circle
@@ -134,7 +119,7 @@ export default function AdminDashboard() {
                     r="40"
                     fill="none"
                     stroke="#000000"
-                    strokeWidth="14"
+                    strokeWidth="13"
                     strokeDasharray="77.87 251.2"
                     strokeDashoffset="0"
                     strokeLinecap="round"
@@ -146,7 +131,7 @@ export default function AdminDashboard() {
                     r="40"
                     fill="none"
                     stroke="#f97316"
-                    strokeWidth="14"
+                    strokeWidth="13"
                     strokeDasharray="113.04 251.2"
                     strokeDashoffset="-77.87"
                     strokeLinecap="round"
@@ -158,7 +143,7 @@ export default function AdminDashboard() {
                     r="40"
                     fill="none"
                     stroke="#d1d5db"
-                    strokeWidth="14"
+                    strokeWidth="13"
                     strokeDasharray="60.29 251.2"
                     strokeDashoffset="-190.91"
                     strokeLinecap="round"
@@ -166,8 +151,8 @@ export default function AdminDashboard() {
                 </svg>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="text-2xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>1054</div>
-                    <div className="text-lg text-[#797979]" style={{ fontFamily: "Pally-Regular, sans-serif" }}>Players</div>
+                    <div className="text-xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>1054</div>
+                    <div className="text-md text-[#797979]" style={{ fontFamily: "Pally-Regular, sans-serif" }}>Players</div>
                   </div>
                 </div>
               </div>
@@ -176,27 +161,27 @@ export default function AdminDashboard() {
               <div className="space-y-4 ml-6">
                 <div>
                 <div className="flex items-center">
-                <div className="text-lg font-bold text-[#797979]" style={{ fontFamily: "Pally-Bold, sans-serif" }}>Whales</div>
+                <div className="text-md font-bold text-[#797979]" style={{ fontFamily: "Pally-Bold, sans-serif" }}>Whales</div>
 
                 <br />
                 <div>
                     <span className="w-4 h-4 bg-black rounded-full mr-3"></span>
-                    <span className="text-lg font-bold text-[#797979] ml-2" style={{ fontFamily: "Pally-Bold, sans-serif" }}>327</span>
+                    <span className="text-md font-bold text-[#797979] ml-2" style={{ fontFamily: "Pally-Bold, sans-serif" }}>327</span>
                   </div>
                 </div>
                 </div>
                 <div className="flex items-center">
                   <div className="w-4 h-4 bg-orange-500 rounded-full mr-3"></div>
                   <div>
-                    <span className="text-lg font-bold text-[#797979]" style={{ fontFamily: "Pally-Bold, sans-serif" }}>Total Paid</span>
-                    <span className="text-lg font-bold text-[#797979] ml-2" style={{ fontFamily: "Pally-Bold, sans-serif" }}>474</span>
+                    <span className="text-md font-bold text-[#797979]" style={{ fontFamily: "Pally-Bold, sans-serif" }}>Total Paid</span>
+                    <span className="text-md font-bold text-[#797979] ml-2" style={{ fontFamily: "Pally-Bold, sans-serif" }}>474</span>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <div className="w-4 h-4 bg-gray-300 rounded-full mr-3"></div>
                   <div>
-                    <span className="text-lg font-bold text-[#797979]" style={{ fontFamily: "Pally-Bold, sans-serif" }}>Total Unpaid</span>
-                    <span className="text-lg font-bold text-[#797979] ml-2" style={{ fontFamily: "Pally-Bold, sans-serif" }}>253</span>
+                    <span className="text-md font-bold text-[#797979]" style={{ fontFamily: "Pally-Bold, sans-serif" }}>Total Unpaid</span>
+                    <span className="text-md font-bold text-[#797979] ml-2" style={{ fontFamily: "Pally-Bold, sans-serif" }}>253</span>
                   </div>
                 </div>
               </div>
@@ -204,10 +189,10 @@ export default function AdminDashboard() {
           </div>
 
           {/* Income Analytics Card */}
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200 lg:col-span-3 h-90">
+          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200 lg:col-span-3 h-80">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-3xl font-bold text-[#797979]" style={{ fontFamily: "Pally-Bold, sans-serif" }}>Income Analytics</h3>
-              <button className="flex items-center px-4 py-2 text-sm font-medium text-[#797979] bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+              <h3 className="text-2xl font-bold text-[#797979]" style={{ fontFamily: "Pally-Bold, sans-serif" }}>Income Analytics</h3>
+              <button className="flex items-center px-4 py-2 text-xs font-medium text-[#797979] bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
                 <FaDownload className="w-4 h-4 mr-2" />
                 Export
               </button>

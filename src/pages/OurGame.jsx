@@ -84,21 +84,20 @@ export default function OurGame() {
           </div>
         </section>
 
-        
-                          {/* Game Interface Section */}
-                  <section className="relative pt-20 pb-10">
-                    {/* Background Image */}
-                    <div className="absolute inset-0">
-                      <img
-                        src={gameBackground}
-                        alt="Forest Background with Rain Effect"
-                        className="w-full h-full object-cover"
-                      />
-                      {/* Dark overlay */}
-                      <div className="absolute inset-0 bg-black/40"></div>
-                      {/* Rain effect overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-200/10 to-transparent"></div>
-                    </div>
+        {/* Game Interface Section */}
+        <section className="relative pt-20 pb-10">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <img
+              src={gameBackground}
+              alt="Forest Background with Rain Effect"
+              className="w-full h-full object-cover"
+            />
+            {/* Dark overlay */}
+            <div className="absolute inset-0 bg-black/40"></div>
+            {/* Rain effect overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-200/10 to-transparent"></div>
+          </div>
 
           {/* Content */}
           <div className="relative z-10 container mx-auto px-6">
@@ -112,73 +111,73 @@ export default function OurGame() {
                 />
               </div>
 
-                             {/* Description */}
-               <div className="max-w-4xl  rounded-2xl p-6 ">
-                 <h3
-                   className="text-3xl font-bold text-white  "
-                   style={{ fontFamily: "Pally-Bold, sans-serif" }}
-                 >
-                   Real-Time Weather Feature
-                 </h3>
-                 <p
-                   className="text-white text-lg leading-relaxed"
-                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                 >
-                   C.H.A.M connects directly with real-time weather at Cát Tiên
-                   National Park, allowing virtual trees to grow based on actual
-                   weather conditions. When it rains, the trees are automatically
-                   watered, and during dry spells, players must take extra care.
-                   This feature provides a realistic experience, helping players
-                   understand how weather impacts tree growth while raising
-                   awareness about climate change.
-                 </p>
-               </div>
+              {/* Description */}
+              <div className="max-w-4xl  rounded-2xl p-6 ">
+                <h3
+                  className="text-3xl font-bold text-white  "
+                  style={{ fontFamily: "Pally-Bold, sans-serif" }}
+                >
+                  Tính năng kết nối thời tiết thực
+                </h3>
+                <p
+                  className="text-white text-lg leading-relaxed"
+                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                >
+                  C.H.A.M kết nối trực tiếp với thời tiết theo thời gian thực
+                  với các điểm trồng cây, cho phép cây ảo của bạn phát triển dựa
+                  trên điều kiện thời tiết thực tế. Trong những ngày nắng hạn,
+                  người chơi sẽ cần chăm sóc cây cẩn thận hơn. Tính năng này
+                  không chỉ mang lại trải nghiệm chân thực, mà còn giúp người
+                  chơi hiểu rõ thời tiết ảnh hưởng đến sự phát triển của cây ra
+                  sao, đồng thời nâng cao nhận thức về biến đổi khí hậu. Không
+                  chỉ thế, đây là minh chứng rõ ràng nhất cho sự kết nối giữa
+                  hành động số và tác động thật, nơi mỗi thay đổi của thời tiết
+                  đều được phản ánh chân thực trong trải nghiệm của bạn.
+                </p>
+              </div>
 
-               {/* Joining the Journey Section */}
-               <div className="px-20 w-full mt-30">
-                 <div className="flex justify-between items-center">
-                   {/* Text with Gradient */}
-                   <div>
-                     <h2 
-                       className="text-5xl font-bold"
-                       style={{
-                         background: "linear-gradient(135deg, #ffffff 0%, #60DEF2 100%)",
-                         WebkitBackgroundClip: "text",
-                         WebkitTextFillColor: "transparent",
-                         backgroundClip: "text",
-                         fontFamily: "Pally-Bold, sans-serif"
-                       }}
-                     >
-                       Joining the Journey
-                     </h2>
-                   </div>
+              {/* Joining the Journey Section */}
+              <div className="px-20 w-full mt-30">
+                <div className="flex justify-between items-center">
+                  {/* Text with Gradient */}
+                  <div>
+                    <h2
+                      className="text-5xl font-bold"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, #ffffff 0%, #60DEF2 100%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        backgroundClip: "text",
+                        fontFamily: "Pally-Bold, sans-serif",
+                      }}
+                    >
+                      Cùng tham gia hành trình
+                    </h2>
+                  </div>
 
-                   {/* Social Media Icons */}
-                   <div className="flex space-x-15">
-                     {/* Facebook */}
-                     <div className="  flex items-center justify-center hover:scale-110 transition-all duration-300 " >
-                       <FaFacebookF className="text-white text-3xl" />
-                     </div>
+                  {/* Social Media Icons */}
+                  <div className="flex space-x-15">
+                    {/* Facebook */}
+                    <div className="  flex items-center justify-center hover:scale-110 transition-all duration-300 ">
+                      <FaFacebookF className="text-white text-3xl" />
+                    </div>
 
-                     {/* TikTok */}
-                     <div className="  flex items-center justify-center hover:scale-110 transition-all duration-300 " >
-                       <FaTiktok className="text-white text-3xl" />
-                     </div>
+                    {/* TikTok */}
+                    <div className="  flex items-center justify-center hover:scale-110 transition-all duration-300 ">
+                      <FaTiktok className="text-white text-3xl" />
+                    </div>
 
-                     
-
-                     {/* YouTube */}
-                     <div className="  flex items-center justify-center hover:scale-110 transition-all duration-300 " >
-                       <FaYoutube className="text-white text-3xl" />
-                     </div>
-                   </div>
-                 </div>
-               </div>
-
-              
-             </div>
-           </div>
-         </section>
+                    {/* YouTube */}
+                    <div className="  flex items-center justify-center hover:scale-110 transition-all duration-300 ">
+                      <FaYoutube className="text-white text-3xl" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
 
       <Footer />

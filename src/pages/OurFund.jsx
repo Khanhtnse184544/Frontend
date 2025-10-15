@@ -12,8 +12,8 @@ export default function OurFund() {
   const navigate = useNavigate();
 
   const handleSponsorClick = () => {
-    navigate('/sponsor');
-    setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 200);
+    navigate("/sponsor");
+    setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 200);
   };
 
   return (
@@ -43,13 +43,13 @@ export default function OurFund() {
               className="text-6xl font-bold mb-3"
               style={{ fontFamily: "Pally-Bold, sans-serif" }}
             >
-              E.C.O Fund
+              Quỹ E.C.O
             </h1>
             <p
               className="text-xl tracking-[0.2em]"
               style={{ fontFamily: "Pally-Bold, sans-serif" }}
             >
-              Transparently Building a Green Future
+              Vì một tương lai xanh.
             </p>
           </div>
 
@@ -66,18 +66,17 @@ export default function OurFund() {
               className="text-md leading-tight tracking-wide mb-5 max-w-lg"
               style={{ fontFamily: "Pally-Medium, sans-serif" }}
             >
-              We believe that sustainability is not just a goal, but a journey
-              that needs to be shared and openly communicated.
+              Với chúng tôi, phát triển bền vững không chỉ là mục tiêu, mà còn
+              là một hành trình cần được lan tỏa và công khai minh bạch.
             </p>
             <button
               onClick={handleSponsorClick}
               className="bg-white  text-black font-bold py-1.5  rounded-[15px] w-[280px] hover:bg-black hover:text-white transition-colors duration-300 shadow-lg text-xl flex items-center justify-center mx-auto"
-              style={{ fontFamily: 'Pally-Bold, sans-serif' }}
+              style={{ fontFamily: "Pally-Bold, sans-serif" }}
             >
               Sponsor Now
             </button>
           </div>
-          
         </div>
       </section>
 
@@ -183,8 +182,8 @@ export default function OurFund() {
                   className="text-[3.5rem] font-bold"
                   style={{ fontFamily: "Pally-Bold, sans-serif" }}
                 >
-                  <span className="text-[#3A3A3A]">Our Com</span>
-                  <span className="text-[#D68C45]">mitment</span>
+                  <span className="text-[#D68C45]">E.C.O</span>
+                  <span className="text-[#3A3A3A]"> Cam Kết</span>
                 </h2>
               </div>
 
@@ -193,28 +192,29 @@ export default function OurFund() {
                   className="text-md  leading-relaxed"
                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
-                  Our CFO team, with expertise in Communication Technology and
-                  responsibility for financial and legal management, is
-                  committed to ensuring all funds are managed rigorously and in
-                  compliance with legal regulations.
+                  Đội ngũ điều hành Tài chính (CFO) của chúng tôi, với chuyên
+                  môn về Công nghệ Truyền thông cùng trách nhiệm quản lý tài
+                  chính - pháp lý, cam kết đảm bảo mọi nguồn quỹ đều được quản
+                  lý chặt chẽ và tuân thủ tuyệt đối các quy định của pháp luật.
                 </p>
 
                 <p
                   className="text-md  leading-relaxed"
                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
-                  In the future, E.C.O aims to collaborate with an independent
-                  auditing firm to verify the transparency of financial reports,
-                  thereby strengthening trust among the community and partners.
+                  Trong tương lai, E.C.O hướng tới việc hợp tác cùng một đơn vị
+                  kiểm toán độc lập để xác minh tính minh bạch của các báo cáo
+                  tài chính, qua đó củng cố niềm tin vững chắc nơi cộng đồng và
+                  các đối tác.
                 </p>
 
                 <p
                   className="text-md  leading-relaxed"
                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
-                  We constantly listen to feedback from the community and
-                  partners to continuously improve our fund management processes
-                  and optimize the project's impact.
+                  Chúng tôi luôn lắng nghe những góp ý từ cộng đồng và đối tác
+                  để không ngừng cải thiện quy trình quản lý quỹ, đồng thời tối
+                  ưu hóa những tác động tích cực mà dự án mang lại.
                 </p>
               </div>
             </div>

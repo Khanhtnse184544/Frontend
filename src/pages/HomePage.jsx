@@ -6,10 +6,7 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
-import h1 from "../assets/homepage/h1.jpg";
-import h2 from "../assets/homepage/h2.jpg";
-import h3 from "../assets/homepage/h3.jpg";
-import h4 from "../assets/homepage/h4.jpg";
+import { forests } from "../data/forests";
 import logo from "../assets/homepage/logo.png";
 import BackGround from "../assets/homepage/BackGround.png";
 import hero from "../assets/homepage/hero.png";
@@ -29,41 +26,16 @@ import ourGreenMission from "../assets/homepage/news/our_green_misson.png";
 import sentUsALeaf from "../assets/homepage/sent_us_a_leaf.png";
 
 export default function HomePage() {
-  const images = [h1, h2, h3, h4];
+  const images = forests.map((f) => f.image);
   var navigate = useNavigate();
 
   // Nội dung từng slide với tiêu đề phù hợp
-  const slideContents = [
-    {
-      bigTitle1: "MIXED FOREST OF HARDWOOD TREES AND BAMBOO",
-      smallTitle: "Forest",
-      description:
-        "Cát Tiên National Park is one of Vietnam's most important and diverse tropical forests, located in the south of the country.",
-      buttonText: "READ MORE",
-    },
-    {
-      bigTitle1: "WETLAND AND SEMI-WETLAND VEGETATION",
-      smallTitle: "Forest",
-      description:
-        "Cát Tiên National Park is one of Vietnam's most important and diverse tropical forests, located in the south of the country.",
-      buttonText: "READ MORE",
-    },
-    {
-      bigTitle1: "MONOSPECIFIC BAMBOO FOREST",
-      smallTitle: "Forest",
-      description:
-        "Cát Tiên National Park is one of Vietnam's most important and diverse tropical forests, located in the south of the country.",
-      buttonText: "READ MORE",
-    },
-    {
-      bigTitle1: "SEMI-DECIDUOUS EVERGREEN FOREST",
-      smallTitle: "Forest",
-      description:
-        "Cát Tiên National Park is one of Vietnam's most important and diverse tropical forests, located in the south of the country.",
-      buttonText: "READ MORE",
-    },
-    
-  ];
+  const slideContents = forests.map((f) => ({
+    bigTitle1: f.bigTitle1,
+    description: f.description,
+    buttonText: "CHI TIẾT",
+    route: f.route,
+  }));
 
   // News carousel data
   const newsData = [
@@ -128,25 +100,9 @@ export default function HomePage() {
 
   const handleReadMoreClick = () => {
     const currentSlide = slideContents[currentIndex];
-    switch (currentSlide.bigTitle1) {
-      case "MIXED FOREST OF HARDWOOD TREES AND BAMBOO":
-        navigate('/mixed-hardwood');
-        setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 200);
-        break;
-      case "WETLAND AND SEMI-WETLAND VEGETATION":
-        navigate('/wetland');
-        setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 200);
-        break;
-      case "MONOSPECIFIC BAMBOO FOREST":
-        navigate('/bamboo-forest');
-        setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 200);
-        break;
-      case "SEMI-DECIDUOUS EVERGREEN FOREST":
-        navigate('/semi-deciduous-forest');
-        setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 200);
-        break;
-      default:
-        break;
+    if (currentSlide?.route) {
+      navigate(currentSlide.route);
+      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 200);
     }
   };
 
@@ -263,12 +219,7 @@ export default function HomePage() {
                   draggable={false}
                 />
               </div>
-              <div
-                className="text-white text-lg font-semibold mt-2 mb-3 tracking-wide text-center drop-shadow "
-                style={{ fontFamily: "Montserrat, Inter, Arial, sans-serif" }}
-              >
-                Every touch plants a seed for the future
-              </div>
+              
               
               <div
                 className="text-white text-7xl mb-2 tracking-widest text-center drop-shadow font-bold"
@@ -285,8 +236,9 @@ export default function HomePage() {
               <button 
                 onClick={handlePlantTreeClick}
                 className="bg-[#d68c45] text-white border-2 border-[#d68c45] text-lg font-semibold w-[300px] py-2 rounded-[15px] shadow transition-all duration-200 font-sans hover:bg-transparent hover:text-[#d68c45]"
+                style={{ fontFamily: "Pally-regular, sans-serif" }}
               >
-                Plant Trees with C.H.A.M
+                Cùng C.H.A.M Trồng Cây
               </button>
             </div>
           </div>
@@ -298,7 +250,7 @@ export default function HomePage() {
             <div className="text-center space-y-8">
               {/* Top text */}
               <p className="text-lg font-krub text-gray-700 mb-3">
-                We are a non profit company in Vietnam.
+                Chúng tôi là một Doanh nghiệp Xã hội tại Việt Nam.
               </p>
 
               {/* ABOUT US image */}
@@ -312,7 +264,7 @@ export default function HomePage() {
 
               {/* Bottom text */}
               <p className="text-lg font-krub text-gray-700 mb-12">
-                Connecting people and nature through technology and emotion.
+              Với sứ mệnh gắn kết con người với thiên nhiên qua công nghệ và cảm xúc.
               </p>
 
               {/* Read more button with icons */}
@@ -322,7 +274,7 @@ export default function HomePage() {
                   className="flex items-center justify-center w-[250px] h-[60px] read-more-button font-bold text-xl px-8 py-3 rounded-full flex items-center space-x-2"
                 >
                   <img src={shining} alt="shining" className="w-6 h-6" />
-                  <span className="read-more-text text-lg">Read more</span>
+                  <span className="read-more-text text-lg">Chi Tiết</span>
                 </button>
               </div>
             </div>
@@ -364,13 +316,13 @@ export default function HomePage() {
 
                 {/* Small title */}
                 <h2 className="hero-small-title text-xl font-semibold text-white/90 mb-4">
-                  {slideContents[currentIndex].smallTitle}
+                  Rừng
                 </h2>
 
                 {/* Main titles */}
                 <h1
                   className="hero-main-title text-4xl  leading-tight mb-2 text-white"
-                  style={{ fontFamily: "Pally-Bold, sans-serif" }}
+                  style={{ fontFamily: "Montserrat, Inter, Arial, sans-serif" }}
                 >
                   {slideContents[currentIndex].bigTitle1}
                 </h1>
@@ -450,10 +402,10 @@ export default function HomePage() {
             <div className="relative">
               <div className="w-full h-px bg-black absolute top-1/3 transform -translate-y-1/2"></div>
               <h2 className="text-[2.65rem] font-krub font-bold mb-8 relative z-10 bg-white px-8 inline-block">
-                <span className="text-black">CONNECT </span>
-                <span className="text-[#d68c45]">WITH</span>
+                <span className="text-black"> KẾT NỐI </span>
+                <span className="text-[#d68c45]">VỚI</span>
                 <span className="text-black"> </span>
-                <span className="text-[#d68c45]">US</span>
+                <span className="text-[#d68c45]">E.C.O </span>
               </h2>
             </div>
           </div>
