@@ -2,7 +2,7 @@ import React from "react";
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoLeafOutline } from "react-icons/io5";
-import logoLogin from '../../assets/auth/logoLogin.png';
+import logo from '../../assets/homepage/logo_xanh.png';
 
 export default function Register({ onClose, onSwitch }) {
   return (
@@ -21,26 +21,18 @@ export default function Register({ onClose, onSwitch }) {
           {/* Logo/icon */}
           <div className="flex justify-center mb-8">
             <div className=" rounded-2xl">
-              <img src={logoLogin} alt="Logo" className="w-25 h-25" />
+              <img src={logo} alt="Logo" className="w-25 h-25" />
             </div>
           </div>
 
-          {/* Title */}
-          <h1 
-            className="text-4xl font-extrabold text-center leading-tight mb-4"
-            style={{ fontFamily: "Pally-Bold, sans-serif" }}
-          >
-            <span className="text-black">ECOLOGICAL CONSER</span>
-         
-            <span className="text-[#d68c45]">VATION OPERATION</span>
-          </h1>
+          
 
           {/* Subtitle */}
           <h2 
             className="mt-3 text-3xl text-center flex items-center justify-center mb-8"
-            style={{ fontFamily: "Pally-Bold, sans-serif" }}
+            
           >
-            Create Account
+            Tạo tài khoản
             <IoLeafOutline className="ml-2 w-6 h-6 text-[#d68c45]" />
           </h2>
 
@@ -50,16 +42,16 @@ export default function Register({ onClose, onSwitch }) {
               <div className="w-[50%] flex justify-between items-center mb-3">
                 <label 
                   className="block text-sm font-medium text-black"
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                  
                 >
                   Email
                 </label>
               </div>
               <input
                 type="email"
-                placeholder="Example@email.com"
+                placeholder="Ví dụ: example@email.com"
                 className="w-[50%] px-4 py-2 border border-gray-200 rounded-xl bg-[#F7FBFF] focus:outline-none focus:ring-2 focus:ring-[#d68c45] focus:border-transparent transition-all text-base"
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                
               />
             </div>
             
@@ -67,16 +59,16 @@ export default function Register({ onClose, onSwitch }) {
               <div className="w-[50%] flex justify-between items-center mb-3">
                 <label 
                   className="block text-sm font-medium text-black"
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                  
                 >
-                  Password
+                  Mật khẩu
                 </label>
               </div>
               <input
                 type="password"
-                placeholder="at least 8 characters"
+                placeholder="ít nhất 8 ký tự"
                 className="w-[50%] px-4 py-2 border border-gray-200 rounded-xl bg-[#F7FBFF] focus:outline-none focus:ring-2 focus:ring-[#d68c45] focus:border-transparent transition-all text-base"
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                
               />
             </div>
 
@@ -84,16 +76,16 @@ export default function Register({ onClose, onSwitch }) {
               <div className="w-[50%] flex justify-between items-center mb-3">
                 <label 
                   className="block text-sm font-medium text-black"
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                  
                 >
-                  Confirm Password
+                  Xác nhận mật khẩu
                 </label>
               </div>
               <input
                 type="password"
-                placeholder="at least 8 characters"
+                placeholder="ít nhất 8 ký tự"
                 className="w-[50%] px-4 py-2 border border-gray-200 rounded-xl bg-[#F7FBFF] focus:outline-none focus:ring-2 focus:ring-[#d68c45] focus:border-transparent transition-all text-base"
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                
               />
             </div>
 
@@ -104,18 +96,18 @@ export default function Register({ onClose, onSwitch }) {
                   onSwitch("login");
                 }}
                 className="text-[#1E4AE9] hover:text-[#1E4AE9] hover:underline transition-colors font-medium mb-3 pe-5"
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                
               >
-                Already have an account? Login
+                Đã có tài khoản? Đăng nhập
               </button>
             </div>
 
             <button
               type="submit"
               className="w-[50%] py-2 bg-[#1E2C34] text-white rounded-xl font-semibold hover:bg-[#2E424E] transition-colors shadow-md text-lg"
-              style={{ fontFamily: "Pally-Regular, sans-serif" }}
+              
             >
-              Sign up
+              Đăng ký
             </button>
           </form>
 
@@ -127,18 +119,18 @@ export default function Register({ onClose, onSwitch }) {
               </div>
               <span 
                 className="text-black font-medium text-base"
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                
               >
-                Sign up with Facebook
+                Đăng ký với Facebook
               </span>
             </button>
             <button className="w-[40%] flex items-center justify-center gap-4 py-2 bg-gray-100 border border-gray-200 rounded-xl hover:bg-gray-200 transition-colors">
               <FcGoogle className="w-7 h-7" />
               <span 
                 className="text-black font-medium text-base"
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                
               >
-                Sign up with Gmail
+                Đăng ký với Gmail
               </span>
             </button>
           </div>

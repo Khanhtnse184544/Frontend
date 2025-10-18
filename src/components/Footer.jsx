@@ -4,27 +4,24 @@ import SocialLinks from './SocialLinks';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#2A2A2A] py-7 lg:py-[3vh] 2xl:py-[3vh] justify-center" style={{ fontFamily: 'Pally-Regular, sans-serif' }}>
-      <div className="max-w-6xl lg:max-w-[83vw] 2xl:max-w-[83vw] h-auto mx-auto px-10 lg:px-[4vw] 2xl:px-[5vw] ">
+    <footer className="bg-[#2A2A2A] py-7 xl:py-[3vh] 2xl:pb-[3.5vh] justify-center">
+      <div className="max-w-6xl xl:max-w-[83vw] 2xl:max-w-[83vw] h-auto mx-auto px-10 xl:px-[4vw] 2xl:px-[5vw] ">
         {/* Main Content - Logo Column + Grouped Columns */}
         <div className="flex flex-col items-center px-20 lg:px-[6vw] 2xl:px-[5vw]">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 lg:gap-[2vw] 2xl:gap-[2.5vw] mb-2 lg:mb-[2vh] 2xl:mb-[1.5vh]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 xl:gap-[7vw] 2xl:gap-[7vw] ">
           {/* Left Column - Logo Only */}
           <div className="flex justify-center items-center">
             <img
               src={logo}
               alt="Footer Logo"
-              className="w-[165px] h-[165px] lg:w-[12vw] lg:h-[12vw] 2xl:w-[13vw] 2xl:h-[12vw]"
+              className="w-[165px] h-[165px] xl:w-[12vw] xl:h-[12vw] 2xl:w-[13vw] 2xl:h-[12vw]"
             />
           </div>
 
           {/* Right Side - Grouped Columns */}
-          <div className="md:col-span-3 flex flex-col justify-center mb-3 lg:mb-[2vh] 2xl:mb-[1.5vh]">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-[2vw] 2xl:gap-[2.5vw]">
-              {/* Company Information */}
-              <div className="space-y-2">
-                
-              </div>
+          <div className="md:col-span-2 flex flex-col justify-center mb-3 xl:mb-[2vh] 2xl:mb-[1vh]">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 xl:gap-[7vw] 2xl:gap-[7vw]">
+             
 
               {/* Tools */}
               <div className="space-y-2">
@@ -33,24 +30,24 @@ export default function Footer() {
 
               {/* Connect */}
               <div className="space-y-2">
-                <h4 className="text-white text-lg lg:text-lg 2xl:text-xl font-bold">
-                  Connect
+                <h4 className="text-white text-lg xl:text-lg 2xl:text-2xl font-bold">
+                  LIÊN HỆ
                 </h4>
                 <div className="space-y-1">
-                  <p className="text-white text-xs lg:text-xs 2xl:text-md ">
-                    Address: FPT University
+                  <p className="text-white text-[0.6rem] xl:text-[0.6rem] 2xl:text-[0.8rem] ">
+                    Địa chỉ: FPT University Hồ Chí Minh
                   </p>
-                  <p className="text-white text-xs lg:text-xs 2xl:text-md ">
-                    Email: hello@eco.vn
+                  <p className="text-white text-[0.6rem] xl:text-[0.6rem] 2xl:text-[0.8rem] ">
+                    Email: treesforfuture.eco@gmail.com
                   </p>
-                  <p className="text-white text-xs lg:text-xs 2xl:text-md ">
-                    Website: www.eco.vn
+                  <p className="text-white text-[0.6rem] xl:text-[0.6rem] 2xl:text-[0.8rem] ">
+                    Website: www.eco.info.vn
                   </p>
-                  <p className="text-white text-xs lg:text-xs 2xl:text-md ">
-                    Tel: 012 345 6789
+                  <p className="text-white text-[0.6rem] xl:text-[0.6rem] 2xl:text-[0.8rem] ">
+                    Điện thoại: 086 820 2708
                   </p>
-                  <p className="text-white text-xs lg:text-xs 2xl:text-md ">
-                    Headquarters: Ho Chi Minh City, Vietnam
+                  <p className="text-white text-[0.6rem] xl:text-[0.6rem] 2xl:text-[0.8rem] ">
+                  Trụ sở: Hồ Chí Minh, Việt Nam
                   </p>
                 </div>
               </div>
@@ -63,14 +60,14 @@ export default function Footer() {
 
         {/* Bottom Section - Copyright and Social Media */}
         <div className="flex flex-col items-center">
-          <div className="w-[100%] border-t border-white pt-4 lg:pt-[2vh] 2xl:pt-[2.5vh] flex items-center">
+          <div className="w-[100%] border-t border-white pt-4 xl:pt-[2vh] 2xl:pt-[2.5vh] flex items-center">
             <div className="flex-1"></div>
-            <p className="text-white text-xs lg:text-xs 2xl:text-md text-center flex-1">
-              ©2025 E.C.O Company. All rights reserved.
+            <p className="text-white text-[0.6rem] xl:text-[0.6rem] 2xl:text-[0.8rem] text-center flex-1">
+              ©2025 E.C.O Company. Bản quyền thuộc về E.C.O.
             </p>
-            <div className="flex items-center space-x-5 lg:space-x-[1.2vw] 2xl:space-x-[1.1vw] flex-1 justify-end pe-10">
+            <div className="flex items-center space-x-5 xl:space-x-[1.2vw] 2xl:space-x-[1.1vw] flex-1 justify-end pe-10">
               <SocialLinks 
-                iconSize="w-3 h-3 lg:w-[0.8vw] lg:h-[0.8vw] 2xl:w-[0.8vw] 2xl:h-[0.8vw]"
+                iconSize="w-3 h-3 xl:w-[0.8vw] xl:h-[0.8vw] 2xl:w-[0.8vw] 2xl:h-[0.8vw]"
                 iconColor="text-white"
                 hoverColor="hover:text-[#D68C45]"
                 className="gap-5"

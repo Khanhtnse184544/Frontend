@@ -53,6 +53,56 @@ export default function OurPartner() {
     // You can add API call here
   };
 
+  // Forest image data
+  const forestImages = [
+    {
+      src: h1Image,
+      alt: "Environmental Impact 1",
+      title: forests[0].bigTitle1,
+      onClick: handleMixedHardwoodClick
+    },
+    {
+      src: h2Image,
+      alt: "Environmental Impact 2", 
+      title: forests[1].bigTitle1,
+      onClick: handleWetlandClick
+    },
+    {
+      src: h3Image,
+      alt: "Environmental Impact 3",
+      title: forests[2].bigTitle1,
+      onClick: handleBambooForestClick
+    },
+    {
+      src: h4Image,
+      alt: "Semi-Deciduous Evergreen Forest",
+      title: forests[3].bigTitle1,
+      onClick: handleSemiDeciduousClick
+    }
+  ];
+
+  // Render forest image component
+  const renderForestImage = (imageData, index) => (
+    <div
+      key={index}
+      className="group relative overflow-hidden rounded-2xl shadow-2xl cursor-pointer h-[40vh]"
+      onClick={imageData.onClick}
+    >
+      <img
+        src={imageData.src}
+        alt={imageData.alt}
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+      />
+      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <div className="text-center text-white p-6">
+          <h2 className="text-5xl font-bold mb-2">
+            {imageData.title}
+          </h2>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <>
       <Header />
@@ -61,7 +111,7 @@ export default function OurPartner() {
       </div>
       <div className="bg-[#EEEEEE]">
         {/* Hero Section with Banner */}
-        <section className="relative w-full h-[600px] overflow-hidden -mt-[102px] group cursor-pointer">
+        <section className="relative w-full h-[600px] xl:h-[75vh] 2xl:h-[75vh] overflow-hidden -mt-[102px] 2xl:-mt-[131.7px] group cursor-pointer">
           <img
             src={partnerBanner}
             alt="Our Partners Banner"
@@ -70,10 +120,10 @@ export default function OurPartner() {
 
           {/* Default overlay */}
           <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-            <div className="text-center text-white">
+            <div className="text-center text-white ">
               <h1
-                className="text-[4.2rem] text-center text-[#FE9A3B] font-bold mb-4"
-                style={{ fontFamily: "Pally-Bold, sans-serif" }}
+                className="text-5xl xl:text-6xl 2xl:text-8xl text-center text-[#FE9A3B] font-bold mb-4 "
+               
               >
                 VÌ SAO NÊN HỢP TÁC VỚI E.C.O
               </h1>
@@ -82,11 +132,11 @@ export default function OurPartner() {
 
           {/* Hover overlay with dark background and white box */}
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <div className="text-white  px-8 pt-18 text-center">
+            <div className="text-white  pt-18 xl:pt-[4vh] 2xl:pt-[5vh] text-center mt-13">
               {/* Top text */}
               <p
-                className="text-[0.9rem]  max-w-3xl text-center"
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                className="text-sm xl:text-sm 2xl:text-lg max-w-3xl xl:max-w-4xl 2xl:max-w-5xl text-center mx-auto mb-6 xl:mb-[2vh] 2xl:mb-[3vh]"
+                
               >
                 Hợp tác cùng E.C.O không chỉ là thực hiện CSR - đó là cơ hội để
                 kiến tạo kết nối đích thực với cộng đồng sống xanh, lan tỏa giá
@@ -96,16 +146,16 @@ export default function OurPartner() {
 
               {/* Main heading */}
               <h1
-                className="text-[4.2rem] text-center text-[#FE9A3B] font-bold  "
-                style={{ fontFamily: "Pally-Bold, sans-serif" }}
+                className="text-5xl xl:text-6xl 2xl:text-8xl text-center text-[#FE9A3B] font-bold mb-6 xl:mb-[2vh] 2xl:mb-[3vh]"
+               
               >
                 VÌ SAO NÊN HỢP TÁC VỚI E.C.O
               </h1>
 
               {/* Bottom text */}
               <p
-                className="text-[0.9rem] text-center max-w-3xl mb-10"
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                className="text-sm xl:text-sm 2xl:text-lg text-center max-w-3xl xl:max-w-4xl 2xl:max-w-5xl mx-auto mb-10 xl:mb-[4vh] 2xl:mb-[5vh]"
+                
               >
                 E.C.O là một doanh nghiệp xã hội kết hợp công nghệ, giáo dục và
                 hành động xanh. Thông qua ứng dụng game hóa C.H.A.M, chúng tôi
@@ -115,45 +165,46 @@ export default function OurPartner() {
               </p>
               <button
                 onClick={openContact}
-                className="bg-[#D68C45]  text-white font-bold   rounded-[15px] w-[190px] h-[47px] hover:bg-[#E5E2E2] hover:text-[#D68C45] hover:border-3 hover:border-[#D68C45] transition-colors duration-300 shadow-lg text-md flex items-center justify-center mx-auto"
-                style={{ fontFamily: "Pally-Bold, sans-serif" }}
+                className="bg-[#D68C45] text-white font-bold rounded-[15px] xl:rounded-[1vw] 2xl:rounded-[0.8vw] w-[190px] xl:w-[15vw] 2xl:w-[12vw] h-[47px] xl:h-[6vh] 2xl:h-[7vh] hover:bg-[#E5E2E2] hover:text-[#D68C45] hover:border-3 hover:border-[#D68C45] transition-colors duration-300 shadow-lg text-sm xl:text-lg 2xl:text-xl flex items-center justify-center mx-auto"
+               
               >
-                Contact Us
+                Liên Hệ
               </button>
             </div>
           </div>
         </section>
 
         {/* Ways To Collaborate Section */}
-        <section className="ps-30 pe-20 py-40 bg-[#EEEEEE]">
-          <div className=" mx-auto ">
-            <div className="grid lg:grid-cols-7 gap-10 items-start">
+        <section className="ps-30 pe-20 xl:px-20 2xl:ps-[8vw] 2xl:pe-[6vw] py-40 xl:py-[8vh] 2xl:py-[10vh] bg-[#EEEEEE] mt-20 mb-30">
+          <div className="mx-auto">
+            <div className="grid grid-cols-7 gap-10 xl:gap-[6vw] 2xl:gap-[6vw] items-start">
               {/* Left Column - Ways To Collaborate */}
               <div className="lg:col-span-3 space-y-2">
                 <div>
                   <h2
-                    className="text-6xl font-bold "
-                    style={{ fontFamily: "Pally-Bold, sans-serif" }}
+                    className="text-5xl xl:text-5xl 2xl:text-6xl font-bold"
+                   
                   >
                     Các Cách Thức{" "}
+                    <br />  
                     <span className="text-[#D68C45]">Hợp tác</span>
                   </h2>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-4 xl:space-y-3 2xl:space-y-6">
                   <div>
                     <h3
-                      className="text-xl font-bold mb-2"
-                      style={{ fontFamily: "Pally-Bold, sans-serif" }}
+                      className="text-xl xl:text-xl 2xl:text-2xl font-bold mb-2 xl:my-3 2xl:my-5"
+                     
                     >
                       Chúng tôi chào đón sự hợp tác từ:{" "}
                     </h3>
 
                     <p
-                      className=" leading-relaxed text-md"
-                      style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                      className="leading-relaxed text-sm xl:text-sm 2xl:text-xl"
+                      
                     >
-                      Doanh nghiệp có trách nhiệm xã hội (CSR): Tài trợ các
+                     <span className="font-bold"> Doanh nghiệp có trách nhiệm xã hội (CSR):</span> Tài trợ các
                       chiến dịch trồng cây thật với sự minh bạch tuyệt đối và
                       khả năng hiển thị trên nền tảng số.
                     </p>
@@ -161,10 +212,10 @@ export default function OurPartner() {
 
                   <div>
                     <p
-                      className=" leading-relaxed text-md"
-                      style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                      className="leading-relaxed text-sm xl:text-sm 2xl:text-xl"
+                      
                     >
-                      Trường học & Tổ chức giáo dục: Đồng kiến tạo các workshop
+                      <span className="font-bold">Trường học & Tổ chức giáo dục:</span> Đồng kiến tạo các workshop
                       môi trường, chương trình tương tác cho học sinh và các
                       chuyến đi thực địa xanh.
                     </p>
@@ -172,10 +223,10 @@ export default function OurPartner() {
 
                   <div>
                     <p
-                      className=" leading-relaxed text-md"
-                      style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                      className="leading-relaxed text-sm xl:text-sm 2xl:text-xl"
+                      
                     >
-                      Các tổ chức NGO & Quỹ môi trường: Sử dụng nền tảng của
+                      <span className="font-bold">Các tổ chức NGO & Quỹ môi trường:</span> Sử dụng nền tảng của
                       chúng tôi để lan tỏa sứ mệnh bảo tồn thông qua hình thức
                       game hóa và kể chuyện sáng tạo.
                     </p>
@@ -183,10 +234,10 @@ export default function OurPartner() {
 
                   <div>
                     <p
-                      className=" leading-relaxed text-md"
-                      style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                      className="leading-relaxed text-sm xl:text-sm 2xl:text-xl"
+                      
                     >
-                      KOLs & Nhà sáng tạo nội dung: Đồng hành cùng chúng tôi lan
+                      <span className="font-bold">KOLs & Nhà sáng tạo nội dung:</span> Đồng hành cùng chúng tôi lan
                       tỏa ý thức môi trường đến thế hệ Gen Z qua những nội dung
                       số vui tươi và truyền cảm hứng.
                     </p>
@@ -198,55 +249,55 @@ export default function OurPartner() {
               <div className="lg:col-span-2 flex justify-center items-center">
                 <div className="relative w-full max-w-md h-100">
                   {/* Top Image - Positioned left */}
-                  <div className=" top-0 -left-10 z-30">
+                  <div className="absolute top-0 -left-10 xl:-left-8 2xl:-left-16 z-30 h-[25vh] xl:h-[25vh] 2xl:h-[25vh] flex items-center">
                     <img
                       src={collab1}
                       alt="Green mountains and valleys"
-                      className="w-78  h-auto object-cover rounded-2xl shadow-xl"
+                      className="h-full w-auto object-cover rounded-2xl xl:rounded-[1.5vw] 2xl:rounded-[1vw] shadow-xl"
                     />
                   </div>
 
                   {/* Middle Image - Positioned right and slightly down */}
-                  <div className="absolute top-40 -right-5 z-20">
+                  <div className="absolute top-40 xl:top-[20vh] 2xl:top-[20vh] -right-7 xl:-right-14 2xl:-right-20 z-20 h-[25vh] xl:h-[25vh] 2xl:h-[25vh] flex items-center">
                     <img
                       src={collab2}
                       alt="Rolling hills and golden fields"
-                      className="w-73 h-auto object-cover rounded-2xl shadow-xl"
+                      className="h-full w-auto object-cover rounded-2xl xl:rounded-[1.5vw] 2xl:rounded-[1vw] shadow-xl"
                     />
                   </div>
 
                   {/* Bottom Image - Positioned left and further down */}
-                  <div className="absolute -bottom-25 -left-3 z-10">
+                  <div className="absolute -bottom-25 xl:-bottom-[13vh] 2xl:-bottom-[27vh] -left-3 xl:-left-6 2xl:-left-8 z-10 h-[25vh] xl:h-[25vh] 2xl:h-[25vh] flex items-center">
                     <img
                       src={collab3}
                       alt="Serene lake with trees"
-                      className="w-68 h-43 object-cover rounded-2xl shadow-xl"
+                      className="h-full w-auto object-cover rounded-2xl xl:rounded-[1.5vw] 2xl:rounded-[1vw] shadow-xl"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Right Column - Why Choose E.C.O */}
-              <div className="lg:col-span-2 space-y-6 ps-10 pt-30">
-                <div>
+              <div className="lg:col-span-2 flex flex-col justify-center ps-10 pt-30">
+                <div className="space-y-2">
                   <h3
-                    className="text-3xl font-bold text-[#D68C45]  mb-2"
-                    style={{ fontFamily: "Pally-Bold, sans-serif" }}
+                    className="text-xl xl:text-xl 2xl:text-2xl font-bold text-[#D68C45] "
+                   
                   >
                     Hãy Cùng Nhau Kiến tạo Tác động xanh
                   </h3>
                   <h2
-                    className="text-3xl font-bold -mb-3"
-                    style={{ fontFamily: "Pally-Bold, sans-serif" }}
+                    className="text-2xl xl:text-2xl 2xl:text-3xl font-bold "
+                   
                   >
                     Vì sao chọn E.C.O?
                   </h2>
                 </div>
 
-                <div className="space-y-3 text-sm ">
+                <div className="space-y-3 text-xs 2xl:text-lg mt-4">
                   <p
-                    className=" leading-relaxed"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                    className="leading-relaxed"
+                    
                   >
                     Chúng tôi không chỉ trồng cây—chúng tôi tái kết nối con
                     người với thiên nhiên bằng công nghệ, sự minh bạch và những
@@ -254,127 +305,39 @@ export default function OurPartner() {
                     tôi đều có vị trí thật, hình ảnh thật, sự chăm sóc thật và
                     một câu chuyện thật để kể.
                   </p>
-                  <p
-                    className=" leading-relaxed"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                  >
-                    Every tree planted with us has a real location, a real
-                    image, real care, and a real story to tell.
-                  </p>
+                  
                 </div>
               </div>
             </div>
           </div>
         </section>
         {/* Title Section */}
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 xl:mt-[4vh] 2xl:mt-[5vh] px-8 xl:px-[5vw] 2xl:px-[8vw]">
           <h1
-            className="text-5xl font-bold text-black mb-8"
-            style={{ fontFamily: "Pally-Bold, sans-serif" }}
+            className="text-4xl xl:text-[3.5rem] 2xl:text-7xl font-bold text-black mb-8 xl:mb-[4vh] 2xl:mb-[5vh]"
+           
           >
             PARTNER WITH E.C.O - Where Forests Grow – Together
           </h1>
         </div>
 
         {/* Our Impact Section with Homepage Images */}
-        <section className=" pb-10 bg-[#EEEEEE]">
-          <div className="px-30 mx-auto px-8">
-            {/* Section Title */}
-
+        <section className="pb-10 xl:pb-[6vh] 2xl:pb-[8vh] bg-[#EEEEEE]">
+          <div className="px-30 xl:px-[5vw] 2xl:px-[8vw] mx-auto">
             {/* Image Grid */}
             <div className="grid lg:grid-cols-2 gap-8 mb-16">
-              {/* Top Row - 2 Images */}
+              {/* Left Column - 2 Images */}
               <div className="space-y-8">
-                {/* Image 1 */}
-                <div
-                  className="group relative overflow-hidden rounded-2xl shadow-2xl cursor-pointer"
-                  onClick={handleMixedHardwoodClick}
-                >
-                  <img
-                    src={h1Image}
-                    alt="Environmental Impact 1"
-                    className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="text-center text-white p-6">
-                      <h2
-                        className="text-5xl font-bold mb-2"
-                        style={{ fontFamily: "Pally-Bold, sans-serif" }}
-                      >
-                        {forests[0].bigTitle1}
-                      </h2>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Image 2 */}
-                <div
-                  className="group relative overflow-hidden rounded-2xl shadow-2xl cursor-pointer"
-                  onClick={handleWetlandClick}
-                >
-                  <img
-                    src={h2Image}
-                    alt="Environmental Impact 2"
-                    className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="text-center text-white p-6">
-                      <h2
-                        className="text-5xl font-bold mb-2"
-                        style={{ fontFamily: "Pally-Bold, sans-serif" }}
-                      >
-                        {forests[1].bigTitle1}
-                      </h2>
-                    </div>
-                  </div>
-                </div>
+                {forestImages.slice(0, 2).map((imageData, index) => 
+                  renderForestImage(imageData, index)
+                )}
               </div>
 
-              {/* Bottom Row - 2 Images */}
+              {/* Right Column - 2 Images */}
               <div className="space-y-8">
-                {/* Image 3 */}
-                <div
-                  className="group relative overflow-hidden rounded-2xl shadow-2xl cursor-pointer"
-                  onClick={handleBambooForestClick}
-                >
-                  <img
-                    src={h3Image}
-                    alt="Environmental Impact 3"
-                    className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="text-center text-white p-6">
-                      <h2
-                        className="text-5xl font-bold mb-2"
-                        style={{ fontFamily: "Pally-Bold, sans-serif" }}
-                      >
-                        {forests[2].bigTitle1}
-                      </h2>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Image 4 */}
-                <div
-                  className="group relative overflow-hidden rounded-2xl shadow-2xl cursor-pointer"
-                  onClick={handleSemiDeciduousClick}
-                >
-                  <img
-                    src={h4Image}
-                    alt="Semi-Deciduous Evergreen Forest"
-                    className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="text-center text-white p-6">
-                      <h2
-                        className="text-5xl font-bold mb-2"
-                        style={{ fontFamily: "Pally-Bold, sans-serif" }}
-                      >
-                        {forests[3].bigTitle1}
-                      </h2>
-                    </div>
-                  </div>
-                </div>
+                {forestImages.slice(2, 4).map((imageData, index) => 
+                  renderForestImage(imageData, index + 2)
+                )}
               </div>
             </div>
           </div>

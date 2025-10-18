@@ -17,7 +17,7 @@ import CSRManagement from "./admin/pages/CSRManagement";
 import FinancialReports from "./admin/pages/FinancialReports";
 import CustomerSupport from "./admin/pages/CustomerSupport";
 import Logs from "./admin/pages/Logs";
-import '../Pally_Complete/Fonts/WEB/css/pally.css';
+// removed Pally font import; Montserrat is now global via src/index.css
 
 function App() {
   return (

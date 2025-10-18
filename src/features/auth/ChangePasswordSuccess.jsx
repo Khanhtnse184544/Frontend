@@ -2,7 +2,7 @@ import React from "react";
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoLeafOutline } from "react-icons/io5";
-import logoLogin from "../../assets/auth/logoLogin.png";
+import logo from "../../assets/homepage/logo_xanh.png";
 
 export default function ChangePasswordSuccess({ onClose, onSwitch }) {
   return (
@@ -21,41 +21,33 @@ export default function ChangePasswordSuccess({ onClose, onSwitch }) {
           {/* Logo/icon */}
           <div className="flex justify-center mb-8">
             <div className=" rounded-2xl">
-              <img src={logoLogin} alt="Logo" className="w-25 h-25" />
+              <img src={logo} alt="Logo" className="w-25 h-25" />
             </div>
           </div>
 
           {/* Title */}
-          <h1
-            className="text-4xl font-extrabold text-center leading-tight mb-4"
-            style={{ fontFamily: "Pally-Bold, sans-serif" }}
-          >
-            <span className="text-black">ECOLOGICAL CONSER</span>
-
-            <span className="text-[#d68c45]">VATION OPERATION</span>
-          </h1>
-
+          
           {/* Subtitle */}
           <h2
             className="mt-3 text-3xl text-center flex items-center justify-center mb-8"
-            style={{ fontFamily: "Pally-Bold, sans-serif" }}
+            
           >
-            Change Password
+            Đổi mật khẩu
             <IoLeafOutline className="ml-2 w-6 h-6 text-[#d68c45]" />
           </h2>
 
           {/* Form */}
           <form className="mt-8 space-y-6 flex flex-col items-center">
-            <p className="text-center text-[#d68c45] text-lg  font-semibold">Password changed successfully, please go back to login.</p>
+            <p className="text-center text-[#d68c45] text-lg  font-semibold">Đổi mật khẩu thành công, vui lòng quay lại đăng nhập.</p>
             <button
               onClick={(e) => {
                 e.preventDefault();
                 onSwitch("login");
               }}
               className="w-[50%] py-2 bg-[#1E2C34] text-white rounded-xl font-semibold hover:bg-[#2E424E] transition-colors shadow-md text-lg"
-              style={{ fontFamily: "Pally-Regular, sans-serif" }}
+              
             >
-              Login
+              Đăng nhập
             </button>
           </form>
         </div>

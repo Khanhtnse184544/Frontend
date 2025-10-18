@@ -27,19 +27,17 @@ export default function AboutUs() {
         <div className="w-full ">
           <div className="text-center ">
             {/* Title */}
-           
 
             {/* Subtitle */}
-            <h2
-              className="text-[3.5rem]  2xl:text-7xl 2xl:mb-[5vh] font-bold"
-              style={{ fontFamily: "Montserrat, Inter, Arial, sans-serif" }}
-            >
-              Công ty TNHH <span className="text-[#d68c45]">giải pháp xanh bền vững E.C.O
+            <h2 className="text-3xl xl:text-5xl 2xl:text-7xl 2xl:mb-[4vh] font-bold">
+              Công Ty TNHH{" "}
+              <span className="text-[#d68c45]">
+                Giải Pháp Xanh Bền Vững E.C.O
               </span>
             </h2>
 
             {/* Five Images Row - Centered with different sizes */}
-            <div className="flex justify-center items-center gap-8 lg:gap-[2.5vw] 2xl:gap-[2.5vw] mb-6 lg:mb-[1.5vw] 2xl:my-[8vh] mx-16 lg:mx-[5vw] 2xl:mx-[vw]">
+            <div className="flex justify-center items-center gap-8 lg:gap-[2vw] xl:gap-[1.8vw] 2xl:gap-[1.6vw] mb-6 lg:mb-[1.2vw] 2xl:my-[6vh] mx-16 lg:mx-[4vw] 2xl:mx-[2.5vw]">
               {/* Image 1 - Smallest */}
               <div className=" w-[210px] h-[210px] lg:w-[16.4vw] lg:h-[16.4vw] 2xl:w-[12vw] 2xl:h-[12vw] flex items-center justify-center">
                 <img
@@ -95,19 +93,19 @@ export default function AboutUs() {
                 className="text-md 2xl:text-xl text-gray-800 leading-relaxed"
                 style={{ fontFamily: "Pally-Regular, sans-serif" }}
               >
-                Gắn kết con người với thiên nhiên thông qua công nghệ và cảm xúc.
+                Gắn kết con người với thiên nhiên thông qua công nghệ và cảm
+                xúc.
               </p>
               <p
                 className="text-md 2xl:text-xl text-gray-800 leading-relaxed"
                 style={{ fontFamily: "Pally-Regular, sans-serif" }}
               >
                 Mỗi hành động số tạo nên một mầm xanh thật, một giá trị thật.
-
               </p>
 
               {/* Social Media Icons */}
               <div className="flex justify-center items-center mt-16 2xl:mt-[6vh]">
-                <SocialLinks 
+                <SocialLinks
                   iconSize="w-4 h-4 2xl:w-5 2xl:h-5"
                   iconColor="text-[#D68C45]"
                   hoverColor="hover:scale-110"
@@ -140,33 +138,38 @@ export default function AboutUs() {
                     className="text-3xl 2xl:text-4xl font-bold text-gray-800 mb-2"
                     style={{ fontFamily: "Pally-Bold, sans-serif" }}
                   >
-                    Our Story
+                    Câu chuyện của chúng tôi
                   </h3>
                   <p
                     className="text-md 2xl:text-lg text-gray-700 leading-tight mb-0"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
-                    E.C.O (Ecological Conservation Operation) is a social
-                    enterprise founded by a group of Vietnamese youth with a
-                    shared love for nature and technology. We aim to restore
-                    native forests and inspire the community through gamified
-                    solutions.
+                    E.C.O là doanh nghiệp xã hội được sáng lập bởi một nhóm bạn
+                    trẻ Việt Nam cùng chung tình yêu với thiên nhiên và công
+                    nghệ. Chúng tôi hướng đến việc khôi phục rừng bản địa và
+                    truyền cảm hứng hành động xanh cho cộng đồng thông qua các
+                    giải pháp gamification sáng tạo.
                   </p>
                   <p
                     className="text-md 2xl:text-lg text-gray-700 leading-tight mb-0"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
-                    Our flagship initiative — C.H.A.M — turns every digital
-                    action into real-world tree planting, making environmental
-                    contribution fun, transparent, and scalable.
+                    Sáng kiến trọng điểm của E.C.O - C.H.A.M (Chạm - Hiểu - Ấp ủ
+                    - Mầm) - biến mỗi hành động nhỏ trên nền tảng số (ứng dụng
+                    game hóa và website) được quy đổi thành tác động thật ngoài
+                    đời: trồng cây, phục hồi rừng, và giảm phát thải carbon.
+                    C.H.A.M giúp việc đóng góp cho môi trường trở nên thú vị,
+                    minh bạch và dễ lan tỏa, kết nối người trẻ, tổ chức và doanh
+                    nghiệp cùng hành động vì mục tiêu chung.
                   </p>
                   <p
                     className="text-md 2xl:text-lg text-gray-700 leading-tight"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
-                    Born out of a deep concern for deforestation and climate
-                    change, our journey started with a simple question: How can
-                    we protect the earth while engaging the next generation?
+                    Dự án ra đời từ trăn trở: “Làm thế nào để bảo vệ Trái Đất mà
+                    vẫn kết nối được thế hệ trẻ trong hành trình đó?” Và E.C.O
+                    chính là lời hồi đáp - nơi công nghệ và thiện chí gặp nhau
+                    để gieo những mầm xanh cho tương lai.
                   </p>
                 </div>
               </div>
@@ -219,30 +222,34 @@ export default function AboutUs() {
                   className="text-3xl 2xl:text-4xl font-bold text-[#d68c45] mb-3"
                   style={{ fontFamily: "Pally-Bold, sans-serif" }}
                 >
-                  How we work
+                  Cách chúng tôi hoạt động
                 </h3>
                 <div className="space-y-0">
                   <p
                     className="text-md 2xl:text-lg text-gray-700 leading-relaxed"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
-                    We bridge digital engagement with real environmental action.
+                    Chúng tôi kết nối thế giới số với hành động xanh ngoài đời
+                    thực. Thông qua nền tảng ứng dụng C.H.A.M, người dùng gieo
+                    và chăm sóc cây ảo trong game – mỗi tương tác đều được quy
+                    đổi thành cây thật được trồng tại các khu rừng ở Việt Nam.
                   </p>
                   <p
                     className="text-md 2xl:text-lg text-gray-700 leading-relaxed"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
-                    Through our mobile platform C.H.A.M, users plant virtual
-                    trees while learning about ecosystems and sustainability.
-                    Every in-app interaction helps fund actual tree planting.
+                    Song song, E.C.O hợp tác với doanh nghiệp CSR, tổ chức phi
+                    lợi nhuận và cộng đồng địa phương để đảm bảo mọi hoạt động
+                    trồng rừng đều minh bạch, bền vững và có thể theo dõi được.
                   </p>
                   <p
                     className="text-md 2xl:text-lg text-gray-700 leading-relaxed"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
-                    We partner with CSR-driven companies, NGOs, and local
-                    communities to ensure transparent, long-term reforestation
-                    and community benefits.
+                    C.H.A.M sử dụng AI và hệ thống định vị (GPS) để theo dõi
+                    tăng trưởng cây thật, minh chứng tác động và cung cấp báo
+                    cáo ESG trực quan – biến mỗi lần “chạm” của người dùng thành
+                    một bước tiến thật trong hành trình phủ xanh Trái Đất.
                   </p>
                 </div>
               </div>
@@ -269,7 +276,7 @@ export default function AboutUs() {
                 className="text-4xl 2xl:text-5xl font-bold text-[#d68c45]"
                 style={{ fontFamily: "Pally-Bold, sans-serif" }}
               >
-                Our Mission
+                Sứ mệnh của chúng tôi
               </h2>
               <div className="w-16 h-px bg-black"></div>
             </div>
@@ -283,10 +290,9 @@ export default function AboutUs() {
                 className="text-md 2xl:text-lg text-gray-800 leading-relaxed"
                 style={{ fontFamily: "Pally-Regular, sans-serif" }}
               >
-                At E.C.O – Ecological Conservation Operation, we reconnect
-                people with nature through technology, emotion, and collective
-                action. Our gamified platforms turn simple virtual tasks into
-                real-world tree planting and ecological impact.
+                Chúng tôi tin rằng mỗi người đều có thể đóng góp cho môi trường
+                - bắt đầu từ những hành động nhỏ, khi được trao một nền tảng đủ
+                gần gũi, minh bạch và truyền cảm hứng.
               </p>
             </div>
 
@@ -322,18 +328,17 @@ export default function AboutUs() {
                   className="text-md 2xl:text-lg text-gray-800 leading-relaxed"
                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
-                  We partner with national parks, schools, and CSR-driven
-                  businesses to create a transparent, collaborative ecosystem
-                  for sustainability. Every action in the app supports real
-                  conservation efforts.
+                  Sứ mệnh của E.C.O là biến công nghệ thành cầu nối để con người
+                  hành động vì môi trường một cách dễ dàng và ý nghĩa hơn.
                 </p>
                 <p
                   className="text-md 2xl:text-lg text-gray-800 leading-relaxed"
                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
-                  More than planting forests, we nurture awareness - embedding
-                  green habits through play and education. At E.C.O, small
-                  digital steps grow into meaningful environmental change.
+                  E.C.O hướng tới xây dựng một thế hệ biết sống xanh thông qua
+                  học hỏi, trải nghiệm và tương tác số, nơi việc bảo vệ môi
+                  trường không còn xa vời, mà trở thành một phần tự nhiên trong
+                  đời sống hàng ngày.
                 </p>
               </div>
             </div>

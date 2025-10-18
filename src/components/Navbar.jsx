@@ -121,11 +121,10 @@ export default function Navbar() {
                   flex items-center gap-1 cursor-pointer
                   transition-all duration-300
                   ${hovered
-                    ? 'text-[1.3rem] 2xl:!text-3xl font-light tracking-wide 2xl:tracking-wider'
-                    : 'text-[1.19rem] 2xl:!text-2xl font-light tracking-tight 2xl:tracking-wide'}
+                    ? 'text-[1.3rem] 2xl:!text-3xl  tracking-wide 2xl:tracking-wider'
+                    : 'text-[1.19rem] 2xl:!text-2xl  tracking-tight 2xl:tracking-wide'}
                   ${isItemActive ? 'text-[#D68C45] font-bold' : 'text-white hover:text-[#D68C45]'}
                 `}
-                style={{fontFamily: 'Pally-Regular, sans-serif'}}
                 onMouseEnter={() => item.hasDropdown && handleDropdownEnter(item.title)}
                 onMouseLeave={() => item.hasDropdown && handleDropdownLeave()}
                 onClick={() => handleMenuClick(item)}

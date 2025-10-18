@@ -13,6 +13,13 @@ export default function ContactUsPopup({ isOpen, onClose, onSubmit }) {
       ...formData,
       [e.target.name]: e.target.value
     });
+
+    // Auto-resize textarea
+    if (e.target.name === 'message') {
+      const textarea = e.target;
+      textarea.style.height = 'auto';
+      textarea.style.height = Math.min(textarea.scrollHeight, 200) + 'px'; // Max height 200px
+    }
   };
 
   const handleSubmit = (e) => {
@@ -55,9 +62,9 @@ export default function ContactUsPopup({ isOpen, onClose, onSubmit }) {
         {/* Title */}
         <h2
           className="text-4xl font-bold text-[#D68C45] mb-6"
-          style={{ fontFamily: "Pally-Bold, sans-serif" }}
+          
         >
-          Contact us
+          Liên hệ
         </h2>
 
         {/* Form */}
@@ -66,18 +73,18 @@ export default function ContactUsPopup({ isOpen, onClose, onSubmit }) {
           <div>
             <label
               className="block text-gray-500 text-xl font-semibold mb-2"
-              style={{ fontFamily: "Pally-Regular, sans-serif" }}
+              
             >
-              Your Phone or Email
+              Số điện thoại hoặc email
             </label>
             <input
               type="text"
               name="contact"
               value={formData.contact}
               onChange={handleChange}
-              placeholder="Your Contact"
+              placeholder="Số điện thoại hoặc email"
               className="w-full px-3 py-2 text-sm border-b-2 border-gray-300 focus:border-[#D68C45] outline-none bg-transparent"
-              style={{ fontFamily: "Pally-Regular, sans-serif" }}
+              
               required
             />
           </div>
@@ -88,26 +95,22 @@ export default function ContactUsPopup({ isOpen, onClose, onSubmit }) {
            <div>
              <label
                className="block text-gray-500 text-xl font-semibold mb-2"
-               style={{ fontFamily: "Pally-Regular, sans-serif" }}
+               
              >
-               Note
+               Nội dung
              </label>
              <div className="relative">
-               <textarea
-                 name="message"
-                 value={formData.message}
-                 onChange={handleChange}
-                 placeholder=""
-                 rows="3"
-                 className="w-full px-3 py-2 border-b-2 border-gray-300 focus:border-[#D68C45] outline-none bg-transparent resize-none"
-                 style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                 required
-               />
-               {!formData.message && (
-                 <div className="absolute bottom-5 left-3 text-sm text-gray-500 italic pointer-events-none" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
-                   Your Message
-                 </div>
-               )}
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Nội dung"
+                  rows="1"
+                  className="w-full px-3 py-2 text-sm border-b-2 border-gray-300 focus:border-[#D68C45] outline-none bg-transparent"
+                  
+                  required
+                />
+              
              </div>
            </div>
 
@@ -115,10 +118,10 @@ export default function ContactUsPopup({ isOpen, onClose, onSubmit }) {
           <div className="flex justify-end">
             <button
               type="submit"
-              className="bg-[#D68C45] text-white w-[300px] text-lg py-2 rounded-xl font-bold flex items-center justify-center hover:bg-[#B87A3A] transition-colors duration-300 shadow-lg me-10 mt-2"
-              style={{ fontFamily: "Pally-Bold, sans-serif" }}
+              className="bg-[#D68C45] text-white w-[300px] text-lg py-2 rounded-xl font-bold flex items-center justify-center hover:bg-[#B87A3A] transition-colors duration-300 shadow-lg mt-2"
+              
             >
-              Send
+              Gửi
             </button>
           </div>
         </form>

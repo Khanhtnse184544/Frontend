@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoLeafOutline } from "react-icons/io5";
-import logoLogin from '../../assets/auth/logoLogin.png';
+import logo from '../../assets/homepage/logo_xanh.png';
 
 export default function ForgotPassword({ onClose, onSwitch }) {
   const [email, setEmail] = useState("");
@@ -12,7 +12,7 @@ export default function ForgotPassword({ onClose, onSwitch }) {
     e.preventDefault();
     
     if (!email) {
-      alert("Please enter your email address");
+      alert("Vui lòng nhập địa chỉ email của bạn");
       return;
     }
 
@@ -27,7 +27,7 @@ export default function ForgotPassword({ onClose, onSwitch }) {
       onSwitch("change-password");
     } catch (error) {
       console.error("Error sending OTP:", error);
-      alert("Failed to send OTP. Please try again.");
+      alert("Gửi OTP thất bại. Vui lòng thử lại.");
     } finally {
       setIsLoading(false);
     }
@@ -48,26 +48,18 @@ export default function ForgotPassword({ onClose, onSwitch }) {
           {/* Logo/icon */}
           <div className="flex justify-center mb-8">
             <div className=" rounded-2xl">
-              <img src={logoLogin} alt="Logo" className="w-25 h-25" />
+              <img src={logo} alt="Logo" className="w-25 h-25" />
             </div>
           </div>
 
-          {/* Title */}
-          <h1 
-            className="text-4xl font-extrabold text-center leading-tight mb-4"
-            style={{ fontFamily: "Pally-Bold, sans-serif" }}
-          >
-            <span className="text-black">ECOLOGICAL CONSER</span>
-         
-            <span className="text-[#d68c45]">VATION OPERATION</span>
-          </h1>
+          
 
           {/* Subtitle */}
           <h2 
             className="mt-3 text-3xl text-center flex items-center justify-center mb-8"
-            style={{ fontFamily: "Pally-Bold, sans-serif" }}
+            
           >
-            Forgot Password
+            Quên mật khẩu
             <IoLeafOutline className="ml-2 w-6 h-6 text-[#d68c45]" />
           </h2>
 
@@ -77,7 +69,7 @@ export default function ForgotPassword({ onClose, onSwitch }) {
                <div className="w-[50%] flex justify-between items-center mb-3">
                  <label 
                    className="block text-sm font-medium text-black"
-                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                   
                  >
                   Email
                  </label>
@@ -89,7 +81,7 @@ export default function ForgotPassword({ onClose, onSwitch }) {
                    value={email}
                    onChange={(e) => setEmail(e.target.value)}
                    className="w-full px-4 py-2 pr-20 border border-gray-200 rounded-xl bg-[#F7FBFF] focus:outline-none focus:ring-2 focus:ring-[#d68c45] focus:border-transparent transition-all text-base"
-                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                   
                    required
                  />
                  
@@ -105,9 +97,9 @@ export default function ForgotPassword({ onClose, onSwitch }) {
                   onSwitch("forgot");
                 }}
                 className="text-[#1E4AE9] hover:text-[#1E4AE9] hover:underline transition-colors font-medium"
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                
               >
-                Back to Login
+                Quay lại đăng nhập
               </button>
               <button
                 onClick={(e) => {
@@ -115,9 +107,9 @@ export default function ForgotPassword({ onClose, onSwitch }) {
                   onSwitch("register");
                 }}
                 className="text-[#1E4AE9] hover:text-[#1E4AE9] hover:underline transition-colors font-medium"
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                
               >
-                Don't have an account? Register
+                Chưa có tài khoản? Đăng ký
               </button>
               
             </div>
@@ -130,9 +122,9 @@ export default function ForgotPassword({ onClose, onSwitch }) {
                   ? 'bg-gray-400 cursor-not-allowed' 
                   : 'bg-[#1E2C34] hover:bg-[#2E424E]'
               } text-white`}
-              style={{ fontFamily: "Pally-Regular, sans-serif" }}
+              
             >
-              {isLoading ? "Sending..." : "Send OTP"}
+              {isLoading ? "Đang gửi..." : "Gửi OTP"}
             </button>
           </form>
 

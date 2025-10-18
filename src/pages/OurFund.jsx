@@ -36,35 +36,36 @@ export default function OurFund() {
         <div className="absolute inset-0 "></div>
 
         {/* Content */}
-        <div className="relative z-10 flex justify-between w-full px-16 lg:px-[5vw] 2xl:px-[5vw] h-full items-end pb-16 lg:pb-[8vh] 2xl:pb-[8vh]">
+        <div className="relative z-10 flex justify-between w-full ps-16 lg:ps-[5vw] 2xl:ps-[5vw] h-full items-end pb-16 lg:pb-[8vh] 2xl:pb-[8vh]">
           {/* Left side - Title */}
           <div className="text-white">
             <h1
               className="text-6xl lg:text-6xl 2xl:text-8xl font-bold mb-3"
-              style={{ fontFamily: "Pally-Bold, sans-serif" }}
+              
             >
               Quỹ E.C.O
             </h1>
             <p
               className="text-xl lg:text-xl 2xl:text-2xl tracking-[0.2em]"
-              style={{ fontFamily: "Pally-Bold, sans-serif" }}
+              
             >
-              Vì một tương lai xanh.
+              Với E.C.O, phát triển bền vững….
+
             </p>
           </div>
 
           {/* Right side - Message and Button */}
           <div className="text-white text-center"></div>
         </div>
-        <div className="relative z-10 flex justify-between items-end w-full px-16 lg:px-[4vw] 2xl:px-[4.5vw]">
+        <div className="relative z-10 flex justify-between items-end w-full pe-16 lg:pe-[4vw] 2xl:pe-[4.5vw]">
           {/* Left side - Title */}
           <div className="text-white"></div>
 
           {/* Right side - Message and Button */}
           <div className="text-white text-center">
             <p
-              className="text-md lg:text-md 2xl:text-xl leading-tight tracking-wide mb-5 max-w-lg lg:max-w-[40vw] 2xl:max-w-[38vw]"
-              style={{ fontFamily: "Pally-Medium, sans-serif" }}
+              className="text-sm lg:text-sm 2xl:text-xl leading-tight tracking-wide mb-5 max-w-lg lg:max-w-[40vw] xl:max-w-[70vw] 2xl:max-w-[60vw]"
+             
             >
               Với chúng tôi, phát triển bền vững không chỉ là mục tiêu, mà còn
               là một hành trình cần được lan tỏa và công khai minh bạch.
@@ -72,7 +73,7 @@ export default function OurFund() {
             <button
               onClick={handleSponsorClick}
               className="bg-white  text-black font-bold py-1.5 lg:py-[0.7vh] 2xl:py-[1vh] rounded-[15px] 2xl:rounded-[20px] w-[280px] lg:w-[20vw] 2xl:w-[18vw] hover:bg-black hover:text-white transition-colors duration-300 shadow-lg text-xl lg:text-xl 2xl:text-2xl flex items-center justify-center mx-auto"
-              style={{ fontFamily: "Pally-Bold, sans-serif" }}
+              
             >
               Sponsor Now
             </button>
@@ -90,7 +91,7 @@ export default function OurFund() {
               <div className="absolute top-7 lg:top-[4vh] left-8 lg:left-[3vw]">
                 <h2
                   className="text-lg lg:text-lg 2xl:text-2xl font-semibold tracking-wider group-hover:scale-110 transition-all duration-300 ease-in-out transform origin-center"
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                  text-sm lg:text-sm
                 >
                   E.C.O Corporate
                 </h2>
@@ -112,19 +113,19 @@ export default function OurFund() {
                 <div className="">
                   <div
                     className="text-2xl lg:text-2xl 2xl:text-4xl font-semibold"
-                    style={{ fontFamily: "Pally-Medium, sans-serif" }}
+                   
                   >
                     <span
                       className="text-[2.75rem] lg:text-[2.75rem] 2xl:text-[3.5rem] font-semibold"
-                      style={{ fontFamily: "Pally-Bold, sans-serif" }}
+                      
                     >
-                      1+
+                      10+
                     </span>{" "}
-                    Millions
+                    Th
                   </div>
                   <div
                     className="text-xs lg:text-xs 2xl:text-base"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                    text-sm lg:text-sm
                   >
                     Planting tree
                   </div>
@@ -132,19 +133,21 @@ export default function OurFund() {
               </div>
 
               {/* Bottom Right - In 5 */}
-              <div className="absolute bottom-4 lg:bottom-[2vh] 2xl:bottom-[3vh] right-8 lg:right-[3vw] 2xl:right-[4vw] text-right group-hover:scale-110 transition-all duration-300 ease-in-out transform origin-center">
+              <div className="absolute bottom-4 lg:bottom-[2vh] 2xl:bottom-[2vh] right-8 lg:right-[1.5vw] 2xl:right-[1.5vw] text-right group-hover:scale-110 transition-all duration-300 ease-in-out transform origin-center">
                 <div className="space-y-1">
                   <div
-                    className="text-lg lg:text-lg 2xl:text-2xl"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                  >
+                    className="text-sm lg:text-sm 2xl:text-lg"
+                    text-sm lg:text-sm
+                  > 
                     In{" "}
                     <span
                       className="text-[2.8rem] lg:text-[3.2rem] 2xl:text-[3.6rem] font-semibold"
-                      style={{ fontFamily: "Pally-Bold, sans-serif" }}
+                      
                     >
                       5
                     </span>
+                    {" "}
+                    Years
                   </div>
                 </div>
               </div>
@@ -180,7 +183,7 @@ export default function OurFund() {
               <div className="text-center mb-3 lg:mb-[2vh] lg:pt-[4vh] 2xl:mb-[2.5vh]">
                 <h2
                   className="text-[3.5rem] lg:text-5xl 2xl:text-7xl font-bold"
-                  style={{ fontFamily: "Pally-Bold, sans-serif" }}
+                  
                 >
                   <span className="text-[#D68C45]">E.C.O</span>
                   <span className="text-[#3A3A3A]"> Cam Kết</span>
@@ -189,8 +192,8 @@ export default function OurFund() {
 
               <div className="text-left px-20 lg:px-[4vw] 2xl:px-[4.5vw] space-y-2 lg:space-y-[1.2vh] 2xl:space-y-[1.5vh] pb-12 lg:pb-[6vh] 2xl:pb-[7vh]">
                 <p
-                  className="text-md lg:text-md 2xl:text-xl leading-relaxed"
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                  className="text-sm lg:text-sm 2xl:text-xl leading-relaxed"
+                  text-sm lg:text-sm
                 >
                   Đội ngũ điều hành Tài chính (CFO) của chúng tôi, với chuyên
                   môn về Công nghệ Truyền thông cùng trách nhiệm quản lý tài
@@ -199,8 +202,8 @@ export default function OurFund() {
                 </p>
 
                 <p
-                  className="text-md lg:text-md 2xl:text-xl leading-relaxed"
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                  className="text-sm lg:text-sm 2xl:text-xl leading-relaxed"
+                  text-sm lg:text-sm
                 >
                   Trong tương lai, E.C.O hướng tới việc hợp tác cùng một đơn vị
                   kiểm toán độc lập để xác minh tính minh bạch của các báo cáo
@@ -209,8 +212,8 @@ export default function OurFund() {
                 </p>
 
                 <p
-                  className="text-md lg:text-md 2xl:text-xl leading-relaxed"
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                  className="text-sm lg:text-sm 2xl:text-xl leading-relaxed"
+                  text-sm lg:text-sm
                 >
                   Chúng tôi luôn lắng nghe những góp ý từ cộng đồng và đối tác
                   để không ngừng cải thiện quy trình quản lý quỹ, đồng thời tối
