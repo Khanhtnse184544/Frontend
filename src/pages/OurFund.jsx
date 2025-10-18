@@ -75,7 +75,7 @@ export default function OurFund() {
               className="bg-white  text-black font-bold py-1.5 lg:py-[0.7vh] 2xl:py-[1vh] rounded-[15px] 2xl:rounded-[20px] w-[280px] lg:w-[20vw] 2xl:w-[18vw] hover:bg-black hover:text-white transition-colors duration-300 shadow-lg text-xl lg:text-xl 2xl:text-2xl flex items-center justify-center mx-auto"
               
             >
-              Sponsor Now
+              Tài trợ ngay
             </button>
           </div>
         </div>
@@ -93,7 +93,7 @@ export default function OurFund() {
                   className="text-lg lg:text-lg 2xl:text-2xl font-semibold tracking-wider group-hover:scale-110 transition-all duration-300 ease-in-out transform origin-center"
                   text-sm lg:text-sm
                 >
-                  E.C.O Corporate
+                  E.C.O 
                 </h2>
               </div>
 
@@ -121,13 +121,13 @@ export default function OurFund() {
                     >
                       10+
                     </span>{" "}
-                    Th
+                    Nghìn
                   </div>
                   <div
                     className="text-xs lg:text-xs 2xl:text-base"
                     text-sm lg:text-sm
                   >
-                    Planting tree
+                    Cây được trồng
                   </div>
                 </div>
               </div>
@@ -139,7 +139,7 @@ export default function OurFund() {
                     className="text-sm lg:text-sm 2xl:text-lg"
                     text-sm lg:text-sm
                   > 
-                    In{" "}
+                    
                     <span
                       className="text-[2.8rem] lg:text-[3.2rem] 2xl:text-[3.6rem] font-semibold"
                       
@@ -147,7 +147,7 @@ export default function OurFund() {
                       5
                     </span>
                     {" "}
-                    Years
+                    Năm
                   </div>
                 </div>
               </div>

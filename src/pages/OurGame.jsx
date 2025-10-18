@@ -58,7 +58,7 @@ export default function OurGame() {
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                       backgroundClip: "text",
-                      fontFamily: "Pally-Bold, sans-serif",
+                      
                       textShadow: "0 4px 8px rgba(96, 222, 242, 0.3)",
                     }}
                   >
@@ -69,7 +69,7 @@ export default function OurGame() {
                   <button
                     className="text-white text-2xl font-bold px-11 py-1.5 rounded-[15px] transition-all duration-300  hover:shadow-xl transform hover:scale-105"
                     style={{
-                      fontFamily: "Pally-Bold, sans-serif",
+                      
                       background:
                         "linear-gradient(135deg, #60DEF2 0%, #4BC0D9 50%, #60DEF2 100%)",
                       backgroundSize: "200% 200%",
@@ -115,13 +115,13 @@ export default function OurGame() {
               <div className="max-w-4xl  rounded-2xl p-6 ">
                 <h3
                   className="text-3xl font-bold text-white  "
-                  style={{ fontFamily: "Pally-Bold, sans-serif" }}
+                  
                 >
                   Tính năng kết nối thời tiết thực
                 </h3>
                 <p
                   className="text-white text-lg leading-relaxed"
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                  
                 >
                   C.H.A.M kết nối trực tiếp với thời tiết theo thời gian thực
                   với các điểm trồng cây, cho phép cây ảo của bạn phát triển dựa
@@ -137,22 +137,22 @@ export default function OurGame() {
               </div>
 
               {/* Joining the Journey Section */}
-              <div className="px-20 w-full mt-30">
+              <div className="px-20 w-full mt-30 ">
                 <div className="flex justify-between items-center">
                   {/* Text with Gradient */}
                   <div>
                     <h2
-                      className="text-5xl font-bold"
+                      className="text-5xl font-bold pb-5"
                       style={{
                         background:
                           "linear-gradient(135deg, #ffffff 0%, #60DEF2 100%)",
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                         backgroundClip: "text",
-                        fontFamily: "Pally-Bold, sans-serif",
+                        
                       }}
                     >
-                      Cùng tham gia hành trình
+                      Cùng tham gia ngay
                     </h2>
                   </div>
 

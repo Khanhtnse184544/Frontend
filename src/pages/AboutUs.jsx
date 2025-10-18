@@ -10,7 +10,7 @@ import img4 from "../assets/about_us/4.png";
 import img5 from "../assets/about_us/5.png";
 import ourStory from "../assets/about_us/our_story.png";
 import img6 from "../assets/about_us/6.png";
-import logo from "../assets/homepage/logo.png";
+import logo from "../assets/homepage/logo_xanh.png";
 import ourMission1 from "../assets/about_us/our_mission1.png";
 import ourMission2 from "../assets/about_us/our_mission2.png";
 

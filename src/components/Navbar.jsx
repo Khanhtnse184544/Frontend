@@ -3,28 +3,28 @@ import { FaSearch, FaChevronUp, FaChevronDown } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const menu = [
-  { title: "Home", path: "/" },
-  { title: "About Us", path: "/about" },
+  { title: "Trang chủ", path: "/" },
+  { title: "Về chúng tôi", path: "/about" },
   { 
-    title: "Get Involved", 
+    title: "Tham gia", 
     hasDropdown: true,
     dropdownItems: [
-      { title: "Our Fund", path: "/our-fund" },
-      { title: "Sponsor a tree", path: "/sponsor" },
-      { title: "Become a Sponsor", path: "/become-sponsor" },
-      { title: "For school education", path: "/for-school-education" },
-      { title: "Our Partner", path: "/our-partner" }
+      { title: "Quỹ E.C.O", path: "/our-fund" },
+      { title: "Tài trợ", path: "/sponsor" },
+      { title: "Trở thành nhà tài trợ", path: "/become-sponsor" },
+      { title: "Giáo dục ", path: "/for-school-education" },
+      { title: "Đối tác của E.C.O", path: "/our-partner" }
     ]
   },
   { 
     title: "C.H.A.M",
     hasDropdown: true,
     dropdownItems: [
-      { title: "Our Project", path: "/our-project" },
-      { title: "Our Game", path: "/our-game"}
+      { title: "Dự án của E.C.O", path: "/our-project" },
+      { title: "Game của E.C.O", path: "/our-game"}
     ]
   },
-  { title: "News", path: "/news" },
+  { title: "Tin tức", path: "/news" },
 ];
 
 export default function Navbar() {
@@ -102,15 +102,15 @@ export default function Navbar() {
         {menu.map((item) => {
           // Determine if this item is active
           let isItemActive = false;
-          if (item.title === "Home") {
+          if (item.title === "Trang chủ") {
             isItemActive = isActive("/");
-          } else if (item.title === "About Us") {
+          } else if (item.title === "Về chúng tôi") {
             isItemActive = isActive("/about");
-          } else if (item.title === "Get Involved") {
+          } else if (item.title === "Tham gia") {
             isItemActive = isGetInvolvedActive();
           } else if (item.title === "C.H.A.M") {
             isItemActive = isCHAMActive();
-          } else if (item.title === "News") {
+          } else if (item.title === "Tin tức") {
             isItemActive = isActive("/news");
           }
 
@@ -121,8 +121,8 @@ export default function Navbar() {
                   flex items-center gap-1 cursor-pointer
                   transition-all duration-300
                   ${hovered
-                    ? 'text-[1.3rem] 2xl:!text-3xl  tracking-wide 2xl:tracking-wider'
-                    : 'text-[1.19rem] 2xl:!text-2xl  tracking-tight 2xl:tracking-wide'}
+                    ? 'text-[1.2rem] 2xl:!text-2xl  tracking-wide 2xl:tracking-wider'
+                    : 'text-[1.1rem] 2xl:!text-xl  tracking-tight 2xl:tracking-wide'}
                   ${isItemActive ? 'text-[#D68C45] font-bold' : 'text-white hover:text-[#D68C45]'}
                 `}
                 onMouseEnter={() => item.hasDropdown && handleDropdownEnter(item.title)}
@@ -161,7 +161,7 @@ export default function Navbar() {
                         {dropdownItem.title} <span className="text-[#D68C45] font-bold text-4xl 2xl:text-5xl"> _ </span>
                       </div>
                       {dropdownItem.hasLine && (
-                        <div className=" text-[1.44rem] font-light tracking-wide absolute left-2 right-2 h-px bg-[#D68C45] opacity-50"></div>
+                        <div className=" text-[1.2rem] font-light tracking-wide absolute left-2 right-2 h-px bg-[#D68C45] opacity-50"></div>
                       )}
                     </div>
                   );
