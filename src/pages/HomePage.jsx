@@ -228,14 +228,14 @@ export default function HomePage() {
                 0000
               </div>
               <div
-                className="text-white font-extrabold text-xl sm:text-2xl  xl:text-[3.1rem] 2xl:text-7xl text-center mb-6 sm:mb-10 2xl:mb-20 tracking-tight drop-shadow font-sans uppercase px-4"
+                className="text-white font-extrabold text-xl sm:text-2xl  xl:text-[3.1rem] 2xl:text-7xl text-center mb-6 sm:mb-10 2xl:mb-20 tracking-tight drop-shadow  uppercase px-4"
                 style={{ fontFamily: "Montserrat, Inter, Arial, sans-serif" }}
               >
                 MỖI CHẠM LÀ MỘT HẠT MẦM CHO TƯƠNG LAI
               </div>
               <button 
                 onClick={handlePlantTreeClick}
-                className="bg-[#d68c45] text-white border-2 border-[#d68c45] text-base sm:text-md xl:text-lg 2xl:text-xl font-semibold w-[250px] sm:w-[250px] xl:w-[300px] 2xl:w-[370px] py-2 sm:py-2 xl:py-2 2xl:py-3.5 rounded-[15px] 2xl:rounded-[22px] shadow transition-all duration-200 font-sans hover:bg-transparent hover:text-[#d68c45]"
+                className="bg-[#d68c45] text-white border-2 border-[#d68c45] text-base sm:text-md xl:text-lg 2xl:text-xl font-semibold w-[250px] sm:w-[250px] xl:w-[300px] 2xl:w-[370px] py-2 sm:py-2 xl:py-2 2xl:py-3.5 rounded-[15px] 2xl:rounded-[22px] shadow transition-all duration-200  hover:bg-transparent hover:text-[#d68c45]"
                
               >
                 Cùng C.H.A.M Trồng Cây
@@ -500,7 +500,7 @@ export default function HomePage() {
                     <input
                       type="text"
                       placeholder="Nhập tên của bạn"
-                      className="w-full bg-transparent py-2 lg:py-[1vh] 2xl:py-[1.1vh] px-1 lg:px-[0.5vw] 2xl:px-[0.6vw] focus:outline-none text-xs lg:text-xs 2xl:text-lg border-none"
+                      className="w-full bg-transparent py-2 lg:py-[1vh] 2xl:py-[1.1vh] px-0 focus:outline-none text-xs lg:text-xs 2xl:text-lg border-none"
                       style={{
                         
                         fontStyle: "italic",
@@ -517,7 +517,7 @@ export default function HomePage() {
                     <input
                       type="text"
                       placeholder="Nhập liên hệ"
-                      className="w-full bg-transparent py-2 lg:py-[1vh] 2xl:py-[1.1vh] px-1 lg:px-[0.5vw] 2xl:px-[0.6vw] focus:outline-none text-xs lg:text-xs 2xl:text-lg border-none"
+                      className="w-full bg-transparent py-2 lg:py-[1vh] 2xl:py-[1.1vh] px-0 focus:outline-none text-xs lg:text-xs 2xl:text-lg border-none"
                       style={{
                         
                         fontStyle: "italic",
@@ -536,14 +536,14 @@ export default function HomePage() {
                       value={feedbackText}
                       onChange={(e) => setFeedbackText(e.target.value)}
                       placeholder=""
-                      className="w-full bg-transparent py-2 lg:py-[1vh] 2xl:py-[1.1vh] px-1 lg:px-[0.5vw] 2xl:px-[0.6vw] focus:outline-none resize-none text-xs lg:text-xs 2xl:text-lg border-none"
+                      className="w-full bg-transparent py-2 lg:py-[1vh] 2xl:py-[1.1vh] px-0 focus:outline-none resize-none text-xs lg:text-xs 2xl:text-lg border-none"
                       style={{
                         
                         fontStyle: "italic",
                       }}
                     />
                     {!feedbackText && (
-                      <div className="absolute bottom-2 left-1 text-xs lg:text-xs 2xl:text-lg text-white/60 italic pointer-events-none">
+                      <div className="absolute bottom-2 left-0 text-xs lg:text-xs 2xl:text-lg text-white/60 italic pointer-events-none">
                         Chia sẻ ý kiến của bạn cùng chúng tôi...
                       </div>
                     )}

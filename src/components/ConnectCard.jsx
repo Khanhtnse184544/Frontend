@@ -26,7 +26,7 @@ export default function ConnectCard({
           {renderedDefaultTitle}
         </h3>
       </div>
-      <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-6">
         <div className="text-center text-white">
           <h3 className={`${hoverTitleClass} font-krub text-center font-semibold mb-2`}>
             {renderedHoverTitle}

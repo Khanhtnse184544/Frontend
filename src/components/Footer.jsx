@@ -46,9 +46,7 @@ export default function Footer() {
                   <p className="text-white text-[0.6rem] xl:text-[0.6rem] 2xl:text-[0.8rem] ">
                     Điện thoại: 086 820 2708
                   </p>
-                  <p className="text-white text-[0.6rem] xl:text-[0.6rem] 2xl:text-[0.8rem] ">
-                  Trụ sở: Hồ Chí Minh, Việt Nam
-                  </p>
+                 
                 </div>
               </div>
             </div>
@@ -63,7 +61,8 @@ export default function Footer() {
           <div className="w-[100%] border-t border-white pt-4 xl:pt-[2vh] 2xl:pt-[2.5vh] flex items-center">
             <div className="flex-1"></div>
             <p className="text-white text-[0.6rem] xl:text-[0.6rem] 2xl:text-[0.8rem] text-center flex-1">
-              ©2025 E.C.O Company. Bản quyền thuộc về E.C.O.
+            ©2025 E.C.O SG Solutions Co., Ltd. Bản quyền thuộc về CÔNG TY TNHH GIẢI PHÁP XANH BỀN VỮNG E.C.O.
+
             </p>
             <div className="flex items-center space-x-5 xl:space-x-[1.2vw] 2xl:space-x-[1.1vw] flex-1 justify-end pe-10">
               <SocialLinks 

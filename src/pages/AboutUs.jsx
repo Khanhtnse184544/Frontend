@@ -90,14 +90,14 @@ export default function AboutUs() {
             {/* Descriptive Text */}
             <div className=" text-center">
               <p
-                className="text-md 2xl:text-xl text-gray-800 leading-relaxed"
+                className="text-md 2xl:text-xl text-gray-800 "
                 style={{ fontFamily: "Pally-Regular, sans-serif" }}
               >
                 Gắn kết con người với thiên nhiên thông qua công nghệ và cảm
                 xúc.
               </p>
               <p
-                className="text-md 2xl:text-xl text-gray-800 leading-relaxed"
+                className="text-md 2xl:text-xl text-gray-800 "
                 style={{ fontFamily: "Pally-Regular, sans-serif" }}
               >
                 Mỗi hành động số tạo nên một mầm xanh thật, một giá trị thật.
@@ -224,9 +224,9 @@ export default function AboutUs() {
                 >
                   Cách chúng tôi hoạt động
                 </h3>
-                <div className="space-y-0">
+                <div className="space-y-2">
                   <p
-                    className="text-md 2xl:text-lg text-gray-700 leading-relaxed"
+                    className="text-md 2xl:text-lg text-gray-700 "
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     Chúng tôi kết nối thế giới số với hành động xanh ngoài đời
@@ -234,8 +234,9 @@ export default function AboutUs() {
                     và chăm sóc cây ảo trong game – mỗi tương tác đều được quy
                     đổi thành cây thật được trồng tại các khu rừng ở Việt Nam.
                   </p>
+
                   <p
-                    className="text-md 2xl:text-lg text-gray-700 leading-relaxed"
+                    className="text-md 2xl:text-lg text-gray-700 "
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     Song song, E.C.O hợp tác với doanh nghiệp CSR, tổ chức phi
@@ -243,7 +244,7 @@ export default function AboutUs() {
                     trồng rừng đều minh bạch, bền vững và có thể theo dõi được.
                   </p>
                   <p
-                    className="text-md 2xl:text-lg text-gray-700 leading-relaxed"
+                    className="text-md 2xl:text-lg text-gray-700 "
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     C.H.A.M sử dụng AI và hệ thống định vị (GPS) để theo dõi
@@ -255,8 +256,8 @@ export default function AboutUs() {
               </div>
 
               {/* Right side - Illustration */}
-              <div className="flex justify-center items-center w-1/3 2xl:w-[40%]">
-                <div className="relative w-64 h-64 2xl:w-[18vw] 2xl:h-[18vw]">
+              <div className="flex justify-center items-center w-1/3 ">
+                <div className="relative w-30 h-30 xl:w-[12vw] xl:h-[12vw] 2xl:w-[13vw] 2xl:h-[12vw]">
                   <img src={logo} alt="Our Mission" className="w-full h-full" />
                 </div>
               </div>
@@ -287,7 +288,7 @@ export default function AboutUs() {
             {/* Left - Text */}
             <div className="w-2/5">
               <p
-                className="text-md 2xl:text-lg text-gray-800 leading-relaxed"
+                className="text-md 2xl:text-lg text-gray-800 "
                 style={{ fontFamily: "Pally-Regular, sans-serif" }}
               >
                 Chúng tôi tin rằng mỗi người đều có thể đóng góp cho môi trường
@@ -325,14 +326,14 @@ export default function AboutUs() {
             <div className="w-1/3">
               <div className="space-y-2">
                 <p
-                  className="text-md 2xl:text-lg text-gray-800 leading-relaxed"
+                  className="text-md 2xl:text-lg text-gray-800 "
                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
                   Sứ mệnh của E.C.O là biến công nghệ thành cầu nối để con người
                   hành động vì môi trường một cách dễ dàng và ý nghĩa hơn.
                 </p>
                 <p
-                  className="text-md 2xl:text-lg text-gray-800 leading-relaxed"
+                  className="text-md 2xl:text-lg text-gray-800 "
                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
                   E.C.O hướng tới xây dựng một thế hệ biết sống xanh thông qua

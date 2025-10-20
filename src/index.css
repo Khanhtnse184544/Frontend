@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 body {
-  font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+  font-family: 'Montserrat';
   overflow-x: hidden;
 }
 
@@ -31,22 +31,22 @@ html {
 
 /* Hero text styling */
 .hero-text {
-  font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+  font-family: 'Montserrat';
 }
 
 .hero-small-title {
-  font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+  font-family: 'Montserrat';
   letter-spacing: 0.02em;
 }
 
 .hero-main-title {
-  font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+  font-family: 'Montserrat';
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
 .hero-description {
-  font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+  font-family: 'Montserrat';
   font-weight: 400;
   letter-spacing: 0.01em;
 }

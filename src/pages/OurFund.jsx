@@ -46,10 +46,10 @@ export default function OurFund() {
               Quỹ E.C.O
             </h1>
             <p
-              className="text-xl lg:text-xl 2xl:text-2xl tracking-[0.2em]"
+              className="text-xl lg:text-xl 2xl:text-2xl ps-2"
               
             >
-              Với E.C.O, phát triển bền vững….
+              Vì một tương lai xanh.
 
             </p>
           </div>
@@ -67,7 +67,7 @@ export default function OurFund() {
               className="text-sm lg:text-sm 2xl:text-xl leading-tight tracking-wide mb-5 max-w-lg lg:max-w-[40vw] xl:max-w-[70vw] 2xl:max-w-[60vw]"
              
             >
-              Với chúng tôi, phát triển bền vững không chỉ là mục tiêu, mà còn
+              Với E.C.O, phát triển bền vững không chỉ là mục tiêu, mà còn
               là một hành trình cần được lan tỏa và công khai minh bạch.
             </p>
             <button
@@ -87,19 +87,11 @@ export default function OurFund() {
           {/* Left side - Content */}
           <div className="w-1/3">
             <div className="bg-gradient-to-tr from-black via-[#4D4D4D] to-[#6B6B6B] rounded-[30px] 2xl:rounded-[32px] p-8 lg:p-[3vw] 2xl:p-[2.2vw] text-white relative overflow-hidden h-[325px] w-[350px] lg:h-[24vw] lg:w-[25vw] 2xl:h-[23vw] 2xl:w-[25vw] mx-auto transition-all duration-300 ease-in-out group">
-              {/* Top Left - E.C.O Corporate */}
-              <div className="absolute top-7 lg:top-[4vh] left-8 lg:left-[3vw]">
-                <h2
-                  className="text-lg lg:text-lg 2xl:text-2xl font-semibold tracking-wider group-hover:scale-110 transition-all duration-300 ease-in-out transform origin-center"
-                  text-sm lg:text-sm
-                >
-                  E.C.O 
-                </h2>
-              </div>
+              
 
               {/* Right Side - Logo */}
-              <div className="absolute top-0 right-0">
-                <div className="w-45 h-45 lg:w-[12vw] lg:h-[12vw] 2xl:w-[13vw] 2xl:h-[13vw] flex items-center justify-center">
+              <div className="absolute top-[-20px] left-3">
+                <div className="w-45 h-45 lg:w-[12vw] lg:h-[12vw] 2xl:w-[13vw] 2xl:h-[13vw] flex items-center justify-start">
                   <img
                     src={logo}
                     alt="E.C.O Logo"
@@ -119,9 +111,8 @@ export default function OurFund() {
                       className="text-[2.75rem] lg:text-[2.75rem] 2xl:text-[3.5rem] font-semibold"
                       
                     >
-                      10+
-                    </span>{" "}
-                    Nghìn
+                      10000+
+                    </span>
                   </div>
                   <div
                     className="text-xs lg:text-xs 2xl:text-base"

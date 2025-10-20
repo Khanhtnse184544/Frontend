@@ -73,8 +73,8 @@ export default function Sponsor() {
            <div className=" bg-white/40 backdrop-blur-md rounded-2xl 2xl:rounded-3xl px-10 lg:px-[2.2vw] 2xl:px-[2.5vw] py-7 lg:py-[3vh] 2xl:py-[2.5vh] shadow-lg w-4/9 lg:w-[45vw] 2xl:w-[41vw] border border-white/60 mt-10 lg:mt-[4vh] me-10 lg:me-[4vw]">
             <div className="mb-6 text-center">
               
-              <h3 className="text-4xl lg:text-4xl 2xl:text-5xl font-bold text-[#D68C45]" >
-              Cùng hành động, tạo <br /><span> khác biệt.</span>
+              <h3 className="text-3xl lg:text-3xl 2xl:text-4xl font-bold text-[#D68C45]" >
+              Cùng hành động, tạo khác biệt.
 
               </h3>
               <p className="text-md lg:text-md 2xl:text-xl" >

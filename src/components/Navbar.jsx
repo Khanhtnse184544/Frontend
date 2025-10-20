@@ -90,9 +90,8 @@ export default function Navbar() {
           flex items-center justify-center
           bg-black bg-opacity-95 text-white rounded-full shadow-2xl
           transition-all duration-300 ease-in-out
-          font-sans
           ${hovered
-            ? 'w-[715px] h-[78px] gap-8 2xl:w-[1000px] 2xl:h-[120px] 2xl:gap-10'
+            ? 'w-[715px] h-[78px] gap-6 2xl:w-[1000px] 2xl:h-[120px] 2xl:gap-8'
             : 'w-[555px] h-[70px] gap-4.5 2xl:w-[770px] 2xl:h-[100px] 2xl:gap-6'}
         `}
         onMouseEnter={() => setHovered(true)}
@@ -118,11 +117,11 @@ export default function Navbar() {
             <div key={item.title} className="relative">
               <div
                 className={`
-                  flex items-center gap-1 cursor-pointer
+                  flex items-center gap-0.5 cursor-pointer
                   transition-all duration-300
                   ${hovered
-                    ? 'text-[1.2rem] 2xl:!text-2xl  tracking-wide 2xl:tracking-wider'
-                    : 'text-[1.1rem] 2xl:!text-xl  tracking-tight 2xl:tracking-wide'}
+                    ? 'text-[1.15rem] 2xl:!text-2xl  tracking-wide 2xl:tracking-wider'
+                    : 'text-[1rem] 2xl:!text-xl  tracking-tight 2xl:tracking-wide'}
                   ${isItemActive ? 'text-[#D68C45] font-bold' : 'text-white hover:text-[#D68C45]'}
                 `}
                 onMouseEnter={() => item.hasDropdown && handleDropdownEnter(item.title)}
@@ -142,7 +141,7 @@ export default function Navbar() {
             {/* Dropdown Menu */}
             {item.hasDropdown && openDropdown === item.title && (
               <div 
-                className="absolute top-full left-0 mt-2 bg-black bg-opacity-95 rounded-lg shadow-xl py-2 2xl:py-3 min-w-[280px] 2xl:min-w-[400px] z-50"
+                className="absolute top-full left-0 mt-2 bg-black bg-opacity-95 rounded-lg shadow-xl py-2 2xl:py-3 min-w-[280px] 2xl:min-w-[420px] z-50"
                 onMouseEnter={() => handleDropdownMenuEnter(item.title)}
                 onMouseLeave={() => handleDropdownMenuLeave()}
               >
@@ -154,14 +153,14 @@ export default function Navbar() {
                         className={`
                           px-4 2xl:px-5 py-2 2xl:py-3 cursor-pointer transition-colors duration-200
                           ${isDropdownItemActive ? 'text-[#D68C45] font-bold' : 'hover:text-[#D68C45]'}
-                          text-[1.44rem] 2xl:text-3xl font-light tracking-wide 2xl:tracking-wider
+                          text-[1.2rem] 2xl:text-3xl font-light tracking-wide 2xl:tracking-wider
                         `}
                         onClick={() => dropdownItem.path && navigate(dropdownItem.path)}
                       >
                         {dropdownItem.title} <span className="text-[#D68C45] font-bold text-4xl 2xl:text-5xl"> _ </span>
                       </div>
                       {dropdownItem.hasLine && (
-                        <div className=" text-[1.2rem] font-light tracking-wide absolute left-2 right-2 h-px bg-[#D68C45] opacity-50"></div>
+                        <div className=" text-[1.1rem] font-light tracking-wide absolute left-2 right-2 h-px bg-[#D68C45] opacity-50"></div>
                       )}
                     </div>
                   );

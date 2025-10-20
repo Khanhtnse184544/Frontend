@@ -5,7 +5,7 @@ import {
   FaYoutube,
   FaInstagram,
   FaTwitter,
-  FaLinkedin,
+  FaLinkedinIn,
 } from "react-icons/fa";
 
 export default function SocialLinks({ 
@@ -31,6 +31,11 @@ export default function SocialLinks({
       name: "YouTube",
       icon: FaYoutube,
       url: "https://www.youtube.com/@E.C.O-GreenTechGamification", // Thay đổi URL thực tế
+    },
+    {
+      name: "LinkedIn",
+      icon: FaLinkedinIn,
+      url: "https://l.facebook.com/l.php?u=http%3A%2F%2Fwww.linkedin.com%2Fin%2Fe-c-o-green-tech-gamification-1318b7388%3Ffbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExUU9OSm45RTE2emcxZm5MWAEe0cPMjZIBql6uVuU3vhlglF7KwEtIcIeM7yZa9IoTKMiQdZY-4j2ynZktugM_aem_IglM1eoh3On4QZoPFEBdCA&h=AT2EmNXFI8RFFoVdT9-K8Jo5kJLUy999-vSbOOj-0sSIVSfPlPkmKg7MzPs3CGA4VXVcNWgECEmmG5OQ3VfEoBeZCxP8MkkunZKO2P6LzYJkWAc0uavPQTmitMuCWSryxLFPNw", // Thay đổi URL thực tế
     }
   ];
 

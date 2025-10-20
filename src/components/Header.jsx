@@ -41,12 +41,12 @@ export default function Header() {
 
   return (
     <header
-      className="w-full bg-black py-0 px-12 lg:px-14 xl:px-16 2xl:px-30 flex items-center justify-between select-none font-sans h-[55px] lg:h-[55px] xl:h-[60px] 2xl:h-[74px]"
+      className="w-full bg-black py-0 px-12 lg:px-14 xl:px-16 2xl:px-30 flex items-center justify-between select-none  h-[55px] lg:h-[55px] xl:h-[60px] 2xl:h-[74px]"
     >
       {/* Left: Social icons + Contact */}
       <div className="flex items-center gap-4 lg:gap-5 xl:gap-5 2xl:gap-6 pl-6 lg:pl-7 xl:pl-8 2xl:pl-12">
         <SocialLinks 
-          iconSize="w-4 h-4 lg:w-4 lg:h-4 xl:w-4 xl:h-4 2xl:w-5 2xl:h-5"
+          iconSize="w-3 h-3 lg:w-3 lg:h-3 xl:w-3 xl:h-3 2xl:w-4 2xl:h-4"
           iconColor="text-white"
           hoverColor="hover:text-[#D68C45]"
         />
