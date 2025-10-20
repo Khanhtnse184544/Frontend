@@ -72,6 +72,20 @@ export default function HomePage() {
   const [showForm, setShowForm] = useState(false);
   const [feedbackText, setFeedbackText] = useState("");
 
+  const handleFeedbackChange = (e) => {
+    const value = e.target.value;
+    setFeedbackText(value);
+    const textarea = e.target;
+    textarea.style.height = 'auto';
+    const computedStyles = window.getComputedStyle(textarea);
+    const lineHeight = parseInt(computedStyles.lineHeight || '20', 10);
+    const maxLines = 8;
+    const maxHeight = lineHeight * maxLines;
+    const newHeight = Math.min(textarea.scrollHeight, maxHeight);
+    textarea.style.height = newHeight + 'px';
+    textarea.style.overflowY = textarea.scrollHeight > maxHeight ? 'auto' : 'hidden';
+  };
+
   // News carousel state
   const [newsIndex, setNewsIndex] = useState(0);
   const [hoveredMenu, setHoveredMenu] = useState(null);
@@ -501,10 +515,7 @@ export default function HomePage() {
                       type="text"
                       placeholder="Nhập tên của bạn"
                       className="w-full bg-transparent py-2 lg:py-[1vh] 2xl:py-[1.1vh] px-0 focus:outline-none text-xs lg:text-xs 2xl:text-lg border-none"
-                      style={{
-                        
-                        fontStyle: "italic",
-                      }}
+                      
                     />
                     <div className="absolute bottom-0 left-0 right-0 h-px bg-white"></div>
                   </div>
@@ -518,10 +529,7 @@ export default function HomePage() {
                       type="text"
                       placeholder="Nhập liên hệ"
                       className="w-full bg-transparent py-2 lg:py-[1vh] 2xl:py-[1.1vh] px-0 focus:outline-none text-xs lg:text-xs 2xl:text-lg border-none"
-                      style={{
-                        
-                        fontStyle: "italic",
-                      }}
+                      
                     />
                     <div className="absolute bottom-0 left-0 right-0 h-px bg-white"></div>
                   </div>
@@ -532,15 +540,12 @@ export default function HomePage() {
                   </label>
                   <div className="relative">
                     <textarea
-                      rows={4}
+                      rows={1}
                       value={feedbackText}
-                      onChange={(e) => setFeedbackText(e.target.value)}
+                      onChange={handleFeedbackChange}
                       placeholder=""
                       className="w-full bg-transparent py-2 lg:py-[1vh] 2xl:py-[1.1vh] px-0 focus:outline-none resize-none text-xs lg:text-xs 2xl:text-lg border-none"
-                      style={{
-                        
-                        fontStyle: "italic",
-                      }}
+                      
                     />
                     {!feedbackText && (
                       <div className="absolute bottom-2 left-0 text-xs lg:text-xs 2xl:text-lg text-white/60 italic pointer-events-none">

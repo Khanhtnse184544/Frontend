@@ -18,7 +18,13 @@ export default function ContactUsPopup({ isOpen, onClose, onSubmit }) {
     if (e.target.name === 'message') {
       const textarea = e.target;
       textarea.style.height = 'auto';
-      textarea.style.height = Math.min(textarea.scrollHeight, 200) + 'px'; // Max height 200px
+      const computedStyles = window.getComputedStyle(textarea);
+      const lineHeight = parseInt(computedStyles.lineHeight || '20', 10);
+      const maxLines = 6; // limit to 3 lines
+      const maxHeight = lineHeight * maxLines;
+      const newHeight = Math.min(textarea.scrollHeight, maxHeight);
+      textarea.style.height = newHeight + 'px';
+      textarea.style.overflowY = textarea.scrollHeight > maxHeight ? 'auto' : 'hidden';
     }
   };
 
@@ -50,7 +56,7 @@ export default function ContactUsPopup({ isOpen, onClose, onSubmit }) {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-[30px] p-15 max-w-3xl w-full h-[550px] mx-4 relative shadow-2xl">
+      <div className="bg-white rounded-[30px] p-15 max-w-3xl w-full h-[550px] mx-4 relative shadow-2xl overflow-hidden">
         {/* Close Button */}
         <button
           onClick={handleClose}
@@ -83,7 +89,7 @@ export default function ContactUsPopup({ isOpen, onClose, onSubmit }) {
               value={formData.contact}
               onChange={handleChange}
               placeholder="Số điện thoại hoặc email"
-              className="w-full px-3 py-2 text-sm border-b-2 border-gray-300 focus:border-[#D68C45] outline-none bg-transparent"
+              className="w-full px-0 py-2 text-sm border-b-2 border-gray-300 focus:border-[#D68C45] outline-none bg-transparent"
               
               required
             />
@@ -106,7 +112,7 @@ export default function ContactUsPopup({ isOpen, onClose, onSubmit }) {
                   onChange={handleChange}
                   placeholder="Nội dung"
                   rows="1"
-                  className="w-full px-3 py-2 text-sm border-b-2 border-gray-300 focus:border-[#D68C45] outline-none bg-transparent"
+                  className="w-full px-0 py-2 text-sm border-b-2 border-gray-300 focus:border-[#D68C45] outline-none bg-transparent leading-6 resize-none"
                   
                   required
                 />

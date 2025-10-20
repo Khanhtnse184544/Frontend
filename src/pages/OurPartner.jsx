@@ -95,8 +95,15 @@ export default function OurPartner() {
       />
       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <div className="text-center text-white p-6">
-          <h2 className="text-5xl font-bold mb-2">
-            {imageData.title}
+          <h2 className="text-5xl font-bold mb-2 leading-[1.2]">
+            {imageData.title
+              .split(', ')
+              .map((part, idx, arr) => (
+                <span key={idx}>
+                  {part}
+                  {idx < arr.length - 1 && <br />}
+                </span>
+              ))}
           </h2>
         </div>
       </div>
@@ -165,7 +172,7 @@ export default function OurPartner() {
               </p>
               <button
                 onClick={openContact}
-                className="bg-[#D68C45] text-white font-bold rounded-[15px] xl:rounded-[1vw] 2xl:rounded-[0.8vw] w-[190px] xl:w-[15vw] 2xl:w-[12vw] h-[47px] xl:h-[6vh] 2xl:h-[7vh] hover:bg-[#E5E2E2] hover:text-[#D68C45] hover:border-3 hover:border-[#D68C45] transition-colors duration-300 shadow-lg text-sm xl:text-lg 2xl:text-xl flex items-center justify-center mx-auto"
+                className="bg-[#D68C45] text-white font-bold rounded-[15px] xl:rounded-[1vw] 2xl:rounded-[0.8vw] w-[190px] xl:w-[15vw] 2xl:w-[12vw] h-[47px] xl:h-[6vh] 2xl:h-[7vh] border-3 border-transparent hover:bg-transparent hover:text-[#D68C45] hover:border-[#D68C45] transition-colors duration-300 shadow-lg text-sm xl:text-lg 2xl:text-xl flex items-center justify-center mx-auto"
                
               >
                 Liên Hệ
@@ -187,7 +194,7 @@ export default function OurPartner() {
                   >
                     Các Cách Thức{" "}
                     <br />  
-                    <span className="text-[#D68C45]">Hợp tác</span>
+                    <span className="text-[#D68C45]">Hợp Tác</span>
                   </h2>
                 </div>
 
