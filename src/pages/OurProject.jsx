@@ -61,7 +61,7 @@ export default function OurProject() {
         </section>
 
         {/* Project Content Section */}
-        <section className="px-20 xl:px-[10vw] 2xl:px-[5vw] pb-8 xl:pb-[4vh] 2xl:pb-[5vh] bg-white">
+        <section className="px-20 xl:px-[10vw] 2xl:px-[5vw] pb-8 xl:pb-[4vh] 2xl:pb-[5vh] bg-white" style={{ marginTop: window.innerWidth >= 2200 ? '10rem' : undefined }}>
           <div className="container mx-auto px-6 xl:px-0 2xl:px-0">
             <div className="grid grid-cols-5  gap-10 xl:gap-[3vw] 2xl:gap-[5vw] items-center">
               {/* Left Column - Image */}
@@ -255,7 +255,7 @@ export default function OurProject() {
                 Cùng tham gia hành trình
               </h3>
 
-              <div className="space-y-4">
+              <div className="space-y-1">
                 <h2 className="text-md xl:text-md 2xl:text-2xl font-bold text-black">
                   C.H.A.M không chỉ là một trò chơi. Đó là cả một hành trình.
                 </h2>

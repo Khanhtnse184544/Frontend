@@ -110,7 +110,7 @@ export default function ForSchoolEducation() {
                   </h3>
                   <ul className="text-sm lg:text-md xl:text-md 2xl:text-lg">
                     <li className="flex items-start mb-2 lg:mb-[0.8vh] 2xl:mb-[1vh]">
-                      <span className="text-[#D68C45] text-md lg:text-lg 2xl:text-xl mr-3 lg:mr-[0.8vw] 2xl:mr-[1vw]">
+                      <span className="text-[#D68C45] text-md lg:text-lg 2xl:text-xl mr-3 lg:mr-[0.8vw] 2xl:mr-[1vw] -mt-0.5 xl:-mt-1.5 2xl:-mt-0.5">
                         •
                       </span>
                       <span>
@@ -119,7 +119,7 @@ export default function ForSchoolEducation() {
                       </span>
                     </li>
                     <li className="flex items-start mb-2 lg:mb-[0.8vh] 2xl:mb-[1vh]">
-                      <span className="text-[#D68C45] text-md lg:text-lg 2xl:text-xl mr-3 lg:mr-[0.8vw] 2xl:mr-[1vw]">
+                      <span className="text-[#D68C45] text-md lg:text-lg 2xl:text-xl mr-3 lg:mr-[0.8vw] 2xl:mr-[1vw] -mt-0.5 xl:-mt-1.5 2xl:-mt-0.5">
                         •
                       </span>
                       <span>
@@ -128,7 +128,7 @@ export default function ForSchoolEducation() {
                       </span>
                     </li>
                     <li className="flex items-start mb-2 lg:mb-[0.8vh] 2xl:mb-[1vh]">
-                      <span className="text-[#D68C45] text-md lg:text-lg 2xl:text-xl mr-3 lg:mr-[0.8vw] 2xl:mr-[1vw]">
+                      <span className="text-[#D68C45] text-md lg:text-lg 2xl:text-xl mr-3 lg:mr-[0.8vw] 2xl:mr-[1vw] -mt-0.5 xl:-mt-1.5 2xl:-mt-0.5">
                         •
                       </span>
                       <span>
@@ -137,7 +137,7 @@ export default function ForSchoolEducation() {
                       </span>
                     </li>
                     <li className="flex items-start mb-2 lg:mb-[0.8vh] 2xl:mb-[1vh]">
-                      <span className="text-[#D68C45] text-md lg:text-lg 2xl:text-xl mr-3 lg:mr-[0.8vw] 2xl:mr-[1vw]">
+                      <span className="text-[#D68C45] text-md lg:text-lg 2xl:text-xl mr-3 lg:mr-[0.8vw] 2xl:mr-[1vw] -mt-0.5 xl:-mt-1.5 2xl:-mt-0.5">
                         •
                       </span>
                       <span>

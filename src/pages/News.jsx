@@ -83,12 +83,12 @@ export default function News() {
                 </p>
                 
               </div>
-              <p
-                className="text-xl xl:text-2xl 2xl:text-3xl text-black"
-                
+              <button
+                onClick={() => window.open('https://www.facebook.com/profile.php?id=61581382018162', '_blank', 'noopener,noreferrer')}
+                className="text-xl xl:text-2xl 2xl:text-3xl text-black bg-transparent border-2 border-black text-[#D68C45] px-6 py-1 xl:px-8 xl:py-2 2xl:px-10 2xl:py-3 rounded-lg xl:rounded-2xl 2xl:rounded-2xl font-bold hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-105"
               >
                 Theo dõi E.C.O
-              </p>
+              </button>
             </div>
 
             {/* Khối phải - Phần thưởng mới */}

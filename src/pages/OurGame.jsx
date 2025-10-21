@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { FaFacebookF, FaTiktok, FaInstagram, FaYoutube } from "react-icons/fa";
+import SocialLinks from "../components/SocialLinks";
 import heroImage from "../assets/C.H.A.M/our_game/hero.png";
 import gameBackground from "../assets/C.H.A.M/our_game/bg.png";
 import gameInterface from "../assets/C.H.A.M/our_game/game.png";
@@ -47,14 +47,18 @@ export default function OurGame() {
           {/* Hero Content */}
           <div className="relative z-10 flex items-center justify-center h-full">
             <div className="container mx-auto px-6">
-              <div className="flex justify-center items-center -mt-15">
+              <div className="flex justify-center items-center -mt-15 2xl:-mt-25">
                 <div className="text-center space-y-3">
                   
 
                   {/* Download Button */}
-                  <div className="flex justify-center items-center">
+                  <div className="flex justify-center items-center" style={{ marginTop: window.innerWidth >= 2200 ? '5rem' : undefined }}>
                   <button
-                    className="text-white text-2xl font-bold px-11 py-1.5 rounded-[15px] bg-[#CB1622] border-white border-3 transition-all duration-300 hover:bg-[#a9121c] hover:shadow-xl transform hover:scale-105"
+                    className="text-white text-2xl 2xl:text-3xl font-bold px-11 py-1.5 2xl:py-2.5 2xl:px-14 rounded-[15px] 2xl:rounded-[20px] bg-[#CB1622] border-white border-3 transition-all duration-300 hover:bg-[#a9121c] hover:shadow-xl transform hover:scale-105"
+                    style={{
+                      fontSize: window.innerWidth >= 2880 ? '2rem' : undefined,
+                      padding: window.innerWidth >= 2880 ? '1rem 2rem' : undefined
+                    }}
                   >
                    Tải Game ngay
                   </button>
@@ -138,21 +142,13 @@ export default function OurGame() {
                   </div>
 
                   {/* Social Media Icons */}
-                  <div className="flex space-x-15">
-                    {/* Facebook */}
-                    <div className="  flex items-center justify-center hover:scale-110 transition-all duration-300 ">
-                      <FaFacebookF className="text-white text-3xl" />
-                    </div>
-
-                    {/* TikTok */}
-                    <div className="  flex items-center justify-center hover:scale-110 transition-all duration-300 ">
-                      <FaTiktok className="text-white text-3xl" />
-                    </div>
-
-                    {/* YouTube */}
-                    <div className="  flex items-center justify-center hover:scale-110 transition-all duration-300 ">
-                      <FaYoutube className="text-white text-3xl" />
-                    </div>
+                  <div className="flex justify-center">
+                    <SocialLinks 
+                      iconSize="w-7 h-7 2xl:w-12 2xl:h-12"
+                      iconColor="text-white"
+                      hoverColor="hover:scale-110"
+                      className="gap-8 2xl:gap-14"
+                    />
                   </div>
                 </div>
               </div>

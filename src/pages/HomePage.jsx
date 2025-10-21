@@ -86,6 +86,8 @@ export default function HomePage() {
       ...feedbackData,
       message: value
     });
+    
+    // Auto-resize textarea
     const textarea = e.target;
     textarea.style.height = 'auto';
     const computedStyles = window.getComputedStyle(textarea);
@@ -95,6 +97,21 @@ export default function HomePage() {
     const newHeight = Math.min(textarea.scrollHeight, maxHeight);
     textarea.style.height = newHeight + 'px';
     textarea.style.overflowY = textarea.scrollHeight > maxHeight ? 'auto' : 'hidden';
+  };
+
+  // Function to resize textarea when form opens
+  const resizeTextarea = () => {
+    const textarea = document.querySelector('textarea[name="message"]');
+    if (textarea && feedbackData.message) {
+      textarea.style.height = 'auto';
+      const computedStyles = window.getComputedStyle(textarea);
+      const lineHeight = parseInt(computedStyles.lineHeight || '20', 10);
+      const maxLines = 8;
+      const maxHeight = lineHeight * maxLines;
+      const newHeight = Math.min(textarea.scrollHeight, maxHeight);
+      textarea.style.height = newHeight + 'px';
+      textarea.style.overflowY = textarea.scrollHeight > maxHeight ? 'auto' : 'hidden';
+    }
   };
 
   const handleFeedbackInputChange = (e) => {
@@ -259,7 +276,16 @@ export default function HomePage() {
     },
   ];
 
-  const toggleForm = () => setShowForm((prev) => !prev);
+  const toggleForm = () => {
+    setShowForm((prev) => {
+      const newState = !prev;
+      if (newState) {
+        // Khi mở form, resize textarea sau một chút để DOM đã render
+        setTimeout(resizeTextarea, 100);
+      }
+      return newState;
+    });
+  };
 
   return (
     <>
@@ -599,6 +625,7 @@ export default function HomePage() {
                   </label>
                   <div className="relative">
                     <textarea
+                      name="message"
                       rows={1}
                       value={feedbackText}
                       onChange={handleFeedbackChange}
