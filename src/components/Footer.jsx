@@ -1,8 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/homepage/logo.png";
 import SocialLinks from "./SocialLinks";
 
 export default function Footer() {
+  const navigate = useNavigate();
+
+  const handleLogoClick = () => {
+    navigate('/');
+    setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 200);
+  };
+
   return (
     <footer className="bg-[#2A2A2A] py-7 xl:py-[3vh] 2xl:pb-[3.5vh] justify-center">
       <div className="max-w-6xl xl:max-w-[83vw] 2xl:max-w-[83vw] h-auto mx-auto px-10 xl:px-[4vw] 2xl:px-[5vw] ">
@@ -14,7 +22,8 @@ export default function Footer() {
               <img
                 src={logo}
                 alt="Footer Logo"
-                className="w-[165px] h-[165px] xl:w-[12vw] xl:h-[12vw] 2xl:w-[13vw] 2xl:h-[12vw]"
+                onClick={handleLogoClick}
+                className="w-[165px] h-[165px] xl:w-[12vw] xl:h-[12vw] 2xl:w-[13vw] 2xl:h-[12vw] cursor-pointer hover:opacity-80 transition-opacity duration-300"
               />
             </div>
 
@@ -38,9 +47,7 @@ export default function Footer() {
                     <p className="text-white text-[0.6rem] xl:text-[0.6rem] 2xl:text-[0.8rem] ">
                       Email: treesforfuture.eco@gmail.com
                     </p>
-                    <p className="text-white text-[0.6rem] xl:text-[0.6rem] 2xl:text-[0.8rem] ">
-                      Website: www.eco.info.vn
-                    </p>
+                    
                     <p className="text-white text-[0.6rem] xl:text-[0.6rem] 2xl:text-[0.8rem] ">
                       Điện thoại: 086 820 2708
                     </p>

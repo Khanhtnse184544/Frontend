@@ -56,9 +56,9 @@ export const forests = [
     description: "Kho báu tự nhiên của Việt Nam",
     detail: {
         location:
-          "Tập trung ở vùng núi cao, địa hình hiểm trở như Tây Bắc, Bắc Trung Bộ, Tây Nguyên và Nam Bộ — tiêu biểu có Cúc Phương, Pù Mát, Yok Đôn, Cát Tiên.",
+          "Tập trung ở vùng núi cao, địa hình hiểm trở như Tây Bắc, Bắc Trung Bộ, Tây Nguyên và Nam Bộ - tiêu biểu có Cúc Phương, Pù Mát, Yok Đôn, Cát Tiên.",
         formation:
-          "Là rừng tự nhiên ít chịu tác động con người, có nhiều tầng tán, cây gỗ lớn, thảm thực vật dày và đa dạng loài — từ cây cổ thụ, dây leo, phong lan đến động vật quý hiếm như voi, voọc, tê tê, hổ.",
+          "Là rừng tự nhiên ít chịu tác động con người, có nhiều tầng tán, cây gỗ lớn, thảm thực vật dày và đa dạng loài - từ cây cổ thụ, dây leo, phong lan đến động vật quý hiếm như voi, voọc, tê tê, hổ.",
         ecological_role:
           "Giữ vai trò trung tâm trong bảo tồn đa dạng sinh học, điều hòa khí hậu, giữ đất – giữ nước, và là nguồn lưu trữ carbon tự nhiên quan trọng, nền tảng cho nghiên cứu và phục hồi rừng.",
       },

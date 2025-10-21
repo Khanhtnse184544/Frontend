@@ -58,7 +58,7 @@ export default function ForestDetail() {
                 <div className="space-y-6 text-white">
                   <div>
                     <p className="text-lg " >
-                      <span className="font-bold" >Location: </span> <span className="text-lg " >{forest.detail?.location}</span>
+                      <span className="font-bold" >Phân bố: </span> <span className="text-lg " >{forest.detail?.location}</span>
                     </p>
                   </div>
 

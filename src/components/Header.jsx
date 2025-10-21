@@ -67,7 +67,7 @@ export default function Header() {
         >
           QUYÊN GÓP
         </button>
-        <button 
+        {/* <button 
           onClick={handleLoginClick}
           className={`flex items-center gap-2 px-8 lg:px-10 xl:px-10 2xl:px-12 py-2 text-white text-md lg:text-md xl:text-md 2xl:text-lg h-[55px] lg:h-[55px] xl:h-[60px] 2xl:h-[74px] border-l border-[#222]` }
         >
@@ -80,7 +80,7 @@ export default function Header() {
           <span className="absolute top-1 lg:top-1.5 xl:top-1.5 2xl:top-2 right-2 lg:right-2.5 xl:right-2.5 2xl:right-3 bg-red-600 text-[10px] lg:text-[10px] xl:text-[10px] 2xl:text-[11px] rounded-full px-1 text-white ">
             0
           </span>
-        </div>
+        </div> */}
       </div>
 
       {/* Contact Us Popup */}
