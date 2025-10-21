@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { FaHeart } from "react-icons/fa";
+import api from "../utils/api";
 
 export default function ContactUsPopup({ isOpen, onClose, onSubmit }) {
   const [formData, setFormData] = useState({
+    name: "",
     contact: "",
-    subject: "",
     message: ""
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -20,7 +22,7 @@ export default function ContactUsPopup({ isOpen, onClose, onSubmit }) {
       textarea.style.height = 'auto';
       const computedStyles = window.getComputedStyle(textarea);
       const lineHeight = parseInt(computedStyles.lineHeight || '20', 10);
-      const maxLines = 6; // limit to 3 lines
+      const maxLines = 3; // limit to 3 lines
       const maxHeight = lineHeight * maxLines;
       const newHeight = Math.min(textarea.scrollHeight, maxHeight);
       textarea.style.height = newHeight + 'px';
@@ -28,25 +30,45 @@ export default function ContactUsPopup({ isOpen, onClose, onSubmit }) {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (onSubmit) {
-      onSubmit(formData);
+    if (isLoading) return;
+
+    try {
+      setIsLoading(true);
+      
+      // Gọi API POST /api/contact
+      await api.post("/api/contact", {
+        userName: formData.name.trim(),
+        contactInfo: formData.contact.trim(),
+        message: formData.message.trim()
+      });
+
+      // Thông báo thành công
+      alert("Gửi liên hệ thành công!");
+      
+      // Reset form và đóng popup
+      setFormData({
+        name: "",
+        contact: "",
+        message: ""
+      });
+      onClose();
+      
+    } catch (error) {
+      console.error("Contact submission error:", error);
+      const errorMessage = error.response?.data?.message || "Gửi liên hệ thất bại. Vui lòng thử lại.";
+      alert(errorMessage);
+    } finally {
+      setIsLoading(false);
     }
-    // Reset form after submission
-    setFormData({
-      contact: "",
-      subject: "",
-      message: ""
-    });
-    onClose();
   };
 
   const handleClose = () => {
     // Reset form when closing
     setFormData({
+      name: "",
       contact: "",
-      subject: "",
       message: ""
     });
     onClose();
@@ -75,6 +97,25 @@ export default function ContactUsPopup({ isOpen, onClose, onSubmit }) {
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-8">
+          {/* Name Field */}
+          <div>
+            <label
+              className="block text-gray-500 text-xl font-semibold mb-2"
+              
+            >
+              Tên liên hệ
+            </label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Nhập tên của bạn"
+              className="w-full px-0 py-2 text-sm border-b-2 border-gray-300 focus:border-[#D68C45] outline-none bg-transparent"
+              
+              required
+            />
+          </div>
           {/* Phone or Email Field */}
           <div>
             <label
@@ -124,10 +165,11 @@ export default function ContactUsPopup({ isOpen, onClose, onSubmit }) {
           <div className="flex justify-end">
             <button
               type="submit"
-              className="bg-[#D68C45] text-white w-[300px] text-lg py-2 rounded-xl font-bold flex items-center justify-center hover:bg-[#B87A3A] transition-colors duration-300 shadow-lg mt-2"
+              disabled={isLoading}
+              className="bg-[#D68C45] text-white w-[300px] text-lg py-2 rounded-xl font-bold flex items-center justify-center hover:bg-[#B87A3A] transition-colors duration-300 shadow-lg mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
               
             >
-              Gửi
+              {isLoading ? "Đang gửi..." : "Gửi"}
             </button>
           </div>
         </form>

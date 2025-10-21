@@ -4,10 +4,12 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SocialLinks from "../components/SocialLinks";
 import sponsorBg from '../assets/get_involved/Sponsor/img.png';
+import api from "../utils/api";
 
 export default function Sponsor() {
   const [selectedAmount, setSelectedAmount] = useState("20.000");
   const [customAmount, setCustomAmount] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const amounts = [
     "10.000",
@@ -128,15 +130,46 @@ export default function Sponsor() {
 
             {/* Sponsor Now Button */}
             <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      openContact();
-                    }}
-                    className="bg-white  text-black font-bold py-2 lg:py-[1vh] 2xl:py-[1.1vh] rounded-[15px] 2xl:rounded-[20px] w-[310px] lg:w-[22vw] 2xl:w-[18vw] hover:bg-black hover:text-white transition-colors duration-300 shadow-lg text-xl lg:text-xl 2xl:text-2xl flex items-center justify-center mx-auto"
-                    
-                  >
-                    Gieo Mầm Ngay
-                  </button>
+              onClick={async (e) => {
+                e.stopPropagation();
+                if (isLoading) return;
+
+                try {
+                  setIsLoading(true);
+                  const raw = (customAmount && customAmount.trim().length > 0) ? customAmount : selectedAmount;
+                  const normalized = parseInt(raw.replace(/\D/g, ""), 10) || 0; // remove dots/commas/text
+                  if (normalized <= 0) {
+                    alert("Vui lòng nhập số tiền hợp lệ");
+                    setIsLoading(false);
+                    return;
+                  }
+
+                  const response = await api.post("/api/donations", {
+                    amount: normalized,
+                    description: "Sponsor a tree"
+                  });
+
+                  // Axios tự động parse JSON response
+                  const data = response.data;
+                  if (data?.checkoutUrl) {
+                    window.location.href = data.checkoutUrl;
+                  } else {
+                    alert("Không nhận được đường dẫn thanh toán");
+                  }
+                } catch (err) {
+                  console.error(err);
+                  // Axios error handling
+                  const errorMessage = err.response?.data?.message || err.message || "Tạo liên kết thanh toán thất bại. Vui lòng thử lại.";
+                  alert(errorMessage);
+                } finally {
+                  setIsLoading(false);
+                }
+              }}
+              className="bg-white  text-black font-bold py-2 lg:py-[1vh] 2xl:py-[1.1vh] rounded-[15px] 2xl:rounded-[20px] w-[310px] lg:w-[22vw] 2xl:w-[18vw] hover:bg-black hover:text-white transition-colors duration-300 shadow-lg text-xl lg:text-xl 2xl:text-2xl flex items-center justify-center mx-auto disabled:opacity-60 disabled:cursor-not-allowed"
+              disabled={isLoading}
+            >
+              {isLoading ? "Đang tạo liên kết..." : "Gieo Mầm Ngay"}
+            </button>
           </div>
         </div>
         </div>

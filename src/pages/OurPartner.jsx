@@ -291,7 +291,7 @@ export default function OurPartner() {
                     className="text-xl xl:text-xl 2xl:text-2xl font-bold text-[#D68C45] "
                    
                   >
-                    Hãy Cùng Nhau Kiến tạo Tác động xanh
+                    Hãy Cùng Nhau Kiến Tạo Tác Động Xanh
                   </h3>
                   <h2
                     className="text-2xl xl:text-2xl 2xl:text-3xl font-bold "
@@ -324,7 +324,7 @@ export default function OurPartner() {
             className="text-4xl xl:text-[3.5rem] 2xl:text-7xl font-bold text-black mb-8 xl:mb-[4vh] 2xl:mb-[5vh]"
            
           >
-            PARTNER WITH E.C.O - Where Forests Grow – Together
+            PARTNER WITH E.C.O <br /><span> Where Forests Grow – Together</span>
           </h1>
         </div>
 

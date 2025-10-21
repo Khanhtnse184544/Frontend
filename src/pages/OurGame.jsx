@@ -47,37 +47,18 @@ export default function OurGame() {
           {/* Hero Content */}
           <div className="relative z-10 flex items-center justify-center h-full">
             <div className="container mx-auto px-6">
-              <div className="flex justify-end items-center pe-10">
+              <div className="flex justify-center items-center -mt-15">
                 <div className="text-center space-y-3">
-                  {/* C.H.A.M GAME Text with Gradient */}
-                  <h1
-                    className="text-6xl font-bold"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, #ffffff 0%, #60DEF2 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                      
-                      textShadow: "0 4px 8px rgba(96, 222, 242, 0.3)",
-                    }}
-                  >
-                    C.H.A.M GAME
-                  </h1>
+                  
 
                   {/* Download Button */}
+                  <div className="flex justify-center items-center">
                   <button
-                    className="text-white text-2xl font-bold px-11 py-1.5 rounded-[15px] transition-all duration-300  hover:shadow-xl transform hover:scale-105"
-                    style={{
-                      
-                      background:
-                        "linear-gradient(135deg, #60DEF2 0%, #4BC0D9 50%, #60DEF2 100%)",
-                      backgroundSize: "200% 200%",
-                      animation: "gradientShift 3s ease-in-out infinite",
-                    }}
+                    className="text-white text-2xl font-bold px-11 py-1.5 rounded-[15px] bg-[#CB1622] border-white border-3 transition-all duration-300 hover:bg-[#a9121c] hover:shadow-xl transform hover:scale-105"
                   >
-                    Download now
+                   Tải Game ngay
                   </button>
+                  </div>
                 </div>
               </div>
             </div>

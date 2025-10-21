@@ -21,102 +21,97 @@ export default function News() {
           <Navbar />
         </div>
 
-        {/* NEWS! Heading */}
-        <div className="container mx-auto px-20 pt-10">
+        {/* TIN TỨC! Heading */}
+        <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-20 pt-6 sm:pt-8 md:pt-10">
           <div className="text-center mb-16">
             <h1
-              className="text-5xl font-bold text-[#D68C45] "
-              style={{ fontFamily: "Pally-Bold, sans-serif" }}
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#D68C45] "
+             
             >
-              NEWS!
+              TIN TỨC!
             </h1>
           </div>
         </div>
 
         {/* Three Content Blocks */}
-        <div className="container mx-auto px-15 pb-16">
-          <div className="grid grid-cols-7 ">
-            {/* Left Block - App Update Now Live */}
-            <div className="bg-white rounded-lg p-6 col-span-2 ">
+        <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-20 pb-12 sm:pb-14 md:pb-16">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-7 ">
+            {/* Khối trái - Cập nhật ứng dụng sắp ra mắt */}
+            <div className="bg-white rounded-lg p-4 sm:p-5 md:p-6 col-span-1 md:col-span-2 ">
               <div className="mb-4">
                 <img
                   src={img1}
-                  alt="App Update"
-                  className="w-full h-full object-cover rounded-lg"
+                  alt="Cập nhật ứng dụng"
+                  className="w-full h-auto md:h-full object-cover rounded-lg"
                 />
               </div>
               <h3
-                className="text-3xl  text-black mb-3"
-                style={{ fontFamily: "Pally-Medium, sans-serif" }}
+                className="text-2xl sm:text-3xl  text-black mb-3"
+                
               >
-                Comming soon
+                Sắp ra mắt
               </h3>
               <p
-                className="text-md text-black leading-relaxed"
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                className="text-base sm:text-md text-black leading-relaxed"
+               
               >
-                The latest C.H.A.M version is live, adding real-time weather
-                sync and improved impact tracking for all virtual trees.
+                Phiên bản C.H.A.M mới nhất sắp ra mắt, bổ sung đồng bộ thời tiết
+                theo thời gian thực và cải thiện theo dõi tác động cho tất cả cây ảo.
               </p>
             </div>
 
-            {/* Middle Block - Growing Together */}
-            <div className="bg-white text-center flex flex-col justify-center items-center rounded-lg p-6 col-span-3">
+            {/* Khối giữa - Cùng nhau phát triển */}
+            <div className="bg-white text-center flex flex-col justify-center items-center rounded-lg p-4  col-span-3">
               <h3
-                className="text-5xl font-bold text-black mb-6"
-                style={{ fontFamily: "Pally-Bold, sans-serif" }}
+                className="text-4xl xl:text-4xl 2xl:text-5xl font-bold text-black mb-4 2xl:mb-8"
+               
               >
-                Growing Together
+                Cùng nhau phát triển
               </h3>
-              <div className="space-y-1 mb-6">
+              <div className="space-y-1 mb-4 sm:mb-5 md:mb-6">
                 <p
-                  className="text-3xl text-black"
-                  style={{ fontFamily: "Pally-Medium, sans-serif" }}
+                  className="text-2xl xl:text-2xl 2xl:text-3xl text-black"
+                  
                 >
-                  Every tree has a story.
+                  Mỗi cây đều có một câu chuyện.
                 </p>
                 <p
-                  className="text-3xl text-black"
-                  style={{ fontFamily: "Pally-Medium, sans-serif" }}
+                  className="text-2xl xl:text-2xl 2xl:text-3xl text-black"
+                  
                 >
-                  Every action has a ripple.
+                  Mọi hành động đều tạo hiệu ứng lan tỏa.
                 </p>
-                <p
-                  className="text-3xl text-black"
-                  style={{ fontFamily: "Pally-Medium, sans-serif" }}
-                >
-                  Discover the people and progress behind E.C.O.
-                </p>
+                
               </div>
               <p
-                className="text-2xl text-black"
-                style={{ fontFamily: "Pally-Medium, sans-serif" }}
+                className="text-xl xl:text-2xl 2xl:text-3xl text-black"
+                
               >
-                Follow our team
+                Theo dõi E.C.O
               </p>
             </div>
 
-            {/* Right Block - New Rewards Unlocked */}
-            <div className="bg-white rounded-lg p-6 col-span-2">
+            {/* Khối phải - Phần thưởng mới */}
+            <div className="bg-white rounded-lg p-4 sm:p-5 md:p-6 col-span-1 md:col-span-2">
               <div className="mb-4">
                 <img
                   src={img2}
-                  alt="New Rewards"
-                  className="w-full h-full object-cover rounded-lg"
+                  alt="Phần thưởng mới"
+                  className="w-full h-auto md:h-full object-cover rounded-lg"
                 />
               </div>
               <h3
-                className="text-3xl text-black mb-3"
-                style={{ fontFamily: "Pally-Medium, sans-serif" }}
+                className="text-2xl sm:text-3xl text-black mb-3"
+                
               >
-                Comming soon 
+                Sắp ra mắt 
               </h3>
               <p
-                className="text-md text-black leading-relaxed"
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                className="text-base sm:text-md text-black leading-relaxed"
+               
               >
-                Exclusive tree species and special green badges are now
-                available for top C.H.A.M players this month.
+                Các loài cây độc quyền và huy hiệu xanh đặc biệt sẽ sớm có sẵn
+                cho những người chơi C.H.A.M hàng đầu trong tháng này.
               </p>
             </div>
           </div>

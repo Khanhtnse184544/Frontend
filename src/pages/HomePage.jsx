@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import ConnectCard from "../components/ConnectCard";
 import { useNavigate } from "react-router-dom";
 import { forests } from "../data/forests";
+import api from "../utils/api";
 import logo from "../assets/homepage/logo.png";
 import BackGround from "../assets/homepage/BackGround.png";
 import hero from "../assets/homepage/hero.png";
@@ -71,10 +72,20 @@ export default function HomePage() {
   const [hovered, setHovered] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [feedbackText, setFeedbackText] = useState("");
+  const [feedbackData, setFeedbackData] = useState({
+    name: "",
+    contact: "",
+    message: ""
+  });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleFeedbackChange = (e) => {
     const value = e.target.value;
     setFeedbackText(value);
+    setFeedbackData({
+      ...feedbackData,
+      message: value
+    });
     const textarea = e.target;
     textarea.style.height = 'auto';
     const computedStyles = window.getComputedStyle(textarea);
@@ -84,6 +95,48 @@ export default function HomePage() {
     const newHeight = Math.min(textarea.scrollHeight, maxHeight);
     textarea.style.height = newHeight + 'px';
     textarea.style.overflowY = textarea.scrollHeight > maxHeight ? 'auto' : 'hidden';
+  };
+
+  const handleFeedbackInputChange = (e) => {
+    setFeedbackData({
+      ...feedbackData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleFeedbackSubmit = async (e) => {
+    e.preventDefault();
+    if (isLoading) return;
+
+    try {
+      setIsLoading(true);
+      
+      // Gọi API POST /api/feedbacks
+      await api.post("/api/feedbacks", {
+        userName: feedbackData.name.trim(),
+        contactInfo: feedbackData.contact.trim(),
+        message: feedbackData.message.trim()
+      });
+
+      // Thông báo thành công
+      alert("Gửi góp ý thành công!");
+      
+      // Reset form và đóng popup
+      setFeedbackData({
+        name: "",
+        contact: "",
+        message: ""
+      });
+      setFeedbackText("");
+      setShowForm(false);
+      
+    } catch (error) {
+      console.error("Feedback submission error:", error);
+      const errorMessage = error.response?.data?.message || "Gửi góp ý thất bại. Vui lòng thử lại.";
+      alert(errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   // News carousel state
@@ -505,7 +558,7 @@ export default function HomePage() {
                 </button>
               </div>
 
-              <form className="space-y-8 lg:space-y-[2vh] 2xl:space-y-[2.2vh]">
+              <form className="space-y-8 lg:space-y-[2vh] 2xl:space-y-[2.2vh]" onSubmit={handleFeedbackSubmit}>
                 <div>
                   <label className="block mb-2 text-sm lg:text-sm 2xl:text-xl text-white">
                     Tên của bạn :
@@ -513,23 +566,29 @@ export default function HomePage() {
                   <div className="relative">
                     <input
                       type="text"
+                      name="name"
+                      value={feedbackData.name}
+                      onChange={handleFeedbackInputChange}
                       placeholder="Nhập tên của bạn"
-                      className="w-full bg-transparent py-2 lg:py-[1vh] 2xl:py-[1.1vh] px-0 focus:outline-none text-xs lg:text-xs 2xl:text-lg border-none"
-                      
+                      className="w-full bg-transparent py-2 lg:py-[1vh] 2xl:py-[1.1vh] px-0 focus:outline-none text-xs lg:text-xs 2xl:text-lg border-none text-white"
+                      required
                     />
                     <div className="absolute bottom-0 left-0 right-0 h-px bg-white"></div>
                   </div>
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm lg:text-sm2xl:text-xl text-white">
+                  <label className="block mb-2 text-sm lg:text-sm 2xl:text-xl text-white">
                     Liên hệ:
                   </label>
                   <div className="relative">
                     <input
                       type="text"
+                      name="contact"
+                      value={feedbackData.contact}
+                      onChange={handleFeedbackInputChange}
                       placeholder="Nhập liên hệ"
-                      className="w-full bg-transparent py-2 lg:py-[1vh] 2xl:py-[1.1vh] px-0 focus:outline-none text-xs lg:text-xs 2xl:text-lg border-none"
-                      
+                      className="w-full bg-transparent py-2 lg:py-[1vh] 2xl:py-[1.1vh] px-0 focus:outline-none text-xs lg:text-xs 2xl:text-lg border-none text-white"
+                      required
                     />
                     <div className="absolute bottom-0 left-0 right-0 h-px bg-white"></div>
                   </div>
@@ -572,10 +631,11 @@ export default function HomePage() {
                 <div className="flex justify-center mt-6">
                   <button
                     type="submit"
-                    className="w-[170px] xl:w-[13vw] 2xl:w-[12vw] h-[45px] lg:h-[6vh] xl:h-[6vh] 2xl:h-[5.5vh] border border-white rounded-[15px] text-lg lg:text-lg xl:text-lg 2xl:text-2xl font-bold hover:bg-white/20 transition-colors text-white"
+                    disabled={isLoading}
+                    className="w-[170px] xl:w-[13vw] 2xl:w-[12vw] h-[45px] lg:h-[6vh] xl:h-[6vh] 2xl:h-[5.5vh] border border-white rounded-[15px] text-lg lg:text-lg xl:text-lg 2xl:text-2xl font-bold hover:bg-white/20 transition-colors text-white disabled:opacity-60 disabled:cursor-not-allowed"
                    
                   >
-                    GỬI
+                    {isLoading ? "Đang gửi..." : "GỬI"}
                   </button>
                 </div>
               </form>
