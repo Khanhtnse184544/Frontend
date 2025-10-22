@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Tạo instance axios với cấu hình cơ bản
 const api = axios.create({
-  baseURL: 'http://localhost:5283',
+  baseURL: 'https://ecowebpage.onrender.com',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',

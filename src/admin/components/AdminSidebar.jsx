@@ -16,7 +16,6 @@ const menuItems = [
   { id: 'dashboard', label: 'Dashboard', icon: FaChartLine, path: '/admin' },
   { id: 'users', label: 'User Management', icon: FaUsers, path: '/admin/users' },
   { id: 'csr', label: 'CSR Management', icon: FaHandshake, path: '/admin/csr' },
-  { id: 'partner', label: 'Partner Management', icon: FaTag, path: '/admin/partner' },
   { id: 'financial', label: 'Financial Reports', icon: FaChartBar, path: '/admin/financial' },
   { id: 'support', label: 'Customer Support', icon: FaHeadset, path: '/admin/support' },
   { id: 'logs', label: 'Logs', icon: FaClipboardList, path: '/admin/logs' },

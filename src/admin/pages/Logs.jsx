@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AdminLayout from '../components/AdminLayout';
-import { FaSearch, FaFilter, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import Pagination from '../components/Pagination';
+import { FaSearch, FaFilter } from 'react-icons/fa';
 
 export default function Logs() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -86,7 +87,6 @@ export default function Logs() {
     log.eventType.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const paginationPages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
     <AdminLayout>
@@ -199,42 +199,11 @@ export default function Logs() {
             </div>
 
             {/* Pagination */}
-            <div className="flex justify-center mt-6">
-              <div className="flex items-center space-x-1">
-                <button
-                  onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-                  className="p-2 border border-gray-300 rounded hover:bg-gray-50"
-                >
-                  <FaChevronLeft className="w-4 h-4" />
-                </button>
-
-                {paginationPages.map((page) => (
-                  <button
-                    key={page}
-                    onClick={() => setCurrentPage(page)}
-                    className={`px-3 py-2 rounded-full text-sm font-medium ${
-                      currentPage === page
-                        ? 'bg-red-500 text-white'
-                        : 'text-gray-600 hover:bg-gray-100'
-                    }`}
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                  >
-                    {page}
-                  </button>
-                ))}
-
-                <span className="text-gray-500" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
-                  ...
-                </span>
-
-                <button
-                  onClick={() => setCurrentPage(Math.min(10, currentPage + 1))}
-                  className="p-2 border border-gray-300 rounded hover:bg-gray-50"
-                >
-                  <FaChevronRight className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
+            <Pagination
+              currentPage={currentPage}
+              totalPages={10}
+              onPageChange={setCurrentPage}
+            />
           </div>
         </div>
       </div>

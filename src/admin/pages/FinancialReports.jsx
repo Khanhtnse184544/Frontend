@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import AdminLayout from '../components/AdminLayout';
+import Pagination from '../components/Pagination';
 import { FaDollarSign, FaArrowUp, FaDownload } from 'react-icons/fa';
 import logo from '../../assets/homepage/logo.png';
 
 export default function FinancialReports() {
   const [selectedCategory, setSelectedCategory] = useState('Member Sponsor');
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Sample data for the chart
   const chartData = [
@@ -24,13 +26,7 @@ export default function FinancialReports() {
 
   const maxValue = Math.max(...chartData.map(d => Math.max(d.current, d.previous)));
 
-  const categories = [
-    { id: 'member', label: 'Member Sponsor' },
-    { id: 'csr', label: 'CSR' },
-    { id: 'education', label: 'School Education' },
-    { id: 'game', label: 'Game' }
-  ];
-
+  
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('vi-VN').format(amount) + ' vnđ';
   };
@@ -60,32 +56,16 @@ export default function FinancialReports() {
                 <h3 className="text-2xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
                   Total Amount
                 </h3>
-                <p className="text-sm mb-4" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                <p className="text-sm mb-4" >
                   E.C.O Collaborate
                 </p>
-                <p className="text-2xl font-light" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                <p className="text-2xl font-light" >
                   2.121.109.043 vnđ
                 </p>
               </div>
             </div>
 
-            {/* Navigation Buttons */}
-            <div className="space-y-3">
-              {categories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => setSelectedCategory(category.label)}
-                  className={`w-full py-2 px-6 rounded-xl text-left transition-colors ${
-                    selectedCategory === category.label
-                      ? 'bg-[#2C2C2C] text-white'
-                      : 'bg-white text-black border border-gray-200 hover:bg-gray-50'
-                  }`}
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                >
-                  {category.label}
-                </button>
-              ))}
-            </div>
+           
           </div>
 
           {/* Right Panel */}
@@ -102,17 +82,17 @@ export default function FinancialReports() {
                   </p>
                   <div className="flex items-center gap-1 text-green-600">
                     <FaArrowUp className="w-3 h-3" />
-                    <span className="text-xs font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
-                      2.1% <span className="text-xs text-gray-500 font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}>vs last week</span>
+                    <span className="text-xs font-medium" >
+                      2.1% <span className="text-xs text-gray-500 font-medium" >vs last week</span>
                     </span>
                   </div>
                 </div>
-                <p className="text-gray-500 mt-6 text-sm " style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                <p className="text-gray-500 mt-6 text-sm " >
                   Sales from 1-12 Dec, 2020
                 </p>
               </div>
               
-              <button className="bg-[#434343] text-white px-5 py-1 rounded-lg flex items-center gap-2 hover:bg-[#2C2C2C] transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+              <button className="bg-[#434343] text-white px-5 py-1 rounded-lg flex items-center gap-2 hover:bg-[#2C2C2C] transition-colors" >
                 <FaDownload className="w-3 h-3" />
                 Export
               </button>
@@ -147,7 +127,7 @@ export default function FinancialReports() {
                         ></div>
                       </div>
                       {/* Period Label */}
-                      <span className="text-xs text-gray-600" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <span className="text-xs text-gray-600" >
                         {data.period}
                       </span>
                     </div>
@@ -159,21 +139,178 @@ export default function FinancialReports() {
               <div className="flex justify-end pe-20 gap-6">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-[#D68C45] rounded-full"></div>
-                  <span className="text-sm text-gray-600" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                  <span className="text-sm text-gray-600" >
                     Last 6 days
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                  <span className="text-sm text-gray-600" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                  <span className="text-sm text-gray-600" >
                     Last Week
                   </span>
                 </div>
               </div>
             </div>
-
            
+
           </div>
+        </div>
+
+        {/* Payment Details Table */}
+        <div className="mt-8">
+          <h2 className="text-2xl font-bold text-black mb-6" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+            Payment Details
+          </h2>
+          
+          <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <table className="w-full">
+              <thead>
+                <tr className="bg-gray-50 border-b border-gray-200">
+                  <th className="text-left py-4 px-6 text-sm font-medium text-gray-700" style={{ fontFamily: "Pally-Medium, sans-serif" }}>
+                    Sponsor
+                  </th>
+                  <th className="text-left py-4 px-6 text-sm font-medium text-gray-700" style={{ fontFamily: "Pally-Medium, sans-serif" }}>
+                    Description
+                  </th>
+                  <th className="text-left py-4 px-6 text-sm font-medium text-gray-700" style={{ fontFamily: "Pally-Medium, sans-serif" }}>
+                    Incomes
+                  </th>
+                  <th className="text-left py-4 px-6 text-sm font-medium text-gray-700" style={{ fontFamily: "Pally-Medium, sans-serif" }}>
+                    Note
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-gray-100 hover:bg-gray-50">
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Company A
+                  </td>
+                  
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Company A sponsored a program to plant 1000 trees in area X through our platform
+                  </td>
+                  <td className="py-4 px-6 text-sm text-gray-900 font-medium" style={{ fontFamily: "Pally-Medium, sans-serif" }}>
+                    10,000,000 VND
+                  </td>
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Platform service fee for donations
+                  </td>
+                </tr>
+                <tr className="border-b border-gray-100 hover:bg-gray-50">
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Company B
+                  </td>
+                  
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Company A sponsored a program to plant 1000 trees in area X through our platform
+                  </td>
+                  <td className="py-4 px-6 text-sm text-gray-900 font-medium" style={{ fontFamily: "Pally-Medium, sans-serif" }}>
+                    10,000,000 VND
+                  </td>
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Platform service fee for donations
+                  </td>
+                </tr>
+                <tr className="border-b border-gray-100 hover:bg-gray-50">
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Company C
+                  </td>
+                  
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Company A sponsored a program to plant 1000 trees in area X through our platform
+                  </td>
+                  <td className="py-4 px-6 text-sm text-gray-900 font-medium" style={{ fontFamily: "Pally-Medium, sans-serif" }}>
+                    10,000,000 VND
+                  </td>
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Platform service fee for donations
+                  </td>
+                </tr>
+                <tr className="border-b border-gray-100 hover:bg-gray-50">
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Company A
+                  </td>
+                  
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Company A sponsored a program to plant 1000 trees in area X through our platform
+                  </td>
+                  <td className="py-4 px-6 text-sm text-gray-900 font-medium" style={{ fontFamily: "Pally-Medium, sans-serif" }}>
+                    10,000,000 VND
+                  </td>
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Platform service fee for donations
+                  </td>
+                </tr>
+                <tr className="border-b border-gray-100 hover:bg-gray-50">
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Company E
+                  </td>
+                  
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Company A sponsored a program to plant 1000 trees in area X through our platform
+                  </td>
+                  <td className="py-4 px-6 text-sm text-gray-900 font-medium" style={{ fontFamily: "Pally-Medium, sans-serif" }}>
+                    10,000,000 VND
+                  </td>
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Platform service fee for donations
+                  </td>
+                </tr>
+                <tr className="border-b border-gray-100 hover:bg-gray-50">
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Company A
+                  </td>
+                  
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Company A sponsored a program to plant 1000 trees in area X through our platform
+                  </td>
+                  <td className="py-4 px-6 text-sm text-gray-900 font-medium" style={{ fontFamily: "Pally-Medium, sans-serif" }}>
+                    10,000,000 VND
+                  </td>
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Platform service fee for donations
+                  </td>
+                </tr>
+                <tr className="border-b border-gray-100 hover:bg-gray-50">
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Company A
+                  </td>
+                  
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Company A sponsored a program to plant 1000 trees in area X through our platform
+                  </td>
+                  <td className="py-4 px-6 text-sm text-gray-900 font-medium" style={{ fontFamily: "Pally-Medium, sans-serif" }}>
+                    10,000,000 VND
+                  </td>
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Platform service fee for donations
+                  </td>
+                </tr>
+                <tr className="border-b border-gray-100 hover:bg-gray-50">
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Company D
+                  </td>
+                  
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Company A sponsored a program to plant 1000 trees in area X through our platform
+                  </td>
+                  <td className="py-4 px-6 text-sm text-gray-900 font-medium" style={{ fontFamily: "Pally-Medium, sans-serif" }}>
+                    10,000,000 VND
+                  </td>
+                  <td className="py-4 px-6 text-sm text-gray-900" >
+                    Platform service fee for donations
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          {/* Pagination */}
+          <Pagination
+            currentPage={currentPage}
+            totalPages={10}
+            onPageChange={setCurrentPage}
+          />
         </div>
       </div>
     </AdminLayout>

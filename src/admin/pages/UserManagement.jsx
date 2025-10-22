@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AdminLayout from '../components/AdminLayout';
-import { FaSearch, FaFilter, FaChevronLeft, FaChevronRight, FaTimes, FaCheck, FaClock, FaUndo, FaEllipsisH, FaUser, FaChevronDown } from 'react-icons/fa';
+import Pagination from '../components/Pagination';
+import { FaSearch, FaFilter, FaTimes, FaCheck, FaClock, FaUndo, FaEllipsisH, FaUser, FaChevronDown } from 'react-icons/fa';
 
 export default function UserManagement() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -144,7 +145,6 @@ export default function UserManagement() {
     ? transactions 
     : transactions.filter(transaction => transaction.status === selectedStatus);
 
-  const paginationPages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
     <AdminLayout>
@@ -264,38 +264,11 @@ export default function UserManagement() {
               </div>
 
               {/* Pagination */}
-              <div className="flex justify-center mt-6">
-                <div className="flex items-center space-x-1">
-                  <button 
-                    onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-                  >
-                    <FaChevronLeft className="w-4 h-4" />
-                  </button>
-                  
-                  {paginationPages.map((page) => (
-                    <button
-                      key={page}
-                      onClick={() => setCurrentPage(page)}
-                      className={`px-3 py-2 rounded-full text-xs font-medium ${
-                        currentPage === page
-                          ? 'bg-[#D1D5DC] text-white'
-                          : 'text-gray-600 hover:bg-gray-100'
-                      }`}
-                      style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                    >
-                      {page}
-                    </button>
-                  ))}
-                  
-                  
-                  
-                  <button 
-                    onClick={() => setCurrentPage(Math.min(10, currentPage + 1))}
-                  >
-                    <FaChevronRight className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
+              <Pagination
+                currentPage={currentPage}
+                totalPages={10}
+                onPageChange={setCurrentPage}
+              />
             </div>
 
           {/* Sidebar - Management Actions */}
@@ -623,36 +596,11 @@ export default function UserManagement() {
           </div>
 
           {/* Pagination for Role Management */}
-          <div className="flex justify-center mt-6">
-            <div className="flex items-center space-x-1">
-              <button 
-                onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-              >
-                <FaChevronLeft className="w-4 h-4" />
-              </button>
-              
-              {paginationPages.map((page) => (
-                <button
-                  key={page}
-                  onClick={() => setCurrentPage(page)}
-                  className={`px-3 py-2 rounded-full text-xs font-medium ${
-                    currentPage === page
-                      ? 'bg-[#D1D5DC] text-white'
-                      : 'text-gray-600 hover:bg-gray-100'
-                  }`}
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                >
-                  {page}
-                </button>
-              ))}
-              
-              <button 
-                onClick={() => setCurrentPage(Math.min(10, currentPage + 1))}
-              >
-                <FaChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={10}
+            onPageChange={setCurrentPage}
+          />
         </div>
       </div>
 
@@ -823,38 +771,11 @@ export default function UserManagement() {
               </div>
 
               {/* Pagination */}
-              <div className="flex justify-center mt-6">
-                <div className="flex items-center space-x-1">
-                  <button 
-                    onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-                  >
-                    <FaChevronLeft className="w-4 h-4" />
-                  </button>
-                  
-                  {paginationPages.map((page) => (
-                    <button
-                      key={page}
-                      onClick={() => setCurrentPage(page)}
-                      className={`px-3 py-2 rounded-full text-xs font-medium ${
-                        currentPage === page
-                        ? 'bg-[#D1D5DC] text-white'
-                        : 'text-gray-600 hover:bg-gray-100'
-                      }`}
-                      style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                    >
-                      {page}
-                    </button>
-                  ))}
-                  
-                 
-                  
-                  <button 
-                    onClick={() => setCurrentPage(Math.min(10, currentPage + 1))}
-                  >
-                    <FaChevronRight className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
+              <Pagination
+                currentPage={currentPage}
+                totalPages={10}
+                onPageChange={setCurrentPage}
+              />
             </div>
           </div>
         </div>
