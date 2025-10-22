@@ -20,8 +20,8 @@ const menu = [
     title: "C.H.A.M",
     hasDropdown: true,
     dropdownItems: [
-      { title: "Dự án của E.C.O", path: "/our-project" },
-      { title: "Game của E.C.O", path: "/our-game"}
+      { title: "Hành trình của C.H.A.M", path: "/our-project" },
+      { title: "Trải nghiệm game C.H.A.M", path: "/our-game"}
     ]
   },
   { title: "Tin tức", path: "/news" },
@@ -141,7 +141,7 @@ export default function Navbar() {
             {/* Dropdown Menu */}
             {item.hasDropdown && openDropdown === item.title && (
               <div 
-                className="absolute top-full left-0 mt-2 bg-black bg-opacity-95 rounded-lg shadow-xl py-2 2xl:py-3 min-w-[280px] 2xl:min-w-[420px] z-50"
+                className="absolute top-full left-0 mt-2 bg-black bg-opacity-95 rounded-lg shadow-xl py-2 2xl:py-3 min-w-[330px] 2xl:min-w-[465px] z-50"
                 onMouseEnter={() => handleDropdownMenuEnter(item.title)}
                 onMouseLeave={() => handleDropdownMenuLeave()}
               >
@@ -153,7 +153,7 @@ export default function Navbar() {
                         className={`
                           px-4 2xl:px-5 py-2 2xl:py-3 cursor-pointer transition-colors duration-200
                           ${isDropdownItemActive ? 'text-[#D68C45] font-bold' : 'hover:text-[#D68C45]'}
-                          text-[1.2rem] 2xl:text-3xl font-light tracking-wide 2xl:tracking-wider
+                          text-[1.2rem] 2xl:text-[1.6rem] font-light tracking-wide 2xl:tracking-wider
                         `}
                         onClick={() => dropdownItem.path && navigate(dropdownItem.path)}
                       >
