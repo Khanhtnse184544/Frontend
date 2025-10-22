@@ -150,7 +150,7 @@ export default function UserManagement() {
     <AdminLayout>
       <div className="space-y-6 mb-10">
         {/* Page Title */}
-        <h1 className="text-5xl font-bold ms-10" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+        <h1 className="text-5xl font-bold ms-10" >
           User Management
         </h1>
 
@@ -166,7 +166,7 @@ export default function UserManagement() {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="pl-10 pr-20 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                    
                   />
                   <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                 </div>
@@ -188,28 +188,28 @@ export default function UserManagement() {
                           className="rounded border-gray-300"
                         />
                       </th>
-                      <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      <th className="text-left py-3 px-2 font-bold text-black" >
                         Name
                       </th>
-                      <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      <th className="text-left py-3 px-2 font-bold text-black" >
                         Username
                       </th>
-                      <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      <th className="text-left py-3 px-2 font-bold text-black" >
                         Birthday
                       </th>
-                      <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      <th className="text-left py-3 px-2 font-bold text-black" >
                         Address
                       </th>
-                      <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      <th className="text-left py-3 px-2 font-bold text-black" >
                         Phone
                       </th>
-                      <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      <th className="text-left py-3 px-2 font-bold text-black" >
                         Email
                       </th>
-                      <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      <th className="text-left py-3 px-2 font-bold text-black" >
                         Point
                       </th>
-                      <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      <th className="text-left py-3 px-2 font-bold text-black" >
                         Transaction
                       </th>
                       
@@ -226,32 +226,32 @@ export default function UserManagement() {
                             className="rounded border-gray-300"
                           />
                         </td>
-                        <td className="text-sm py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        <td className="text-sm py-3 px-2 text-black" >
                           {user.name}
                         </td>
-                        <td className="text-sm py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        <td className="text-sm py-3 px-2 text-black" >
                           {user.username}
                         </td>
-                        <td className="text-sm py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        <td className="text-sm py-3 px-2 text-black" >
                           {user.birthday}
                         </td>
-                        <td className="text-sm py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        <td className="text-sm py-3 px-2 text-black" >
                           {user.address}
                         </td>
-                        <td className="text-sm py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        <td className="text-sm py-3 px-2 text-black" >
                           {user.phone}
                         </td>
-                        <td className="text-sm py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        <td className="text-sm py-3 px-2 text-black" >
                           {user.email}
                         </td>
-                        <td className="text-sm py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        <td className="text-sm py-3 px-2 text-black" >
                           {user.point}
                         </td>
                         <td className="py-3 px-2">
                           <button 
                             onClick={() => handleShowTransactionHistory(user)}
                             className="bg-[#2C2C2C] text-white px-3 py-1 rounded-lg text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border-1  transition-colors" 
-                            style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                            
                           >
                             {user.transaction}
                           </button>
@@ -273,24 +273,24 @@ export default function UserManagement() {
 
           {/* Sidebar - Management Actions */}
           <div className="w-35 h-60 bg-white rounded-2xl shadow-sm border border-gray-200 p-4 flex flex-col">
-            <h3 className="text-sm font-bold text-black mb-3" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+            <h3 className="text-sm font-bold text-black mb-3" >
               Manage
             </h3>
             
             <div className="space-y-2">
-              <button className="w-full bg-[#2C2C2C] text-white text-center py-1 px-3 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border-1  transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+              <button className="w-full bg-[#2C2C2C] text-white text-center py-1 px-3 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border-1  transition-colors" >
                 Update Info
               </button>
-              <button className="w-full bg-[#2C2C2C] text-white text-center py-1 px-3 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border-1  transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+              <button className="w-full bg-[#2C2C2C] text-white text-center py-1 px-3 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border-1  transition-colors" >
                 Delete User
               </button>
-              <button className="w-full bg-[#2C2C2C] text-white text-center py-1 px-3 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border-1  transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+              <button className="w-full bg-[#2C2C2C] text-white text-center py-1 px-3 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border-1  transition-colors" >
                 Ban
               </button>
-              <button className="w-full bg-[#2C2C2C] text-white text-center py-1 px-3 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border-1  transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+              <button className="w-full bg-[#2C2C2C] text-white text-center py-1 px-3 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border-1  transition-colors" >
                 Unban
               </button>
-              <button className="w-full bg-[#2C2C2C] text-white text-center py-1 px-3 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border-1  transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+              <button className="w-full bg-[#2C2C2C] text-white text-center py-1 px-3 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border-1  transition-colors" >
                 Assign Role
               </button>
             </div>
@@ -298,7 +298,7 @@ export default function UserManagement() {
         </div>
 
         {/* Manage Role Section */}
-        <h1 className="text-5xl font-bold text-black mt-15 mb-5 ms-10" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+        <h1 className="text-5xl font-bold text-black mt-15 mb-5 ms-10" >
             Manage Role
           </h1>
 
@@ -307,13 +307,13 @@ export default function UserManagement() {
           {/* Role Management Actions */}
           <div className="flex items-center justify-between mb-6">
             <div className="flex gap-3">
-              <button className="bg-[#2C2C2C] text-white px-4 py-1 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+              <button className="bg-[#2C2C2C] text-white px-4 py-1 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" >
                 Create Role
               </button>
-              <button className="bg-[#2C2C2C] text-white px-4 py-1 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+              <button className="bg-[#2C2C2C] text-white px-4 py-1 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" >
                 Update Role
               </button>
-              <button className="bg-[#2C2C2C] text-white px-4 py-1 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+              <button className="bg-[#2C2C2C] text-white px-4 py-1 rounded-xl text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" >
                 Delete Role
               </button>
             </div>
@@ -325,7 +325,7 @@ export default function UserManagement() {
                   type="text"
                   placeholder="Search for Roles"
                   className="pl-10 pr-20 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                  
                 />
                 <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               </div>
@@ -340,25 +340,25 @@ export default function UserManagement() {
             <table className="w-full">
               <thead>
                 <tr className="border-b border-gray-200">
-                  <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                  <th className="text-left py-3 px-2 font-bold text-black" >
                     Role/Claim
                   </th>
-                  <th className="text-center py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                  <th className="text-center py-3 px-2 font-bold text-black" >
                     User Management
                   </th>
-                  <th className="text-center py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                  <th className="text-center py-3 px-2 font-bold text-black" >
                     CSR & Education
                   </th>
-                  <th className="text-center py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                  <th className="text-center py-3 px-2 font-bold text-black" >
                     Partner & Voucher
                   </th>
-                  <th className="text-center py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                  <th className="text-center py-3 px-2 font-bold text-black" >
                     Financial & Reporting
                   </th>
-                  <th className="text-center py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                  <th className="text-center py-3 px-2 font-bold text-black" >
                     Customer Support
                   </th>
-                  <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                  <th className="text-left py-3 px-2 font-bold text-black" >
                     Action
                   </th>
                 </tr>
@@ -366,7 +366,7 @@ export default function UserManagement() {
               <tbody>
                 {/* Admin Role */}
                 <tr className="border-b border-gray-100 hover:bg-gray-50">
-                  <td className="text-sm py-3 px-2 text-black font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                  <td className="text-sm py-3 px-2 text-black font-medium" >
                     Admin
                   </td>
                   <td className="py-3 px-2 text-center">
@@ -411,10 +411,10 @@ export default function UserManagement() {
                   </td>
                   <td className="py-3 px-2 ">
                     <div className="flex gap-2">
-                      <button className="bg-[#2C2C2C] text-white px-3 py-1 rounded text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <button className="bg-[#2C2C2C] text-white px-3 py-1 rounded text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" >
                         Edit
                       </button>
-                      <button className="bg-[#2C2C2C] text-white px-3 py-1 rounded text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <button className="bg-[#2C2C2C] text-white px-3 py-1 rounded text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" >
                         Show Members
                       </button>
                     </div>
@@ -423,7 +423,7 @@ export default function UserManagement() {
 
                 {/* Staff 1 Role */}
                 <tr className="border-b border-gray-100 hover:bg-gray-50">
-                  <td className="text-sm py-3 px-2 text-black font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                  <td className="text-sm py-3 px-2 text-black font-medium" >
                     Staff 1
                   </td>
                   <td className="py-3 px-2 text-center">
@@ -468,10 +468,10 @@ export default function UserManagement() {
                   </td>
                   <td className="py-3 px-2">
                     <div className="flex gap-2">
-                      <button className="bg-[#2C2C2C] text-white px-3 py-1 rounded text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <button className="bg-[#2C2C2C] text-white px-3 py-1 rounded text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" >
                         Edit
                       </button>
-                      <button className="bg-[#2C2C2C] text-white px-3 py-1 rounded text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <button className="bg-[#2C2C2C] text-white px-3 py-1 rounded text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" >
                         Show Members
                       </button>
                     </div>
@@ -480,7 +480,7 @@ export default function UserManagement() {
 
                 {/* Staff 2 Role */}
                 <tr className="border-b border-gray-100 hover:bg-gray-50">
-                  <td className="text-sm py-3 px-2 text-black font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                  <td className="text-sm py-3 px-2 text-black font-medium" >
                     Staff 2
                   </td>
                   <td className="py-3 px-2 text-center">
@@ -525,10 +525,10 @@ export default function UserManagement() {
                   </td>
                   <td className="py-3 px-2">
                     <div className="flex gap-2">
-                      <button className="bg-[#2C2C2C] text-white px-3 py-1 rounded text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <button className="bg-[#2C2C2C] text-white px-3 py-1 rounded text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" >
                         Edit
                       </button>
-                      <button className="bg-[#2C2C2C] text-white px-3 py-1 rounded text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <button className="bg-[#2C2C2C] text-white px-3 py-1 rounded text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" >
                         Show Members
                       </button>
                     </div>
@@ -537,7 +537,7 @@ export default function UserManagement() {
 
                 {/* User Role */}
                 <tr className="border-b border-gray-100 hover:bg-gray-50">
-                  <td className="text-sm py-3 px-2 text-black font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                  <td className="text-sm py-3 px-2 text-black font-medium" >
                     User
                   </td>
                   <td className="py-3 px-2 text-center">
@@ -582,10 +582,10 @@ export default function UserManagement() {
                   </td>
                   <td className="py-3 px-2">
                     <div className="flex gap-2">
-                      <button className="bg-[#2C2C2C] text-white px-3 py-1 rounded text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <button className="bg-[#2C2C2C] text-white px-3 py-1 rounded text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" >
                         Edit
                       </button>
-                      <button className="bg-[#2C2C2C] text-white px-3 py-1 rounded text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <button className="bg-[#2C2C2C] text-white px-3 py-1 rounded text-xs hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors" >
                         Show Members
                       </button>
                     </div>
@@ -611,11 +611,11 @@ export default function UserManagement() {
             {/* Modal Header */}
             <div className="flex items-center justify-between p-6 border-b border-gray-200">
               <div className="">
-                <h2 className="text-2xl font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                <h2 className="text-2xl font-bold text-black" >
                   Transaction History: 
                   
                 </h2>
-                <span className="text-xl ps-2" style={{ fontFamily: "Pally-Regular, sans-serif" }}>{selectedUser?.name}</span> 
+                <span className="text-xl ps-2" >{selectedUser?.name}</span> 
               </div>
               <div className="flex items-center gap-3">
                 <div className="relative">
@@ -623,7 +623,7 @@ export default function UserManagement() {
                     type="text"
                     placeholder="Search transactions..."
                     className="pl-10 pr-20 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                    
                   />
                   <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                 </div>
@@ -633,7 +633,7 @@ export default function UserManagement() {
                     className="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
                   >
                     <FaFilter className="w-4 h-4 text-gray-600" />
-                    <span className="text-xs" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                    <span className="text-xs" >
                       {selectedStatus}
                     </span>
                     <FaChevronDown className="w-3 h-3 text-gray-600" />
@@ -650,7 +650,7 @@ export default function UserManagement() {
                           className={`w-full text-left px-4 py-2 text-xs hover:bg-gray-100 ${
                             selectedStatus === 'All' ? 'bg-gray-100 font-medium' : ''
                           }`}
-                          style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                          
                         >
                           All Status
                         </button>
@@ -662,7 +662,7 @@ export default function UserManagement() {
                           className={`w-full text-left px-4 py-2 text-xs hover:bg-gray-100 ${
                             selectedStatus === 'Paid' ? 'bg-gray-100 font-medium' : ''
                           }`}
-                          style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                          
                         >
                           Paid
                         </button>
@@ -674,7 +674,7 @@ export default function UserManagement() {
                           className={`w-full text-left px-4 py-2 text-xs hover:bg-gray-100 ${
                             selectedStatus === 'Pending' ? 'bg-gray-100 font-medium' : ''
                           }`}
-                          style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                          
                         >
                           Pending
                         </button>
@@ -686,7 +686,7 @@ export default function UserManagement() {
                           className={`w-full text-left px-4 py-2 text-xs hover:bg-gray-100 ${
                             selectedStatus === 'Refund' ? 'bg-gray-100 font-medium' : ''
                           }`}
-                          style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                          
                         >
                           Refund
                         </button>
@@ -710,22 +710,22 @@ export default function UserManagement() {
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-gray-200">
-                      <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      <th className="text-left py-3 px-2 font-bold text-black" >
                         Invoice
                       </th>
-                      <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      <th className="text-left py-3 px-2 font-bold text-black" >
                         Amount
                       </th>
-                      <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      <th className="text-left py-3 px-2 font-bold text-black" >
                         Status
                       </th>
-                      <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      <th className="text-left py-3 px-2 font-bold text-black" >
                         Date
                       </th>
-                      <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      <th className="text-left py-3 px-2 font-bold text-black" >
                         Service
                       </th>
-                      <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                      <th className="text-left py-3 px-2 font-bold text-black" >
                         Action
                       </th>
                     </tr>
@@ -733,10 +733,10 @@ export default function UserManagement() {
                   <tbody>
                     {filteredTransactions.map((transaction) => (
                       <tr key={transaction.id} className="border-b border-gray-100 hover:bg-gray-50">
-                        <td className="text-sm py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        <td className="text-sm py-3 px-2 text-black" >
                           {transaction.invoice}
                         </td>
-                        <td className="text-sm py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        <td className="text-sm py-3 px-2 text-black" >
                           {transaction.amount}
                         </td>
                         <td className="py-3 px-2">
@@ -746,17 +746,17 @@ export default function UserManagement() {
                               : transaction.status === 'Pending'
                               ? 'bg-yellow-100 text-yellow-800'
                               : 'bg-red-100 text-red-800'
-                          }`} style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                          }`} >
                             {transaction.status === 'Paid' && <FaCheck className="w-3 h-3 mr-1" />}
                             {transaction.status === 'Pending' && <FaClock className="w-3 h-3 mr-1" />}
                             {transaction.status === 'Refund' && <FaUndo className="w-3 h-3 mr-1" />}
                             {transaction.status === 'Paid' ? 'Paid' : transaction.status === 'Pending' ? 'Pending' : 'Refund'}
                           </span>
                         </td>
-                        <td className="text-sm py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        <td className="text-sm py-3 px-2 text-black" >
                           {transaction.date}
                         </td>
-                        <td className="text-sm py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                        <td className="text-sm py-3 px-2 text-black" >
                           {transaction.service}
                         </td>
                         <td className="py-3 px-2">

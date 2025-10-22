@@ -16,7 +16,7 @@ export default function AdminDashboard() {
     <AdminLayout>
       <div className="space-y-6 px-5">
         {/* Page Title */}
-        <h1 className="text-5xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>Dashboard</h1>
+        <h1 className="text-5xl font-bold " >Dashboard</h1>
 
         {/* Key Metrics Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -24,12 +24,12 @@ export default function AdminDashboard() {
           <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-2xl font-bold text-[#797979]" style={{ fontFamily: "Pally-bold, sans-serif" }}>Users</p>
-                <p className="text-2xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>1.211</p>
+                <p className="text-2xl font-bold text-[#797979]" >Users</p>
+                <p className="text-2xl font-bold " >1.211</p>
                 <div className="flex items-center mt-2">
                   <FaArrowUp className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-xs text-green-500 font-medium mr-1 " style={{ fontFamily: "Pally-Regular, sans-serif" }}>+5.5% </span>
-                  <span className="text-xs font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}> since last week</span>
+                  <span className="text-xs text-green-500 font-medium mr-1 " >+5.5% </span>
+                  <span className="text-xs font-medium" > since last week</span>
                 </div>
               </div>
                <div className="w-12 h-12 flex items-start justify-center">
@@ -43,12 +43,12 @@ export default function AdminDashboard() {
           <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-2xl font-bold text-[#797979]" style={{ fontFamily: "Pally-bold, sans-serif" }}>CSR</p>
-                <p className="text-2xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>904</p>
+                <p className="text-2xl font-bold text-[#797979]" >CSR</p>
+                <p className="text-2xl font-bold " >904</p>
                 <div className="flex items-center mt-2">
                   <FaArrowDown className="w-4 h-4 text-red-500 mr-1" />
-                  <span className="text-xs text-red-500 font-medium mr-1 " style={{ fontFamily: "Pally-Regular, sans-serif" }}>-0.1% </span>
-                  <span className="text-xs font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}> since last week</span>
+                  <span className="text-xs text-red-500 font-medium mr-1 " >-0.1% </span>
+                  <span className="text-xs font-medium" > since last week</span>
                 </div>
               </div>
                <div className="w-12 h-12 flex items-start justify-center">
@@ -61,12 +61,12 @@ export default function AdminDashboard() {
           <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-2xl font-bold text-[#797979]" style={{ fontFamily: "Pally-bold, sans-serif" }}>Education</p>
-                <p className="text-2xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>1040</p>
+                <p className="text-2xl font-bold text-[#797979]" >Education</p>
+                <p className="text-2xl font-bold " >1040</p>
                 <div className="flex items-center mt-2">
                   <FaArrowUp className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-xs text-green-500 font-medium mr-1 " style={{ fontFamily: "Pally-Regular, sans-serif" }}>+6.9%  </span>
-                  <span className="text-xs font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}> since last week</span>
+                  <span className="text-xs text-green-500 font-medium mr-1 " >+6.9%  </span>
+                  <span className="text-xs font-medium" > since last week</span>
                 </div>
               </div>
                <div className="w-12 h-12 flex items-start justify-center">
@@ -79,12 +79,12 @@ export default function AdminDashboard() {
           <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-2xl font-bold text-[#797979]" style={{ fontFamily: "Pally-bold, sans-serif" }}>Gross profit</p>
-                <p className="text-2xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>1.090.041.259</p>
+                <p className="text-2xl font-bold text-[#797979]" >Gross profit</p>
+                <p className="text-2xl font-bold " >1.090.041.259</p>
                 <div className="flex items-center mt-2">
                   <FaArrowUp className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-xs text-green-500 font-medium mr-1 " style={{ fontFamily: "Pally-Regular, sans-serif" }}>+12% </span>
-                  <span className="text-xs font-medium" style={{ fontFamily: "Pally-Regular, sans-serif" }}> since last week</span>
+                  <span className="text-xs text-green-500 font-medium mr-1 " >+12% </span>
+                  <span className="text-xs font-medium" > since last week</span>
                 </div>
               </div>
                <div className="w-12 h-12 flex items-start justify-center">
@@ -98,7 +98,7 @@ export default function AdminDashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
           {/* Game Invoice Card */}
           <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200 col-span-2 h-80 ">
-            <h3 className="text-2xl font-bold text-[#797979] mb-6" style={{ fontFamily: "Pally-Bold, sans-serif" }}>Game Invoice</h3>
+            <h3 className="text-2xl font-bold text-[#797979] mb-6" >Game Invoice</h3>
             <div className="flex items-center justify-between">
               {/* Donut Chart */}
               <div className="w-50 h-50 relative">
@@ -151,8 +151,8 @@ export default function AdminDashboard() {
                 </svg>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="text-xl font-bold " style={{ fontFamily: "Pally-Bold, sans-serif" }}>1054</div>
-                    <div className="text-md text-[#797979]" style={{ fontFamily: "Pally-Regular, sans-serif" }}>Players</div>
+                    <div className="text-xl font-bold " >1054</div>
+                    <div className="text-md text-[#797979]" >Players</div>
                   </div>
                 </div>
               </div>
@@ -161,27 +161,27 @@ export default function AdminDashboard() {
               <div className="space-y-4 ml-6">
                 <div>
                 <div className="flex items-center">
-                <div className="text-md font-bold text-[#797979]" style={{ fontFamily: "Pally-Bold, sans-serif" }}>Whales</div>
+                <div className="text-md font-bold text-[#797979]" >Whales</div>
 
                 <br />
                 <div>
                     <span className="w-4 h-4 bg-black rounded-full mr-3"></span>
-                    <span className="text-md font-bold text-[#797979] ml-2" style={{ fontFamily: "Pally-Bold, sans-serif" }}>327</span>
+                    <span className="text-md font-bold text-[#797979] ml-2" >327</span>
                   </div>
                 </div>
                 </div>
                 <div className="flex items-center">
                   <div className="w-4 h-4 bg-orange-500 rounded-full mr-3"></div>
                   <div>
-                    <span className="text-md font-bold text-[#797979]" style={{ fontFamily: "Pally-Bold, sans-serif" }}>Total Paid</span>
-                    <span className="text-md font-bold text-[#797979] ml-2" style={{ fontFamily: "Pally-Bold, sans-serif" }}>474</span>
+                    <span className="text-md font-bold text-[#797979]" >Total Paid</span>
+                    <span className="text-md font-bold text-[#797979] ml-2" >474</span>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <div className="w-4 h-4 bg-gray-300 rounded-full mr-3"></div>
                   <div>
-                    <span className="text-md font-bold text-[#797979]" style={{ fontFamily: "Pally-Bold, sans-serif" }}>Total Unpaid</span>
-                    <span className="text-md font-bold text-[#797979] ml-2" style={{ fontFamily: "Pally-Bold, sans-serif" }}>253</span>
+                    <span className="text-md font-bold text-[#797979]" >Total Unpaid</span>
+                    <span className="text-md font-bold text-[#797979] ml-2" >253</span>
                   </div>
                 </div>
               </div>
@@ -191,8 +191,8 @@ export default function AdminDashboard() {
           {/* Income Analytics Card */}
           <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200 lg:col-span-3 h-80">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-2xl font-bold text-[#797979]" style={{ fontFamily: "Pally-Bold, sans-serif" }}>Income Analytics</h3>
-              <button className="flex items-center px-4 py-2 text-xs font-medium text-[#797979] bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+              <h3 className="text-2xl font-bold text-[#797979]" >Income Analytics</h3>
+              <button className="flex items-center px-4 py-2 text-xs font-medium text-[#797979] bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" >
                 <FaDownload className="w-4 h-4 mr-2" />
                 Export
               </button>
@@ -210,21 +210,21 @@ export default function AdminDashboard() {
                 <rect width="100%" height="100%" fill="url(#grid)" />
                 
                 {/* Y-axis labels */}
-                <text x="20" y="20" textAnchor="middle" className="text-xs fill-gray-500" style={{ fontFamily: "Pally-Regular, sans-serif" }}>10K</text>
-                <text x="20" y="60" textAnchor="middle" className="text-xs fill-gray-500" style={{ fontFamily: "Pally-Regular, sans-serif" }}>8K</text>
-                <text x="20" y="100" textAnchor="middle" className="text-xs fill-gray-500" style={{ fontFamily: "Pally-Regular, sans-serif" }}>6K</text>
-                <text x="20" y="140" textAnchor="middle" className="text-xs fill-gray-500" style={{ fontFamily: "Pally-Regular, sans-serif" }}>4K</text>
-                <text x="20" y="180" textAnchor="middle" className="text-xs fill-gray-500" style={{ fontFamily: "Pally-Regular, sans-serif" }}>2K</text>
-                <text x="20" y="220" textAnchor="middle" className="text-xs fill-gray-500" style={{ fontFamily: "Pally-Regular, sans-serif" }}>0</text>
+                <text x="20" y="20" textAnchor="middle" className="text-xs fill-gray-500" >10K</text>
+                <text x="20" y="60" textAnchor="middle" className="text-xs fill-gray-500" >8K</text>
+                <text x="20" y="100" textAnchor="middle" className="text-xs fill-gray-500" >6K</text>
+                <text x="20" y="140" textAnchor="middle" className="text-xs fill-gray-500" >4K</text>
+                <text x="20" y="180" textAnchor="middle" className="text-xs fill-gray-500" >2K</text>
+                <text x="20" y="220" textAnchor="middle" className="text-xs fill-gray-500" >0</text>
                 
                 {/* X-axis labels */}
-                <text x="120" y="250" textAnchor="middle" className="text-xs fill-gray-500" style={{ fontFamily: "Pally-Regular, sans-serif" }}>Mon 15</text>
-                <text x="200" y="250" textAnchor="middle" className="text-xs fill-gray-500" style={{ fontFamily: "Pally-Regular, sans-serif" }}>Tue 16</text>
-                <text x="280" y="250" textAnchor="middle" className="text-xs fill-gray-500" style={{ fontFamily: "Pally-Regular, sans-serif" }}>Wed 17</text>
-                <text x="360" y="250" textAnchor="middle" className="text-xs fill-gray-500" style={{ fontFamily: "Pally-Regular, sans-serif" }}>Thu 18</text>
-                <text x="440" y="250" textAnchor="middle" className="text-xs fill-gray-500" style={{ fontFamily: "Pally-Regular, sans-serif" }}>Fri 19</text>
-                <text x="520" y="250" textAnchor="middle" className="text-xs fill-gray-500" style={{ fontFamily: "Pally-Regular, sans-serif" }}>Sat 20</text>
-                <text x="600" y="250" textAnchor="middle" className="text-xs fill-gray-500" style={{ fontFamily: "Pally-Regular, sans-serif" }}>Sun 21</text>
+                <text x="120" y="250" textAnchor="middle" className="text-xs fill-gray-500" >Mon 15</text>
+                <text x="200" y="250" textAnchor="middle" className="text-xs fill-gray-500" >Tue 16</text>
+                <text x="280" y="250" textAnchor="middle" className="text-xs fill-gray-500" >Wed 17</text>
+                <text x="360" y="250" textAnchor="middle" className="text-xs fill-gray-500" >Thu 18</text>
+                <text x="440" y="250" textAnchor="middle" className="text-xs fill-gray-500" >Fri 19</text>
+                <text x="520" y="250" textAnchor="middle" className="text-xs fill-gray-500" >Sat 20</text>
+                <text x="600" y="250" textAnchor="middle" className="text-xs fill-gray-500" >Sun 21</text>
                 
                 {/* Data points */}
                 <circle cx="120" cy="80" r="4" fill="#f97316" />

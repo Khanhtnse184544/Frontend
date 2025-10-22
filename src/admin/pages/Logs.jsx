@@ -92,17 +92,14 @@ export default function Logs() {
     <AdminLayout>
       <div className="space-y-6 mb-10">
         {/* Page Title */}
-        <h1 className="text-5xl font-bold ms-10" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+        <h1 className="text-5xl font-bold ms-10" >
           Log
         </h1>
 
         <div className="flex gap-1 h-[70vh] px-1">
           {/* Main Content Area */}
-          <div className="flex-1 bg-white rounded-2xl shadow-sm border border-gray-200 p-6 flex flex-col">
-            {/* Website History Title */}
-            <h2 className="text-3xl font-bold text-black mb-6" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
-              Website History
-            </h2>
+          <div className="flex-1 flex flex-col">
+            
 
             {/* Search and Filter Bar */}
             <div className="flex items-center justify-end mb-6">
@@ -113,7 +110,7 @@ export default function Logs() {
                   value={searchTerm}
                   onChange={handleSearchChange}
                   className="pl-10 pr-20 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                  
                 />
                 <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               </div>
@@ -127,34 +124,34 @@ export default function Logs() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-gray-200">
-                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <th className="text-left py-3 px-2 font-bold text-black" >
                       Timestamp
                     </th>
-                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <th className="text-left py-3 px-2 font-bold text-black" >
                       User
                     </th>
-                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <th className="text-left py-3 px-2 font-bold text-black" >
                       Ip
                     </th>
-                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <th className="text-left py-3 px-2 font-bold text-black" >
                       User Agent
                     </th>
-                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <th className="text-left py-3 px-2 font-bold text-black" >
                       Referrer Url
                     </th>
-                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <th className="text-left py-3 px-2 font-bold text-black" >
                       Page Url
                     </th>
-                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <th className="text-left py-3 px-2 font-bold text-black" >
                       Event type
                     </th>
-                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <th className="text-left py-3 px-2 font-bold text-black" >
                       Error
                     </th>
-                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <th className="text-left py-3 px-2 font-bold text-black" >
                       Error Message
                     </th>
-                    <th className="text-left py-3 px-2 font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <th className="text-left py-3 px-2 font-bold text-black" >
                       Time on Page
                     </th>
                   </tr>
@@ -162,34 +159,34 @@ export default function Logs() {
                 <tbody>
                   {filteredLogs.map((log) => (
                     <tr key={log.id} className="border-b border-gray-100 hover:bg-gray-50">
-                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <td className="py-3 px-2 text-black" >
                         {log.timestamp}
                       </td>
-                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <td className="py-3 px-2 text-black" >
                         {log.user}
                       </td>
-                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <td className="py-3 px-2 text-black" >
                         {log.ip}
                       </td>
-                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <td className="py-3 px-2 text-black" >
                         {log.userAgent}
                       </td>
-                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <td className="py-3 px-2 text-black" >
                         {log.referrerUrl}
                       </td>
-                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <td className="py-3 px-2 text-black" >
                         {log.pageUrl}
                       </td>
-                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <td className="py-3 px-2 text-black" >
                         {log.eventType}
                       </td>
-                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <td className="py-3 px-2 text-black" >
                         {log.error}
                       </td>
-                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <td className="py-3 px-2 text-black" >
                         {log.errorMessage}
                       </td>
-                      <td className="py-3 px-2 text-black" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                      <td className="py-3 px-2 text-black" >
                         {log.timeOnPage}
                       </td>
                     </tr>

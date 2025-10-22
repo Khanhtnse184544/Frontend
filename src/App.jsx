@@ -17,6 +17,7 @@ import CSRManagement from "./admin/pages/CSRManagement";
 import FinancialReports from "./admin/pages/FinancialReports";
 import CustomerSupport from "./admin/pages/CustomerSupport";
 import Logs from "./admin/pages/Logs";
+import MessageDetail from "./admin/pages/MessageDetail";
 // removed Pally font import; Montserrat is now global via src/index.css
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
       <Route path="/admin/csr" element={<CSRManagement />} />
       <Route path="/admin/financial" element={<FinancialReports />} />
       <Route path="/admin/support" element={<CustomerSupport />} />
+      <Route path="/admin/message/:type/:id" element={<MessageDetail />} />
       <Route path="/admin/logs" element={<Logs />} />
     </Routes>
   );

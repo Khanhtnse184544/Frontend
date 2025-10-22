@@ -1,188 +1,229 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AdminLayout from '../components/AdminLayout';
 import Pagination from '../components/Pagination';
-import { FaSearch, FaFilter, FaUser, FaStar, FaComment, FaShareAlt, FaEye, FaTrash } from 'react-icons/fa';
+import { FaSearch, FaFilter, FaUser, FaPhone, FaEnvelope, FaThumbtack, FaChevronDown } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import api from '../../utils/api';
 
 export default function CustomerSupport() {
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize] = useState(5);
+  const [totalPages, setTotalPages] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedFeedbacks, setSelectedFeedbacks] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [showStatusFilter, setShowStatusFilter] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState('All');
+  const [csrItems, setCsrItems] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  // Sample feedback data
-  const feedbacks = [
-    {
-      id: 1,
-      username: 'Username',
-      date: '7 July 2025',
-      rating: 5,
-      comments: 3,
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    },
-    {
-      id: 2,
-      username: 'Username',
-      date: '6 July 2025',
-      rating: 4,
-      comments: 1,
-      content: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    },
-    {
-      id: 3,
-      username: 'Username',
-      date: '5 July 2025',
-      rating: 5,
-      comments: 5,
-      content: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+  // Fetch feedbacks from API
+  const fetchContacts = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await api.get('/api/feedbacks', {
+        params: {
+          pageNumber: currentPage,
+          pageSize: pageSize,
+          search: searchTerm || undefined,
+        }
+      });
+      setCsrItems(response.data.items || []);
+      const totalCount = response.data.totalCount || 0;
+      const apiPageSize = response.data.pageSize || pageSize;
+      setTotalPages(Math.max(1, Math.ceil(totalCount / apiPageSize)));
+    } catch (err) {
+      setError('Failed to fetch contacts');
+      console.error('Error fetching contacts:', err);
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
 
-  const handleSelectFeedback = (feedbackId) => {
-    setSelectedFeedbacks(prev => 
-      prev.includes(feedbackId) 
-        ? prev.filter(id => id !== feedbackId)
-        : [...prev, feedbackId]
+  useEffect(() => {
+    fetchContacts();
+  }, [currentPage, searchTerm]);
+
+  const handleSelectItem = (itemId) => {
+    setSelectedItems(prev => 
+      prev.includes(itemId) 
+        ? prev.filter(id => id !== itemId)
+        : [...prev, itemId]
     );
   };
 
   const handleSelectAll = () => {
-    if (selectedFeedbacks.length === feedbacks.length) {
-      setSelectedFeedbacks([]);
+    if (selectedItems.length === csrItems.length) {
+      setSelectedItems([]);
     } else {
-      setSelectedFeedbacks(feedbacks.map(feedback => feedback.id));
+      setSelectedItems(csrItems.map(item => item.contactId));
     }
   };
 
-  const handleShare = () => {
-    console.log('Sharing feedback');
+  const handleStatusChange = async (id, newStatus) => {
+    try {
+      await api.put(`/api/contact/${id}/status?status=${newStatus}`);
+      setCsrItems(prevItems => 
+        prevItems.map(item => 
+          item.contactId === id 
+            ? { ...item, status: newStatus }
+            : item
+        )
+      );
+    } catch (err) {
+      console.error('Error updating status:', err);
+      setError('Failed to update status');
+    }
   };
 
-  const handleHideFeedback = (feedbackId) => {
-    console.log(`Hiding feedback ${feedbackId}`);
+  const getStatusTextColor = (status) => {
+    switch (status) {
+      case 'Done':
+        return 'text-green-600';
+      case 'Pending':
+        return 'text-yellow-600';
+      case 'Cancel':
+        return 'text-red-600';
+      default:
+        return 'text-gray-600';
+    }
   };
 
-  const handleDeleteFeedback = (feedbackId) => {
-    console.log(`Deleting feedback ${feedbackId}`);
-  };
+  
 
-  const renderStars = (rating) => {
-    return Array.from({ length: 5 }, (_, index) => (
-      <FaStar
-        key={index}
-        className={`w-4 h-4 ${index < rating ? 'text-yellow-400' : 'text-gray-300'}`}
-      />
-    ));
-  };
+  // Server-side paging/filtering handled by API
+  const displayedItems = csrItems;
 
 
   return (
     <AdminLayout>
-      <div className="space-y-6 mb-10">
+      <div className="space-y-6">
         {/* Page Title */}
-        <h1 className="text-5xl font-bold ms-10" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+        <h1 className="text-6xl font-bold" >
           Customer Support
         </h1>
 
-        <div className="flex gap-1 h-[70vh] px-1">
+        <div className="flex gap-6">
           {/* Main Content Area */}
-          <div className="flex-1 bg-white rounded-2xl shadow-sm border border-gray-200 p-6 flex flex-col">
-            {/* Feedback Management Title */}
-            <h2 className="text-4xl font-bold text-black text-center mb-6" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
-              Feedback Management
-            </h2>
-
-            {/* Search and Filter Bar */}
+          <div className="flex-1 bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+            {/* Search and Filter */}
             <div className="flex items-center justify-end mb-6">
               <div className="relative">
                 <input
                   type="text"
-                  placeholder="Search feedback..."
+                  placeholder="Search feedback"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-10 pr-20 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
+                  
                 />
                 <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               </div>
-              <button className="ml-3 p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                <FaFilter className="w-4 h-4 text-gray-600" />
-              </button>
+              {/* Optional filter removed for feedbacks */}
             </div>
+            {/* Loading and Error States */}
+            {loading && (
+              <div className="text-center py-8">
+                <p className="text-gray-500" >
+                  Loading feedbacks...
+                </p>
+              </div>
+            )}
 
-            {/* Feedback List */}
-            <div className="flex-1 space-y-4 overflow-y-auto">
-              {feedbacks.map((feedback) => (
-                <div key={feedback.id} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex items-center gap-3">
-                      <FaUser className="w-5 h-5 text-black" />
-                      <div>
-                        <div className="text-lg font-bold text-black" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
-                          {feedback.username}
-                        </div>
-                        <div className="text-sm text-gray-500" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
-                          {feedback.date}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="flex items-center gap-1">
-                        {renderStars(feedback.rating)}
-                      </div>
-                      <div className="flex items-center gap-1 text-gray-600">
-                        <span className="text-sm" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
-                          {feedback.comments}
-                        </span>
-                        <FaComment className="w-4 h-4" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-gray-700" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
-                    {feedback.content}
-                  </div>
+            {error && (
+              <div className="text-center py-8">
+                <p className="text-red-500" >
+                  {error}
+                </p>
+                <button 
+                  onClick={fetchContacts}
+                  className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                >
+                  Retry
+                </button>
+              </div>
+            )}
+
+            {/* CSR Items */}
+            <div className="space-y-6">
+              {!loading && !error && displayedItems.length === 0 ? (
+                <div className="text-center py-8">
+                  <p className="text-gray-500" >
+                    No feedbacks found matching your search criteria.
+                  </p>
                 </div>
-              ))}
+              ) : !loading && !error ? (
+                displayedItems.map((item) => (
+                <div key={item.id} className="relative border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow cursor-pointer" onClick={() => navigate(`/admin/message/feedback/${item.id}`)}>
+                  {item.pinned && (
+                    <div className="absolute top-2 right-2  text-yellow-500 p-1.5 rounded-full ">
+                      <FaThumbtack className="w-3 h-3 rotate-45" />
+                    </div>
+                  )}
+                  
+                  {/* Header with username and date */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center">
+                      <FaUser className="w-5 h-5 text-gray-600 mr-2" />
+                      <span className="font-bold text-lg" >
+                        {item.userName}
+                      </span>
+                    </div>
+                    <span className="text-gray-500" >
+                      {new Date(item.createdAt).toLocaleString()}
+                    </span>
+                  </div>
+
+                  {/* Contact information */}
+                  <div className="flex items-center mb-4 space-x-6">
+                    <div className="flex items-center">
+                      <FaPhone className="w-4 h-4 text-gray-600 mr-2" />
+                      <span className="text-gray-700" >
+                        Contact: {item.contactInfo}
+                      </span>
+                    </div>
+                    {item.email && (
+                      <div className="flex items-center">
+                        <FaEnvelope className="w-4 h-4 text-gray-600 mr-2" />
+                        <span className="text-gray-700" >
+                          Email: {item.email}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Description (clamp 5 lines with ellipsis) */}
+                  <p
+                    className="text-gray-600 text-sm mb-4 leading-relaxed"
+                    style={{
+                      
+                      display: '-webkit-box',
+                      WebkitLineClamp: 5,
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden'
+                    }}
+                  >
+                    {item.message}
+                  </p>
+
+                  {/* No status control for feedbacks */}
+                </div>
+              ))
+              ) : null}
             </div>
 
             {/* Pagination */}
             <Pagination
               currentPage={currentPage}
-              totalPages={10}
+              totalPages={totalPages}
               onPageChange={setCurrentPage}
             />
           </div>
+          
 
-          {/* Sidebar - Management Actions */}
-          <div className="w-35 h-60 bg-white rounded-2xl shadow-sm border border-gray-200 p-4 flex flex-col">
-            {/* Share Button */}
-            <button
-              onClick={handleShare}
-              className="w-full bg-orange-500 text-white text-center py-3 px-4 rounded-lg text-sm font-bold flex items-center justify-center gap-2 hover:bg-orange-600 transition-colors mb-4"
-              style={{ fontFamily: "Pally-Bold, sans-serif" }}
-            >
-              <FaShareAlt className="w-4 h-4" />
-              Share
-            </button>
-
-            {/* Management Actions */}
-            <div className="space-y-3">
-              <button
-                onClick={() => handleHideFeedback(1)}
-                className="w-full flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors text-sm"
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
-              >
-                <FaEye className="w-4 h-4" />
-                Hide Feedback
-              </button>
-              <button
-                onClick={() => handleDeleteFeedback(1)}
-                className="w-full flex items-center gap-2 text-red-600 hover:text-red-800 transition-colors text-sm"
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
-              >
-                <FaTrash className="w-4 h-4" />
-                Delete Feedback
-              </button>
-            </div>
-          </div>
+          
         </div>
       </div>
     </AdminLayout>

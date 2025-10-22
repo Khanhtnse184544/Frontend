@@ -57,7 +57,7 @@ export default function AdminSidebar({ isOpen }) {
                 <item.icon className="w-5 h-5" />
               </div>
               {isOpen && (
-                <span className="font-medium text-xl" style={{ fontFamily: "Pally-Regular, sans-serif" }}>{item.label}</span>
+                <span className="font-medium text-xl" >{item.label}</span>
               )}
             </button>
           );

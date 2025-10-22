@@ -33,13 +33,13 @@ export default function AdminHeader({ onToggleSidebar }) {
           </div>
 
           {/* Manage web page button */}
-          <button className="px-4 py-2  hover:text-gray-800 transition-colors" style={{ fontFamily: "Pally-medium, sans-serif" }}>
+          <button className="px-4 py-2  hover:text-gray-800 transition-colors" >
             Manage web page
           </button>
 
           {/* Admin profile */}
           <div className="flex items-center space-x-3">
-            <span className="" style={{ fontFamily: "Pally-medium, sans-serif" }}>Admin</span>
+            <span className="" >Admin</span>
             <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
               <svg className="w-5 h-5 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />

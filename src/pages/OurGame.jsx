@@ -53,15 +53,17 @@ export default function OurGame() {
 
                   {/* Download Button */}
                   <div className="flex justify-center items-center" style={{ marginTop: window.innerWidth >= 2200 ? '5rem' : undefined }}>
-                  <button
+                  <a
+                    href="/game.zip"
+                    download="MyAwesomeGame.zip"
                     className="text-white text-2xl 2xl:text-3xl font-bold px-11 py-1.5 2xl:py-2.5 2xl:px-14 rounded-[15px] 2xl:rounded-[20px] bg-[#CB1622] border-white border-3 transition-all duration-300 hover:bg-[#a9121c] hover:shadow-xl transform hover:scale-105"
                     style={{
                       fontSize: window.innerWidth >= 2880 ? '2rem' : undefined,
                       padding: window.innerWidth >= 2880 ? '1rem 2rem' : undefined
                     }}
                   >
-                   Tải Game ngay
-                  </button>
+                  Tải Game Ngay
+                  </a>
                   </div>
                 </div>
               </div>

@@ -63,7 +63,7 @@ const Pagination = ({
                 ? 'bg-[#D1D5DC] text-white'
                 : 'text-gray-600 hover:bg-gray-100'
             }`}
-            style={{ fontFamily: "Pally-Regular, sans-serif" }}
+            
             aria-label={`Go to page ${page}`}
           >
             {page}
