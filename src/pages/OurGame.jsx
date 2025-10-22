@@ -49,21 +49,26 @@ export default function OurGame() {
             <div className="container mx-auto px-6">
               <div className="flex justify-center items-center -mt-15 2xl:-mt-25">
                 <div className="text-center space-y-3">
-                  
-
                   {/* Download Button */}
-                  <div className="flex justify-center items-center" style={{ marginTop: window.innerWidth >= 2200 ? '5rem' : undefined }}>
-                  <a
-                    href="/game.zip"
-                    download="MyAwesomeGame.zip"
-                    className="text-white text-2xl 2xl:text-3xl font-bold px-11 py-1.5 2xl:py-2.5 2xl:px-14 rounded-[15px] 2xl:rounded-[20px] bg-[#CB1622] border-white border-3 transition-all duration-300 hover:bg-[#a9121c] hover:shadow-xl transform hover:scale-105"
+                  <div
+                    className="flex justify-center items-center"
                     style={{
-                      fontSize: window.innerWidth >= 2880 ? '2rem' : undefined,
-                      padding: window.innerWidth >= 2880 ? '1rem 2rem' : undefined
+                      marginTop: window.innerWidth >= 2200 ? "5rem" : undefined,
                     }}
                   >
-                  Tải Game Ngay
-                  </a>
+                    <a
+                      href="/mysetup.zip"
+                      download="CHAM.zip"
+                      className="text-white text-2xl 2xl:text-3xl font-bold px-11 py-1.5 2xl:py-2.5 2xl:px-14 rounded-[15px] 2xl:rounded-[20px] bg-[#CB1622] border-white border-3 transition-all duration-300 hover:bg-[#a9121c] hover:shadow-xl transform hover:scale-105"
+                      style={{
+                        fontSize:
+                          window.innerWidth >= 2880 ? "2rem" : undefined,
+                        padding:
+                          window.innerWidth >= 2880 ? "1rem 2rem" : undefined,
+                      }}
+                    >
+                      Tải Game Ngay
+                    </a>
                   </div>
                 </div>
               </div>
@@ -100,16 +105,10 @@ export default function OurGame() {
 
               {/* Description */}
               <div className="max-w-4xl  rounded-2xl p-6 ">
-                <h3
-                  className="text-3xl font-bold text-white  "
-                  
-                >
+                <h3 className="text-3xl font-bold text-white  ">
                   Tính năng kết nối thời tiết thực
                 </h3>
-                <p
-                  className="text-white text-lg leading-relaxed"
-                  
-                >
+                <p className="text-white text-lg leading-relaxed">
                   C.H.A.M kết nối trực tiếp với thời tiết theo thời gian thực
                   với các điểm trồng cây, cho phép cây ảo của bạn phát triển dựa
                   trên điều kiện thời tiết thực tế. Trong những ngày nắng hạn,
@@ -136,7 +135,6 @@ export default function OurGame() {
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                         backgroundClip: "text",
-                        
                       }}
                     >
                       Cùng tham gia ngay
@@ -145,7 +143,7 @@ export default function OurGame() {
 
                   {/* Social Media Icons */}
                   <div className="flex justify-center">
-                    <SocialLinks 
+                    <SocialLinks
                       iconSize="w-7 h-7 2xl:w-12 2xl:h-12"
                       iconColor="text-white"
                       hoverColor="hover:scale-110"
