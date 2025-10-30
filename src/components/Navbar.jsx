@@ -13,7 +13,8 @@ const menu = [
       { title: "Tài trợ", path: "/sponsor" },
       { title: "Trở thành nhà tài trợ", path: "/become-sponsor" },
       { title: "Giáo dục ", path: "/for-school-education" },
-      { title: "Đối tác của E.C.O", path: "/our-partner" }
+      { title: "Đối tác của E.C.O", path: "/our-partner" },
+      { title: "Community", path: "/community" }
     ]
   },
   { 
@@ -38,7 +39,7 @@ export default function Navbar() {
   const isActive = (path) => location.pathname === path;
   
   const isGetInvolvedActive = () => {
-    const getInvolvedPaths = ['/our-fund', '/sponsor', '/become-sponsor', '/for-school-education', '/our-partner'];
+    const getInvolvedPaths = ['/our-fund', '/sponsor', '/become-sponsor', '/for-school-education', '/our-partner', '/community'];
     return getInvolvedPaths.includes(location.pathname);
   };
 

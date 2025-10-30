@@ -6,6 +6,8 @@ import Sponsor from "./pages/Sponsor";
 import BecomeSponsor from "./pages/BecomeSponsor";
 import ForSchoolEducation from "./pages/ForSchoolEducation";
 import OurPartner from "./pages/OurPartner";
+import Community from "./pages/Community";
+import PostDetail from "./pages/PostDetail";
 import ForestDetail from "./pages/ForestDetail";
 import News from "./pages/News";
 import OurProject from "./pages/OurProject";
@@ -30,6 +32,8 @@ function App() {
       <Route path="/become-sponsor" element={<BecomeSponsor />} />
       <Route path="/for-school-education" element={<ForSchoolEducation />} />
       <Route path="/our-partner" element={<OurPartner />} />
+      <Route path="/community" element={<Community />} />
+      <Route path="/post/:postId" element={<PostDetail />} />
       <Route path="/semi-deciduous-forest" element={<ForestDetail />} />
       <Route path="/bamboo-forest" element={<ForestDetail />} />
       <Route path="/wetland" element={<ForestDetail />} />

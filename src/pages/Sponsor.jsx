@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -10,6 +10,11 @@ export default function Sponsor() {
   const [selectedAmount, setSelectedAmount] = useState("20.000");
   const [customAmount, setCustomAmount] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [transactions, setTransactions] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(10);
 
   const amounts = [
     "10.000",
@@ -19,6 +24,44 @@ export default function Sponsor() {
     "200.000",
     "500.000"
   ];
+
+  // Fetch transactions from API
+  const fetchTransactions = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await api.get('/api/donations/transactions');
+      setTransactions(response.data || []);
+    } catch (err) {
+      setError('Failed to fetch transactions');
+      console.error('Error fetching transactions:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchTransactions();
+  }, []);
+
+  // Format currency
+  const formatCurrency = (amount) => {
+    return new Intl.NumberFormat('vi-VN').format(amount) + ' vnđ';
+  };
+
+  // Pagination calculations
+  const totalItems = transactions.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentPageTransactions = transactions.slice(startIndex, endIndex);
+
+  // Reset to page 1 when data changes
+  useEffect(() => {
+    if (currentPage > totalPages && totalPages > 0) {
+      setCurrentPage(1);
+    }
+  }, [transactions, currentPage, totalPages]);
 
   return (
     <>
@@ -172,6 +215,159 @@ export default function Sponsor() {
             </button>
           </div>
         </div>
+        </div>
+      </section>
+
+      {/* Transaction Transparency Section */}
+      <section className="bg-white py-16 px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-8">
+            <div className="flex justify-between items-start">
+              <div>
+                <h2 className="text-3xl font-bold text-black mb-2">
+                  Minh bạch giao dịch
+                </h2>
+                <p className="text-gray-600 text-lg">
+                  Tất cả các giao dịch đóng góp được công khai minh bạch
+                </p>
+              </div>
+              {!loading && !error && transactions.length > 0 && (
+                <div className="text-sm text-gray-500">
+                  Hiển thị {startIndex + 1}-{Math.min(endIndex, totalItems)} trong {totalItems} giao dịch
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Loading and Error States */}
+          {loading && (
+            <div className="text-center py-8">
+              <p className="text-gray-500">Đang tải giao dịch...</p>
+            </div>
+          )}
+
+          {error && (
+            <div className="text-center py-8">
+              <p className="text-red-500">{error}</p>
+              <button 
+                onClick={fetchTransactions}
+                className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+              >
+                Thử lại
+              </button>
+            </div>
+          )}
+
+          {/* Transactions Table */}
+          {!loading && !error && transactions.length > 0 && (
+            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-gray-50 border-b border-gray-200">
+                    <th className="text-left py-4 px-6 text-sm font-medium text-gray-700">
+                      Mã đóng góp
+                    </th>
+                    <th className="text-left py-4 px-6 text-sm font-medium text-gray-700">
+                      Mô tả
+                    </th>
+                    <th className="text-left py-4 px-6 text-sm font-medium text-gray-700">
+                      Số tiền
+                    </th>
+                    <th className="text-left py-4 px-6 text-sm font-medium text-gray-700">
+                      Trạng thái
+                    </th>
+                    <th className="text-left py-4 px-6 text-sm font-medium text-gray-700">
+                      Ngày giao dịch
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {currentPageTransactions.map((transaction, index) => (
+                    <tr key={transaction.id || index} className="border-b border-gray-100 hover:bg-gray-50">
+                      <td className="py-4 px-6 text-sm text-gray-900">
+                        #{transaction.orderCode || transaction.id}
+                      </td>
+                      <td className="py-4 px-6 text-sm text-gray-900">
+                        {transaction.description || 'Giao dịch đóng góp'}
+                      </td>
+                      <td className="py-4 px-6 text-sm text-gray-900 font-medium">
+                        {formatCurrency(transaction.amount || 0)}
+                      </td>
+                      <td className="py-4 px-6 text-sm">
+                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                          transaction.status === 'PAID' ? 'bg-green-100 text-green-800' :
+                          transaction.status === 'PENDING' ? 'bg-yellow-100 text-yellow-800' :
+                          transaction.status === 'CANCELLED' ? 'bg-red-100 text-red-800' :
+                          'bg-gray-100 text-gray-800'
+                        }`}>
+                          {transaction.status === 'PAID' ? 'Đã thanh toán' :
+                           transaction.status === 'PENDING' ? 'Đang chờ' :
+                           transaction.status === 'CANCELLED' ? 'Đã hủy' :
+                           'Không xác định'}
+                        </span>
+                      </td>
+                      <td className="py-4 px-6 text-sm text-gray-900">
+                        {new Date(transaction.createdAt).toLocaleString('vi-VN', {
+                          year: 'numeric',
+                          month: '2-digit',
+                          day: '2-digit',
+                          hour: '2-digit',
+                          minute: '2-digit'
+                        })}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+
+          {/* No transactions message */}
+          {!loading && !error && transactions.length === 0 && (
+            <div className="text-center py-8">
+              <p className="text-gray-500">Chưa có giao dịch nào</p>
+            </div>
+          )}
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex justify-center mt-8">
+              <div className="flex items-center space-x-2">
+                {/* Previous Button */}
+                <button
+                  onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                  disabled={currentPage === 1}
+                  className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Trước
+                </button>
+
+                {/* Page Numbers */}
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <button
+                    key={page}
+                    onClick={() => setCurrentPage(page)}
+                    className={`px-3 py-2 text-sm font-medium rounded-md ${
+                      currentPage === page
+                        ? 'bg-[#D68C45] text-white'
+                        : 'text-gray-500 bg-white border border-gray-300 hover:bg-gray-50'
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ))}
+
+                {/* Next Button */}
+                <button
+                  onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+                  disabled={currentPage === totalPages}
+                  className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Sau
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
