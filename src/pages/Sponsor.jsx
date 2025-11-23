@@ -15,6 +15,7 @@ export default function Sponsor() {
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
+  const [description, setDescription] = useState("");
 
   const amounts = [
     "10.000",
@@ -30,7 +31,7 @@ export default function Sponsor() {
     setLoading(true);
     setError(null);
     try {
-      const response = await api.get('/api/donations/transactions');
+      const response = await api.get('/api/donations/history');
       setTransactions(response.data || []);
     } catch (err) {
       setError('Failed to fetch transactions');
@@ -47,6 +48,22 @@ export default function Sponsor() {
   // Format currency
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('vi-VN').format(amount) + ' vnđ';
+  };
+
+  // ✅ HÀM FORMAT NGÀY ĐÃ SỬA LỖI INVALID DATE
+  const formatDate = (dateString) => {
+    // Nếu backend trả về null (chưa thanh toán) hoặc undefined
+    if (!dateString) return "---"; 
+
+    const date = new Date(dateString);
+    
+    // Kiểm tra tính hợp lệ của ngày
+    if (isNaN(date.getTime())) return "---"; 
+    
+    return date.toLocaleString('vi-VN', { 
+      day: '2-digit', month: '2-digit', year: 'numeric',
+      hour: '2-digit', minute: '2-digit'
+    });
   };
 
   // Pagination calculations
@@ -169,6 +186,19 @@ export default function Sponsor() {
                   VND
                 </span>
               </div>
+
+              <div style={{ marginBottom: '25px' }}>
+              <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: '#333' }}>Lời nhắn yêu thương:</label>
+              <textarea 
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="Nhập tên của bạn hoặc lời nhắn gửi..."
+                rows="3"
+                style={{ 
+                  width: '100%', padding: '12px 15px', borderRadius: '8px', border: '1px solid #ccc', fontSize: '16px', outline: 'none', resize: 'none', fontFamily: 'inherit'
+                }}
+              />
+            </div>
             </div>
 
             {/* Sponsor Now Button */}
@@ -189,7 +219,7 @@ export default function Sponsor() {
 
                   const response = await api.post("/api/donations", {
                     amount: normalized,
-                    description: "Sponsor a tree"
+                    description: description.trim() || "Ung ho quy moi truong"
                   });
 
                   // Axios tự động parse JSON response
@@ -307,13 +337,7 @@ export default function Sponsor() {
                         </span>
                       </td>
                       <td className="py-4 px-6 text-sm text-gray-900">
-                        {new Date(transaction.createdAt).toLocaleString('vi-VN', {
-                          year: 'numeric',
-                          month: '2-digit',
-                          day: '2-digit',
-                          hour: '2-digit',
-                          minute: '2-digit'
-                        })}
+                        {formatDate(transaction.paidAt)}
                       </td>
                     </tr>
                   ))}
