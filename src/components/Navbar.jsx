@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaSearch, FaChevronUp, FaChevronDown } from "react-icons/fa";
+import { FaSearch, FaChevronUp, FaChevronDown, FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const menu = [
@@ -34,6 +34,8 @@ export default function Navbar() {
   const [hovered, setHovered] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [dropdownTimeout, setDropdownTimeout] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileExpandedMenu, setMobileExpandedMenu] = useState(null);
 
   // Check active states
   const isActive = (path) => location.pathname === path;
@@ -81,14 +83,102 @@ export default function Navbar() {
   const handleMenuClick = (item) => {
     if (item.path) {
       navigate(item.path);
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+  const toggleMobileSubmenu = (title) => {
+    if (mobileExpandedMenu === title) {
+      setMobileExpandedMenu(null);
+    } else {
+      setMobileExpandedMenu(title);
     }
   };
 
   return (
-    <div className="w-full flex justify-center items-center select-none mt-8">
+    <div className="w-full flex justify-center items-center select-none mt-4 lg:mt-8">
+      {/* Mobile Menu Button */}
+      <div className="lg:hidden fixed top-30 right-6 z-50">
+        <button
+          onClick={() => setIsMobileMenuOpen(true)}
+          className="bg-black bg-opacity-95 text-white p-4 rounded-full shadow-2xl border border-white/20"
+        >
+            <FaBars className="w-6 h-6" />
+        </button>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`
+        fixed inset-0 bg-black/95 z-50 flex flex-col transition-all duration-300 lg:hidden overflow-y-auto
+        ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}
+      `}>
+         <div className="flex justify-end p-6">
+            <button 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-white text-2xl p-2"
+            >
+                <FaTimes />
+            </button>
+         </div>
+         
+         <div className="flex flex-col items-center gap-6 px-6 pb-10">
+            {menu.map((item) => {
+                let isItemActive = false;
+                if (item.title === "Trang chủ") isItemActive = isActive("/");
+                else if (item.title === "Về chúng tôi") isItemActive = isActive("/about");
+                else if (item.title === "Tham gia") isItemActive = isGetInvolvedActive();
+                else if (item.title === "C.H.A.M") isItemActive = isCHAMActive();
+                else if (item.title === "Tin tức") isItemActive = isActive("/news");
+
+                return (
+                    <div key={item.title} className="flex flex-col items-center w-full">
+                        <div 
+                            className={`text-xl font-bold py-2 flex items-center gap-2 cursor-pointer ${isItemActive ? 'text-[#D68C45]' : 'text-white'}`}
+                            onClick={() => {
+                                if(item.hasDropdown) {
+                                    toggleMobileSubmenu(item.title);
+                                } else {
+                                    handleMenuClick(item);
+                                }
+                            }}
+                        >
+                            {item.title}
+                            {item.hasDropdown && (
+                                <span className="text-sm">
+                                    {mobileExpandedMenu === item.title ? <FaChevronUp /> : <FaChevronDown />}
+                                </span>
+                            )}
+                        </div>
+                        
+                        {/* Mobile Submenu */}
+                        {item.hasDropdown && (
+                            <div className={`
+                                flex flex-col items-center gap-3 overflow-hidden transition-all duration-300 w-full
+                                ${mobileExpandedMenu === item.title ? 'max-h-[500px] mt-2 opacity-100' : 'max-h-0 opacity-0'}
+                            `}>
+                                {item.dropdownItems.map((subItem, idx) => (
+                                    <div 
+                                        key={idx}
+                                        className={`text-base py-1 cursor-pointer ${isActive(subItem.path) ? 'text-[#D68C45]' : 'text-gray-300'}`}
+                                        onClick={() => {
+                                            navigate(subItem.path);
+                                            setIsMobileMenuOpen(false);
+                                        }}
+                                    >
+                                        {subItem.title}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                );
+            })}
+         </div>
+      </div>
+
       <nav
         className={`
-          flex items-center justify-center
+          hidden lg:flex items-center justify-center
           bg-black bg-opacity-95 text-white rounded-full shadow-2xl
           transition-all duration-300 ease-in-out
           ${hovered

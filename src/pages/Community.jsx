@@ -22,7 +22,6 @@ export default function Community() {
   const [postContent, setPostContent] = useState("");
   const [postTitle, setPostTitle] = useState("");
 
-  // Sample data for events
   const sampleEvents = [
     {
       id: 1,
@@ -53,7 +52,6 @@ export default function Community() {
     }
   ];
 
-  // Sample testimonials
   const sampleTestimonials = [
     {
       id: 1,
@@ -78,7 +76,6 @@ export default function Community() {
     }
   ];
 
-  // Sample forum posts
   const samplePosts = [
     {
       id: 1,
@@ -184,8 +181,7 @@ export default function Community() {
     <>
       <Header />
       
-      {/* Hero Section */}
-      <section className="relative w-full items-center justify-center h-[50vw] select-none mb-12">
+      <section className="relative w-full items-center justify-center h-[60vh] lg:h-[50vw] select-none mb-12">
           <div className="sticky top-0 z-30 w-full flex justify-center items-center select-none m-0">
             <Navbar />
           </div>
@@ -214,7 +210,6 @@ export default function Community() {
               >
                 CÙNG NHAU TẠO NÊN NHỮNG THAY ĐỔI TÍCH CỰC CHO MÔI TRƯỜNG
               </div>
-              {/* Social Media Icons */}
             <div className="flex items-center justify-center">
               <SocialLinks 
                 iconSize="w-4 h-4 lg:w-6 lg:h-6 2xl:w-8 2xl:h-8"
@@ -234,7 +229,6 @@ export default function Community() {
 
      
 
-      {/* Upcoming Events Section */}
       <section className="py-16 lg:py-20 2xl:py-24 ">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-12 lg:mb-16">
@@ -289,7 +283,6 @@ export default function Community() {
         </div>
       </section>
 
-       {/* Community Forum Section */}
        <section className="py-16 lg:py-20 2xl:py-24 bg-black">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-12 lg:mb-16">
@@ -301,41 +294,38 @@ export default function Community() {
             </p>
           </div>
 
-          {/* Create Post Section */}
-          <div className="bg-[#313131] rounded-2xl p-6 lg:p-8 mb-8">
-            <div className="flex items-center space-x-4 mb-4">
-              <img 
-                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100" 
-                alt="User Avatar"
-                className="w-10 h-10 lg:w-12 lg:h-12 rounded-full"
-              />
-              <input
-                type="text"
-                placeholder="Chia sẻ những gì bạn đang nghĩ..."
-                value={newPost}
-                onChange={(e) => setNewPost(e.target.value)}
-                className="flex-1 bg-[#636363] text-white placeholder-gray-400 px-4 py-3 rounded-lg border border-gray-600 focus:border-[#D68C45] focus:outline-none"
-                onFocus={() => setShowCreatePost(true)}
-                onClick={openCreatePostModal}
-                readOnly
-              />
+          <div className="bg-[#313131] rounded-2xl p-4 lg:p-8 mb-8">
+            <div className="flex flex-col lg:flex-row lg:items-center gap-4 mb-4">
+              <div className="flex items-center gap-4 flex-1 w-full">
+                <img 
+                  src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100" 
+                  alt="User Avatar"
+                  className="w-10 h-10 lg:w-12 lg:h-12 rounded-full flex-shrink-0"
+                />
+                <input
+                  type="text"
+                  placeholder="Chia sẻ những gì bạn đang nghĩ..."
+                  value={newPost}
+                  onChange={(e) => setNewPost(e.target.value)}
+                  className="flex-1 bg-[#636363] text-white placeholder-gray-400 px-4 py-3 rounded-lg border border-gray-600 focus:border-[#D68C45] focus:outline-none"
+                  onFocus={() => setShowCreatePost(true)}
+                  onClick={openCreatePostModal}
+                  readOnly
+                />
+              </div>
               <button
                 onClick={openCreatePostModal}
-                className="bg-[#D68C45] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#B87A3A] transition-colors duration-300"
+                className="bg-[#D68C45] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#B87A3A] transition-colors duration-300 w-full lg:w-auto"
               >
                 Tạo Bài Viết
               </button>
             </div>
 
             
-          </div>
-
-          {/* Posts Feed */}
           <div className="space-y-6">
             {posts.map((post) => (
-              <div key={post.id} className="bg-[#313131] rounded-2xl p-6 lg:p-8 hover:bg-gray-750 transition-colors duration-300">
-                <div className="flex space-x-4">
-                  {/* Post Thumbnail */}
+              <div key={post.id} className="bg-[#313131] rounded-2xl p-4 lg:p-8 hover:bg-gray-750 transition-colors duration-300">
+                <div className="flex gap-4">
                   <div className="flex-shrink-0">
                     <img 
                       src={post.thumbnail} 
@@ -344,10 +334,9 @@ export default function Community() {
                     />
                   </div>
 
-                  {/* Post Content */}
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <h3 
-                      className="text-lg lg:text-xl 2xl:text-2xl font-bold text-white mb-2 hover:text-[#D68C45] transition-colors cursor-pointer"
+                      className="text-lg lg:text-xl 2xl:text-2xl font-bold text-white mb-2 hover:text-[#D68C45] transition-colors cursor-pointer truncate"
                       onClick={() => handlePostClick(post)}
                     >
                       {post.title}
@@ -357,7 +346,6 @@ export default function Community() {
                       {post.content}
                     </p>
 
-                    {/* Tags */}
                     <div className="flex flex-wrap gap-2 mb-4">
                       {post.tags.map((tag, index) => (
                         <span 
@@ -369,8 +357,7 @@ export default function Community() {
                       ))}
                     </div>
 
-                    {/* Author and Stats */}
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-0">
                       <div className="flex items-center space-x-3">
                         <img 
                           src={post.avatar} 
@@ -383,8 +370,7 @@ export default function Community() {
                         </div>
                       </div>
 
-                      {/* Engagement Stats */}
-                      <div className="flex items-center space-x-4 text-gray-400 text-sm lg:text-base">
+                      <div className="flex flex-wrap items-center gap-4 text-gray-400 text-sm lg:text-base">
                         <span>{post.views.toLocaleString()} lượt xem</span>
                         <span>{post.likes} lượt thích</span>
                         <span 
@@ -397,7 +383,6 @@ export default function Community() {
                     </div>
                   </div>
 
-                  {/* Like Button */}
                   <div className="flex-shrink-0">
                     <button
                       onClick={() => handleLikePost(post.id)}
@@ -414,14 +399,13 @@ export default function Community() {
               </div>
             ))}
           </div>
+          </div>
         </div>
       </section>
 
-      {/* Create Post Modal */}
       {showCreatePostModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-[#313131] rounded-2xl  w-[80vw] overflow-y-auto">
-            {/* Header */}
+          <div className="bg-[#313131] rounded-2xl w-[95vw] md:w-[80vw] overflow-y-auto">
             <div className="flex items-center justify-between p-6 border-b border-gray-700">
               <h2 className="text-2xl lg:text-3xl font-bold text-white">Tạo Bài Viết</h2>
               <button
@@ -432,7 +416,6 @@ export default function Community() {
               </button>
             </div>
 
-            {/* User Profile Section */}
             <div className="p-6 border-b border-gray-700">
               <div className="flex items-center space-x-4">
                 <img 
@@ -444,9 +427,7 @@ export default function Community() {
               </div>
             </div>
 
-            {/* Post Content */}
             <div className="p-6">
-              {/* Title Input */}
               <div className="mb-6">
                 <input
                   type="text"
@@ -457,7 +438,6 @@ export default function Community() {
                 />
               </div>
 
-              {/* Content Input */}
               <div className="mb-6">
                 <textarea
                   placeholder="Chia sẻ những gì bạn đang nghĩ..."
@@ -468,23 +448,22 @@ export default function Community() {
                 />
               </div>
 
-              {/* Add to your post */}
               <div className="border-t border-gray-700 pt-4">
                 <p className="text-gray-400 text-sm mb-4">Thêm vào bài viết của bạn</p>
-                <div className="flex items-center space-x-4">
-                  <button className="flex items-center space-x-2 px-4 py-2 bg-[#636363] text-gray-300 rounded-lg hover:bg-gray-600 transition-colors">
+                <div className="flex items-center gap-4 overflow-x-auto whitespace-nowrap pb-2">
+                  <button className="flex-shrink-0 flex items-center space-x-2 px-4 py-2 bg-[#636363] text-gray-300 rounded-lg hover:bg-gray-600 transition-colors">
                     <FaImage className="w-4 h-4 text-[#D68C45]" />
                     <span className="text-sm">Ảnh/Video</span>
                   </button>
-                  <button className="flex items-center space-x-2 px-4 py-2 bg-[#636363] text-gray-300 rounded-lg hover:bg-gray-600 transition-colors">
+                  <button className="flex-shrink-0 flex items-center space-x-2 px-4 py-2 bg-[#636363] text-gray-300 rounded-lg hover:bg-gray-600 transition-colors">
                     <FaUsers className="w-4 h-4 text-[#D68C45]" />
                     <span className="text-sm">Gắn thẻ</span>
                   </button>
-                  <button className="flex items-center space-x-2 px-4 py-2 bg-[#636363] text-gray-300 rounded-lg hover:bg-gray-600 transition-colors">
+                  <button className="flex-shrink-0 flex items-center space-x-2 px-4 py-2 bg-[#636363] text-gray-300 rounded-lg hover:bg-gray-600 transition-colors">
                     <FaMapMarkerAlt className="w-4 h-4 text-[#D68C45]" />
                     <span className="text-sm">Vị trí</span>
                   </button>
-                  <button className="flex items-center space-x-2 px-4 py-2 bg-[#636363] text-gray-300 rounded-lg hover:bg-gray-600 transition-colors">
+                  <button className="flex-shrink-0 flex items-center space-x-2 px-4 py-2 bg-[#636363] text-gray-300 rounded-lg hover:bg-gray-600 transition-colors">
                     <FaHashtag className="w-4 h-4 text-[#D68C45]" />
                     <span className="text-sm">Hashtag</span>
                   </button>
@@ -492,7 +471,6 @@ export default function Community() {
               </div>
             </div>
 
-            {/* Footer */}
             <div className="p-6 border-t border-gray-700">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2 text-gray-400 text-sm">

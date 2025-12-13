@@ -25,7 +25,7 @@ export default function OurFund() {
 
       {/* Hero Section with Background Image */}
       <section
-        className="relative h-[450px] lg:h-[55vh] 2xl:h-[55vh] w-[85%] lg:w-[85vw] 2xl:w-[85vw] bg-center flex items-center mt-[-40px] lg:mt-[-4.5vh] 2xl:mt-[-5vh] mx-auto rounded-[30px] 2xl:rounded-[45px]"
+        className="relative h-auto min-h-[500px] lg:h-[55vh] 2xl:h-[55vh] w-[85%] lg:w-[85vw] 2xl:w-[85vw] bg-center flex items-center mt-6 lg:mt-[-4.5vh] 2xl:mt-[-5vh] mx-auto rounded-[30px] 2xl:rounded-[45px]"
         style={{
           backgroundImage: `url(${ecoFund})`,
           backgroundSize: "cover",
@@ -36,44 +36,26 @@ export default function OurFund() {
         <div className="absolute inset-0 "></div>
 
         {/* Content */}
-        <div className="relative z-10 flex justify-between w-full ps-16 lg:ps-[5vw] 2xl:ps-[5vw] h-full items-end pb-16 lg:pb-[8vh] 2xl:pb-[8vh]">
+        <div className="relative z-10 w-full h-full flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-end py-12 lg:py-0 lg:pb-16 lg:pb-[8vh] 2xl:pb-[8vh] px-4 lg:px-16 lg:px-[5vw] 2xl:px-[5vw] gap-8 lg:gap-0">
           {/* Left side - Title */}
-          <div className="text-white">
-            <h1
-              className="text-6xl lg:text-6xl 2xl:text-8xl font-bold mb-3"
-              
-            >
+          <div className="text-white text-center lg:text-left">
+            <h1 className="text-4xl lg:text-6xl 2xl:text-8xl font-bold mb-2 lg:mb-3">
               Quỹ E.C.O
             </h1>
-            <p
-              className="text-xl lg:text-xl 2xl:text-2xl ps-2"
-              
-            >
+            <p className="text-lg lg:text-xl 2xl:text-2xl lg:ps-2">
               Vì một tương lai xanh.
-
             </p>
           </div>
 
           {/* Right side - Message and Button */}
-          <div className="text-white text-center"></div>
-        </div>
-        <div className="relative z-10 flex justify-between items-end w-full pe-16 lg:pe-[4vw] 2xl:pe-[4.5vw]">
-          {/* Left side - Title */}
-          <div className="text-white"></div>
-
-          {/* Right side - Message and Button */}
-          <div className="text-white text-center">
-            <p
-              className="text-sm lg:text-sm 2xl:text-xl leading-tight tracking-wide mb-5 max-w-lg lg:max-w-[40vw] xl:max-w-[70vw] 2xl:max-w-[60vw]"
-             
-            >
+          <div className="text-white text-center lg:text-right flex flex-col items-center lg:items-end">
+            <p className="text-sm lg:text-sm 2xl:text-xl leading-tight tracking-wide mb-5 max-w-lg lg:max-w-[40vw] xl:max-w-[70vw] 2xl:max-w-[60vw] mx-auto lg:mx-0">
               Với E.C.O, phát triển bền vững không chỉ là mục tiêu, mà còn
               là một hành trình cần được lan tỏa và công khai minh bạch.
             </p>
             <button
               onClick={handleSponsorClick}
-              className="bg-white  text-black font-bold py-1.5 lg:py-[0.7vh] 2xl:py-[1vh] rounded-[15px] 2xl:rounded-[20px] w-[280px] lg:w-[20vw] 2xl:w-[18vw] hover:bg-black hover:text-white transition-colors duration-300 shadow-lg text-xl lg:text-xl 2xl:text-2xl flex items-center justify-center mx-auto"
-              
+              className="bg-white text-black font-bold py-1.5 lg:py-[0.7vh] 2xl:py-[1vh] rounded-[15px] 2xl:rounded-[20px] w-[280px] lg:w-[20vw] 2xl:w-[18vw] hover:bg-black hover:text-white transition-colors duration-300 shadow-lg text-xl lg:text-xl 2xl:text-2xl flex items-center justify-center"
             >
               Tài trợ ngay
             </button>
@@ -82,11 +64,11 @@ export default function OurFund() {
       </section>
 
       {/* Fund Goals Section */}
-      <section className="py-15 lg:py-[6vh] 2xl:py-[8vh] px-16 lg:px-[10vw] 2xl:px-[12vw]">
-        <div className="flex items-center gap-8 lg:gap-[2vw] 2xl:gap-[3vw] px-26 lg:px-0">
+      <section className="py-10 lg:py-[6vh] 2xl:py-[8vh] px-4 lg:px-[10vw] 2xl:px-[12vw]">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-[2vw] 2xl:gap-[3vw] px-0 lg:px-0">
           {/* Left side - Content */}
-          <div className="w-1/3">
-            <div className="bg-gradient-to-tr from-black via-[#4D4D4D] to-[#6B6B6B] rounded-[30px] 2xl:rounded-[32px] p-8 lg:p-[3vw] 2xl:p-[2.2vw] text-white relative overflow-hidden h-[325px] w-[350px] lg:h-[24vw] lg:w-[25vw] 2xl:h-[23vw] 2xl:w-[25vw] mx-auto transition-all duration-300 ease-in-out group">
+          <div className="w-full lg:w-1/3">
+            <div className="bg-gradient-to-tr from-black via-[#4D4D4D] to-[#6B6B6B] rounded-[30px] 2xl:rounded-[32px] p-8 lg:p-[3vw] 2xl:p-[2.2vw] text-white relative overflow-hidden h-[325px] w-full max-w-[350px] lg:h-[24vw] lg:w-[25vw] 2xl:h-[23vw] 2xl:w-[25vw] mx-auto transition-all duration-300 ease-in-out group">
               
 
               {/* Right Side - Logo */}
@@ -146,21 +128,21 @@ export default function OurFund() {
           </div>
 
           {/* Right side - Image */}
-          <div className="w-2/3">
+          <div className="w-full lg:w-2/3">
             <img
               src={fundGoal}
               alt="Fund Goals"
-              className="w-auto h-[310px] lg:h-[23vw] 2xl:h-[23vw] rounded-lg shadow-2xl mx-auto"
+              className="w-full h-auto lg:h-[23vw] 2xl:h-[23vw] rounded-lg shadow-2xl mx-auto object-cover"
             />
           </div>
         </div>
       </section>
 
       {/* Financial Statement Section */}
-      <section className="py-20 lg:py-[8vh] 2xl:py-[10vh] px-16 lg:px-[4vw] 2xl:px-[5vw] bg-white">
+      <section className="py-10 lg:py-[8vh] 2xl:py-[10vh] px-4 lg:px-[4vw] 2xl:px-[5vw] bg-white">
         <div className="w-[95%] mx-auto">
           {/* Financial State Image */}
-          <div className="flex justify-center mb-16 lg:mb-[4vh] 2xl:mb-[5vh]">
+          <div className="flex justify-center mb-8 lg:mb-[4vh] 2xl:mb-[5vh]">
             <img
               src={financeState}
               alt="Financial Statement Timeline"
@@ -173,7 +155,7 @@ export default function OurFund() {
             <div className="bg-[#F4F4F4] rounded-[30px] 2xl:rounded-[32px] pt-8 lg:pt-[2.5vh] 2xl:pt-[3vh]">
               <div className="text-center mb-3 lg:mb-[2vh] lg:pt-[4vh] 2xl:mb-[2.5vh]">
                 <h2
-                  className="text-[3.5rem] lg:text-5xl 2xl:text-7xl font-bold"
+                  className="text-3xl lg:text-5xl 2xl:text-7xl font-bold"
                   
                 >
                   <span className="text-[#D68C45]">E.C.O</span>
@@ -181,7 +163,7 @@ export default function OurFund() {
                 </h2>
               </div>
 
-              <div className="text-left px-20 lg:px-[4vw] 2xl:px-[4.5vw] space-y-2 lg:space-y-[1.2vh] 2xl:space-y-[1.5vh] pb-12 lg:pb-[6vh] 2xl:pb-[7vh]">
+              <div className="text-left px-6 lg:px-[4vw] 2xl:px-[4.5vw] space-y-2 lg:space-y-[1.2vh] 2xl:space-y-[1.5vh] pb-8 lg:pb-[6vh] 2xl:pb-[7vh]">
                 <p
                   className="text-sm lg:text-sm 2xl:text-xl leading-relaxed"
                   text-sm lg:text-sm

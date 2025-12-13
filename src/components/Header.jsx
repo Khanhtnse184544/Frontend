@@ -1,10 +1,6 @@
-// src/components/Header.js
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import {
-  FaUser,
-  FaBell,
-} from "react-icons/fa";
+import { FaUser, FaBell } from "react-icons/fa";
 import ContactUsPopup from "./ContactUsPopup";
 import SocialLinks from "./SocialLinks";
 
@@ -12,10 +8,6 @@ export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
   const [isContactOpen, setIsContactOpen] = useState(false);
-
-  // Check if current page is sponsor or login
-  const isSponsorPage = location.pathname === "/sponsor";
-  const isLoginPage = location.pathname === "/login";
 
   const handleDonateClick = () => {
     navigate("/sponsor");
@@ -34,56 +26,55 @@ export default function Header() {
   };
 
   const handleContactSubmit = (formData) => {
-    // Handle form submission here
-    console.log('Contact form submitted from header:', formData);
-    // You can add API call here
+    console.log(formData);
   };
 
   return (
-    <header
-      className="w-full bg-black py-0 px-12 lg:px-14 xl:px-16 2xl:px-30 flex items-center justify-between select-none  h-[55px] lg:h-[55px] xl:h-[60px] 2xl:h-[74px]"
-    >
-      {/* Left: Social icons + Contact */}
-      <div className="flex items-center gap-4 lg:gap-5 xl:gap-5 2xl:gap-6 pl-6 lg:pl-7 xl:pl-8 2xl:pl-12">
-        <SocialLinks 
-          iconSize="w-3 h-3 lg:w-3 lg:h-3 xl:w-3 xl:h-3 2xl:w-4 2xl:h-4"
-          iconColor="text-white"
-          hoverColor="hover:text-[#D68C45]"
-        />
+    <header className="w-full bg-black flex items-center justify-between select-none h-[50px] lg:h-[55px] xl:h-[60px] 2xl:h-[74px] px-0 lg:px-14 xl:px-16 2xl:px-30">
+      <div className="flex items-center gap-2 pl-3 lg:pl-7 xl:pl-8 2xl:pl-12 shrink-0">
+        <div className="scale-75 lg:scale-100 origin-left">
+          <SocialLinks 
+            iconSize="w-3 h-3 lg:w-3 lg:h-3 xl:w-3 xl:h-3 2xl:w-4 2xl:h-4"
+            iconColor="text-white"
+            hoverColor="hover:text-[#D68C45]"
+          />
+        </div>
         <button 
           onClick={handleContactClick}
-          className="ml-4 text-sm lg:text-md xl:text-LG 2xl:text-lg text-white tracking-wide hover:text-[#D68C45] transition-colors cursor-pointer"
+          className="hidden lg:block ml-2 lg:ml-4 text-xs lg:text-md xl:text-lg 2xl:text-xl text-white tracking-wide hover:text-[#D68C45] transition-colors cursor-pointer whitespace-nowrap"
         >
           LIÊN HỆ
         </button>
       </div>
-      {/* Center: empty */}
+
       <div className="flex-1"></div>
-      {/* Right: Donate, Login, Bell */}
-      <div className="flex items-center gap-0 pr-6 lg:pr-7 xl:pr-8 2xl:pr-12">
+
+      <div className="flex items-center h-full">
         <button 
           onClick={handleDonateClick}
-          className={`px-8 lg:px-10 xl:px-10 2xl:px-12 py-2 bg-[#d68c45] rounded-none text-white text-md lg:text-md xl:text-md 2xl:text-lg hover:brightness-110 transition h-[55px] lg:h-[55px] xl:h-[60px] 2xl:h-[74px]`}
+          className="h-full px-3 sm:px-6 lg:px-10 xl:px-10 2xl:px-12 bg-[#d68c45] rounded-none text-white text-[10px] sm:text-xs lg:text-md xl:text-md 2xl:text-lg hover:brightness-110 transition whitespace-nowrap font-medium"
         >
           QUYÊN GÓP
         </button>
-        {/* <button 
+        
+        <button 
           onClick={handleLoginClick}
-          className={`flex items-center gap-2 px-8 lg:px-10 xl:px-10 2xl:px-12 py-2 text-white text-md lg:text-md xl:text-md 2xl:text-lg h-[55px] lg:h-[55px] xl:h-[60px] 2xl:h-[74px] border-l border-[#222]` }
+          className="h-full flex items-center gap-1.5 px-3 sm:px-4 lg:px-10 xl:px-10 2xl:px-12 text-white text-[10px] sm:text-xs lg:text-md xl:text-md 2xl:text-lg border-l border-[#333] hover:bg-[#111] transition whitespace-nowrap"
         >
-          <FaUser className="w-4 h-4 lg:w-4 lg:h-4 xl:w-4 xl:h-4 2xl:w-5 2xl:h-5" /> ĐĂNG NHẬP
+          <FaUser className="w-3 h-3" /> 
+          <span>ĐĂNG NHẬP</span>
         </button>
-        <div className="relative flex items-center">
-          <button className="bg-[#d68c45]  rounded-none h-[55px] lg:h-[55px] xl:h-[60px] 2xl:h-[74px] w-[64px] lg:w-[68px] xl:w-[72px] 2xl:w-[84px] flex items-center justify-center">
-            <FaBell className="w-5 h-5 lg:w-5 lg:h-5 xl:w-5 xl:h-5 2xl:w-6 2xl:h-6 text-white" />
+
+        <div className="relative h-full">
+          <button className="h-full bg-[#d68c45] rounded-none w-[40px] sm:w-[50px] lg:w-[68px] xl:w-[72px] 2xl:w-[84px] flex items-center justify-center hover:brightness-110 transition">
+            <FaBell className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-white" />
           </button>
-          <span className="absolute top-1 lg:top-1.5 xl:top-1.5 2xl:top-2 right-2 lg:right-2.5 xl:right-2.5 2xl:right-3 bg-red-600 text-[10px] lg:text-[10px] xl:text-[10px] 2xl:text-[11px] rounded-full px-1 text-white ">
+          <span className="absolute top-1 right-1 sm:right-2 lg:top-1.5 lg:right-2.5 bg-red-600 text-[9px] sm:text-[10px] rounded-full px-1 text-white min-w-[14px] text-center">
             0
           </span>
-        </div> */}
+        </div>
       </div>
 
-      {/* Contact Us Popup */}
       <ContactUsPopup 
         isOpen={isContactOpen} 
         onClose={handleContactClose} 
