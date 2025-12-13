@@ -22,73 +22,61 @@ export default function AboutUs() {
         <Navbar />
       </div>
 
-      {/* Main Content - ABOUT US Section */}
       <section className="pb-20 lg:pb-[6.25vw] 2xl:pb-[12vh] pt-8 lg:pt-[2.5vw] 2xl:pt-[6vh] bg-white  flex flex-1  justify-center items-center">
         <div className="w-full ">
           <div className="text-center ">
-            {/* Title */}
-
-            {/* Subtitle */}
-            <h2 className="text-3xl xl:text-5xl 2xl:text-7xl 2xl:mb-[4vh] font-bold">
+            <h2 className="text-2xl md:text-3xl xl:text-5xl 2xl:text-7xl mb-10 md:mb-12 2xl:mb-[4vh] font-bold px-4">
               Công Ty TNHH{" "}
               <span className="text-[#d68c45]">
                 Giải Pháp Xanh Bền Vững E.C.O
               </span>
             </h2>
 
-            {/* Five Images Row - Centered with different sizes */}
-            <div className="flex justify-center items-center gap-8 lg:gap-[2vw] xl:gap-[1.8vw] 2xl:gap-[1.6vw] mb-6 lg:mb-[1.2vw] 2xl:my-[6vh] mx-16 lg:mx-[4vw] 2xl:mx-[2.5vw]">
-              {/* Image 1 - Smallest */}
-              <div className=" w-[210px] h-[210px] lg:w-[16.4vw] lg:h-[16.4vw] 2xl:w-[12vw] 2xl:h-[12vw] flex items-center justify-center">
+            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 lg:gap-[2vw] xl:gap-[1.8vw] 2xl:gap-[1.6vw] mb-6 lg:mb-[1.2vw] 2xl:my-[6vh] mx-4 md:mx-16 lg:mx-[4vw] 2xl:mx-[2.5vw]">
+              <div className="w-[100px] h-[100px] md:w-[210px] md:h-[210px] lg:w-[16.4vw] lg:h-[16.4vw] 2xl:w-[12vw] 2xl:h-[12vw] flex items-center justify-center">
                 <img
                   src={img1}
                   alt="Plant growing from book"
-                  className="  object-cover rounded-lg"
+                  className="w-full h-full object-cover rounded-lg"
                 />
               </div>
 
-              {/* Image 2 - Small */}
-              <div className="w-[315px] h-[315px] lg:w-[24.6vw] lg:h-[24.6vw] 2xl:w-[16vw] 2xl:h-[16vw] flex items-center justify-center">
+              <div className="w-[140px] h-[140px] md:w-[315px] md:h-[315px] lg:w-[24.6vw] lg:h-[24.6vw] 2xl:w-[16vw] 2xl:h-[16vw] flex items-center justify-center">
                 <img
                   src={img2}
                   alt="Plant with circuit patterns"
-                  className="  object-cover rounded-lg"
+                  className="w-full h-full object-cover rounded-lg"
                 />
               </div>
 
-              {/* Image 3 - Center, largest */}
-              <div className="w-[420px] h-[420px] lg:w-[32.8vw] lg:h-[32.8vw] 2xl:w-[22vw] 2xl:h-[22vw] flex items-center justify-center">
+              <div className="w-[180px] h-[180px] md:w-[420px] md:h-[420px] lg:w-[32.8vw] lg:h-[32.8vw] 2xl:w-[22vw] 2xl:h-[22vw] flex items-center justify-center">
                 <img
                   src={img3}
                   alt="Plant with light and circuits"
-                  className=" object-cover rounded-lg"
+                  className="w-full h-full object-cover rounded-lg"
                 />
               </div>
 
-              {/* Image 4 - Small */}
-              <div className="w-[315px] h-[315px] lg:w-[24.6vw] lg:h-[24.6vw] 2xl:w-[16vw] 2xl:h-[16vw] flex items-center justify-center">
+              <div className="w-[140px] h-[140px] md:w-[315px] md:h-[315px] lg:w-[24.6vw] lg:h-[24.6vw] 2xl:w-[16vw] 2xl:h-[16vw] flex items-center justify-center">
                 <img
                   src={img4}
                   alt="Laptop with moss and butterflies"
-                  className="  object-cover rounded-lg"
+                  className="w-full h-full object-cover rounded-lg"
                 />
               </div>
 
-              {/* Image 5 - Smallest */}
-              <div className=" w-[210px] h-[210px] lg:w-[16.4vw] lg:h-[16.4vw] 2xl:w-[12vw] 2xl:h-[12vw] flex items-center justify-center">
+              <div className="w-[100px] h-[100px] md:w-[210px] md:h-[210px] lg:w-[16.4vw] lg:h-[16.4vw] 2xl:w-[12vw] 2xl:h-[12vw] flex items-center justify-center">
                 <img
                   src={img5}
                   alt="Hands holding seedlings"
-                  className="  object-cover rounded-lg"
+                  className="w-full h-full object-cover rounded-lg"
                 />
               </div>
             </div>
 
-            {/* Horizontal Line */}
             <div className="w-full h-px bg-gray-300 mb-6"></div>
 
-            {/* Descriptive Text */}
-            <div className=" text-center">
+            <div className="text-center px-8 md:px-0">
               <p
                 className="text-md 2xl:text-xl text-gray-800 "
                 style={{ fontFamily: "Pally-Regular, sans-serif" }}
@@ -103,7 +91,6 @@ export default function AboutUs() {
                 Mỗi hành động số tạo nên một mầm xanh thật, một giá trị thật.
               </p>
 
-              {/* Social Media Icons */}
               <div className="flex justify-center items-center mt-16 2xl:mt-[6vh]">
                 <SocialLinks
                   iconSize="w-4 h-4 2xl:w-5 2xl:h-5"
@@ -117,31 +104,29 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* Additional About Us Section */}
       <section
-        className="py-20 2xl:py-[10vh] bg-cover bg-center relative h-full mx-16 2xl:mx-[8vw] rounded-xl mb-16 2xl:mb-[8vh]"
+        className="py-10 md:py-20 2xl:py-[10vh] bg-cover bg-center relative h-full mx-4 md:mx-16 2xl:mx-[8vw] rounded-xl mb-8 md:mb-16 2xl:mb-[8vh]"
         style={{
           backgroundImage: `url(${ourStory})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        {/* Dark overlay */}
-        <div className="absolute inset-0"></div>
+        <div className="absolute inset-0 rounded-xl"></div>
 
         <div className="relative h-full flex justify-center items-center">
-          <div className="w-[60%] 2xl:w-[55vw] mx-auto px-8 2xl:px-[2.5vw]">
+          <div className="w-full md:w-[90%] lg:w-[60%] 2xl:w-[55vw] mx-auto px-4 md:px-8 2xl:px-[2.5vw]">
             <div className="flex justify-start items-center">
-              <div className=" bg-white/80 rounded-lg p-8 2xl:p-[2vw] shadow-md">
+              <div className="bg-white/90 md:bg-white/80 rounded-lg p-6 md:p-8 2xl:p-[2vw] shadow-md w-full">
                 <div className="relative">
                   <h3
-                    className="text-3xl 2xl:text-4xl font-bold text-gray-800 mb-2"
+                    className="text-2xl md:text-3xl 2xl:text-4xl font-bold text-gray-800 mb-2"
                     style={{ fontFamily: "Pally-Bold, sans-serif" }}
                   >
                     Câu chuyện của chúng tôi
                   </h3>
                   <p
-                    className="text-md 2xl:text-lg text-gray-700 leading-tight mb-0"
+                    className="text-sm md:text-md 2xl:text-lg text-gray-700 leading-tight mb-2"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     E.C.O là doanh nghiệp xã hội được sáng lập bởi một nhóm bạn
@@ -151,7 +136,7 @@ export default function AboutUs() {
                     giải pháp gamification sáng tạo.
                   </p>
                   <p
-                    className="text-md 2xl:text-lg text-gray-700 leading-tight mb-0"
+                    className="text-sm md:text-md 2xl:text-lg text-gray-700 leading-tight mb-2"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     Sáng kiến trọng điểm của E.C.O - C.H.A.M (Chạm - Hiểu - Ấp ủ
@@ -163,7 +148,7 @@ export default function AboutUs() {
                     nghiệp cùng hành động vì mục tiêu chung.
                   </p>
                   <p
-                    className="text-md 2xl:text-lg text-gray-700 leading-tight"
+                    className="text-sm md:text-md 2xl:text-lg text-gray-700 leading-tight"
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     Dự án ra đời từ trăn trở: “Làm thế nào để bảo vệ Trái Đất mà
@@ -178,22 +163,20 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* Third Section with Image 6 */}
       <section
-        className="py-20 2xl:py-[8vh] bg-cover bg-center relative h-[350px] 2xl:h-[40vh] mx-16 2xl:mx-[8vw] rounded-xl"
+        className="py-10 md:py-20 2xl:py-[8vh] bg-cover bg-center relative h-[200px] md:h-[350px] 2xl:h-[40vh] mx-4 md:mx-16 2xl:mx-[8vw] rounded-xl"
         style={{
           backgroundImage: `url(${img6})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-black/30 rounded-xl"></div>
 
-        <div className="relative h-full flex justify-center items-center">
+        <div className="relative h-full flex justify-center items-center px-4">
           <div className="text-center">
             <h2
-              className="text-[3.5rem] 2xl:text-6xl font-bold mb-4"
+              className="text-3xl md:text-4xl lg:text-[3.5rem] 2xl:text-6xl font-bold mb-0 md:mb-4"
               style={{
                 fontFamily: "Pally-Bold, sans-serif",
                 background:
@@ -211,22 +194,20 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* How We Work Section */}
-      <section className="py-20 2xl:py-[10vh] bg-gray-50">
-        <div className="max-w-5xl 2xl:max-w-[70vw] mx-auto px-8 2xl:px-[4vw]">
-          <div className="bg-white rounded-xl shadow-lg p-12 2xl:p-[3vw]">
-            <div className="flex justify-between items-center gap-10 2xl:gap-[3vw]">
-              {/* Left side - Text content */}
-              <div className="w-2/3 2xl:w-[60%]">
+      <section className="py-10 md:py-20 2xl:py-[10vh] bg-gray-50">
+        <div className="max-w-5xl 2xl:max-w-[70vw] mx-auto px-4 md:px-8 2xl:px-[4vw]">
+          <div className="bg-white rounded-xl shadow-lg p-6 md:p-12 2xl:p-[3vw]">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-10 2xl:gap-[3vw]">
+              <div className="w-full md:w-2/3 2xl:w-[60%]">
                 <h3
-                  className="text-3xl 2xl:text-4xl font-bold text-[#d68c45] mb-3"
+                  className="text-2xl md:text-3xl 2xl:text-4xl font-bold text-[#d68c45] mb-3"
                   style={{ fontFamily: "Pally-Bold, sans-serif" }}
                 >
                   Cách chúng tôi hoạt động
                 </h3>
                 <div className="space-y-2">
                   <p
-                    className="text-md 2xl:text-lg text-gray-700 "
+                    className="text-sm md:text-md 2xl:text-lg text-gray-700 "
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     Chúng tôi kết nối thế giới số với hành động xanh ngoài đời
@@ -236,7 +217,7 @@ export default function AboutUs() {
                   </p>
 
                   <p
-                    className="text-md 2xl:text-lg text-gray-700 "
+                    className="text-sm md:text-md 2xl:text-lg text-gray-700 "
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     Song song, E.C.O hợp tác với doanh nghiệp CSR, tổ chức phi
@@ -244,7 +225,7 @@ export default function AboutUs() {
                     trồng rừng đều minh bạch, bền vững và có thể theo dõi được.
                   </p>
                   <p
-                    className="text-md 2xl:text-lg text-gray-700 "
+                    className="text-sm md:text-md 2xl:text-lg text-gray-700 "
                     style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     C.H.A.M sử dụng AI và hệ thống định vị (GPS) để theo dõi
@@ -255,9 +236,8 @@ export default function AboutUs() {
                 </div>
               </div>
 
-              {/* Right side - Illustration */}
-              <div className="flex justify-center items-center w-1/3 ">
-                <div className="relative w-30 h-30 xl:w-[12vw] xl:h-[12vw] 2xl:w-[13vw] 2xl:h-[12vw]">
+              <div className="flex justify-center items-center w-full md:w-1/3 ">
+                <div className="relative w-24 h-24 md:w-30 md:h-30 xl:w-[12vw] xl:h-[12vw] 2xl:w-[13vw] 2xl:h-[12vw]">
                   <img src={logo} alt="Our Mission" className="w-full h-full" />
                 </div>
               </div>
@@ -266,29 +246,25 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* Our Mission Section */}
-      <section className="py-20 2xl:py-[10vh] bg-white">
-        <div className="max-w-6xl 2xl:max-w-[85vw] mx-auto px-15 2xl:px-[5vw]">
-          {/* Title with lines */}
-          <div className="text-center mb-16">
+      <section className="py-10 md:py-20 2xl:py-[10vh] bg-white">
+        <div className="max-w-6xl 2xl:max-w-[85vw] mx-auto px-4 md:px-15 2xl:px-[5vw]">
+          <div className="text-center mb-8 md:mb-16">
             <div className="flex items-center justify-center mb-5">
-              <div className="w-16 h-px bg-black"></div>
+              <div className="w-8 md:w-16 h-px bg-black"></div>
               <h2
-                className="text-4xl 2xl:text-5xl font-bold text-[#d68c45]"
+                className="text-2xl md:text-4xl 2xl:text-5xl font-bold text-[#d68c45] px-4"
                 style={{ fontFamily: "Pally-Bold, sans-serif" }}
               >
                 Sứ mệnh của chúng tôi
               </h2>
-              <div className="w-16 h-px bg-black"></div>
+              <div className="w-8 md:w-16 h-px bg-black"></div>
             </div>
           </div>
 
-          {/* First Section - Text Left, Image Right */}
-          <div className="flex items-center gap-10 2xl:gap-[3vw] mb-16 2xl:mb-[6vh]">
-            {/* Left - Text */}
-            <div className="w-2/5">
+          <div className="flex flex-col-reverse md:flex-row items-center gap-6 md:gap-10 2xl:gap-[3vw] mb-8 md:mb-16 2xl:mb-[6vh]">
+            <div className="w-full md:w-2/5">
               <p
-                className="text-md 2xl:text-lg text-gray-800 "
+                className="text-sm md:text-md 2xl:text-lg text-gray-800 "
                 style={{ fontFamily: "Pally-Regular, sans-serif" }}
               >
                 Chúng tôi tin rằng mỗi người đều có thể đóng góp cho môi trường
@@ -297,43 +273,39 @@ export default function AboutUs() {
               </p>
             </div>
 
-            {/* Right - Image */}
-            <div className="w-3/5">
+            <div className="w-full md:w-3/5">
               <div className="relative">
                 <img
                   src={ourMission1}
                   alt="Digital nature connection"
-                  className="w-full h-55 2xl:h-[30vh] object-cover rounded-lg 2xl:rounded-2xl"
+                  className="w-full h-48 md:h-55 2xl:h-[30vh] object-cover rounded-lg 2xl:rounded-2xl"
                 />
               </div>
             </div>
           </div>
 
-          {/* Second Section - Image Left, Text Right */}
-          <div className="flex items-center gap-10">
-            {/* Left - Image */}
-            <div className="w-2/3">
+          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+            <div className="w-full md:w-2/3">
               <div className="relative">
                 <img
                   src={ourMission2}
                   alt="Environmental impact"
-                  className="w-full h-70 2xl:h-[30vh] object-cover rounded-lg 2xl:rounded-2xl"
+                  className="w-full h-48 md:h-70 2xl:h-[30vh] object-cover rounded-lg 2xl:rounded-2xl"
                 />
               </div>
             </div>
 
-            {/* Right - Text */}
-            <div className="w-1/3">
+            <div className="w-full md:w-1/3">
               <div className="space-y-2">
                 <p
-                  className="text-md 2xl:text-lg text-gray-800 "
+                  className="text-sm md:text-md 2xl:text-lg text-gray-800 "
                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
                   Sứ mệnh của E.C.O là biến công nghệ thành cầu nối để con người
                   hành động vì môi trường một cách dễ dàng và ý nghĩa hơn.
                 </p>
                 <p
-                  className="text-md 2xl:text-lg text-gray-800 "
+                  className="text-sm md:text-md 2xl:text-lg text-gray-800 "
                   style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
                   E.C.O hướng tới xây dựng một thế hệ biết sống xanh thông qua
