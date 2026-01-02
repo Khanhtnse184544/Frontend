@@ -42,7 +42,7 @@ export default function BambooForest() {
               
                {/* Title Section */}
                <div className="lg:col-span-5 text-center ">
-                 <h1 className="text-5xl font-bold text-white text-center" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                 <h1 className="text-5xl font-bold text-white text-center">
                    MONOSPECIFIC BAMBOO FOREST
                  </h1>
                </div>
@@ -63,34 +63,34 @@ export default function BambooForest() {
                 <div className="space-y-6 text-white">
                   {/* Location */}
                   <div>
-                    <p className="text-lg " style={{ fontFamily: "Pally-Bold, sans-serif" }}>
-                      Location: <span className="text-lg " style={{ fontFamily: "Pally-Regular, sans-serif" }}>Found widely across the Park</span>
+                    <p className="text-lg ">
+                      Location: <span className="text-lg ">Found widely across the Park</span>
                     </p>
                   </div>
                   
                   {/* Main Heading */}
                   <div>
-                    <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <h2 className="text-3xl font-bold mb-4">
                       Regrowth from abandoned shifting fields
                     </h2>
                   </div>
                   
                   {/* Formation */}
                   <div>
-                    <h3 className="text-2xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <h3 className="text-2xl font-bold">
                       Formation:
                     </h3>
-                    <p className="text-lg leading-relaxed" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                    <p className="text-lg leading-relaxed">
                       Resulting from fallow lands post-subsistence farming. Dominated by La Ngà bamboo (Bambusa blumeana), Lồ ô, and Mum, with scattered fast-growing light-loving hardwoods like Macaranga tanarius and Ficus spp.
                     </p>
                   </div>
                   
                   {/* Ecological Role */}
                   <div>
-                    <h3 className="text-2xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <h3 className="text-2xl font-bold">
                       Ecological role:
                     </h3>
-                    <p className="text-lg leading-relaxed" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                    <p className="text-lg leading-relaxed">
                       While human-influenced, these forests help protect soil, reduce erosion, and support forest regeneration over time.
                     </p>
                   </div>
