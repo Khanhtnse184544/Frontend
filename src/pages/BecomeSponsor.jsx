@@ -35,11 +35,11 @@ export default function BecomeSponsor() {
              <img
                 src={csrImage}
                 alt="CSR Image"
-                className="h-full w-auto object-contain opacity-60 xl:opacity-100"
+                className="h-full w-auto object-contain opacity-60 xl:opacity-100 xl:max-w-[45vw]"
               />
           </div>
 
-          <div className="order-1 relative z-10 w-full px-4 flex justify-center xl:justify-start xl:pl-[15vw]">
+          <div className="order-1 relative z-10 w-full px-4 flex justify-center xl:justify-start lg:pl-[15vw] xl:pl-[10vw]">
             <div
               className="relative w-full max-w-md md:max-w-xl xl:w-[550px] h-[580px] md:h-[750px] xl:h-[650px] transition-transform duration-700 cursor-pointer"
               onClick={toggleCard}

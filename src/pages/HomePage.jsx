@@ -266,14 +266,14 @@ export default function HomePage() {
       <Header />
 
       <div>
-        <section className="relative w-full items-center justify-center h-screen lg:h-[50vw] select-none mb-12">
+        <section className="relative w-full items-center justify-center h-[50vh] lg:h-[50vw] select-none mb-12">
           <div className="sticky top-0 z-30 w-full flex justify-center items-center select-none m-0">
             <Navbar />
           </div>
           <img
             src={hero}
             alt="Background"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full"
           />
 
           <div className="absolute inset-0 bg-black/30"></div>
