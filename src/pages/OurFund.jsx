@@ -46,7 +46,7 @@ export default function OurFund() {
           </div>
 
           <div className="text-white text-center lg:text-center flex flex-col items-center lg:items-center">
-            <p className="text-sm lg:text-sm 2xl:text-xl leading-tight tracking-wide mb-5 max-w-lg lg:max-w-[30vw] xl:max-w-[50vw] 2xl:max-w-[40vw] mx-auto lg:mx-0">
+            <p className="text-sm lg:text-sm 2xl:text-xl leading-tight tracking-wide mb-5 max-w-lg lg:max-w-[30vw] xl:max-w-[40vw] 2xl:max-w-[40vw] mx-auto lg:mx-0">
               Với E.C.O, phát triển bền vững không chỉ là mục tiêu, mà còn
               là một hành trình cần được lan tỏa và công khai minh bạch.
             </p>
@@ -62,8 +62,8 @@ export default function OurFund() {
 
       <section className="py-10 lg:py-[6vh] 2xl:py-[8vh] px-4 lg:px-[10vw] 2xl:px-[12vw]">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-[2vw] 2xl:gap-[3vw] px-0 lg:px-0">
-          <div className="w-full lg:w-1/4">
-            <div className="bg-gradient-to-tr from-black via-[#4D4D4D] to-[#6B6B6B] rounded-[30px] 2xl:rounded-[32px] p-8 lg:p-[3vw] 2xl:p-[2.2vw] text-white relative overflow-hidden h-[325px] w-full max-w-[380px] lg:h-[24vw] lg:w-[25vw] 2xl:h-[23vw] 2xl:w-[25vw] mx-auto transition-all duration-300 ease-in-out group">
+          <div className="w-full lg:w-1/3">
+            <div className="bg-gradient-to-tr from-black via-[#4D4D4D] to-[#6B6B6B] rounded-[30px] 2xl:rounded-[32px] p-8 lg:p-[3vw] 2xl:p-[2.2vw] text-white relative overflow-hidden h-[325px] w-full max-w-[300px] 2xl:max-w-[500px] lg:h-[23vw] lg:w-[30vw] 2xl:h-[23vw] 2xl:w-[25vw] mx-auto transition-all duration-300 ease-in-out group">
               
 
               <div className="absolute top-[-20px] left-3">

@@ -41,7 +41,7 @@ export default function Header() {
         </div>
         <button 
           onClick={handleContactClick}
-          className="hidden lg:block ml-2 lg:ml-4 text-xs lg:text-xs xl:text-lg 2xl:text-xl text-white tracking-wide hover:text-[#D68C45] transition-colors cursor-pointer whitespace-nowrap"
+          className="hidden lg:block ml-2 lg:ml-4 text-[10px] sm:text-xs lg:text-md xl:text-md 2xl:text-lg text-white tracking-wide hover:text-[#D68C45] transition-colors cursor-pointer whitespace-nowrap"
         >
           LIÊN HỆ
         </button>

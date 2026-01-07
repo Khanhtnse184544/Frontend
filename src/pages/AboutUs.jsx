@@ -127,7 +127,6 @@ export default function AboutUs() {
                   </h3>
                   <p
                     className="text-md 2xl:text-xl text-gray-800"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     E.C.O là doanh nghiệp xã hội được sáng lập bởi một nhóm bạn
                     trẻ Việt Nam cùng chung tình yêu với thiên nhiên và công
@@ -137,7 +136,6 @@ export default function AboutUs() {
                   </p>
                   <p
                     className="text-md 2xl:text-xl text-gray-800"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     Sáng kiến trọng điểm của E.C.O - C.H.A.M (Chạm - Hiểu - Ấp ủ
                     - Mầm) - biến mỗi hành động nhỏ trên nền tảng số (ứng dụng
@@ -149,7 +147,6 @@ export default function AboutUs() {
                   </p>
                   <p
                     className="text-md 2xl:text-xl text-gray-800"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     Dự án ra đời từ trăn trở: “Làm thế nào để bảo vệ Trái Đất mà
                     vẫn kết nối được thế hệ trẻ trong hành trình đó?” Và E.C.O
@@ -208,7 +205,6 @@ export default function AboutUs() {
                 <div className="space-y-2">
                   <p
                     className="text-md 2xl:text-xl text-gray-800 "
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     Chúng tôi kết nối thế giới số với hành động xanh ngoài đời
                     thực. Thông qua nền tảng ứng dụng C.H.A.M, người dùng gieo
@@ -218,7 +214,6 @@ export default function AboutUs() {
 
                   <p
                     className="text-md 2xl:text-xl text-gray-800 "
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     Song song, E.C.O hợp tác với doanh nghiệp CSR, tổ chức phi
                     lợi nhuận và cộng đồng địa phương để đảm bảo mọi hoạt động
@@ -226,7 +221,6 @@ export default function AboutUs() {
                   </p>
                   <p
                     className="text-md 2xl:text-xl text-gray-800 "
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
                   >
                     C.H.A.M sử dụng AI và hệ thống định vị (GPS) để theo dõi
                     tăng trưởng cây thật, minh chứng tác động và cung cấp báo
@@ -253,7 +247,6 @@ export default function AboutUs() {
               <div className="w-8 md:w-16 h-px bg-black"></div>
               <h2
                 className="text-2xl md:text-4xl 2xl:text-5xl font-bold text-[#d68c45] px-4"
-                style={{ fontFamily: "Pally-Bold, sans-serif" }}
               >
                 Sứ mệnh của chúng tôi
               </h2>
@@ -265,7 +258,6 @@ export default function AboutUs() {
             <div className="w-full md:w-2/5">
               <p
                 className="text-md 2xl:text-xl text-gray-800 "
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
               >
                 Chúng tôi tin rằng mỗi người đều có thể đóng góp cho môi trường
                 - bắt đầu từ những hành động nhỏ, khi được trao một nền tảng đủ
@@ -299,14 +291,12 @@ export default function AboutUs() {
               <div className="space-y-2">
                 <p
                   className="text-md 2xl:text-xl text-gray-800 "
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
                   Sứ mệnh của E.C.O là biến công nghệ thành cầu nối để con người
                   hành động vì môi trường một cách dễ dàng và ý nghĩa hơn.
                 </p>
                 <p
                   className="text-md 2xl:text-xl text-gray-800 "
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
                 >
                   E.C.O hướng tới xây dựng một thế hệ biết sống xanh thông qua
                   học hỏi, trải nghiệm và tương tác số, nơi việc bảo vệ môi

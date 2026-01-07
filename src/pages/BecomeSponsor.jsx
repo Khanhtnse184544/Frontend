@@ -39,15 +39,15 @@ export default function BecomeSponsor() {
               />
           </div>
 
-          <div className="order-1 relative z-10 w-full px-4 flex justify-center xl:justify-start lg:pl-[15vw] xl:pl-[10vw]">
-            <div
-              className="relative w-full max-w-md md:max-w-xl xl:w-[550px] h-[580px] md:h-[750px] xl:h-[650px] transition-transform duration-700 cursor-pointer"
-              onClick={toggleCard}
-              style={{
-                perspective: "1000px",
-                transformStyle: "preserve-3d",
-              }}
-            >
+          <div className="order-1 relative z-10 w-full px-4 flex justify-center xl:justify-start lg:pl-[15vw] xl:pl-[12vw]">
+              <div
+                className="relative w-full max-w-md md:max-w-xl xl:w-[550px] h-[580px] md:h-[60px] xl:h-[600px] transition-transform duration-700 cursor-pointer"
+                onClick={toggleCard}
+                style={{
+                  perspective: "1000px",
+                  transformStyle: "preserve-3d",
+                }}
+              >
               <div
                 className={`absolute inset-0 transition-all duration-1000 ${
                   isCardFlipped ? "opacity-0" : "opacity-100"
@@ -60,7 +60,7 @@ export default function BecomeSponsor() {
                 }}
               >
                 <div className="bg-white rounded-3xl p-6 md:p-12 xl:p-10 shadow-xl w-full h-full flex flex-col justify-between">
-                  <div className="flex items-center justify-center mt-2 mb-2 md:mt-4 md:mb-4">
+                  <div className="flex items-center justify-center mt-0 mb-0 md:mt-0 md:mb-0">
                     <img
                       src={handImage}
                       alt="Partnership Handshake"
@@ -92,7 +92,7 @@ export default function BecomeSponsor() {
                       e.stopPropagation();
                       openContact();
                     }}
-                    className="mt-4 md:mt-6 bg-black text-white font-bold py-3 rounded-2xl w-full hover:bg-gray-800 transition-colors duration-300 shadow-lg text-lg"
+                    className="mt-0 md:mt-6 bg-black text-white font-bold py-3 rounded-2xl w-full hover:bg-gray-800 transition-colors duration-300 shadow-lg text-lg"
                   >
                     Liên hệ
                   </button>
@@ -111,7 +111,7 @@ export default function BecomeSponsor() {
                 }}
               >
                 <div className="bg-white rounded-3xl p-6 md:p-12 xl:p-10 shadow-xl w-full h-full flex flex-col justify-center">
-                  <h2 className="text-2xl md:text-3xl xl:text-3xl font-bold text-[#D68C45] mb-6 xl:mb-20 text-center">
+                  <h2 className="text-2xl md:text-3xl xl:text-3xl font-bold text-[#D68C45] mb-10 text-center">
                     Vì sao chọn E.C.O
                   </h2>
 
