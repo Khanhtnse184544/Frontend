@@ -32,8 +32,8 @@ export default function AboutUs() {
               </span>
             </h2>
 
-            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 lg:gap-[2vw] xl:gap-[1.8vw] 2xl:gap-[1.6vw] mb-6 lg:mb-[1.2vw] 2xl:my-[6vh] mx-4 md:mx-16 lg:mx-[4vw] 2xl:mx-[2.5vw]">
-              <div className="w-[100px] h-[100px] md:w-[210px] md:h-[210px] lg:w-[16.4vw] lg:h-[16.4vw] 2xl:w-[12vw] 2xl:h-[12vw] flex items-center justify-center">
+            <div className="flex flex-nowrap justify-center items-center gap-2 md:gap-4 lg:gap-[1.5vw] mb-6 mx-4 md:mx-8 lg:mx-[2vw]">
+              <div className="w-[12%] md:w-[14%] aspect-square flex-shrink-0 flex items-center justify-center">
                 <img
                   src={img1}
                   alt="Plant growing from book"
@@ -41,7 +41,7 @@ export default function AboutUs() {
                 />
               </div>
 
-              <div className="w-[140px] h-[140px] md:w-[315px] md:h-[315px] lg:w-[24.6vw] lg:h-[24.6vw] 2xl:w-[16vw] 2xl:h-[16vw] flex items-center justify-center">
+              <div className="w-[17%] md:w-[20%] aspect-square flex-shrink-0 flex items-center justify-center">
                 <img
                   src={img2}
                   alt="Plant with circuit patterns"
@@ -49,7 +49,7 @@ export default function AboutUs() {
                 />
               </div>
 
-              <div className="w-[180px] h-[180px] md:w-[420px] md:h-[420px] lg:w-[32.8vw] lg:h-[32.8vw] 2xl:w-[22vw] 2xl:h-[22vw] flex items-center justify-center">
+              <div className="w-[22%] md:w-[26%] aspect-square flex-shrink-0 flex items-center justify-center">
                 <img
                   src={img3}
                   alt="Plant with light and circuits"
@@ -57,7 +57,7 @@ export default function AboutUs() {
                 />
               </div>
 
-              <div className="w-[140px] h-[140px] md:w-[315px] md:h-[315px] lg:w-[24.6vw] lg:h-[24.6vw] 2xl:w-[16vw] 2xl:h-[16vw] flex items-center justify-center">
+              <div className="w-[17%] md:w-[20%] aspect-square flex-shrink-0 flex items-center justify-center">
                 <img
                   src={img4}
                   alt="Laptop with moss and butterflies"
@@ -65,7 +65,7 @@ export default function AboutUs() {
                 />
               </div>
 
-              <div className="w-[100px] h-[100px] md:w-[210px] md:h-[210px] lg:w-[16.4vw] lg:h-[16.4vw] 2xl:w-[12vw] 2xl:h-[12vw] flex items-center justify-center">
+              <div className="w-[12%] md:w-[14%] aspect-square flex-shrink-0 flex items-center justify-center">
                 <img
                   src={img5}
                   alt="Hands holding seedlings"
@@ -79,14 +79,12 @@ export default function AboutUs() {
             <div className="text-center px-8 md:px-0">
               <p
                 className="text-md 2xl:text-xl text-gray-800 "
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
               >
                 Gắn kết con người với thiên nhiên thông qua công nghệ và cảm
                 xúc.
               </p>
               <p
                 className="text-md 2xl:text-xl text-gray-800 "
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
               >
                 Mỗi hành động số tạo nên một mầm xanh thật, một giá trị thật.
               </p>
