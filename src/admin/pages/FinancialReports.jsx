@@ -35,7 +35,7 @@ export default function FinancialReports() {
     setLoading(true);
     setError(null);
     try {
-      const response = await api.get('/api/donations/transactions');
+      const response = await api.get('/api/donations/history');
       setTransactions(response.data || []);
     } catch (err) {
       setError('Failed to fetch transactions');

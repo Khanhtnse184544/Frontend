@@ -296,37 +296,21 @@ export default function Sponsor() {
                       Số tiền
                     </th>
                     <th className="text-left py-4 px-6 text-sm font-medium text-gray-700 whitespace-nowrap">
-                      Trạng thái
-                    </th>
-                    <th className="text-left py-4 px-6 text-sm font-medium text-gray-700 whitespace-nowrap">
                       Ngày giao dịch
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {currentPageTransactions.map((transaction, index) => (
-                    <tr key={transaction.id || index} className="border-b border-gray-100 hover:bg-gray-50">
+                    <tr key={transaction.orderCode || index} className="border-b border-gray-100 hover:bg-gray-50">
                       <td className="py-4 px-6 text-sm text-gray-900">
-                        #{transaction.orderCode || transaction.id}
+                        #{transaction.orderCode}
                       </td>
                       <td className="py-4 px-6 text-sm text-gray-900">
                         {transaction.description || 'Giao dịch đóng góp'}
                       </td>
                       <td className="py-4 px-6 text-sm text-gray-900 font-medium">
                         {formatCurrency(transaction.amount || 0)}
-                      </td>
-                      <td className="py-4 px-6 text-sm">
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                          transaction.status === 'PAID' ? 'bg-green-100 text-green-800' :
-                          transaction.status === 'PENDING' ? 'bg-yellow-100 text-yellow-800' :
-                          transaction.status === 'CANCELLED' ? 'bg-red-100 text-red-800' :
-                          'bg-gray-100 text-gray-800'
-                        }`}>
-                          {transaction.status === 'PAID' ? 'Đã thanh toán' :
-                           transaction.status === 'PENDING' ? 'Đang chờ' :
-                           transaction.status === 'CANCELLED' ? 'Đã hủy' :
-                           'Không xác định'}
-                        </span>
                       </td>
                       <td className="py-4 px-6 text-sm text-gray-900">
                         {formatDate(transaction.paidAt)}

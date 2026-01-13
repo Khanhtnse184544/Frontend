@@ -12,6 +12,8 @@ import ForestDetail from "./pages/ForestDetail";
 import News from "./pages/News";
 import OurProject from "./pages/OurProject";
 import OurGame from "./pages/OurGame";
+import TermsOfService from "./pages/TermsOfService";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import AuthWrapper from "./features/auth/AuthWrapper";
 import AdminDashboard from "./admin/pages/AdminDashboard";
 import UserManagement from "./admin/pages/UserManagement";
@@ -42,6 +44,8 @@ function App() {
       <Route path="/news" element={<News />} />
       <Route path="/our-project" element={<OurProject />} />
       <Route path="/our-game" element={<OurGame />} />
+      <Route path="/terms-of-service" element={<TermsOfService />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/login" element={<AuthWrapper />} />
       <Route path="/register" element={<AuthWrapper />} />
       <Route path="/forgot-password" element={<AuthWrapper />} />

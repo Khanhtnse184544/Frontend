@@ -24,7 +24,7 @@ export default function CSRManagement() {
     setLoading(true);
     setError(null);
     try {
-      const response = await api.get('/api/contact', {
+      const response = await api.get('/api/contacts', {
         params: {
           pageNumber: currentPage,
           pageSize: pageSize,
@@ -66,7 +66,7 @@ export default function CSRManagement() {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      await api.put(`/api/contact/${id}/status?status=${newStatus}`);
+      await api.put(`/api/contacts/${id}/status?status=${newStatus}`);
       setCsrItems(prevItems => 
         prevItems.map(item => 
           item.contactId === id 

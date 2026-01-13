@@ -288,12 +288,7 @@ export default function HomePage() {
                 />
               </div>
               
-              <div
-                className="text-white text-4xl sm:text-5xl xl:text-6xl 2xl:text-8xl mb-2 2xl:-mt-6 2xl:mb-6 tracking-widest text-center drop-shadow font-bold"
-                style={{ fontFamily: "Montserrat, Inter, Arial, sans-serif" }}
-              >
-                0000
-              </div>
+              
               <div
                 className="text-white font-extrabold text-lg sm:text-2xl xl:text-[3.1rem] 2xl:text-7xl text-center mb-6 sm:mb-10 2xl:mb-20 tracking-tight drop-shadow uppercase px-4"
                 style={{ fontFamily: "Montserrat, Inter, Arial, sans-serif" }}

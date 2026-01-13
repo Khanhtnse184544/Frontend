@@ -46,6 +46,21 @@ export default function Footer() {
                     <p className="text-white text-[0.6rem] xl:text-[0.6rem] 2xl:text-[0.8rem] ">
                       Điện thoại: 086 820 2708
                     </p>
+                    
+                    <div className="pt-2">
+                      <button
+                        onClick={() => navigate('/terms-of-service')}
+                        className="block text-white text-xs xl:text-xs 2xl:text-sm hover:text-[#D68C45] transition-colors duration-300 text-left "
+                      >
+                        Điều khoản sử dụng
+                      </button>
+                      <button
+                        onClick={() => navigate('/privacy-policy')}
+                        className="block text-white text-xs xl:text-xs 2xl:text-sm hover:text-[#D68C45] transition-colors duration-300 text-left "
+                      >
+                        Chính sách bảo mật
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

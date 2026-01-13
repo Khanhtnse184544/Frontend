@@ -18,7 +18,7 @@ export default function MessageDetail() {
     setError(null);
     try {
       if (type === 'contact') {
-        const res = await api.get(`/api/contact/${id}`);
+        const res = await api.get(`/api/contacts/${id}`);
         setData(res.data);
       } else {
         const res = await api.get(`/api/feedbacks/${id}`);

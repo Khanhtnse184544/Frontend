@@ -119,7 +119,6 @@ export default function AboutUs() {
                 <div className="relative">
                   <h3
                     className="text-2xl md:text-3xl 2xl:text-4xl font-bold text-gray-800 mb-2"
-                    style={{ fontFamily: "Pally-Bold, sans-serif" }}
                   >
                     Câu chuyện của chúng tôi
                   </h3>
@@ -173,7 +172,6 @@ export default function AboutUs() {
             <h2
               className="text-3xl md:text-4xl lg:text-[3.5rem] 2xl:text-6xl font-bold mb-0 md:mb-4"
               style={{
-                fontFamily: "Pally-Bold, sans-serif",
                 background:
                   "linear-gradient(90deg, white 0%, #d68c45 50%, white 100%)",
                 backgroundSize: "200% 100%",
@@ -196,7 +194,6 @@ export default function AboutUs() {
               <div className="w-full md:w-2/3 2xl:w-[60%]">
                 <h3
                   className="text-2xl md:text-3xl 2xl:text-4xl font-bold text-[#d68c45] mb-3"
-                  style={{ fontFamily: "Pally-Bold, sans-serif" }}
                 >
                   Cách chúng tôi hoạt động
                 </h3>
