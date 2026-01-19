@@ -35,7 +35,7 @@ function App() {
       <Route path="/for-school-education" element={<ForSchoolEducation />} />
       <Route path="/our-partner" element={<OurPartner />} />
       <Route path="/community" element={<Community />} />
-      <Route path="/post/:postId" element={<PostDetail />} />
+      <Route path="/post/:slug" element={<PostDetail />} />
       <Route path="/semi-deciduous-forest" element={<ForestDetail />} />
       <Route path="/bamboo-forest" element={<ForestDetail />} />
       <Route path="/wetland" element={<ForestDetail />} />
@@ -48,6 +48,7 @@ function App() {
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/login" element={<AuthWrapper />} />
       <Route path="/register" element={<AuthWrapper />} />
+      <Route path="/verify-email" element={<AuthWrapper />} />
       <Route path="/forgot-password" element={<AuthWrapper />} />
       <Route path="/change-password" element={<AuthWrapper />} />
       <Route path="/change-password-success" element={<AuthWrapper />} />

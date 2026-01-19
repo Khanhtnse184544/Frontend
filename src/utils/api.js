@@ -16,11 +16,10 @@ const api = axios.create({
 // Request interceptor - thêm token nếu có
 api.interceptors.request.use(
   (config) => {
-    // Có thể thêm token authentication ở đây
-    // const token = localStorage.getItem('token');
-    // if (token) {
-    //   config.headers.Authorization = `Bearer ${token}`;
-    // }
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
     return config;
   },
   (error) => {

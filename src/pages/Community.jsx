@@ -5,22 +5,47 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SocialLinks from "../components/SocialLinks";
 import { FaUsers, FaHeart, FaTree, FaComments, FaCalendarAlt, FaMapMarkerAlt, FaImage, FaHashtag, FaPaperPlane, FaEllipsisH, FaCode, FaClipboard, FaBold, FaItalic, FaListUl, FaListOl, FaQuoteLeft, FaLink } from "react-icons/fa";
-import api from "../utils/api";
+import { getPosts, createPost, toggleLikePost, getTrendingHashtags } from "../utils/communityApi";
+import { getEvents, joinEvent } from "../utils/eventApi";
+import { useAuth } from "../contexts/AuthContext";
 import hero from "../assets/get_involved/community/hero.png";
 import logo from "../assets/homepage/logo.png";
 
+// Helper function to format time ago
+const formatTimeAgo = (date) => {
+  const now = new Date();
+  const postDate = new Date(date);
+  const diffInSeconds = Math.floor((now - postDate) / 1000);
+  
+  if (diffInSeconds < 60) return 'Vừa xong';
+  if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)} phút trước`;
+  if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)} giờ trước`;
+  if (diffInSeconds < 604800) return `${Math.floor(diffInSeconds / 86400)} ngày trước`;
+  if (diffInSeconds < 2592000) return `${Math.floor(diffInSeconds / 604800)} tuần trước`;
+  return `${Math.floor(diffInSeconds / 2592000)} tháng trước`;
+};
+
 export default function Community() {
   const navigate = useNavigate();
+  const { isAuthenticated, user } = useAuth();
   const [events, setEvents] = useState([]);
+  const [eventsLoading, setEventsLoading] = useState(true);
   const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [postsLoading, setPostsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [posts, setPosts] = useState([]);
+  const [trendingHashtags, setTrendingHashtags] = useState([]);
+  const [selectedHashtag, setSelectedHashtag] = useState(null);
   const [newPost, setNewPost] = useState("");
   const [showCreatePost, setShowCreatePost] = useState(false);
   const [showCreatePostModal, setShowCreatePostModal] = useState(false);
   const [postContent, setPostContent] = useState("");
   const [postTitle, setPostTitle] = useState("");
+  const [postHashtags, setPostHashtags] = useState([]);
+  const [hashtagInput, setHashtagInput] = useState("");
+  const [pageIndex, setPageIndex] = useState(1);
+  const [hasMorePosts, setHasMorePosts] = useState(true);
 
   const sampleEvents = [
     {
@@ -121,33 +146,132 @@ export default function Community() {
     }
   ];
 
+  // Load posts from API
+  const loadPosts = async (tag = null, reset = false) => {
+    try {
+      if (reset) {
+        setPostsLoading(true);
+        setPageIndex(1);
+      }
+      
+      const currentPage = reset ? 1 : pageIndex;
+      const filters = {
+        pageIndex: currentPage,
+        pageSize: 10,
+        status: 'PUBLISHED'
+      };
+      
+      if (tag) {
+        filters.tag = tag;
+      }
+      
+      const result = await getPosts(filters);
+      
+      if (reset) {
+        setPosts(result.items || []);
+      } else {
+        setPosts(prev => [...prev, ...(result.items || [])]);
+      }
+      
+      setHasMorePosts((result.items || []).length === 10);
+      setError(null);
+    } catch (err) {
+      console.error('Error loading posts:', err);
+      setError('Không thể tải bài viết. Vui lòng thử lại sau.');
+    } finally {
+      setPostsLoading(false);
+    }
+  };
+
+  // Load trending hashtags
+  const loadTrendingHashtags = async () => {
+    try {
+      const tags = await getTrendingHashtags();
+      setTrendingHashtags(tags || []);
+    } catch (err) {
+      console.error('Error loading trending hashtags:', err);
+    }
+  };
+
+  // Load events from API
+  const loadEvents = async () => {
+    try {
+      setEventsLoading(true);
+      const result = await getEvents({ page: 1 });
+      
+      // Map EventDto to format used in frontend
+      const mappedEvents = (result.items || []).map(event => ({
+        id: event.id,
+        title: event.title,
+        slug: event.slug,
+        date: event.startDate,
+        location: event.location,
+        description: event.description,
+        participants: event.currentParticipants,
+        maxParticipants: event.maxParticipants,
+        image: event.thumbnailUrl,
+        isRegistered: event.isRegistered
+      }));
+      
+      setEvents(mappedEvents);
+    } catch (err) {
+      console.error('Error loading events:', err);
+      // Fallback to sample data on error
+      setEvents(sampleEvents);
+    } finally {
+      setEventsLoading(false);
+    }
+  };
+
   useEffect(() => {
-    setEvents(sampleEvents);
     setTestimonials(sampleTestimonials);
-    setPosts(samplePosts);
+    loadEvents();
+    loadPosts(selectedHashtag, true);
+    loadTrendingHashtags();
   }, []);
 
-  
-  const handleCreatePostModal = () => {
+  // Reload posts when hashtag filter changes
+  useEffect(() => {
+    if (posts.length > 0 || pageIndex > 1) {
+      loadPosts(selectedHashtag, true);
+    }
+  }, [selectedHashtag]);
+
+  const handleCreatePostModal = async () => {
+    if (!isAuthenticated) {
+      setError('Vui lòng đăng nhập để tạo bài viết');
+      navigate('/login');
+      return;
+    }
+
     if (postTitle.trim() && postContent.trim()) {
-      const post = {
-        id: posts.length + 1,
-        title: postTitle,
-        content: postContent,
-        author: "Bạn",
-        avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100",
-        timeAgo: "Vừa xong",
-        tags: ["mới"],
-        views: 0,
-        likes: 0,
-        comments: 0,
-        isLiked: false,
-        thumbnail: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300"
-      };
-      setPosts([post, ...posts]);
-      setPostTitle("");
-      setPostContent("");
-      setShowCreatePostModal(false);
+      try {
+        setLoading(true);
+        const hashtags = postHashtags.map(tag => tag.startsWith('#') ? tag : `#${tag}`);
+        
+        await createPost({
+          title: postTitle.trim(),
+          content: postContent.trim(),
+          hashtags: hashtags,
+          mediaUrls: [],
+          thumbnailUrl: null
+        });
+
+        // Reload posts after creating
+        await loadPosts(selectedHashtag, true);
+        
+        setPostTitle("");
+        setPostContent("");
+        setPostHashtags([]);
+        setHashtagInput("");
+        setShowCreatePostModal(false);
+        setError(null);
+      } catch (err) {
+        console.error('Error creating post:', err);
+        setError('Không thể tạo bài viết. Vui lòng thử lại sau.');
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
@@ -161,20 +285,87 @@ export default function Community() {
     setPostContent("");
   };
 
-  const handleLikePost = (postId) => {
-    setPosts(posts.map(post => 
-      post.id === postId 
-        ? { ...post, isLiked: !post.isLiked, likes: post.isLiked ? post.likes - 1 : post.likes + 1 }
-        : post
-    ));
+  const handleLikePost = async (postId) => {
+    if (!isAuthenticated) {
+      setError('Vui lòng đăng nhập để thích bài viết');
+      navigate('/login');
+      return;
+    }
+
+    try {
+      await toggleLikePost(postId);
+      
+      // Update post like state optimistically
+      setPosts(posts.map(post => {
+        if (post.id === postId) {
+          const newIsLiked = !post.isLikedByCurrentUser;
+          return {
+            ...post,
+            isLikedByCurrentUser: newIsLiked,
+            likeCount: newIsLiked ? post.likeCount + 1 : Math.max(0, post.likeCount - 1)
+          };
+        }
+        return post;
+      }));
+    } catch (err) {
+      console.error('Error toggling like:', err);
+      setError('Không thể thích bài viết. Vui lòng thử lại sau.');
+    }
   };
 
   const handlePostClick = (post) => {
-    navigate(`/post/${post.id}`);
+    navigate(`/post/${post.slug}`);
   };
 
   const handleCommentClick = (post) => {
-    navigate(`/post/${post.id}`);
+    navigate(`/post/${post.slug}`);
+  };
+
+  const handleHashtagClick = (tagName) => {
+    const cleanTag = tagName.replace('#', '');
+    setSelectedHashtag(selectedHashtag === cleanTag ? null : cleanTag);
+  };
+
+  const addHashtag = () => {
+    const tag = hashtagInput.trim().replace('#', '').toLowerCase();
+    if (tag && !postHashtags.includes(tag)) {
+      setPostHashtags([...postHashtags, tag]);
+      setHashtagInput("");
+    }
+  };
+
+  const removeHashtag = (tagToRemove) => {
+    setPostHashtags(postHashtags.filter(tag => tag !== tagToRemove));
+  };
+
+  const handleJoinEvent = async (event) => {
+    if (!isAuthenticated) {
+      setError('Vui lòng đăng nhập để tham gia sự kiện');
+      navigate('/login');
+      return;
+    }
+
+    try {
+      // Sử dụng thông tin từ user nếu đã đăng nhập
+      await joinEvent(event.id, {
+        participantName: user?.username || user?.email || 'Người tham gia',
+        participantEmail: user?.email || '',
+        participantPhone: ''
+      });
+
+      // Update event state
+      setEvents(events.map(e => 
+        e.id === event.id 
+          ? { ...e, isRegistered: true, participants: e.participants + 1 }
+          : e
+      ));
+      
+      setError(null);
+    } catch (err) {
+      console.error('Error joining event:', err);
+      const errorMessage = err.response?.data?.message || 'Không thể đăng ký tham gia sự kiện. Vui lòng thử lại sau.';
+      setError(errorMessage);
+    }
   };
 
   return (
@@ -240,14 +431,29 @@ export default function Community() {
             </p>
           </div>
 
+          {eventsLoading ? (
+            <div className="text-center py-12">
+              <p className="text-gray-600 text-lg">Đang tải sự kiện...</p>
+            </div>
+          ) : events.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-gray-600 text-lg">Chưa có sự kiện nào.</p>
+            </div>
+          ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {events.map((event) => (
               <div key={event.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <img 
-                  src={event.image} 
-                  alt={event.title}
-                  className="w-full h-48 lg:h-56 2xl:h-64 object-cover"
-                />
+                {event.image ? (
+                  <img 
+                    src={event.image} 
+                    alt={event.title}
+                    className="w-full h-48 lg:h-56 2xl:h-64 object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-48 lg:h-56 2xl:h-64 bg-gray-200 flex items-center justify-center">
+                    <FaCalendarAlt className="w-16 h-16 text-gray-400" />
+                  </div>
+                )}
                 <div className="p-6 lg:p-8">
                   <h3 className="text-xl lg:text-2xl 2xl:text-3xl font-bold text-black mb-3">
                     {event.title}
@@ -269,17 +475,28 @@ export default function Community() {
                     </div>
                     <div className="flex items-center text-gray-600">
                       <FaUsers className="w-4 h-4 mr-2 text-[#D68C45]" />
-                      <span className="text-sm lg:text-base 2xl:text-lg">{event.participants} người tham gia</span>
+                      <span className="text-sm lg:text-base 2xl:text-lg">
+                        {event.participants} {event.maxParticipants ? `/${event.maxParticipants}` : ''} người tham gia
+                      </span>
                     </div>
                   </div>
                   
-                    <button className="w-full bg-[#D68C45] text-white py-3 lg:py-3 rounded-xl font-semibold hover:bg-[#B87A3A] transition-colors duration-300">
-                      Tham Gia Ngay
+                    <button 
+                      onClick={() => handleJoinEvent(event)}
+                      disabled={event.isRegistered}
+                      className={`w-full py-3 lg:py-3 rounded-xl font-semibold transition-colors duration-300 ${
+                        event.isRegistered
+                          ? 'bg-gray-400 text-white cursor-not-allowed'
+                          : 'bg-[#D68C45] text-white hover:bg-[#B87A3A]'
+                      }`}
+                    >
+                      {event.isRegistered ? 'Đã Tham Gia' : 'Tham Gia Ngay'}
                     </button>
                 </div>
               </div>
             ))}
           </div>
+          )}
         </div>
       </section>
 
@@ -293,6 +510,43 @@ export default function Community() {
               Chia sẻ kinh nghiệm, đặt câu hỏi và kết nối với những người có cùng đam mê bảo vệ môi trường
             </p>
           </div>
+
+          {/* Trending Hashtags */}
+          {trendingHashtags.length > 0 && (
+            <div className="mb-8">
+              <h3 className="text-lg font-semibold text-white mb-4">Hashtag Phổ Biến</h3>
+              <div className="flex flex-wrap gap-2">
+                {selectedHashtag && (
+                  <button
+                    onClick={() => setSelectedHashtag(null)}
+                    className="px-4 py-2 bg-[#D68C45] text-white rounded-full hover:bg-[#B87A3A] transition-colors"
+                  >
+                    Tất cả ×
+                  </button>
+                )}
+                {trendingHashtags.map((tag) => (
+                  <button
+                    key={tag.id}
+                    onClick={() => handleHashtagClick(tag.tagName)}
+                    className={`px-4 py-2 rounded-full transition-colors ${
+                      selectedHashtag === tag.tagName
+                        ? 'bg-[#D68C45] text-white'
+                        : 'bg-[#636363] text-gray-300 hover:bg-[#D68C45] hover:text-white'
+                    }`}
+                  >
+                    #{tag.tagName}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {error && (
+            <div className="mb-4 p-4 bg-red-900/50 text-red-200 rounded-lg">
+              {error}
+              <button onClick={() => setError(null)} className="ml-2 font-bold">×</button>
+            </div>
+          )}
 
           <div className="bg-[#313131] rounded-2xl p-4 lg:p-8 mb-8">
             <div className="flex flex-col lg:flex-row lg:items-center gap-4 mb-4">
@@ -320,18 +574,33 @@ export default function Community() {
                 Tạo Bài Viết
               </button>
             </div>
+          </div>
 
-            
+          {postsLoading ? (
+            <div className="text-center py-12">
+              <p className="text-gray-400 text-lg">Đang tải bài viết...</p>
+            </div>
+          ) : posts.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-gray-400 text-lg">Chưa có bài viết nào.</p>
+            </div>
+          ) : (
           <div className="space-y-6">
             {posts.map((post) => (
               <div key={post.id} className="bg-[#313131] rounded-2xl p-4 lg:p-8 hover:bg-gray-750 transition-colors duration-300">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0">
-                    <img 
-                      src={post.thumbnail} 
-                      alt="Post Thumbnail"
-                      className="w-20 h-20 lg:w-24 lg:h-24 rounded-xl object-cover"
-                    />
+                    {(post.thumbnailUrl || (post.mediaUrls && post.mediaUrls.length > 0)) ? (
+                      <img 
+                        src={post.thumbnailUrl || post.mediaUrls[0]} 
+                        alt="Post Thumbnail"
+                        className="w-20 h-20 lg:w-24 lg:h-24 rounded-xl object-cover"
+                      />
+                    ) : (
+                      <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-xl bg-[#636363] flex items-center justify-center">
+                        <FaImage className="w-8 h-8 text-gray-500" />
+                      </div>
+                    )}
                   </div>
 
                   <div className="flex-1 min-w-0">
@@ -346,16 +615,19 @@ export default function Community() {
                       {post.content}
                     </p>
 
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {post.tags.map((tag, index) => (
-                        <span 
-                          key={index}
-                          className="px-2 py-1 bg-[#636363] text-gray-300 text-xs lg:text-sm rounded-full hover:bg-[#D68C45] hover:text-white transition-colors cursor-pointer"
-                        >
-                          #{tag}
-                        </span>
-                      ))}
-                    </div>
+                    {post.hashtags && post.hashtags.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {post.hashtags.map((tag, index) => (
+                          <span 
+                            key={index}
+                            onClick={() => handleHashtagClick(tag)}
+                            className="px-2 py-1 bg-[#636363] text-gray-300 text-xs lg:text-sm rounded-full hover:bg-[#D68C45] hover:text-white transition-colors cursor-pointer"
+                          >
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
 
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-0">
                       <div className="flex items-center space-x-3">
@@ -365,19 +637,19 @@ export default function Community() {
                           className="w-8 h-8 lg:w-10 lg:h-10 rounded-full"
                         />
                         <div>
-                          <p className="text-white font-medium text-sm lg:text-base">{post.author}</p>
-                          <p className="text-gray-400 text-xs lg:text-sm">{post.timeAgo}</p>
+                          <p className="text-white font-medium text-sm lg:text-base">{post.authorName || 'Unknown'}</p>
+                          <p className="text-gray-400 text-xs lg:text-sm">{formatTimeAgo(post.createdAt)}</p>
                         </div>
                       </div>
 
                       <div className="flex flex-wrap items-center gap-4 text-gray-400 text-sm lg:text-base">
-                        <span>{post.views.toLocaleString()} lượt xem</span>
-                        <span>{post.likes} lượt thích</span>
+                        <span>{post.viewCount?.toLocaleString() || 0} lượt xem</span>
+                        <span>{post.likeCount || 0} lượt thích</span>
                         <span 
                           className="cursor-pointer hover:text-[#D68C45] transition-colors"
                           onClick={() => handleCommentClick(post)}
                         >
-                          {post.comments} bình luận
+                          {post.commentCount || 0} bình luận
                         </span>
                       </div>
                     </div>
@@ -387,7 +659,7 @@ export default function Community() {
                     <button
                       onClick={() => handleLikePost(post.id)}
                       className={`p-2 rounded-full transition-colors ${
-                        post.isLiked 
+                        post.isLikedByCurrentUser 
                           ? 'text-[#D68C45] bg-[#D68C45]/20' 
                           : 'text-gray-400 hover:text-[#D68C45] hover:bg-[#D68C45]/10'
                       }`}
@@ -399,7 +671,7 @@ export default function Community() {
               </div>
             ))}
           </div>
-          </div>
+          )}
         </div>
       </section>
 
@@ -448,6 +720,26 @@ export default function Community() {
                 />
               </div>
 
+              {/* Hashtags display */}
+              {postHashtags.length > 0 && (
+                <div className="mb-4 flex flex-wrap gap-2">
+                  {postHashtags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-[#636363] text-gray-300 rounded-full text-sm flex items-center gap-2"
+                    >
+                      #{tag}
+                      <button
+                        onClick={() => removeHashtag(tag)}
+                        className="hover:text-white"
+                      >
+                        ×
+                      </button>
+                    </span>
+                  ))}
+                </div>
+              )}
+
               <div className="border-t border-gray-700 pt-4">
                 <p className="text-gray-400 text-sm mb-4">Thêm vào bài viết của bạn</p>
                 <div className="flex items-center gap-4 overflow-x-auto whitespace-nowrap pb-2">
@@ -463,10 +755,22 @@ export default function Community() {
                     <FaMapMarkerAlt className="w-4 h-4 text-[#D68C45]" />
                     <span className="text-sm">Vị trí</span>
                   </button>
-                  <button className="flex-shrink-0 flex items-center space-x-2 px-4 py-2 bg-[#636363] text-gray-300 rounded-lg hover:bg-gray-600 transition-colors">
+                  <div className="flex-shrink-0 flex items-center space-x-2 px-4 py-2 bg-[#636363] text-gray-300 rounded-lg">
                     <FaHashtag className="w-4 h-4 text-[#D68C45]" />
-                    <span className="text-sm">Hashtag</span>
-                  </button>
+                    <input
+                      type="text"
+                      placeholder="Thêm hashtag"
+                      value={hashtagInput}
+                      onChange={(e) => setHashtagInput(e.target.value)}
+                      onKeyPress={(e) => {
+                        if (e.key === 'Enter') {
+                          e.preventDefault();
+                          addHashtag();
+                        }
+                      }}
+                      className="bg-transparent text-white placeholder-gray-400 text-sm border-none focus:outline-none w-24"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -479,10 +783,10 @@ export default function Community() {
                 </div>
                 <button
                   onClick={handleCreatePostModal}
-                  disabled={!postTitle.trim() || !postContent.trim()}
+                  disabled={!postTitle.trim() || !postContent.trim() || loading}
                   className="bg-[#D68C45] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#B87A3A] transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Đăng Bài
+                  {loading ? 'Đang đăng...' : 'Đăng Bài'}
                 </button>
               </div>
             </div>
