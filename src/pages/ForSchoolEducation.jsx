@@ -7,49 +7,49 @@ import schoolImage from "../assets/get_involved/for-school/img.png";
 
 export default function ForSchoolEducation() {
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
   const openContact = () => setIsContactOpen(true);
   const closeContact = () => setIsContactOpen(false);
+  const toggleOverlay = () => setIsOverlayOpen(!isOverlayOpen);
 
   const handleContactSubmit = (formData) => {
-    // Handle form submission here
     console.log("Contact form submitted:", formData);
-    // You can add API call here
   };
 
   return (
     <>
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative w-full px-20 pb-15 lg:pb-[8vh] 2xl:px-[5vw] 2xl:pb-[10vh] bg-[#FDFDFD]">
+      <section className="relative w-full px-4 pb-10 lg:px-20 lg:pb-[8vh] 2xl:px-[5vw] 2xl:pb-[10vh] bg-[#FDFDFD]">
         <div className="sticky top-0 z-30 w-full flex justify-center items-center select-none m-0">
           <Navbar />
         </div>
-        <div className="p-15 lg:p-[6vh] 2xl:p-[5vh]">
-          <div className="flex items-center gap-16 lg:gap-[4vw] 2xl:gap-[5vw] relative">
-            {/* Left Side - Image Card */}
-            <div className="w-3/7 lg:w-[45%] 2xl:w-[40%] ps-15 lg:ps-[2vw] 2xl:ps-[3vw]">
-              <div className="relative w-[407px] h-[515px] lg:w-[34vw] lg:h-[45vh] xl:w-[30vw] xl:h-[68vh] 2xl:w-[30vw] 2xl:h-[68vh] rounded-[70px] lg:rounded-[4vw] 2xl:rounded-[3vw] overflow-hidden shadow-2xl group cursor-pointer transition-all duration-300 hover:shadow-2xl">
+        <div className="py-8 lg:p-[6vh] 2xl:p-[5vh]">
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-[4vw] 2xl:gap-[5vw] relative">
+            <div className="w-full lg:w-[45%] 2xl:w-[40%] px-0 lg:ps-[2vw] 2xl:ps-[3vw] flex justify-center lg:block">
+              <div 
+                className="relative w-full max-w-md h-[500px] lg:w-[34vw] lg:h-[45vh] xl:w-[30vw] xl:h-[68vh] 2xl:w-[30vw] 2xl:h-[68vh] rounded-[40px] lg:rounded-[4vw] 2xl:rounded-[3vw] overflow-hidden shadow-2xl group cursor-pointer transition-all duration-300 hover:shadow-2xl"
+                onClick={toggleOverlay}
+              >
                 <img
                   src={schoolImage}
                   alt="Green Education Programs"
-                  className="w-full h-[600px] lg:h-[68vh] xl:h-[68vh] 2xl:h-[68vh] object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
 
-                {/* Default Overlay Text */}
-                <div className="absolute inset-0 flex items-center justify-center">
+                <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${isOverlayOpen ? 'opacity-0' : 'opacity-100 lg:group-hover:opacity-0'}`}>
                   <div className="bg-white/40 backdrop-blur-xs w-full h-[60px] lg:h-[6vh] 2xl:h-[7vh] flex items-center justify-center px-8 lg:px-[1.5vw] xl:py-[2.5vw] 2xl:pyy-[3vw] py-6 lg:py-[1vh] 2xl:py-[1.5vh] shadow-lg">
-                    <h3 className="text-white text-2xl lg:text-[1.8rem] xl:text-[2rem] 2xl:text-[2.2rem] font-bold text-center">
-                      Khám Phá Thêm
+                    <h3 className="text-white text-xl lg:text-[1.6rem] xl:text-[1.8rem] 2xl:text-[2rem] font-bold text-center">
+                      <span className="hidden lg:block">Trỏ để khám phá thêm</span>
+                      <span className="block lg:hidden">Chạm để khám phá thêm</span>
                     </h3>
                   </div>
                 </div>
 
-                {/* Hover Overlay with Our Initiatives */}
-                <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center ps-10 pe-8 xl:px-10  2xl:ps-[2.5vw] 2xl:pe-[2vw]">
+                <div className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 flex items-center justify-center ps-6 pe-4 xl:px-10 2xl:ps-[2.5vw] 2xl:pe-[2vw] ${isOverlayOpen ? 'opacity-100' : 'opacity-0 lg:group-hover:opacity-100'}`}>
                   <div className="text-white">
-                    <h2 className="text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center font-bold mb-5 lg:mb-[2vh] 2xl:mb-[2.5vh] text-[#D68C45]">
+                    <h2 className="text-3xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center font-bold mb-5 lg:mb-[2vh] 2xl:mb-[2.5vh] text-[#D68C45]">
                       Hoạt động Nổi bật của chúng tôi
                     </h2>
                     <div className="space-y-4 lg:space-y-[1.5vh] 2xl:space-y-[2vh] text-sm lg:text-base 2xl:text-lg">
@@ -90,21 +90,20 @@ export default function ForSchoolEducation() {
               
             </div>
 
-            {/* Right Side - Content */}
-            <div className="w-4/7 lg:w-[55%] 2xl:w-[60%] relative">
-              <div className="ml-16 lg:ml-[3vw] 2xl:ml-[4vw]">
-                <h1 className="text-4xl lg:text-[2.5rem] xl:text-[2.2rem] 2xl:text-[3.4rem] font-bold text-[#D68C45] mb-4 lg:mb-[2vh] 2xl:mb-[2.5vh]">
+            <div className="w-full lg:w-[55%] 2xl:w-[60%] relative">
+              <div className="ml-0 lg:ml-[3vw] 2xl:ml-[4vw] text-center lg:text-left">
+                <h1 className="text-3xl lg:text-[2.5rem] xl:text-[2.2rem] 2xl:text-[3.4rem] font-bold text-[#D68C45] mb-4 lg:mb-[2vh] 2xl:mb-[2.5vh]">
                   Giáo dục Xanh cùng E.C.O
                 </h1>
 
-                <p className="text-sm lg:text-md xl:text-md 2xl:text-xl leading-relaxed mb-4 lg:mb-[2vh] 2xl:mb-[2.5vh]">
+                <p className="text-justify lg:text-left text-sm lg:text-md xl:text-md 2xl:text-xl leading-relaxed mb-4 lg:mb-[2vh] 2xl:mb-[2.5vh] px-2 lg:px-0">
                   E.C.O mang đến các chương trình giáo dục môi trường độc đáo và
                   hấp dẫn, kết hợp hài hòa giữa trải nghiệm thực tế và công nghệ
                   số, nhằm khơi dậy cảm hứng và nâng cao ý thức bảo vệ môi
                   trường trong thế hệ trẻ.
                 </p>
 
-                <div className="mb-8 lg:mb-[4vh] 2xl:mb-[5vh]">
+                <div className="mb-8 lg:mb-[4vh] 2xl:mb-[5vh] text-left inline-block">
                   <h3 className="text-md lg:text-lg xl:text-lg 2xl:text-2xl font-bold mb-2 lg:mb-[1vh] 2xl:mb-[1.5vh]">
                     Chương trình sẽ mang lại:
                   </h3>
@@ -147,23 +146,23 @@ export default function ForSchoolEducation() {
                   </ul>
                 </div>
 
-                {/* Get In Touch Button */}
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    openContact();
-                  }}
-                  className="bg-black text-white font-bold py-2.5 lg:py-[1.2vh] 2xl:py-[1.5vh] rounded-[15px] lg:rounded-[1vw] 2xl:rounded-[0.8vw] w-[330px] lg:w-[25vw] xl:w-[22vw] 2xl:w-[20vw] hover:bg-white hover:text-black transition-colors duration-300 shadow-lg text-xl lg:text-[1.2rem] xl:text-[1.4rem] 2xl:text-[1.6rem] ms-5 lg:ms-[1vw] 2xl:ms-[1.5vw]"
-                >
-                  Liên Hệ 
-                </button>
+                <div className="flex justify-center lg:justify-start">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openContact();
+                    }}
+                    className="bg-black text-white font-bold py-2.5 lg:py-[1.2vh] 2xl:py-[1.5vh] rounded-[15px] lg:rounded-[1vw] 2xl:rounded-[0.8vw] w-[300px] lg:w-[25vw] xl:w-[22vw] 2xl:w-[20vw] hover:bg-white hover:text-black transition-colors duration-300 shadow-lg text-xl lg:text-[1.2rem] xl:text-[1.4rem] 2xl:text-[1.6rem] lg:ms-[1vw] 2xl:ms-[1.5vw]"
+                  >
+                    Liên Hệ 
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Us Popup */}
       <ContactUsPopup
         isOpen={isContactOpen}
         onClose={closeContact}
