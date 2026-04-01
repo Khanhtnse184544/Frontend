@@ -1,29 +1,34 @@
 import React, { useState } from "react";
 import { IoLeafOutline } from "react-icons/io5";
-import logo from '../../assets/homepage/logo_xanh.png';
+import { useAuth } from "../../contexts/AuthContext";
+import logo from "../../assets/homepage/logo_xanh.png";
 
 export default function ForgotPassword({ onClose, onSwitch }) {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const { forgotPassword } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    setError("");
+
     if (!email) {
-      alert("Vui lòng nhập địa chỉ email của bạn");
+      setError("Vui lòng nhập địa chỉ email của bạn");
       return;
     }
 
     setIsLoading(true);
-    
-    try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+    const result = await forgotPassword(email);
+    setIsLoading(false);
+
+    if (result.success) {
+      alert(result.message);
+      // Store email for reset password page
+      localStorage.setItem("resetEmail", email);
       onSwitch("change-password");
-    } catch (error) {
-      console.error("Error sending OTP:", error);
-      alert("Gửi OTP thất bại. Vui lòng thử lại.");
-    } finally {
-      setIsLoading(false);
+    } else {
+      setError(result.message);
     }
   };
 
@@ -40,7 +45,11 @@ export default function ForgotPassword({ onClose, onSwitch }) {
         <div className="px-6 md:px-12 pt-8 pb-10 relative z-10">
           <div className="flex justify-center mb-6 md:mb-8">
             <div className="rounded-2xl">
-              <img src={logo} alt="Logo" className="w-20 h-20 md:w-25 md:h-25 object-contain" />
+              <img
+                src={logo}
+                alt="Logo"
+                className="w-20 h-20 md:w-25 md:h-25 object-contain"
+              />
             </div>
           </div>
 
@@ -49,23 +58,33 @@ export default function ForgotPassword({ onClose, onSwitch }) {
             <IoLeafOutline className="ml-2 w-5 h-5 md:w-6 md:h-6 text-[#d68c45]" />
           </h2>
 
-          <form onSubmit={handleSubmit} className="mt-4 md:mt-8 space-y-4 flex flex-col items-center">
+          <form
+            onSubmit={handleSubmit}
+            className="mt-4 md:mt-8 space-y-4 flex flex-col items-center"
+          >
+            {/* Error Message */}
+            {error && (
+              <div className="w-full md:w-[70%] bg-red-50 border border-red-200 text-red-600 px-4 py-2 rounded-xl text-sm">
+                {error}
+              </div>
+            )}
+
             <div className="w-full flex flex-col items-center">
-               <div className="w-full md:w-[70%] flex justify-between items-center mb-2 md:mb-3">
-                 <label className="block text-sm font-medium text-black">
+              <div className="w-full md:w-[70%] flex justify-between items-center mb-2 md:mb-3">
+                <label className="block text-sm font-medium text-black">
                   Email
-                 </label>
-               </div>
-               <div className="w-full md:w-[70%] relative">
-                 <input
-                   type="email"
-                   placeholder="Email@gmail.com"
-                   value={email}
-                   onChange={(e) => setEmail(e.target.value)}
-                   className="w-full px-4 py-3 md:py-2 pr-20 border border-gray-200 rounded-xl bg-[#F7FBFF] focus:outline-none focus:ring-2 focus:ring-[#d68c45] focus:border-transparent transition-all text-base"
-                   required
-                 />
-               </div>
+                </label>
+              </div>
+              <div className="w-full md:w-[70%] relative">
+                <input
+                  type="email"
+                  placeholder="Email@gmail.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-4 py-3 md:py-2 pr-20 border border-gray-200 rounded-xl bg-[#F7FBFF] focus:outline-none focus:ring-2 focus:ring-[#d68c45] focus:border-transparent transition-all text-base"
+                  required
+                />
+              </div>
             </div>
 
             <div className="w-full md:w-[70%] flex flex-col md:flex-row justify-between items-center text-sm gap-3 md:gap-0 my-2">
@@ -93,9 +112,9 @@ export default function ForgotPassword({ onClose, onSwitch }) {
               type="submit"
               disabled={isLoading}
               className={`w-full md:w-[70%] py-3 md:py-2 rounded-xl font-semibold transition-colors shadow-md text-lg ${
-                isLoading 
-                  ? 'bg-gray-400 cursor-not-allowed' 
-                  : 'bg-[#1E2C34] hover:bg-[#2E424E]'
+                isLoading
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-[#1E2C34] hover:bg-[#2E424E]"
               } text-white`}
             >
               {isLoading ? "Đang gửi..." : "Gửi OTP"}

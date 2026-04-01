@@ -5,6 +5,7 @@ import Register from "./Register";
 import ForgotPassword from "./ForgotPassword";
 import ChangePassword from "./ChangePassword";
 import ChangePasswordSuccess from "./ChangePasswordSuccess";
+import VerifyEmail from "./VerifyEmail";
 
 export default function AuthWrapper() {
   const [currentForm, setCurrentForm] = useState("login");
@@ -17,6 +18,8 @@ export default function AuthWrapper() {
     
     if (path === "/register") {
       setCurrentForm("register");
+    } else if (path === "/verify-email") {
+      setCurrentForm("verify-email");
     } else if (path === "/forgot-password") {
       setCurrentForm("forgot");
     } else if (path === "/change-password") {
@@ -39,6 +42,9 @@ export default function AuthWrapper() {
       case "register":
         navigate("/register");
         break;
+      case "verify-email":
+        navigate("/verify-email");
+        break;
       case "forgot":
         navigate("/forgot-password");
         break;
@@ -59,6 +65,8 @@ export default function AuthWrapper() {
         return <Login onSwitch={handleSwitch} />;
       case "register":
         return <Register onSwitch={handleSwitch} />;
+      case "verify-email":
+        return <VerifyEmail onSwitch={handleSwitch} />;
       case "forgot":
         return <ForgotPassword onSwitch={handleSwitch} />;
       case "change-password":

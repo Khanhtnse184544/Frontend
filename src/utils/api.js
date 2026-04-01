@@ -3,7 +3,7 @@ import axios from 'axios';
 // Tạo instance axios với cấu hình cơ bản
 const api = axios.create({
   baseURL: process.env.NODE_ENV === 'development' 
-    ? 'https://localhost:7220'
+    ? 'http://localhost:5283'
     : 'https://ecowebpage.onrender.com',
   timeout: 10000,
   headers: {
@@ -16,11 +16,10 @@ const api = axios.create({
 // Request interceptor - thêm token nếu có
 api.interceptors.request.use(
   (config) => {
-    // Có thể thêm token authentication ở đây
-    // const token = localStorage.getItem('token');
-    // if (token) {
-    //   config.headers.Authorization = `Bearer ${token}`;
-    // }
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
     return config;
   },
   (error) => {

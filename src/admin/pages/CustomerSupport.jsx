@@ -64,7 +64,7 @@ export default function CustomerSupport() {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      await api.put(`/api/contact/${id}/status?status=${newStatus}`);
+      await api.put(`/api/contacts/${id}/status?status=${newStatus}`);
       setCsrItems(prevItems => 
         prevItems.map(item => 
           item.contactId === id 

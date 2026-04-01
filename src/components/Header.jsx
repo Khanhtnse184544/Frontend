@@ -33,15 +33,15 @@ export default function Header() {
     <header className="w-full bg-black flex items-center justify-between select-none h-[50px] lg:h-[55px] xl:h-[60px] 2xl:h-[74px] px-0 lg:px-14 xl:px-16 2xl:px-30">
       <div className="flex items-center gap-2 pl-3 lg:pl-7 xl:pl-8 2xl:pl-12 shrink-0">
         <div className="scale-75 lg:scale-100 origin-left">
-          <SocialLinks 
+          <SocialLinks
             iconSize="w-3 h-3 lg:w-3 lg:h-3 xl:w-3 xl:h-3 2xl:w-4 2xl:h-4"
             iconColor="text-white"
             hoverColor="hover:text-[#D68C45]"
           />
         </div>
-        <button 
+        <button
           onClick={handleContactClick}
-          className="hidden lg:block ml-2 lg:ml-4 text-xs lg:text-md xl:text-lg 2xl:text-xl text-white tracking-wide hover:text-[#D68C45] transition-colors cursor-pointer whitespace-nowrap"
+          className="hidden lg:block ml-2 lg:ml-4 text-[10px] sm:text-xs lg:text-md xl:text-md 2xl:text-lg text-white tracking-wide hover:text-[#D68C45] transition-colors cursor-pointer whitespace-nowrap"
         >
           LIÊN HỆ
         </button>
@@ -50,18 +50,18 @@ export default function Header() {
       <div className="flex-1"></div>
 
       <div className="flex items-center h-full">
-        <button 
+        <button
           onClick={handleDonateClick}
           className="h-full px-3 sm:px-6 lg:px-10 xl:px-10 2xl:px-12 bg-[#d68c45] rounded-none text-white text-[10px] sm:text-xs lg:text-md xl:text-md 2xl:text-lg hover:brightness-110 transition whitespace-nowrap font-medium"
         >
           QUYÊN GÓP
         </button>
-        
-        <button 
+
+        <button
           onClick={handleLoginClick}
           className="h-full flex items-center gap-1.5 px-3 sm:px-4 lg:px-10 xl:px-10 2xl:px-12 text-white text-[10px] sm:text-xs lg:text-md xl:text-md 2xl:text-lg border-l border-[#333] hover:bg-[#111] transition whitespace-nowrap"
         >
-          <FaUser className="w-3 h-3" /> 
+          <FaUser className="w-3 h-3" />
           <span>ĐĂNG NHẬP</span>
         </button>
 
@@ -75,10 +75,10 @@ export default function Header() {
         </div>
       </div>
 
-      <ContactUsPopup 
-        isOpen={isContactOpen} 
-        onClose={handleContactClose} 
-        onSubmit={handleContactSubmit} 
+      <ContactUsPopup
+        isOpen={isContactOpen}
+        onClose={handleContactClose}
+        onSubmit={handleContactSubmit}
       />
     </header>
   );

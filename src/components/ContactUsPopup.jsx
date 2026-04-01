@@ -37,8 +37,8 @@ export default function ContactUsPopup({ isOpen, onClose, onSubmit }) {
     try {
       setIsLoading(true);
       
-      // Gọi API POST /api/contact
-      await api.post("/api/contact", {
+      // Gọi API POST /api/contacts
+      await api.post("/api/contacts", {
         userName: formData.name.trim(),
         contactInfo: formData.contact.trim(),
         message: formData.message.trim()

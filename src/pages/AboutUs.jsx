@@ -32,8 +32,8 @@ export default function AboutUs() {
               </span>
             </h2>
 
-            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 lg:gap-[2vw] xl:gap-[1.8vw] 2xl:gap-[1.6vw] mb-6 lg:mb-[1.2vw] 2xl:my-[6vh] mx-4 md:mx-16 lg:mx-[4vw] 2xl:mx-[2.5vw]">
-              <div className="w-[100px] h-[100px] md:w-[210px] md:h-[210px] lg:w-[16.4vw] lg:h-[16.4vw] 2xl:w-[12vw] 2xl:h-[12vw] flex items-center justify-center">
+            <div className="flex flex-nowrap justify-center items-center gap-2 md:gap-4 lg:gap-[1.5vw] mb-6 mx-4 md:mx-8 lg:mx-[2vw]">
+              <div className="w-[12%] md:w-[14%] aspect-square flex-shrink-0 flex items-center justify-center">
                 <img
                   src={img1}
                   alt="Plant growing from book"
@@ -41,7 +41,7 @@ export default function AboutUs() {
                 />
               </div>
 
-              <div className="w-[140px] h-[140px] md:w-[315px] md:h-[315px] lg:w-[24.6vw] lg:h-[24.6vw] 2xl:w-[16vw] 2xl:h-[16vw] flex items-center justify-center">
+              <div className="w-[17%] md:w-[20%] aspect-square flex-shrink-0 flex items-center justify-center">
                 <img
                   src={img2}
                   alt="Plant with circuit patterns"
@@ -49,7 +49,7 @@ export default function AboutUs() {
                 />
               </div>
 
-              <div className="w-[180px] h-[180px] md:w-[420px] md:h-[420px] lg:w-[32.8vw] lg:h-[32.8vw] 2xl:w-[22vw] 2xl:h-[22vw] flex items-center justify-center">
+              <div className="w-[22%] md:w-[26%] aspect-square flex-shrink-0 flex items-center justify-center">
                 <img
                   src={img3}
                   alt="Plant with light and circuits"
@@ -57,7 +57,7 @@ export default function AboutUs() {
                 />
               </div>
 
-              <div className="w-[140px] h-[140px] md:w-[315px] md:h-[315px] lg:w-[24.6vw] lg:h-[24.6vw] 2xl:w-[16vw] 2xl:h-[16vw] flex items-center justify-center">
+              <div className="w-[17%] md:w-[20%] aspect-square flex-shrink-0 flex items-center justify-center">
                 <img
                   src={img4}
                   alt="Laptop with moss and butterflies"
@@ -65,7 +65,7 @@ export default function AboutUs() {
                 />
               </div>
 
-              <div className="w-[100px] h-[100px] md:w-[210px] md:h-[210px] lg:w-[16.4vw] lg:h-[16.4vw] 2xl:w-[12vw] 2xl:h-[12vw] flex items-center justify-center">
+              <div className="w-[12%] md:w-[14%] aspect-square flex-shrink-0 flex items-center justify-center">
                 <img
                   src={img5}
                   alt="Hands holding seedlings"
@@ -77,17 +77,11 @@ export default function AboutUs() {
             <div className="w-full h-px bg-gray-300 mb-6"></div>
 
             <div className="text-center px-8 md:px-0">
-              <p
-                className="text-md 2xl:text-xl text-gray-800 "
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
-              >
+              <p className="text-md 2xl:text-xl text-gray-800 ">
                 Gắn kết con người với thiên nhiên thông qua công nghệ và cảm
                 xúc.
               </p>
-              <p
-                className="text-md 2xl:text-xl text-gray-800 "
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
-              >
+              <p className="text-md 2xl:text-xl text-gray-800 ">
                 Mỗi hành động số tạo nên một mầm xanh thật, một giá trị thật.
               </p>
 
@@ -119,26 +113,17 @@ export default function AboutUs() {
             <div className="flex justify-start items-center">
               <div className="bg-white/90 md:bg-white/80 rounded-lg p-6 md:p-8 2xl:p-[2vw] shadow-md w-full">
                 <div className="relative">
-                  <h3
-                    className="text-2xl md:text-3xl 2xl:text-4xl font-bold text-gray-800 mb-2"
-                    style={{ fontFamily: "Pally-Bold, sans-serif" }}
-                  >
+                  <h3 className="text-2xl md:text-3xl 2xl:text-4xl font-bold text-gray-800 mb-2">
                     Câu chuyện của chúng tôi
                   </h3>
-                  <p
-                    className="text-sm md:text-md 2xl:text-lg text-gray-700 leading-tight mb-2"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                  >
+                  <p className="text-md 2xl:text-xl text-gray-800">
                     E.C.O là doanh nghiệp xã hội được sáng lập bởi một nhóm bạn
                     trẻ Việt Nam cùng chung tình yêu với thiên nhiên và công
                     nghệ. Chúng tôi hướng đến việc khôi phục rừng bản địa và
                     truyền cảm hứng hành động xanh cho cộng đồng thông qua các
                     giải pháp gamification sáng tạo.
                   </p>
-                  <p
-                    className="text-sm md:text-md 2xl:text-lg text-gray-700 leading-tight mb-2"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                  >
+                  <p className="text-md 2xl:text-xl text-gray-800">
                     Sáng kiến trọng điểm của E.C.O - C.H.A.M (Chạm - Hiểu - Ấp ủ
                     - Mầm) - biến mỗi hành động nhỏ trên nền tảng số (ứng dụng
                     game hóa và website) được quy đổi thành tác động thật ngoài
@@ -147,10 +132,7 @@ export default function AboutUs() {
                     minh bạch và dễ lan tỏa, kết nối người trẻ, tổ chức và doanh
                     nghiệp cùng hành động vì mục tiêu chung.
                   </p>
-                  <p
-                    className="text-sm md:text-md 2xl:text-lg text-gray-700 leading-tight"
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                  >
+                  <p className="text-md 2xl:text-xl text-gray-800">
                     Dự án ra đời từ trăn trở: “Làm thế nào để bảo vệ Trái Đất mà
                     vẫn kết nối được thế hệ trẻ trong hành trình đó?” Và E.C.O
                     chính là lời hồi đáp - nơi công nghệ và thiện chí gặp nhau
@@ -178,7 +160,6 @@ export default function AboutUs() {
             <h2
               className="text-3xl md:text-4xl lg:text-[3.5rem] 2xl:text-6xl font-bold mb-0 md:mb-4"
               style={{
-                fontFamily: "Pally-Bold, sans-serif",
                 background:
                   "linear-gradient(90deg, white 0%, #d68c45 50%, white 100%)",
                 backgroundSize: "200% 100%",
@@ -199,35 +180,23 @@ export default function AboutUs() {
           <div className="bg-white rounded-xl shadow-lg p-6 md:p-12 2xl:p-[3vw]">
             <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-10 2xl:gap-[3vw]">
               <div className="w-full md:w-2/3 2xl:w-[60%]">
-                <h3
-                  className="text-2xl md:text-3xl 2xl:text-4xl font-bold text-[#d68c45] mb-3"
-                  style={{ fontFamily: "Pally-Bold, sans-serif" }}
-                >
+                <h3 className="text-2xl md:text-3xl 2xl:text-4xl font-bold text-[#d68c45] mb-3">
                   Cách chúng tôi hoạt động
                 </h3>
                 <div className="space-y-2">
-                  <p
-                    className="text-sm md:text-md 2xl:text-lg text-gray-700 "
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                  >
+                  <p className="text-md 2xl:text-xl text-gray-800 ">
                     Chúng tôi kết nối thế giới số với hành động xanh ngoài đời
                     thực. Thông qua nền tảng ứng dụng C.H.A.M, người dùng gieo
                     và chăm sóc cây ảo trong game – mỗi tương tác đều được quy
                     đổi thành cây thật được trồng tại các khu rừng ở Việt Nam.
                   </p>
 
-                  <p
-                    className="text-sm md:text-md 2xl:text-lg text-gray-700 "
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                  >
+                  <p className="text-md 2xl:text-xl text-gray-800 ">
                     Song song, E.C.O hợp tác với doanh nghiệp CSR, tổ chức phi
                     lợi nhuận và cộng đồng địa phương để đảm bảo mọi hoạt động
                     trồng rừng đều minh bạch, bền vững và có thể theo dõi được.
                   </p>
-                  <p
-                    className="text-sm md:text-md 2xl:text-lg text-gray-700 "
-                    style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                  >
+                  <p className="text-md 2xl:text-xl text-gray-800 ">
                     C.H.A.M sử dụng AI và hệ thống định vị (GPS) để theo dõi
                     tăng trưởng cây thật, minh chứng tác động và cung cấp báo
                     cáo ESG trực quan – biến mỗi lần “chạm” của người dùng thành
@@ -251,10 +220,7 @@ export default function AboutUs() {
           <div className="text-center mb-8 md:mb-16">
             <div className="flex items-center justify-center mb-5">
               <div className="w-8 md:w-16 h-px bg-black"></div>
-              <h2
-                className="text-2xl md:text-4xl 2xl:text-5xl font-bold text-[#d68c45] px-4"
-                style={{ fontFamily: "Pally-Bold, sans-serif" }}
-              >
+              <h2 className="text-2xl md:text-4xl 2xl:text-5xl font-bold text-[#d68c45] px-4">
                 Sứ mệnh của chúng tôi
               </h2>
               <div className="w-8 md:w-16 h-px bg-black"></div>
@@ -263,10 +229,7 @@ export default function AboutUs() {
 
           <div className="flex flex-col-reverse md:flex-row items-center gap-6 md:gap-10 2xl:gap-[3vw] mb-8 md:mb-16 2xl:mb-[6vh]">
             <div className="w-full md:w-2/5">
-              <p
-                className="text-sm md:text-md 2xl:text-lg text-gray-800 "
-                style={{ fontFamily: "Pally-Regular, sans-serif" }}
-              >
+              <p className="text-md 2xl:text-xl text-gray-800 ">
                 Chúng tôi tin rằng mỗi người đều có thể đóng góp cho môi trường
                 - bắt đầu từ những hành động nhỏ, khi được trao một nền tảng đủ
                 gần gũi, minh bạch và truyền cảm hứng.
@@ -297,17 +260,11 @@ export default function AboutUs() {
 
             <div className="w-full md:w-1/3">
               <div className="space-y-2">
-                <p
-                  className="text-sm md:text-md 2xl:text-lg text-gray-800 "
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                >
+                <p className="text-md 2xl:text-xl text-gray-800 ">
                   Sứ mệnh của E.C.O là biến công nghệ thành cầu nối để con người
                   hành động vì môi trường một cách dễ dàng và ý nghĩa hơn.
                 </p>
-                <p
-                  className="text-sm md:text-md 2xl:text-lg text-gray-800 "
-                  style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                >
+                <p className="text-md 2xl:text-xl text-gray-800 ">
                   E.C.O hướng tới xây dựng một thế hệ biết sống xanh thông qua
                   học hỏi, trải nghiệm và tương tác số, nơi việc bảo vệ môi
                   trường không còn xa vời, mà trở thành một phần tự nhiên trong

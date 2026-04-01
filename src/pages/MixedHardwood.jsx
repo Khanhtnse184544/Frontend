@@ -40,7 +40,6 @@ export default function MixedHardwood() {
               <div className="lg:col-span-5 text-center ">
                 <h1
                   className="text-5xl font-bold text-white text-center"
-                  style={{ fontFamily: "Pally-Bold, sans-serif" }}
                 >
                   MIXED HARDWOOD-BAMBOO FOREST
                 </h1>
@@ -59,85 +58,44 @@ export default function MixedHardwood() {
 
               {/* Right Panel - Information Box */}
               <div className="lg:col-span-3">
-                <div className="space-y-5 text-white">
+                <div className="space-y-6 text-white">
                   {/* Location */}
-                  
                   <div>
-                    <p
-                      className="text-lg "
-                      style={{ fontFamily: "Pally-Bold, sans-serif" }}
-                    >
-                      Location: 
-                      <span
-                        className="text-lg "
-                        style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                      >
-                      Eastern and southern Nam Cát Tiên
-                      </span>
+                    <p className="text-lg">
+                      Location: <span className="text-lg">Eastern and southern Nam Cát Tiên</span>
                     </p>
                   </div>
 
                   {/* Main Heading */}
                   <div>
-                    <h2
-                      className="text-3xl font-bold mb-4"
-                      style={{ fontFamily: "Pally-Bold, sans-serif" }}
-                    >
-                      When nature regenerates from human footprints
+                    <h2 className="text-3xl font-bold mb-4">
+                      A secondary forest shaped by human activity
                     </h2>
                   </div>
 
                   {/* Origin */}
                   <div>
-                    <h3
-                      className="text-2xl font-bold"
-                      style={{ fontFamily: "Pally-Bold, sans-serif" }}
-                    >
+                    <h3 className="text-2xl font-bold">
                       Origin:
                     </h3>
-                    <p
-                      className="text-lg leading-relaxed"
-                      style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                    >
-                      A secondary forest type, formed after human interventions
-                      (logging, fires, chemicals). The open canopy allowed
-                      bamboo species to invade, resulting in a forest mixture of
-                      hardwood and bamboo.
+                    <p className="text-lg leading-relaxed">
+                      A secondary forest type, formed after human interventions (logging, fires, chemicals). The open canopy allowed bamboo species to invade, resulting in a forest mixture of hardwood and bamboo.
                     </p>
-                    
-                    <p
-                      className="text-lg leading-relaxed"
-                      style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                    >
-                       Common hardwoods: Dipterocarpus costatus, Dalbergia oliveri, Shorea
-                       thorelii.
+                    <p className="text-lg leading-relaxed">
+                      Common hardwoods: Dipterocarpus costatus, Dalbergia oliveri, Shorea
                     </p>
-                    
-                    <p
-                      className="text-lg leading-relaxed"
-                      style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                    >
+                    <p className="text-lg leading-relaxed">
                       Common bamboos: Bambusa blumeana (La Ngà bamboo), Gigantochloa species.
                     </p>
-                    <br/>
                   </div>
-
-                  
 
                   {/* Ecological insight */}
                   <div>
-                    <h3
-                      className="text-2xl font-bold"
-                      style={{ fontFamily: "Pally-Bold, sans-serif" }}
-                    >
+                    <h3 className="text-2xl font-bold">
                       Ecological insight:
                     </h3>
-                    <p
-                      className="text-lg leading-relaxed"
-                      style={{ fontFamily: "Pally-Regular, sans-serif" }}
-                    >
-                      These transitional forests reflect resilience and
-                      ecological succession in disturbed landscapes.
+                    <p className="text-lg leading-relaxed">
+                      While human-influenced, these forests help protect soil, reduce erosion, and support forest regeneration over time.
                     </p>
                   </div>
                 </div>

@@ -22,26 +22,23 @@ export default function BecomeSponsor() {
     <>
       <Header />
 
-      <section
-        className="relative w-full min-h-screen flex flex-col bg-[#C2BDB7]"
-      >
+      <section className="relative w-full min-h-screen flex flex-col bg-[#C2BDB7]">
         <div className="sticky top-0 z-30 w-full">
           <Navbar />
         </div>
 
         <div className="flex-grow flex flex-col xl:flex-row items-center justify-center relative w-full py-10 xl:py-0">
-          
           <div className="order-2 xl:absolute xl:right-[2vw] xl:top-0 xl:h-full xl:w-auto z-0 flex items-end justify-center mt-8 xl:mt-0 pointer-events-none">
-             <img
-                src={csrImage}
-                alt="CSR Image"
-                className="h-full w-auto object-contain opacity-60 xl:opacity-100"
-              />
+            <img
+              src={csrImage}
+              alt="CSR Image"
+              className="h-full w-auto object-contain opacity-60 xl:opacity-100 xl:max-w-[45vw]"
+            />
           </div>
 
-          <div className="order-1 relative z-10 w-full px-4 flex justify-center xl:justify-start xl:pl-[15vw]">
+          <div className="order-1 relative z-10 w-full px-4 flex justify-center xl:justify-start lg:pl-[15vw] xl:pl-[12vw]">
             <div
-              className="relative w-full max-w-md md:max-w-xl xl:w-[550px] h-[580px] md:h-[750px] xl:h-[650px] transition-transform duration-700 cursor-pointer"
+              className="relative w-full max-w-md md:max-w-xl xl:w-[550px] h-[580px] md:h-[60px] xl:h-[600px] transition-transform duration-700 cursor-pointer"
               onClick={toggleCard}
               style={{
                 perspective: "1000px",
@@ -60,7 +57,7 @@ export default function BecomeSponsor() {
                 }}
               >
                 <div className="bg-white rounded-3xl p-6 md:p-12 xl:p-10 shadow-xl w-full h-full flex flex-col justify-between">
-                  <div className="flex items-center justify-center mt-2 mb-2 md:mt-4 md:mb-4">
+                  <div className="flex items-center justify-center mt-0 mb-0 md:mt-0 md:mb-0">
                     <img
                       src={handImage}
                       alt="Partnership Handshake"
@@ -73,18 +70,18 @@ export default function BecomeSponsor() {
                   </h2>
 
                   <div className="flex-grow flex flex-col justify-center space-y-2 md:space-y-4 overflow-y-auto pr-2">
-                      <p className="text-base md:text-lg xl:text-lg leading-relaxed text-gray-700">
-                        E.C.O là bạn đồng hành lý tưởng dành cho các doanh nghiệp
-                        muốn triển khai hoạt động CSR/ESG (Trách nhiệm xã hội, Môi
-                        trường và Quản trị doanh nghiệp) một cách minh bạch, hiệu
-                        quả và dễ truyền thông.
-                      </p>
-                      <p className="text-base md:text-lg xl:text-lg leading-relaxed text-gray-700">
-                        Chúng tôi mang đến một nền tảng độc đáo, kết hợp giữa công
-                        nghệ, cảm xúc và tác động môi trường thực tế, giúp mỗi đóng
-                        góp của doanh nghiệp trở nên ý nghĩa và được ghi nhận rõ
-                        ràng.
-                      </p>
+                    <p className="text-base md:text-lg xl:text-lg leading-relaxed text-gray-700">
+                      E.C.O là bạn đồng hành lý tưởng dành cho các doanh nghiệp
+                      muốn triển khai hoạt động CSR/ESG (Trách nhiệm xã hội, Môi
+                      trường và Quản trị doanh nghiệp) một cách minh bạch, hiệu
+                      quả và dễ truyền thông.
+                    </p>
+                    <p className="text-base md:text-lg xl:text-lg leading-relaxed text-gray-700">
+                      Chúng tôi mang đến một nền tảng độc đáo, kết hợp giữa công
+                      nghệ, cảm xúc và tác động môi trường thực tế, giúp mỗi
+                      đóng góp của doanh nghiệp trở nên ý nghĩa và được ghi nhận
+                      rõ ràng.
+                    </p>
                   </div>
 
                   <button
@@ -92,7 +89,7 @@ export default function BecomeSponsor() {
                       e.stopPropagation();
                       openContact();
                     }}
-                    className="mt-4 md:mt-6 bg-black text-white font-bold py-3 rounded-2xl w-full hover:bg-gray-800 transition-colors duration-300 shadow-lg text-lg"
+                    className="mt-0 md:mt-6 bg-black text-white font-bold py-3 rounded-2xl w-full hover:bg-gray-800 transition-colors duration-300 shadow-lg text-lg"
                   >
                     Liên hệ
                   </button>
@@ -111,7 +108,7 @@ export default function BecomeSponsor() {
                 }}
               >
                 <div className="bg-white rounded-3xl p-6 md:p-12 xl:p-10 shadow-xl w-full h-full flex flex-col justify-center">
-                  <h2 className="text-2xl md:text-3xl xl:text-3xl font-bold text-[#D68C45] mb-6 xl:mb-20 text-center">
+                  <h2 className="text-2xl md:text-3xl xl:text-3xl font-bold text-[#D68C45] mb-10 text-center">
                     Vì sao chọn E.C.O
                   </h2>
 

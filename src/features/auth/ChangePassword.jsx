@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoLeafOutline } from "react-icons/io5";
+import { useAuth } from "../../contexts/AuthContext";
 import logo from '../../assets/homepage/logo_xanh.png';
 
 export default function ChangePassword({ onClose, onSwitch }) {
@@ -10,7 +11,18 @@ export default function ChangePassword({ onClose, onSwitch }) {
     password: "",
     confirmPassword: ""
   });
+  const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const { resetPassword, forgotPassword } = useAuth();
+
+  useEffect(() => {
+    // Get email from localStorage (set by ForgotPassword page)
+    const storedEmail = localStorage.getItem('resetEmail');
+    if (storedEmail) {
+      setEmail(storedEmail);
+    }
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -19,38 +31,56 @@ export default function ChangePassword({ onClose, onSwitch }) {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    if (!formData.otp || !formData.password || !formData.confirmPassword) {
-      alert("Vui lòng điền đầy đủ tất cả các trường");
-      return;
-    }
-
-    if (formData.password !== formData.confirmPassword) {
-      alert("Mật khẩu không khớp");
-      return;
-    }
-
-    if (formData.password.length < 8) {
-      alert("Mật khẩu phải có ít nhất 8 ký tự");
+  const handleResendOTP = async () => {
+    if (!email) {
+      setError("Không tìm thấy email. Vui lòng quay lại trang quên mật khẩu.");
       return;
     }
 
     setIsLoading(true);
+    const result = await forgotPassword(email);
+    setIsLoading(false);
+
+    if (result.success) {
+      alert("Đã gửi lại mã OTP!");
+    } else {
+      setError(result.message);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
     
-    try {
-      // TODO: Implement actual password change logic here
-      // For now, we'll simulate the API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Navigate to success page instead of showing alert
+    if (!formData.otp || !formData.password || !formData.confirmPassword) {
+      setError("Vui lòng điền đầy đủ tất cả các trường");
+      return;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      setError("Mật khẩu không khớp");
+      return;
+    }
+
+    if (formData.password.length < 8) {
+      setError("Mật khẩu phải có ít nhất 8 ký tự");
+      return;
+    }
+
+    if (!email) {
+      setError("Không tìm thấy email. Vui lòng quay lại trang quên mật khẩu.");
+      return;
+    }
+
+    setIsLoading(true);
+    const result = await resetPassword(email, formData.otp, formData.password, formData.confirmPassword);
+    setIsLoading(false);
+
+    if (result.success) {
+      localStorage.removeItem('resetEmail');
       onSwitch("changepasswordsuccess");
-    } catch (error) {
-      console.error("Error changing password:", error);
-      alert("Đổi mật khẩu thất bại. Vui lòng thử lại.");
-    } finally {
-      setIsLoading(false);
+    } else {
+      setError(result.message);
     }
   };
   return (
@@ -86,6 +116,14 @@ export default function ChangePassword({ onClose, onSwitch }) {
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="mt-8 space-y-6 flex flex-col items-center">
+            
+            {/* Error Message */}
+            {error && (
+              <div className="w-[50%] bg-red-50 border border-red-200 text-red-600 px-4 py-2 rounded-xl text-sm">
+                {error}
+              </div>
+            )}
+
                          <div className="w-full flex flex-col items-center">
                <div className="w-[50%] flex justify-between items-center mb-3">
                  <label 
@@ -108,8 +146,9 @@ export default function ChangePassword({ onClose, onSwitch }) {
                  />
                  <button
                    type="button"
-                   className="absolute right-2 top-1/2 transform -translate-y-1/2 text-base hover:text-[#1E4AE9] hover:underline transition-colors font-medium text-sm"
-                   
+                   onClick={handleResendOTP}
+                   disabled={isLoading}
+                   className="absolute right-2 top-1/2 transform -translate-y-1/2 text-base hover:text-[#1E4AE9] hover:underline transition-colors font-medium text-sm disabled:opacity-50"
                  >
                    Gửi lại
                  </button>

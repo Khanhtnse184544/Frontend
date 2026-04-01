@@ -14,7 +14,7 @@ const menu = [
       { title: "Trở thành nhà tài trợ", path: "/become-sponsor" },
       { title: "Giáo dục ", path: "/for-school-education" },
       { title: "Đối tác của E.C.O", path: "/our-partner" },
-      { title: "Community", path: "/community" }
+      { title: "Cộng đồng", path: "/community" }
     ]
   },
   { 

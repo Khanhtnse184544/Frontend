@@ -42,7 +42,7 @@ export default function SemiDeciduousForest() {
               
                {/* Title Section */}
                <div className="lg:col-span-5 text-center ">
-                 <h1 className="text-5xl font-bold text-white text-center" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                 <h1 className="text-5xl font-bold text-white text-center">
                    SEMI-DECIDUOUS EVERGREEN FOREST
                  </h1>
                </div>
@@ -63,34 +63,34 @@ export default function SemiDeciduousForest() {
                 <div className="space-y-6 text-white">
                   {/* Location */}
                   <div>
-                    <p className="text-xl " style={{ fontFamily: "Pally-Bold, sans-serif" }}>
-                      Location: <span className="text-xl " style={{ fontFamily: "Pally-Regular, sans-serif" }}>Northeastern Nam Cát Tiên and along the Đồng Nai River</span>
+                    <p className="text-xl ">
+                      Location: <span className="text-xl ">Northeastern Nam Cát Tiên and along the Đồng Nai River</span>
                     </p>
                   </div>
                   
                   {/* Main Heading */}
                   <div>
-                    <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <h2 className="text-3xl font-bold mb-4">
                       Nature's smart adaptation to wet and dry seasons
                     </h2>
                   </div>
                   
                   {/* Key Features */}
                   <div>
-                    <h3 className="text-2xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <h3 className="text-2xl font-bold">
                       Key Features:
                     </h3>
-                    <p className="text-xl leading-relaxed" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                    <p className="text-xl leading-relaxed">
                       This is the dominant ecosystem, comprising over 75% of the region's plant species. The trees shed leaves during the dry season to minimize water loss and re-green in the rainy season. Representative species include: Lagerstroemia calyculata, Tetrameles nudiflora, Anogeissus acuminata, with massive buttress roots on shallow rocky soils.
                     </p>
                   </div>
                   
                   {/* Ecological Value */}
                   <div>
-                    <h3 className="text-2xl font-bold" style={{ fontFamily: "Pally-Bold, sans-serif" }}>
+                    <h3 className="text-2xl font-bold">
                       Ecological value:
                     </h3>
-                    <p className="text-xl leading-relaxed" style={{ fontFamily: "Pally-Regular, sans-serif" }}>
+                    <p className="text-xl leading-relaxed">
                       Acts as the "green lungs" of the park, maintaining biodiversity and climate regulation.
                     </p>
                   </div>
