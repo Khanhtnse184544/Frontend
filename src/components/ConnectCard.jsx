@@ -34,6 +34,7 @@ export default function ConnectCard({
       <img
         src={image}
         alt={alt}
+        loading="lazy"
         className={`w-[330px] h-[330px] lg:w-[22vw] lg:h-[22vw] 2xl:w-[23.5vw] 2xl:h-[23.5vw] object-cover transition-transform duration-300 ${isActive ? 'scale-110' : 'group-hover:scale-110'}`}
       />
       <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 px-6 ${isActive ? 'opacity-0' : 'opacity-100 group-hover:opacity-0'}`}>

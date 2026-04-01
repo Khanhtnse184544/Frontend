@@ -1,32 +1,39 @@
+import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import AboutUs from "./pages/AboutUs";
-import OurFund from "./pages/OurFund";
-import Sponsor from "./pages/Sponsor";
-import BecomeSponsor from "./pages/BecomeSponsor";
-import ForSchoolEducation from "./pages/ForSchoolEducation";
-import OurPartner from "./pages/OurPartner";
-import Community from "./pages/Community";
-import PostDetail from "./pages/PostDetail";
-import ForestDetail from "./pages/ForestDetail";
-import News from "./pages/News";
-import OurProject from "./pages/OurProject";
-import OurGame from "./pages/OurGame";
-import TermsOfService from "./pages/TermsOfService";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import AuthWrapper from "./features/auth/AuthWrapper";
-import AdminDashboard from "./admin/pages/AdminDashboard";
-import UserManagement from "./admin/pages/UserManagement";
-import CSRManagement from "./admin/pages/CSRManagement";
-import FinancialReports from "./admin/pages/FinancialReports";
-import CustomerSupport from "./admin/pages/CustomerSupport";
-import Logs from "./admin/pages/Logs";
-import MessageDetail from "./admin/pages/MessageDetail";
+
+const HomePage = lazy(() => import("./pages/HomePage"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
+const OurFund = lazy(() => import("./pages/OurFund"));
+const Sponsor = lazy(() => import("./pages/Sponsor"));
+const BecomeSponsor = lazy(() => import("./pages/BecomeSponsor"));
+const ForSchoolEducation = lazy(() => import("./pages/ForSchoolEducation"));
+const OurPartner = lazy(() => import("./pages/OurPartner"));
+const Community = lazy(() => import("./pages/Community"));
+const PostDetail = lazy(() => import("./pages/PostDetail"));
+const ForestDetail = lazy(() => import("./pages/ForestDetail"));
+const News = lazy(() => import("./pages/News"));
+const OurProject = lazy(() => import("./pages/OurProject"));
+const OurGame = lazy(() => import("./pages/OurGame"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const AuthWrapper = lazy(() => import("./features/auth/AuthWrapper"));
+const AdminDashboard = lazy(() => import("./admin/pages/AdminDashboard"));
+const UserManagement = lazy(() => import("./admin/pages/UserManagement"));
+const CSRManagement = lazy(() => import("./admin/pages/CSRManagement"));
+const FinancialReports = lazy(() => import("./admin/pages/FinancialReports"));
+const CustomerSupport = lazy(() => import("./admin/pages/CustomerSupport"));
+const Logs = lazy(() => import("./admin/pages/Logs"));
+const MessageDetail = lazy(() => import("./admin/pages/MessageDetail"));
 // removed Pally font import; Montserrat is now global via src/index.css
 
 function App() {
   return (
-    <Routes>
+    <Suspense fallback={
+      <div className="flex h-screen w-full items-center justify-center bg-white">
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-gray-300 border-t-[#d68c45]"></div>
+      </div>
+    }>
+      <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/our-fund" element={<OurFund />} />
@@ -62,6 +69,7 @@ function App() {
       <Route path="/admin/message/:type/:id" element={<MessageDetail />} />
       <Route path="/admin/logs" element={<Logs />} />
     </Routes>
+    </Suspense>
   );
 }
 

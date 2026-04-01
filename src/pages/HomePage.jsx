@@ -318,6 +318,7 @@ export default function HomePage() {
                 <img
                   src={aboutUs}
                   alt="ABOUT US"
+                  loading="lazy"
                   className="w-[80vw] lg:w-[40vw] 2xl:w-[45vw] mx-auto h-auto"
                 />
               </div>
@@ -335,6 +336,7 @@ export default function HomePage() {
                   <img
                     src={shining}
                     alt="shining"
+                    loading="lazy"
                     className="w-5 h-5 lg:w-6 lg:h-6 2xl:w-[1.6vw] 2xl:h-[1.6vw]"
                   />
                   <span className="read-more-text text-base lg:text-lg 2xl:text-2xl">
@@ -422,6 +424,7 @@ export default function HomePage() {
                 <motion.img
                   key={`${item.originalIndex}-${i}`}
                   src={item.image}
+                  loading="lazy"
                   alt={`Gallery ${item.originalIndex + 1}`}
                   onClick={() => handleImageClick(item.originalIndex)}
                   className={`cursor-pointer w-[250px] lg:w-[16.5vw] 2xl:w-[16vw] h-[350px] lg:h-[23vw] 2xl:h-[22.5vw] object-cover rounded-2xl border-2 shadow-lg transition-all duration-300 flex-shrink-0 ${
@@ -508,6 +511,7 @@ export default function HomePage() {
           <img
             src={sentUsALeaf}
             alt="Send Us A Leaf Background"
+            loading="lazy"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/50"></div>
