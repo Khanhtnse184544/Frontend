@@ -1,268 +1,292 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import AdminLayout from '../components/AdminLayout';
-import { 
-  FaUsers, 
-  FaHandshake, 
-  FaGraduationCap, 
-  FaChartLine,
-  FaArrowUp,
-  FaArrowDown,
-  FaDownload,
-  FaChartPie
-} from 'react-icons/fa';
+import { Chart, registerables } from 'chart.js';
+import api from '../../utils/api';
+import { FaUsers, FaHandshake, FaChartLine, FaArrowUp, FaArrowDown, FaCalendarAlt } from 'react-icons/fa';
+
+// Đăng ký các components của Chart.js
+Chart.register(...registerables);
+
+// Format currency helper function
+const formatCurrency = (amount) => {
+  return new Intl.NumberFormat('vi-VN').format(amount) + ' vnđ';
+};
 
 export default function AdminDashboard() {
-  return (
-    <AdminLayout>
-      <div className="space-y-6 px-5">
-        {/* Page Title */}
-        <h1 className="text-5xl font-bold " >Dashboard</h1>
+  const [dashboardData, setDashboardData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [fromDate, setFromDate] = useState('');
+  const [toDate, setToDate] = useState('');
+  const chartRef = useRef(null);
+  const chartInstanceRef = useRef(null);
 
-        {/* Key Metrics Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-          {/* Users Card */}
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-2xl font-bold text-[#797979]" >Users</p>
-                <p className="text-2xl font-bold " >1.211</p>
-                <div className="flex items-center mt-2">
-                  <FaArrowUp className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-xs text-green-500 font-medium mr-1 " >+5.5% </span>
-                  <span className="text-xs font-medium" > since last week</span>
-                </div>
-              </div>
-               <div className="w-12 h-12 flex items-start justify-center">
-                 <FaUsers className="w-12 h-12 " />
-               </div>
+  // Hàm để gọi API lấy dữ liệu dashboard
+  const fetchDashboardData = async (from = null, to = null) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const params = {};
+      // Format date để backend nhận diện đúng (ISO 8601 format)
+      if (from) {
+        // Nếu chỉ có date (YYYY-MM-DD), thêm time để đảm bảo timezone đúng
+        params.fromDate = from.includes('T') ? from : `${from}T00:00:00Z`;
+      }
+      if (to) {
+        params.toDate = to.includes('T') ? to : `${to}T23:59:59Z`;
+      }
+
+      const response = await api.get('/api/dashboard', { params });
+      setDashboardData(response.data);
+    } catch (err) {
+      setError('Failed to fetch dashboard data');
+      console.error('Error fetching dashboard data:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Load dữ liệu lần đầu (mặc định 7 ngày gần nhất)
+  useEffect(() => {
+    fetchDashboardData();
+  }, []);
+
+  // Vẽ biểu đồ khi có dữ liệu
+  useEffect(() => {
+    // Sau khi backend trả về camelCase, chỉ cần dùng camelCase
+    const chartData = dashboardData?.revenueChart;
+    if (!chartData || !chartRef.current) return;
+
+    // Xóa chart cũ nếu có
+    if (chartInstanceRef.current) {
+      chartInstanceRef.current.destroy();
+    }
+
+    const ctx = chartRef.current.getContext('2d');
+    const chartDataConfig = {
+      labels: chartData.map(point => point.label),
+      datasets: [{
+        label: 'Doanh thu',
+        data: chartData.map(point => point.value),
+        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'rgba(75, 192, 192, 0.1)',
+        borderWidth: 2,
+        fill: true,
+        tension: 0.4
+      }],
+    };
+
+    const chartOptions = {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return 'Doanh thu: ' + formatCurrency(context.parsed.y);
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: function(value) {
+              if (value >= 1000000) {
+                return (value / 1000000).toFixed(1) + 'M';
+              } else if (value >= 1000) {
+                return (value / 1000).toFixed(1) + 'K';
+              }
+              return value;
+            }
+          }
+        }
+      }
+    };
+
+    chartInstanceRef.current = new Chart(ctx, {
+      type: 'line',
+      data: chartDataConfig,
+      options: chartOptions,
+    });
+
+    // Cleanup function
+    return () => {
+      if (chartInstanceRef.current) {
+        chartInstanceRef.current.destroy();
+      }
+    };
+  }, [dashboardData]);
+
+  // Xử lý filter theo ngày
+  const handleFilter = () => {
+    // Nếu có ít nhất một ngày thì gọi API với params
+    if (fromDate || toDate) {
+      fetchDashboardData(fromDate || null, toDate || null);
+    } else {
+      // Nếu không có ngày nào, reset về mặc định (7 ngày gần nhất)
+      fetchDashboardData();
+    }
+  };
+
+  // Reset filter
+  const handleResetFilter = () => {
+    setFromDate('');
+    setToDate('');
+    fetchDashboardData();
+  };
+
+  // Component hiển thị Metric Card
+  const MetricCard = ({ title, value, previousValue, growthPercent, icon: Icon, formatValue = (v) => v }) => {
+    const isPositive = growthPercent >= 0;
+    
+    return (
+      <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+        <div className="flex items-center justify-between">
+          <div className="flex-1">
+            <p className="text-sm font-medium text-[#797979] mb-1">{title}</p>
+            <p className="text-2xl font-bold text-black mb-2">
+              {formatValue(value)}
+            </p>
+            <div className={`flex items-center gap-1 text-sm ${isPositive ? 'text-green-600' : 'text-red-600'}`}>
+              {isPositive ? (
+                <FaArrowUp className="w-3 h-3" />
+              ) : (
+                <FaArrowDown className="w-3 h-3" />
+              )}
+              <span className="font-medium">
+                {Math.abs(growthPercent).toFixed(2)}%
+              </span>
+              <span className="text-gray-500 text-xs ml-1">vs kỳ trước</span>
             </div>
           </div>
-
-          {/* CSR Card */}
-
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-2xl font-bold text-[#797979]" >CSR</p>
-                <p className="text-2xl font-bold " >904</p>
-                <div className="flex items-center mt-2">
-                  <FaArrowDown className="w-4 h-4 text-red-500 mr-1" />
-                  <span className="text-xs text-red-500 font-medium mr-1 " >-0.1% </span>
-                  <span className="text-xs font-medium" > since last week</span>
-                </div>
-              </div>
-               <div className="w-12 h-12 flex items-start justify-center">
-                 <FaHandshake className="w-12 h-12 " />
-               </div>
-            </div>
-          </div>
-
-         
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-2xl font-bold text-[#797979]" >Education</p>
-                <p className="text-2xl font-bold " >1040</p>
-                <div className="flex items-center mt-2">
-                  <FaArrowUp className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-xs text-green-500 font-medium mr-1 " >+6.9%  </span>
-                  <span className="text-xs font-medium" > since last week</span>
-                </div>
-              </div>
-               <div className="w-12 h-12 flex items-start justify-center">
-                 <FaGraduationCap className="w-12 h-12 " />
-               </div>
-            </div>
-          </div>
-
-          {/* Gross Profit Card */}
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-2xl font-bold text-[#797979]" >Gross profit</p>
-                <p className="text-2xl font-bold " >1.090.041.259</p>
-                <div className="flex items-center mt-2">
-                  <FaArrowUp className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-xs text-green-500 font-medium mr-1 " >+12% </span>
-                  <span className="text-xs font-medium" > since last week</span>
-                </div>
-              </div>
-               <div className="w-12 h-12 flex items-start justify-center">
-                 <FaChartLine className="w-8 h-8 " />
-               </div>
-            </div>
-          </div>
-          </div>
-
-        {/* Analytics Section */}        
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-          {/* Game Invoice Card */}
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200 col-span-2 h-80 ">
-            <h3 className="text-2xl font-bold text-[#797979] mb-6" >Game Invoice</h3>
-            <div className="flex items-center justify-between">
-              {/* Donut Chart */}
-              <div className="w-50 h-50 relative">
-                <svg className="w-50 h-50 transform -rotate-90" viewBox="0 0 100 100">
-                  {/* Background circle */}
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="40"
-                    fill="none"
-                    stroke="#f3f4f6"
-                    strokeWidth="13"
-                  />
-                  {/* Black segment - Whales (31%) */}
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="40"
-                    fill="none"
-                    stroke="#000000"
-                    strokeWidth="13"
-                    strokeDasharray="77.87 251.2"
-                    strokeDashoffset="0"
-                    strokeLinecap="round"
-                  />
-                  {/* Orange segment - Total Paid (45%) */}
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="40"
-                    fill="none"
-                    stroke="#f97316"
-                    strokeWidth="13"
-                    strokeDasharray="113.04 251.2"
-                    strokeDashoffset="-77.87"
-                    strokeLinecap="round"
-                  />
-                  {/* Light grey segment - Total Unpaid (24%) */}
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="40"
-                    fill="none"
-                    stroke="#d1d5db"
-                    strokeWidth="13"
-                    strokeDasharray="60.29 251.2"
-                    strokeDashoffset="-190.91"
-                    strokeLinecap="round"
-                  />
-                </svg>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-xl font-bold " >1054</div>
-                    <div className="text-md text-[#797979]" >Players</div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Statistics */}
-              <div className="space-y-4 ml-6">
-                <div>
-                <div className="flex items-center">
-                <div className="text-md font-bold text-[#797979]" >Whales</div>
-
-                <br />
-                <div>
-                    <span className="w-4 h-4 bg-black rounded-full mr-3"></span>
-                    <span className="text-md font-bold text-[#797979] ml-2" >327</span>
-                  </div>
-                </div>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-4 h-4 bg-orange-500 rounded-full mr-3"></div>
-                  <div>
-                    <span className="text-md font-bold text-[#797979]" >Total Paid</span>
-                    <span className="text-md font-bold text-[#797979] ml-2" >474</span>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-4 h-4 bg-gray-300 rounded-full mr-3"></div>
-                  <div>
-                    <span className="text-md font-bold text-[#797979]" >Total Unpaid</span>
-                    <span className="text-md font-bold text-[#797979] ml-2" >253</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Income Analytics Card */}
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200 lg:col-span-3 h-80">
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-2xl font-bold text-[#797979]" >Income Analytics</h3>
-              <button className="flex items-center px-4 py-2 text-xs font-medium text-[#797979] bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" >
-                <FaDownload className="w-4 h-4 mr-2" />
-                Export
-              </button>
-            </div>
-            
-            {/* Line Chart */}
-            <div className="h-80 relative">
-              <svg className="w-full h-full" viewBox="0 0 800 300">
-                {/* Grid lines */}
-                <defs>
-                  <pattern id="grid" width="40" height="30" patternUnits="userSpaceOnUse">
-                    <path d="M 40 0 L 0 0 0 30" fill="none" stroke="#f3f4f6" strokeWidth="1"/>
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid)" />
-                
-                {/* Y-axis labels */}
-                <text x="20" y="20" textAnchor="middle" className="text-xs fill-gray-500" >10K</text>
-                <text x="20" y="60" textAnchor="middle" className="text-xs fill-gray-500" >8K</text>
-                <text x="20" y="100" textAnchor="middle" className="text-xs fill-gray-500" >6K</text>
-                <text x="20" y="140" textAnchor="middle" className="text-xs fill-gray-500" >4K</text>
-                <text x="20" y="180" textAnchor="middle" className="text-xs fill-gray-500" >2K</text>
-                <text x="20" y="220" textAnchor="middle" className="text-xs fill-gray-500" >0</text>
-                
-                {/* X-axis labels */}
-                <text x="120" y="250" textAnchor="middle" className="text-xs fill-gray-500" >Mon 15</text>
-                <text x="200" y="250" textAnchor="middle" className="text-xs fill-gray-500" >Tue 16</text>
-                <text x="280" y="250" textAnchor="middle" className="text-xs fill-gray-500" >Wed 17</text>
-                <text x="360" y="250" textAnchor="middle" className="text-xs fill-gray-500" >Thu 18</text>
-                <text x="440" y="250" textAnchor="middle" className="text-xs fill-gray-500" >Fri 19</text>
-                <text x="520" y="250" textAnchor="middle" className="text-xs fill-gray-500" >Sat 20</text>
-                <text x="600" y="250" textAnchor="middle" className="text-xs fill-gray-500" >Sun 21</text>
-                
-                {/* Data points */}
-                <circle cx="120" cy="80" r="4" fill="#f97316" />
-                <circle cx="200" cy="120" r="4" fill="#f97316" />
-                <circle cx="280" cy="100" r="4" fill="#f97316" />
-                <circle cx="360" cy="140" r="4" fill="#f97316" />
-                <circle cx="440" cy="90" r="4" fill="#f97316" />
-                <circle cx="520" cy="110" r="4" fill="#f97316" />
-                <circle cx="600" cy="70" r="4" fill="#f97316" />
-                
-                {/* Line connecting points */}
-                <path 
-                  d="M 120,80 L 200,120 L 280,100 L 360,140 L 440,90 L 520,110 L 600,70" 
-                  fill="none" 
-                  stroke="#f97316" 
-                  strokeWidth="3" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                />
-                
-                {/* Area under the curve */}
-                <path 
-                  d="M 120,80 L 200,120 L 280,100 L 360,140 L 440,90 L 520,110 L 600,70 L 600,220 L 120,220 Z" 
-                  fill="url(#gradient)" 
-                  opacity="0.1"
-                />
-                
-                {/* Gradient definition */}
-                <defs>
-                  <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#f97316" />
-                    <stop offset="100%" stopColor="#f97316" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
+          <div className="ml-4">
+            <Icon className="w-12 h-12 text-gray-400" />
           </div>
         </div>
+      </div>
+    );
+  };
+
+  return (
+    <AdminLayout>
+      <div className="space-y-6">
+        {/* Page Title */}
+        <h1 className="text-5xl font-bold">
+          Dashboard
+        </h1>
+
+        {/* Date Filter Section */}
+        <div className="bg-white rounded-lg shadow-sm p-4 border border-gray-200">
+          <div className="flex items-center gap-4 flex-wrap">
+            <div className="flex items-center gap-2">
+              <FaCalendarAlt className="w-4 h-4 text-gray-600" />
+              <span className="text-sm font-medium text-gray-700">Lọc theo ngày:</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <label className="text-sm text-gray-600">Từ ngày:</label>
+              <input
+                type="date"
+                value={fromDate}
+                onChange={(e) => setFromDate(e.target.value)}
+                className="px-3 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              />
+            </div>
+            <div className="flex items-center gap-2">
+              <label className="text-sm text-gray-600">Đến ngày:</label>
+              <input
+                type="date"
+                value={toDate}
+                onChange={(e) => setToDate(e.target.value)}
+                className="px-3 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              />
+            </div>
+            <button
+              onClick={handleFilter}
+              className="bg-[#2C2C2C] text-white px-4 py-1 rounded-lg text-sm hover:text-[#2C2C2C] hover:bg-white hover:border-[#2C2C2C] hover:border transition-colors"
+            >
+              Áp dụng
+            </button>
+            {(fromDate || toDate) && (
+              <button
+                onClick={handleResetFilter}
+                className="bg-gray-200 text-gray-700 px-4 py-1 rounded-lg text-sm hover:bg-gray-300 transition-colors"
+              >
+                Reset
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Loading State */}
+        {loading && (
+          <div className="text-center py-8">
+            <p className="text-gray-500">
+              Đang tải dữ liệu...
+            </p>
+          </div>
+        )}
+
+        {/* Error State */}
+        {error && (
+          <div className="text-center py-8">
+            <p className="text-red-500 mb-4">
+              {error}
+            </p>
+            <button
+              onClick={() => fetchDashboardData(fromDate || null, toDate || null)}
+              className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              Thử lại
+            </button>
+          </div>
+        )}
+
+        {/* Dashboard Content */}
+        {!loading && !error && dashboardData && (
+          <>
+            {/* Metric Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <MetricCard
+                title="Tổng doanh thu"
+                value={dashboardData.totalRevenue?.value || 0}
+                previousValue={dashboardData.totalRevenue?.previousValue || 0}
+                growthPercent={dashboardData.totalRevenue?.growthPercent || 0}
+                icon={FaChartLine}
+                formatValue={formatCurrency}
+              />
+              <MetricCard
+                title="Người dùng mới"
+                value={dashboardData.newUsers?.value || 0}
+                previousValue={dashboardData.newUsers?.previousValue || 0}
+                growthPercent={dashboardData.newUsers?.growthPercent || 0}
+                icon={FaUsers}
+              />
+              <MetricCard
+                title="Phản hồi đã xử lý"
+                value={dashboardData.processedContacts?.value || 0}
+                previousValue={dashboardData.processedContacts?.previousValue || 0}
+                growthPercent={dashboardData.processedContacts?.growthPercent || 0}
+                icon={FaHandshake}
+              />
+            </div>
+
+            {/* Revenue Chart */}
+            <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+              <h2 className="text-2xl font-bold text-black mb-4">
+                Biểu đồ doanh thu
+              </h2>
+              <div className="h-80">
+                <canvas ref={chartRef}></canvas>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </AdminLayout>
   );

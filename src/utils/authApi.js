@@ -3,8 +3,8 @@ import axios from 'axios';
 // API instance riêng cho EcoIdentity (Auth Service)
 const authApi = axios.create({
   baseURL: process.env.NODE_ENV === 'development'
-    ? 'http://localhost:5236'  // EcoIdentity API port
-    : 'https://your-auth-api-production-url.com',
+    ? 'https://localhost:7218'  // EcoIdentity API port
+    : 'https://ecoidentity.onrender.com',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
