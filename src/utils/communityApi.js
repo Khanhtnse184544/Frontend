@@ -64,3 +64,22 @@ export const createComment = async (commentData) => {
   return response.data;
 };
 
+// POST: Upload file (Ảnh/Video)
+export const uploadMedia = async (file) => {
+  const formData = new FormData();
+  formData.append('file', file); // 'file' phải khớp với tên tham số IFormFile trong Controller
+  
+  // Kiểm tra loại file để gọi đúng Endpoint (image hoặc video) của Backend
+  const isVideo = file.type.startsWith('video/');
+  const endpoint = isVideo ? '/api/media/video' : '/api/media/image';
+
+  const response = await api.post(endpoint, formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+  
+  // Backend của bạn đang trả về: return Ok(new { url = ..., publicId = ... })
+  // Nên ta chỉ cần lấy trường url
+  return response.data.url; 
+};

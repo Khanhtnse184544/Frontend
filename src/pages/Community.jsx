@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
@@ -23,12 +23,16 @@ import {
   FaListOl,
   FaQuoteLeft,
   FaLink,
+  FaTimes,
+  FaSignInAlt
 } from "react-icons/fa";
 import {
   getPosts,
   createPost,
   toggleLikePost,
   getTrendingHashtags,
+  uploadMedia,
+  searchHashtags
 } from "../utils/communityApi";
 import { getEvents, joinEvent } from "../utils/eventApi";
 import { useAuth } from "../contexts/AuthContext";
@@ -74,6 +78,11 @@ export default function Community() {
   const [hashtagInput, setHashtagInput] = useState("");
   const [pageIndex, setPageIndex] = useState(1);
   const [hasMorePosts, setHasMorePosts] = useState(true);
+  const fileInputRef = useRef(null);
+  const [selectedImages, setSelectedImages] = useState([]);
+  const [hashtagSuggestions, setHashtagSuggestions] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [showAuthPopup, setShowAuthPopup] = useState(false);
 
   const sampleEvents = [
     {
@@ -283,6 +292,62 @@ export default function Community() {
     }
   }, [selectedHashtag]);
 
+  // --- Kiểm tra đăng nhập trước khi mở form tạo bài ---
+  const handleOpenCreatePost = () => {
+    if (!isAuthenticated) {
+      setShowAuthPopup(true); // Mở popup xám nhắc nhở
+    } else {
+      setShowCreatePostModal(true); // Mở modal tạo bài
+    }
+  };
+
+  // --- Hàm xử lý Hashtag có gọi API gợi ý ---
+  const handleHashtagChange = async (e) => {
+    const val = e.target.value;
+    
+    // Nếu gõ phím cách hoặc phẩy thì tự Add luôn
+    if (val.includes(' ') || val.includes(',')) {
+      addHashtag(val.replace(/[\s,]/g, ''));
+      setShowSuggestions(false);
+    } else {
+      setHashtagInput(val);
+      // Gọi API tìm hashtag nếu gõ text
+      const cleanVal = val.replace("#", "").trim();
+      if (cleanVal.length > 0) {
+        try {
+          const suggestions = await searchHashtags(cleanVal);
+          setHashtagSuggestions(suggestions);
+          setShowSuggestions(true);
+        } catch (err) { console.error(err); }
+      } else {
+        setShowSuggestions(false);
+      }
+    }
+  };
+
+  // --- XỬ LÝ ẢNH & VIDEO ---
+  const handleImageSelect = (e) => {
+    const files = Array.from(e.target.files);
+    const newImages = files.map(file => ({
+      file,
+      preview: URL.createObjectURL(file),
+      isVideo: file.type.startsWith('video/')
+    }));
+    
+    // Giới hạn tối đa 4 file đính kèm
+    setSelectedImages(prev => [...prev, ...newImages].slice(0, 4));
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  };
+
+  const removeSelectedImage = (indexToRemove) => {
+    setSelectedImages(prev => {
+      const newImages = [...prev];
+      URL.revokeObjectURL(newImages[indexToRemove].preview);
+      newImages.splice(indexToRemove, 1);
+      return newImages;
+    });
+  };
+
   const handleCreatePostModal = async () => {
     if (!isAuthenticated) {
       setError("Vui lòng đăng nhập để tạo bài viết");
@@ -293,25 +358,35 @@ export default function Community() {
     if (postTitle.trim() && postContent.trim()) {
       try {
         setLoading(true);
+        let uploadedMediaUrls = [];
+
+        // 1. Upload file lên Cloudinary trước qua Backend
+        if (selectedImages.length > 0) {
+          const uploadPromises = selectedImages.map(img => uploadMedia(img.file));
+          uploadedMediaUrls = await Promise.all(uploadPromises); // Mảng các URL trả về từ Cloudinary
+        }
+
+        // 2. Format Hashtag
         const hashtags = postHashtags.map((tag) =>
-          tag.startsWith("#") ? tag : `#${tag}`,
+          tag.startsWith("#") ? tag : `#${tag}`
         );
 
+        // 3. Gửi data tạo bài viết
         await createPost({
           title: postTitle.trim(),
           content: postContent.trim(),
           hashtags: hashtags,
-          mediaUrls: [],
-          thumbnailUrl: null,
+          mediaUrls: uploadedMediaUrls,
+          thumbnailUrl: uploadedMediaUrls.length > 0 ? uploadedMediaUrls[0] : null,
         });
 
-        // Reload posts after creating
+        // 4. Reset form
         await loadPosts(selectedHashtag, true);
-
         setPostTitle("");
         setPostContent("");
         setPostHashtags([]);
         setHashtagInput("");
+        setSelectedImages([]); // Reset file đính kèm
         setShowCreatePostModal(false);
         setError(null);
       } catch (err) {
@@ -622,13 +697,12 @@ export default function Community() {
                   value={newPost}
                   onChange={(e) => setNewPost(e.target.value)}
                   className="flex-1 bg-[#636363] text-white placeholder-gray-400 px-4 py-3 rounded-lg border border-gray-600 focus:border-[#D68C45] focus:outline-none"
-                  onFocus={() => setShowCreatePost(true)}
-                  onClick={openCreatePostModal}
+                  onClick={handleOpenCreatePost}
                   readOnly
                 />
               </div>
               <button
-                onClick={openCreatePostModal}
+                onClick={handleOpenCreatePost}
                 className="bg-[#D68C45] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#B87A3A] transition-colors duration-300 w-full lg:w-auto"
               >
                 Tạo Bài Viết
@@ -745,10 +819,48 @@ export default function Community() {
         </div>
       </section>
 
+      {/* --- POPUP YÊU CẦU ĐĂNG NHẬP --- */}
+      {showAuthPopup && (
+        <div className="fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4 backdrop-blur-sm">
+          <div className="bg-[#313131] rounded-3xl w-[90vw] max-w-md p-8 shadow-2xl border border-gray-700 text-center relative transform transition-all scale-100">
+            <button onClick={() => setShowAuthPopup(false)} className="absolute top-4 right-4 text-gray-400 hover:text-white p-2">
+              <FaTimes className="w-5 h-5" />
+            </button>
+            <div className="w-20 h-20 bg-[#D68C45]/20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_15px_rgba(214,140,69,0.3)]">
+              <FaSignInAlt className="w-8 h-8 text-[#D68C45] ml-1" />
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-3">Đăng Nhập Bắt Buộc</h3>
+            <p className="text-gray-300 mb-8 leading-relaxed">
+              Bạn cần phải đăng nhập để tham gia thảo luận, tạo bài viết và chia sẻ cùng cộng đồng E.C.O.
+            </p>
+            <div className="flex flex-col gap-3">
+              <button
+                onClick={() => navigate('/login')}
+                className="w-full py-3.5 bg-[#D68C45] text-white rounded-xl font-bold text-lg hover:bg-[#B87A3A] transition-all shadow-lg hover:shadow-[#D68C45]/50"
+              >
+                Đăng nhập ngay
+              </button>
+              <button
+                onClick={() => setShowAuthPopup(false)}
+                className="w-full py-3.5 bg-transparent border-2 border-gray-600 text-gray-300 rounded-xl font-semibold hover:border-gray-400 hover:text-white transition-all"
+              >
+                Để sau
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+
+      {/* --- MODAL TẠO BÀI VIẾT (ĐÃ FIX LAYOUT + HASHTAG SUGGESTION) --- */}
       {showCreatePostModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-[#313131] rounded-2xl w-[95vw] md:w-[80vw] overflow-y-auto">
-            <div className="flex items-center justify-between p-6 border-b border-gray-700">
+          
+          {/* SỬA: Đổi overflow-y-auto thành flex flex-col max-h-[90vh] overflow-hidden */}
+          <div className="bg-[#313131] rounded-2xl w-[95vw] md:w-[80vw] flex flex-col max-h-[90vh] overflow-hidden">
+            
+            {/* Header - Cố định (flex-shrink-0) */}
+            <div className="flex-shrink-0 flex items-center justify-between p-6 border-b border-gray-700">
               <h2 className="text-2xl lg:text-3xl font-bold text-white">
                 Tạo Bài Viết
               </h2>
@@ -760,95 +872,165 @@ export default function Community() {
               </button>
             </div>
 
-            <div className="p-6 border-b border-gray-700">
-              <div className="flex items-center space-x-4">
-                <img
-                  src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100"
-                  alt="User Avatar"
-                  className="w-12 h-12 lg:w-16 lg:h-16 rounded-full"
-                />
-              </div>
-            </div>
-
-            <div className="p-6">
-              <div className="mb-6">
-                <input
-                  type="text"
-                  placeholder="Tiêu đề bài viết..."
-                  value={postTitle}
-                  onChange={(e) => setPostTitle(e.target.value)}
-                  className="w-full bg-transparent text-white placeholder-gray-400 px-0 py-3 text-xl lg:text-2xl font-semibold border-none focus:outline-none"
-                />
-              </div>
-
-              <div className="mb-6">
-                <textarea
-                  placeholder="Chia sẻ những gì bạn đang nghĩ..."
-                  value={postContent}
-                  onChange={(e) => setPostContent(e.target.value)}
-                  className="w-full bg-transparent text-white placeholder-gray-400 px-0 py-3 text-base lg:text-lg border-none focus:outline-none resize-none min-h-[120px]"
-                  rows={4}
-                />
-              </div>
-
-              {/* Hashtags display */}
-              {postHashtags.length > 0 && (
-                <div className="mb-4 flex flex-wrap gap-2">
-                  {postHashtags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 bg-[#636363] text-gray-300 rounded-full text-sm flex items-center gap-2"
-                    >
-                      #{tag}
-                      <button
-                        onClick={() => removeHashtag(tag)}
-                        className="hover:text-white"
-                      >
-                        ×
-                      </button>
-                    </span>
-                  ))}
+            {/* Body - Cho phép cuộn (flex-1 overflow-y-auto) */}
+            <div className="flex-1 overflow-y-auto">
+              <div className="p-6 border-b border-gray-700">
+                <div className="flex items-center space-x-4">
+                  <img
+                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100"
+                    alt="User Avatar"
+                    className="w-12 h-12 lg:w-16 lg:h-16 rounded-full"
+                  />
                 </div>
-              )}
+              </div>
 
-              <div className="border-t border-gray-700 pt-4">
-                <p className="text-gray-400 text-sm mb-4">
-                  Thêm vào bài viết của bạn
-                </p>
-                <div className="flex items-center gap-4 overflow-x-auto whitespace-nowrap pb-2">
-                  <button className="flex-shrink-0 flex items-center space-x-2 px-4 py-2 bg-[#636363] text-gray-300 rounded-lg hover:bg-gray-600 transition-colors">
-                    <FaImage className="w-4 h-4 text-[#D68C45]" />
-                    <span className="text-sm">Ảnh/Video</span>
-                  </button>
-                  <button className="flex-shrink-0 flex items-center space-x-2 px-4 py-2 bg-[#636363] text-gray-300 rounded-lg hover:bg-gray-600 transition-colors">
-                    <FaUsers className="w-4 h-4 text-[#D68C45]" />
-                    <span className="text-sm">Gắn thẻ</span>
-                  </button>
-                  <button className="flex-shrink-0 flex items-center space-x-2 px-4 py-2 bg-[#636363] text-gray-300 rounded-lg hover:bg-gray-600 transition-colors">
-                    <FaMapMarkerAlt className="w-4 h-4 text-[#D68C45]" />
-                    <span className="text-sm">Vị trí</span>
-                  </button>
-                  <div className="flex-shrink-0 flex items-center space-x-2 px-4 py-2 bg-[#636363] text-gray-300 rounded-lg">
-                    <FaHashtag className="w-4 h-4 text-[#D68C45]" />
-                    <input
-                      type="text"
-                      placeholder="Thêm hashtag"
-                      value={hashtagInput}
-                      onChange={(e) => setHashtagInput(e.target.value)}
-                      onKeyPress={(e) => {
-                        if (e.key === "Enter") {
-                          e.preventDefault();
-                          addHashtag();
-                        }
-                      }}
-                      className="bg-transparent text-white placeholder-gray-400 text-sm border-none focus:outline-none w-24"
-                    />
+              <div className="p-6">
+                <div className="mb-6">
+                  <input
+                    type="text"
+                    placeholder="Tiêu đề bài viết..."
+                    value={postTitle}
+                    onChange={(e) => setPostTitle(e.target.value)}
+                    className="w-full bg-transparent text-white placeholder-gray-400 px-0 py-3 text-xl lg:text-2xl font-semibold border-none focus:outline-none"
+                  />
+                </div>
+
+                <div className="mb-6">
+                  <textarea
+                    placeholder="Chia sẻ những gì bạn đang nghĩ..."
+                    value={postContent}
+                    onChange={(e) => setPostContent(e.target.value)}
+                    className="w-full bg-transparent text-white placeholder-gray-400 px-0 py-3 text-base lg:text-lg border-none focus:outline-none resize-none min-h-[120px]"
+                    rows={4}
+                  />
+                </div>
+
+                {/* --- Khu vực Preview Ảnh/Video đã chọn --- */}
+                {selectedImages.length > 0 && (
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4 mt-2">
+                    {selectedImages.map((img, index) => (
+                      <div key={index} className="relative group rounded-lg overflow-hidden border border-gray-600 bg-black">
+                        {img.isVideo ? (
+                          <video src={img.preview} className="w-full h-24 object-cover" />
+                        ) : (
+                          <img src={img.preview} alt="Preview" className="w-full h-24 object-cover" />
+                        )}
+                        
+                        <button
+                          onClick={() => removeSelectedImage(index)}
+                          className="absolute top-1 right-1 bg-black bg-opacity-70 text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-500"
+                        >
+                          <FaTimes className="w-3 h-3" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Hashtags display */}
+                {postHashtags.length > 0 && (
+                  <div className="mb-4 flex flex-wrap gap-2">
+                    {postHashtags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 bg-[#636363] text-gray-300 rounded-full text-sm flex items-center gap-2"
+                      >
+                        #{tag}
+                        <button
+                          onClick={() => removeHashtag(tag)}
+                          className="hover:text-white"
+                        >
+                          ×
+                        </button>
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <div className="border-t border-gray-700 pt-4">
+                  <p className="text-gray-400 text-sm mb-4">
+                    Thêm vào bài viết của bạn
+                  </p>
+
+                  {/* Input file ẩn */}
+                  <input 
+                    type="file" 
+                    ref={fileInputRef} 
+                    onChange={handleImageSelect} 
+                    accept="image/jpeg, image/png, image/gif, image/webp, video/mp4, video/quicktime, video/x-msvideo, video/webm" 
+                    multiple 
+                    className="hidden" 
+                  />
+
+                  <div className="flex flex-wrap items-center gap-4 pb-2 relative">
+                    <button 
+                      onClick={() => fileInputRef.current.click()}
+                      className="flex-shrink-0 flex items-center space-x-2 px-4 py-2 bg-[#636363] text-gray-300 rounded-lg hover:bg-gray-600 transition-colors">
+                      <FaImage className="w-4 h-4 text-[#D68C45]" />
+                      <span className="text-sm">Ảnh/Video</span>
+                    </button>
+                    
+                    <button className="flex-shrink-0 flex items-center space-x-2 px-4 py-2 bg-[#636363] text-gray-300 rounded-lg hover:bg-gray-600 transition-colors">
+                      <FaUsers className="w-4 h-4 text-[#D68C45]" />
+                      <span className="text-sm">Gắn thẻ</span>
+                    </button>
+
+                    <button className="flex-shrink-0 flex items-center space-x-2 px-4 py-2 bg-[#636363] text-gray-300 rounded-lg hover:bg-gray-600 transition-colors">
+                      <FaMapMarkerAlt className="w-4 h-4 text-[#D68C45]" />
+                      <span className="text-sm">Vị trí</span>
+                    </button>
+
+                    {/* SỬA: Gói ô input hashtag vào thẻ relative để popup dính liền với nó */}
+                    <div className="flex-shrink-0 flex items-center space-x-2 relative">
+                      <div className="flex items-center space-x-2 px-4 py-2 bg-[#636363] text-gray-300 rounded-lg">
+                        <FaHashtag className="w-4 h-4 text-[#D68C45]" />
+                        <input
+                          type="text"
+                          placeholder="Thêm hashtag"
+                          value={hashtagInput}
+                          onChange={handleHashtagChange} /* Đã dùng hàm handleHashtagChange ngắn gọn */
+                          onBlur={() => { 
+                            setTimeout(() => setShowSuggestions(false), 200); 
+                            addHashtag(); 
+                          }}
+                          onKeyPress={(e) => { 
+                            if (e.key === "Enter") { 
+                              e.preventDefault(); 
+                              addHashtag(); 
+                              setShowSuggestions(false); 
+                            } 
+                          }}
+                          className="bg-transparent text-white placeholder-gray-400 text-sm border-none focus:outline-none w-32"
+                        />
+                      </div>
+
+                      {/* Popup Gợi ý Hashtag */}
+                      {showSuggestions && hashtagSuggestions.length > 0 && (
+                        <div className="absolute left-0 bottom-full mb-2 w-64 bg-[#1E1E1E] border border-gray-600 rounded-lg shadow-xl overflow-hidden z-50">
+                          {hashtagSuggestions.map((tag) => (
+                            <div 
+                              key={tag.id}
+                              onMouseDown={(e) => { 
+                                e.preventDefault(); 
+                                addHashtag(tag.tagName); 
+                                setShowSuggestions(false); 
+                              }}
+                              className="px-4 py-3 hover:bg-[#313131] cursor-pointer flex justify-between items-center transition-colors border-b border-gray-700 last:border-none"
+                            >
+                              <span className="text-white font-medium text-sm">#{tag.tagName}</span>
+                              <span className="text-xs text-gray-400 bg-black px-2 py-1 rounded-md">{tag.usageCount} bài</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 border-t border-gray-700">
+            {/* Footer Nút bấm - Cố định ở dưới cùng (flex-shrink-0) */}
+            <div className="flex-shrink-0 p-6 border-t border-gray-700 bg-[#313131]">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2 text-gray-400 text-sm">
                   <span>🌍</span>
@@ -863,6 +1045,7 @@ export default function Community() {
                 </button>
               </div>
             </div>
+
           </div>
         </div>
       )}
